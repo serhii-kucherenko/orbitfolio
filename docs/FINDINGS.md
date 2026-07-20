@@ -12,8 +12,10 @@ Coolness 30 · Comprehensiveness 20 · Uniqueness 20 · Motion 15 · Hireability
 
 - **50 / 50** variants shipped at `/test/n` with distinct layout architectures
 - Champion **#50 Champion Hybrid** (composite 9.23) promoted to `/`
-- Supporting pages: `/goals` (100 goals), `/lab` (leaderboard)
+- Supporting pages: `/goals` (100 goals), `/lab` (leaderboard), cosmic 404
 - Stack: Next.js 16, Tailwind 4, Framer Motion, R3F (select variants), canvas FX
+- CI green on `main`; Vercel deploy blocked on auth
+- Keep-going loop log: `docs/LOOP.md`
 
 ## Learn
 
