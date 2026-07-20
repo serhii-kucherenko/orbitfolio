@@ -78,13 +78,32 @@ export default function LabPage() {
             promoted to <code className="text-teal-200">/</code>.
           </p>
           {champion && (
-            <p className="mt-4 text-sm text-teal-200/90">
-              Current champion:{" "}
-              <Link href={`/test/${champion.id}`} className="underline underline-offset-4">
-                #{champion.id} {champion.name}
-              </Link>{" "}
-              ({composite(champion.scores!).toFixed(2)})
-            </p>
+            <div className="mt-8 flex flex-col gap-4 rounded-3xl border border-teal-400/30 bg-teal-950/30 p-6 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <p className="text-[10px] uppercase tracking-[0.3em] text-teal-300/70">Live on home</p>
+                <p className="mt-1 font-[family-name:var(--font-display)] text-2xl text-teal-50">
+                  #{champion.id} {champion.name}
+                  <span className="ml-2 text-lg text-teal-300/80">
+                    {composite(champion.scores!).toFixed(2)}
+                  </span>
+                </p>
+                <p className="mt-1 text-xs text-white/50">{champion.thesis}</p>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                <Link
+                  href="/"
+                  className="rounded-full bg-teal-300 px-5 py-2.5 text-sm font-semibold text-[#042f2e]"
+                >
+                  View champion
+                </Link>
+                <Link
+                  href={`/test/${champion.id}`}
+                  className="rounded-full border border-white/25 px-5 py-2.5 text-sm text-white/80"
+                >
+                  Open /test/{champion.id}
+                </Link>
+              </div>
+            </div>
           )}
 
           <h2 className="mb-4 mt-14 font-[family-name:var(--font-display)] text-2xl">
