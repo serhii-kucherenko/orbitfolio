@@ -36,11 +36,18 @@ export function Variant() {
               </div>
             ))}
           </div>
+          <div className="mt-8 space-y-2 rounded-2xl border border-teal-500/15 bg-black/20 p-4 text-xs text-teal-100/70">
+            <p className="uppercase tracking-[0.2em] text-teal-400/70">Care principles</p>
+            <p>Precision under load — production AI for clinicians, not demos.</p>
+            <p>Calm surfaces — dense proof without dashboard noise.</p>
+            <p>Own the path — architecture through on-call.</p>
+          </div>
           <ContactRow className="mt-8 text-teal-200" />
         </aside>
         <div className="space-y-10 rounded-[2rem] border border-teal-500/20 bg-teal-950/20 p-8 backdrop-blur">
           <section>
-            <h2 className="mb-6 text-xs uppercase tracking-[0.3em] text-teal-300/60">Clinical impact</h2>
+            <h2 className="mb-2 text-xs uppercase tracking-[0.3em] text-teal-300/60">Clinical impact</h2>
+            <p className="mb-6 text-sm text-white/45">Selected missions with healthcare and platform depth.</p>
             <ExperienceList tone="dark" />
           </section>
           <SkillsCloud />

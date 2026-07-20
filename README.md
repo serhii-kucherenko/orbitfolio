@@ -30,7 +30,13 @@ npm run dev
 
 ## Deploy
 
-Connect the GitHub repo to Vercel (or run `npx vercel`). Sitemap/robots assume `https://orbitfolio.vercel.app` — update if the production host differs.
+One-click import to Vercel (team **kucherenko-web**):
+
+[Import orbitfolio on Vercel](https://vercel.com/new/import?s=https://github.com/serhii-kucherenko/orbitfolio&teamSlug=kucherenko-web)
+
+Or run `npx vercel` after logging in. Optional GitHub Actions secrets for `.github/workflows/deploy.yml`: `VERCEL_TOKEN`, `VERCEL_ORG_ID`, `VERCEL_PROJECT_ID`.
+
+Sitemap/robots assume `https://orbitfolio.vercel.app` — update `metadataBase` in `src/app/layout.tsx` if the production host differs.
 
 ## Lab process
 

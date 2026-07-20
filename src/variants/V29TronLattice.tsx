@@ -10,7 +10,7 @@ export function Variant() {
   return (
     <main className="relative min-h-screen overflow-hidden bg-[#000814] text-cyan-50">
       <div
-        className="absolute inset-x-0 bottom-0 h-[50vh] opacity-80"
+        className="absolute inset-x-0 bottom-0 h-[55vh] opacity-90"
         style={{
           background:
             "linear-gradient(#00f0ff22,transparent), repeating-linear-gradient(90deg,#00f0ff33 0 1px,transparent 1px 48px), repeating-linear-gradient(#00f0ff33 0 1px,transparent 1px 48px)",
@@ -18,19 +18,21 @@ export function Variant() {
           transformOrigin: "bottom",
         }}
       />
+      {!reduce && (
+        <div className="pointer-events-none absolute inset-x-0 top-1/3 h-px animate-pulse bg-cyan-400/50 shadow-[0_0_20px_#00f0ff]" />
+      )}
       <Starfield density={80} color="#00f0ff" speed={0.14} />
       <div className="relative z-10 mx-auto max-w-4xl px-6 pb-28 pt-28">
-        <motion.p
-          initial={reduce ? false : { opacity: 0 }}
-          animate={{ opacity: 1 }}
-          className="font-[family-name:var(--font-mono)] text-xs tracking-[0.4em] text-cyan-400"
-        >
-          GRID ONLINE
-        </motion.p>
+        <div className="mb-6 flex flex-wrap items-center gap-3 font-[family-name:var(--font-mono)] text-[10px] tracking-[0.35em] text-cyan-500">
+          <span className="rounded border border-cyan-400/40 px-2 py-1 text-cyan-300">GRID ONLINE</span>
+          <span>SECTOR VAN</span>
+          <span className="text-cyan-700">|</span>
+          <span>LIGHTCYCLE IDLE</span>
+        </div>
         <motion.h1
           initial={reduce ? false : { opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          className="mt-4 font-[family-name:var(--font-display)] text-5xl sm:text-7xl"
+          className="font-[family-name:var(--font-display)] text-5xl sm:text-7xl"
           style={{ textShadow: "0 0 20px #00f0ff" }}
         >
           {cv.name}
@@ -48,7 +50,10 @@ export function Variant() {
             </div>
           ))}
         </div>
-        <section className="mt-14">
+        <section className="mt-14 rounded-xl border border-cyan-400/20 bg-black/50 p-6">
+          <p className="mb-4 font-[family-name:var(--font-mono)] text-[10px] tracking-[0.3em] text-cyan-500">
+            MISSION LOG
+          </p>
           <ExperienceList tone="dark" />
         </section>
         <section className="mt-14">

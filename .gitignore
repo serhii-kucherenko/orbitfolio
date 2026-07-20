@@ -40,3 +40,10 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 .deploy-payload.json
+
+deploy-bundle.tgz
+deploy-bundle.b64
+.deploy-staging
+.deploy-compact.json
+.deploy-args-only-files.json
+.deploy-files-meta.json
