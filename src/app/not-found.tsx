@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { LabChrome } from "@/components/LabChrome";
+import { SurpriseButton } from "@/components/SurpriseButton";
 
 export default function NotFound() {
   return (
@@ -34,6 +35,7 @@ export default function NotFound() {
             >
               100 Goals
             </Link>
+            <SurpriseButton />
           </div>
         </div>
       </main>
