@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { useReducedMotion } from "framer-motion";
 import { cv } from "@/data/cv";
 import { Starfield } from "@/components/Starfield";
@@ -7,18 +8,37 @@ import { ContactRow, SkillsCloud, ProjectLinks } from "@/components/CvBlocks";
 
 export function Variant() {
   const reduce = useReducedMotion() ?? false;
+  const [paused, setPaused] = useState(false);
+  const rolling = !reduce && !paused;
+
   return (
     <main className="relative min-h-screen overflow-hidden bg-black text-amber-50">
       <Starfield density={45} color="#fbbf24" speed={0.02} />
+      <div className="absolute right-4 top-24 z-20 flex gap-2">
+        <button
+          type="button"
+          onClick={() => setPaused((p) => !p)}
+          className="rounded-full border border-amber-400/40 bg-black/60 px-3 py-1.5 text-[11px] text-amber-100"
+        >
+          {paused ? "Resume roll" : "Pause"}
+        </button>
+        <a
+          href={`mailto:${cv.email}`}
+          className="rounded-full bg-amber-300 px-3 py-1.5 text-[11px] font-semibold text-black"
+        >
+          Hire Serhii
+        </a>
+      </div>
       <div
         className={`relative z-10 mx-auto max-w-lg px-6 pb-[40vh] pt-[35vh] text-center ${
-          reduce ? "" : "animate-[credits_55s_linear_infinite]"
+          rolling ? "animate-[credits_55s_linear_infinite]" : ""
         }`}
       >
         <style>{`@keyframes credits { from { transform: translateY(0); } to { transform: translateY(-65%); } }`}</style>
         <p className="text-xs tracking-[0.4em] text-amber-200/60">A CAREER BY</p>
         <h1 className="mt-6 font-[family-name:var(--font-serif)] text-5xl">{cv.name}</h1>
         <p className="mt-4 text-amber-100/70">{cv.title}</p>
+        <p className="mt-2 text-xs text-white/40">{cv.location}</p>
         <p className="mt-10 text-sm leading-relaxed text-white/55">{cv.summary}</p>
         {cv.highlights.map((h) => (
           <div key={h.label} className="mt-10">
@@ -31,7 +51,11 @@ export function Variant() {
             <p className="text-xs text-amber-200/50">{j.period}</p>
             <h2 className="mt-2 text-2xl">{j.company}</h2>
             <p className="mt-1 text-sm text-white/60">{j.role}</p>
-            <p className="mt-3 text-sm text-white/45">{j.bullets[0]}</p>
+            <ul className="mt-3 space-y-1 text-left text-sm text-white/45">
+              {j.bullets.map((b) => (
+                <li key={b.slice(0, 24)}>{b}</li>
+              ))}
+            </ul>
           </div>
         ))}
         <div className="mt-16 text-left">

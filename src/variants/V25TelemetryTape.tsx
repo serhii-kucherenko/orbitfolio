@@ -2,7 +2,7 @@
 
 import { cv } from "@/data/cv";
 import { Starfield } from "@/components/Starfield";
-import { ContactRow, ExperienceList, SkillsCloud, ProjectLinks } from "@/components/CvBlocks";
+import { ContactRow, SkillsCloud, ProjectLinks } from "@/components/CvBlocks";
 
 export function Variant() {
   const tape = [...cv.skills.ai, ...cv.skills.infra, ...cv.highlights.map((h) => `${h.value} ${h.label}`)].join(

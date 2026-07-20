@@ -14,8 +14,9 @@ Coolness 30 · Comprehensiveness 20 · Uniqueness 20 · Motion 15 · Hireability
 - Champion **#50 Champion Hybrid** (composite 9.23) promoted to `/`
 - Supporting pages: `/goals` (100 goals), `/lab` (leaderboard), cosmic 404
 - Stack: Next.js 16, Tailwind 4, Framer Motion, R3F (select variants), canvas FX
-- CI green on `main`; Vercel deploy blocked on auth
+- CI green on `main`; Vercel project not created yet (import URL + optional GH secrets ready)
 - Keep-going loop log: `docs/LOOP.md`
+- Lab compare mode + stack filters for discovering experiments
 
 ## Learn
 

@@ -20,5 +20,7 @@ Autonomous `/loop 30m keep going` progress on Orbitfolio.
 | 17 | CI fix | Standalone twitter-image (no re-export of route config) |
 | 18 | DRY + CTAs | Shared OG card helper; Resume on champion + lab |
 | 19+ | Keep going burst | Stack filter chips; deepened Clinic/Tron/Synthwave/Brutal; Vercel MCP auth ready |
+| 20 | Sustained + polish | Method Lab marked sustained; telemetry tape deepened |
+| 21 | Lab compare + thin variants | Compare-two on /lab; deepened Goals Ring, Code Rain, Galaxy Rail, Holo Deck, Credit Roll, Infinite Canvas, ASCII Orbit; deploy workflow scaffold |
 
-Blocked: Vercel deploy (awaiting account auth).
+Blocked: live Vercel project — import GitHub repo once (MCP can list teams but CLI device login hangs; deploy secrets workflow ready).
