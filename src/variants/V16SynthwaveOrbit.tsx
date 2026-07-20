@@ -20,10 +20,17 @@ export function Variant() {
       />
       <Starfield density={100} color="#ff9eee" speed={0.12} />
       <div className="relative z-10 mx-auto max-w-4xl px-6 pb-28 pt-28">
+        <div
+          className="pointer-events-none absolute left-1/2 top-24 h-40 w-40 -translate-x-1/2 rounded-full opacity-80"
+          style={{
+            background: "radial-gradient(circle at 50% 40%, #ff9eee, #ff006e88 45%, transparent 70%)",
+            filter: "blur(2px)",
+          }}
+        />
         <motion.h1
           initial={reduce ? false : { opacity: 0, scale: 0.96 }}
           animate={{ opacity: 1, scale: 1 }}
-          className="font-[family-name:var(--font-display)] text-5xl tracking-tight sm:text-7xl"
+          className="relative font-[family-name:var(--font-display)] text-5xl tracking-tight sm:text-7xl"
           style={{
             WebkitTextStroke: "1px #ff9eee",
             color: "transparent",
@@ -33,11 +40,22 @@ export function Variant() {
           {cv.name}
         </motion.h1>
         <p className="mt-4 text-lg text-pink-200">{cv.title}</p>
+        <p className="mt-2 font-[family-name:var(--font-mono)] text-xs uppercase tracking-[0.3em] text-cyan-300/70">
+          {cv.location}
+        </p>
         <p className="mt-6 max-w-xl text-sm text-white/65">{cv.summary}</p>
+        <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4">
+          {cv.highlights.map((h) => (
+            <div key={h.label} className="border border-fuchsia-400/40 bg-black/50 px-3 py-2 text-center">
+              <p className="font-[family-name:var(--font-display)] text-xl text-pink-200">{h.value}</p>
+              <p className="text-[10px] uppercase tracking-wider text-white/40">{h.label}</p>
+            </div>
+          ))}
+        </div>
         <div className="mt-10 overflow-hidden rounded-xl border border-fuchsia-400/30 bg-black/40">
           <div className="flex animate-[marquee_28s_linear_infinite] gap-8 whitespace-nowrap py-2 font-[family-name:var(--font-mono)] text-xs text-fuchsia-200/80">
-            {[...cv.skills.ai, ...cv.skills.backend].map((s) => (
-              <span key={s}>{s}</span>
+            {[...cv.skills.ai, ...cv.skills.backend, ...cv.skills.ai, ...cv.skills.backend].map((s, i) => (
+              <span key={`${s}-${i}`}>{s}</span>
             ))}
           </div>
         </div>
