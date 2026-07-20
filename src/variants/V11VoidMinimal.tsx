@@ -60,6 +60,18 @@ export function Variant() {
         >
           {cv.summary}
         </motion.p>
+        <motion.div
+          initial={reduce ? false : { opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.3, duration: 1 }}
+          className="mt-16 flex flex-wrap gap-6 text-[11px] uppercase tracking-[0.25em] text-white/25"
+        >
+          {cv.highlights.slice(0, 3).map((h) => (
+            <span key={h.label}>
+              <span className="text-white/45">{h.value}</span> {h.label}
+            </span>
+          ))}
+        </motion.div>
       </div>
       <section className="relative z-10 mx-auto max-w-2xl space-y-24 px-8 pb-32">
         <ExperienceList tone="dark" />
