@@ -1,15 +1,11 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
-import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
 import { cv } from "@/data/cv";
 import { Starfield } from "@/components/Starfield";
 import { ContactRow, ExperienceList, SkillsCloud, ProjectLinks } from "@/components/CvBlocks";
 
 /** Synthwave Orbit */
 export function Variant() {
-  const reduce = useReducedMotion() ?? false;
 
   return (
     <main className="relative min-h-screen overflow-hidden bg-[#1a0533] text-white">

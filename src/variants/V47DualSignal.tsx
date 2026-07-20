@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { useReducedMotion } from "framer-motion";
 import Link from "next/link";
 import { cv } from "@/data/cv";
 import { Starfield } from "@/components/Starfield";

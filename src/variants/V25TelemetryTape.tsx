@@ -1,15 +1,11 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
-import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
 import { cv } from "@/data/cv";
 import { Starfield } from "@/components/Starfield";
-import { ContactRow, ExperienceList, SkillsCloud, ProjectLinks } from "@/components/CvBlocks";
+import { ContactRow, SkillsCloud, ProjectLinks } from "@/components/CvBlocks";
 
 /** Telemetry Tape */
 export function Variant() {
-  const reduce = useReducedMotion() ?? false;
 
   const tape = [...cv.skills.ai, ...cv.skills.backend, ...cv.highlights.map(h=>h.value+" "+h.label)].join("   ·   ");
   return (

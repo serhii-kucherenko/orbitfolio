@@ -1,15 +1,10 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
-import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
 import { cv } from "@/data/cv";
-import { Starfield } from "@/components/Starfield";
-import { ContactRow, ExperienceList, SkillsCloud, ProjectLinks } from "@/components/CvBlocks";
+import { ContactRow, SkillsCloud, ProjectLinks } from "@/components/CvBlocks";
 
 /** Blueprint Eng */
 export function Variant() {
-  const reduce = useReducedMotion() ?? false;
 
   return (
     <main className="min-h-screen bg-[#0a1628] text-sky-100" style={{backgroundImage:"linear-gradient(rgba(56,189,248,0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(56,189,248,0.07) 1px, transparent 1px)", backgroundSize:"32px 32px"}}>

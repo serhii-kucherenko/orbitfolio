@@ -1,15 +1,11 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
-import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
 import { cv } from "@/data/cv";
 import { Starfield } from "@/components/Starfield";
-import { ContactRow, ExperienceList, SkillsCloud, ProjectLinks } from "@/components/CvBlocks";
+import { ContactRow, SkillsCloud, ProjectLinks } from "@/components/CvBlocks";
 
 /** Brutal Orbit */
 export function Variant() {
-  const reduce = useReducedMotion() ?? false;
 
   return (
     <main className="min-h-screen bg-[#111] text-white">
