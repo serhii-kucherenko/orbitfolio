@@ -67,38 +67,66 @@ function Card({ v, rank }: { v: VariantMeta; rank?: number }) {
 
 export function LabBoard() {
   const [sort, setSort] = useState<SortKey>("composite");
+  const [query, setQuery] = useState("");
   const ranked = useMemo(() => {
-    const scored = variants.filter((v) => v.scores);
+    const q = query.trim().toLowerCase();
+    const scored = variants.filter((v) => {
+      if (!v.scores) return false;
+      if (!q) return true;
+      return (
+        v.name.toLowerCase().includes(q) ||
+        v.thesis.toLowerCase().includes(q) ||
+        v.slug.includes(q) ||
+        v.stack.some((s) => s.toLowerCase().includes(q)) ||
+        String(v.id) === q
+      );
+    });
     return [...scored].sort((a, b) => {
       if (sort === "id") return a.id - b.id;
       return scoreOf(b, sort) - scoreOf(a, sort);
     });
-  }, [sort]);
+  }, [query, sort]);
 
   return (
     <div>
       <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
         <h2 className="font-[family-name:var(--font-display)] text-2xl">Leaderboard</h2>
-        <label className="flex items-center gap-2 text-xs text-white/55">
-          Sort by
-          <select
-            value={sort}
-            onChange={(e) => setSort(e.target.value as SortKey)}
-            className="rounded-full border border-white/15 bg-black/40 px-3 py-1.5 text-white/90 outline-none focus:border-teal-400/50"
-          >
-            <option value="composite">Composite</option>
-            <option value="coolness">Coolness</option>
-            <option value="uniqueness">Uniqueness</option>
-            <option value="hireability">Hireability</option>
-            <option value="id">Test number</option>
-          </select>
-        </label>
+        <div className="flex flex-wrap items-center gap-2">
+          <input
+            type="search"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="Search name, stack, #…"
+            className="w-44 rounded-full border border-white/15 bg-black/40 px-3 py-1.5 text-xs text-white/90 outline-none placeholder:text-white/35 focus:border-teal-400/50 sm:w-56"
+            aria-label="Search experiments"
+          />
+          <label className="flex items-center gap-2 text-xs text-white/55">
+            Sort
+            <select
+              value={sort}
+              onChange={(e) => setSort(e.target.value as SortKey)}
+              className="rounded-full border border-white/15 bg-black/40 px-3 py-1.5 text-white/90 outline-none focus:border-teal-400/50"
+            >
+              <option value="composite">Composite</option>
+              <option value="coolness">Coolness</option>
+              <option value="uniqueness">Uniqueness</option>
+              <option value="hireability">Hireability</option>
+              <option value="id">Test number</option>
+            </select>
+          </label>
+        </div>
       </div>
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {ranked.map((v, i) => (
-          <Card key={v.id} v={v} rank={sort === "id" ? undefined : i + 1} />
-        ))}
-      </div>
+      {ranked.length === 0 ? (
+        <p className="rounded-2xl border border-white/10 bg-white/[0.03] p-8 text-sm text-white/50">
+          No experiments match “{query}”.
+        </p>
+      ) : (
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {ranked.map((v, i) => (
+            <Card key={v.id} v={v} rank={sort === "id" ? undefined : i + 1} />
+          ))}
+        </div>
+      )}
     </div>
   );
 }
