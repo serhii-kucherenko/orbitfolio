@@ -60,3 +60,14 @@ body {
     radial-gradient(ellipse 60% 40% at 60% 80%, rgba(251, 113, 133, 0.12), transparent 55%),
     #03050c;
 }
+
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  .nebula-glow,
+  canvas {
+    display: none !important;
+  }
+}
