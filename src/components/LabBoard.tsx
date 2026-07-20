@@ -68,16 +68,23 @@ function Card({ v, rank }: { v: VariantMeta; rank?: number }) {
 export function LabBoard() {
   const [sort, setSort] = useState<SortKey>("composite");
   const [query, setQuery] = useState("");
+  const [stack, setStack] = useState<string | null>(null);
+  const stackTags = useMemo(() => {
+    const s = new Set<string>();
+    variants.forEach((v) => v.stack.forEach((t) => s.add(t)));
+    return [...s].sort();
+  }, []);
   const ranked = useMemo(() => {
     const q = query.trim().toLowerCase();
     const scored = variants.filter((v) => {
       if (!v.scores) return false;
+      if (stack && !v.stack.includes(stack)) return false;
       if (!q) return true;
       return (
         v.name.toLowerCase().includes(q) ||
         v.thesis.toLowerCase().includes(q) ||
         v.slug.includes(q) ||
-        v.stack.some((s) => s.toLowerCase().includes(q)) ||
+        v.stack.some((t) => t.toLowerCase().includes(q)) ||
         String(v.id) === q
       );
     });
@@ -85,7 +92,7 @@ export function LabBoard() {
       if (sort === "id") return a.id - b.id;
       return scoreOf(b, sort) - scoreOf(a, sort);
     });
-  }, [query, sort]);
+  }, [query, sort, stack]);
 
   return (
     <div>
@@ -116,9 +123,33 @@ export function LabBoard() {
           </label>
         </div>
       </div>
+      <div className="mb-6 flex flex-wrap gap-1.5">
+        <button
+          type="button"
+          onClick={() => setStack(null)}
+          className={`rounded-full border px-2.5 py-1 text-[10px] ${
+            stack == null ? "border-teal-400/50 bg-teal-950/40 text-teal-100" : "border-white/10 text-white/45 hover:border-white/25"
+          }`}
+        >
+          all stacks
+        </button>
+        {stackTags.map((t) => (
+          <button
+            key={t}
+            type="button"
+            onClick={() => setStack(stack === t ? null : t)}
+            className={`rounded-full border px-2.5 py-1 text-[10px] ${
+              stack === t ? "border-cyan-400/50 bg-cyan-950/40 text-cyan-100" : "border-white/10 text-white/45 hover:border-white/25"
+            }`}
+          >
+            {t}
+          </button>
+        ))}
+      </div>
       {ranked.length === 0 ? (
         <p className="rounded-2xl border border-white/10 bg-white/[0.03] p-8 text-sm text-white/50">
-          No experiments match “{query}”.
+          No experiments match{query ? ` “${query}”` : ""}
+          {stack ? ` in stack “${stack}”` : ""}.
         </p>
       ) : (
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

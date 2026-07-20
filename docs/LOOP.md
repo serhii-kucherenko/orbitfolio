@@ -19,5 +19,6 @@ Autonomous `/loop 30m keep going` progress on Orbitfolio.
 | 16 | Goals UX + social | Status filters on /goals; Twitter share image |
 | 17 | CI fix | Standalone twitter-image (no re-export of route config) |
 | 18 | DRY + CTAs | Shared OG card helper; Resume on champion + lab |
+| 19+ | Keep going burst | Stack filter chips; deepened Clinic/Tron/Synthwave/Brutal; Vercel MCP auth ready |
 
 Blocked: Vercel deploy (awaiting account auth).
