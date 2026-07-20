@@ -43,9 +43,20 @@ export function Variant() {
               <h3 className="mt-1 text-2xl font-black uppercase">{j.company}</h3>
               <p className="mt-1 text-sm font-semibold uppercase text-red-400">{j.role}</p>
               <p className="mt-2 text-sm text-white/70">{j.bullets[0]}</p>
+              {j.bullets.slice(1).map((b) => (
+                <p key={b.slice(0, 24)} className="mt-1 text-sm text-white/55">
+                  {b}
+                </p>
+              ))}
             </div>
           ))}
         </div>
+        <a
+          href={`mailto:${cv.email}`}
+          className="mt-16 inline-block rotate-[-2deg] border-4 border-red-500 bg-red-600 px-6 py-4 text-xl font-black uppercase tracking-tight text-white shadow-[8px_8px_0_#fff]"
+        >
+          Hire now → {cv.email}
+        </a>
         <div className="mt-12">
           <SkillsCloud />
           <div className="mt-8">
