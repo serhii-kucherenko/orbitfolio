@@ -8,7 +8,7 @@ export type Goal = {
 
 /** Seed goals — expand / replace later. Drawn from CV themes + public GitHub work. */
 export const goals: Goal[] = [
-  { id: 1, title: "Ship an award-grade personal site", category: "Craft", status: "active", note: "Orbitfolio lab — 50 design iterations" },
+  { id: 1, title: "Ship an award-grade personal site", category: "Craft", status: "done", note: "Live at https://orbitfolio-kohl.vercel.app — 50 scored experiments" },
   { id: 2, title: "Open-source a production RAG starter", category: "AI", status: "active", note: "dune-expert-rag lineage" },
   { id: 3, title: "Publish agent memory patterns people reuse", category: "AI", status: "active" },
   { id: 4, title: "Run AI Method Lab to a promoted default set", category: "Research", status: "done" },
