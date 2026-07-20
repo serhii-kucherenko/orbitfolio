@@ -17,10 +17,20 @@ type Status = Goal["status"] | "all";
 
 export function GoalsView() {
   const [status, setStatus] = useState<Status>("all");
-  const filtered = useMemo(
-    () => (status === "all" ? goals : goals.filter((g) => g.status === status)),
-    [status],
-  );
+  const [query, setQuery] = useState("");
+  const filtered = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    return goals.filter((g) => {
+      if (status !== "all" && g.status !== status) return false;
+      if (!q) return true;
+      return (
+        g.title.toLowerCase().includes(q) ||
+        g.category.toLowerCase().includes(q) ||
+        (g.note?.toLowerCase().includes(q) ?? false) ||
+        String(g.id) === q
+      );
+    });
+  }, [status, query]);
   const byCat = filtered.reduce<Record<string, typeof goals>>((acc, g) => {
     (acc[g.category] ??= []).push(g);
     return acc;
@@ -40,7 +50,15 @@ export function GoalsView() {
           <p className="mt-4 max-w-2xl text-sm leading-relaxed text-white/65">
             Seeded from career themes and public GitHub work. Statuses evolve — dream, active, done, paused.
           </p>
-          <div className="mt-6 flex flex-wrap gap-2 text-xs">
+          <input
+            type="search"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="Search goals, categories, notes…"
+            aria-label="Search goals"
+            className="mt-6 w-full max-w-md rounded-full border border-white/15 bg-black/40 px-4 py-2 text-sm text-white/90 outline-none placeholder:text-white/35 focus:border-amber-300/40"
+          />
+          <div className="mt-4 flex flex-wrap gap-2 text-xs">
             <button
               type="button"
               onClick={() => setStatus("all")}
@@ -68,7 +86,10 @@ export function GoalsView() {
 
           <div className="mt-14 space-y-14">
             {Object.keys(byCat).length === 0 ? (
-              <p className="text-sm text-white/50">No goals in this status.</p>
+              <p className="text-sm text-white/50">
+                No goals match{query ? ` “${query}”` : ""}
+                {status !== "all" ? ` in status “${status}”` : ""}.
+              </p>
             ) : (
               Object.entries(byCat).map(([cat, items]) => (
                 <section key={cat}>

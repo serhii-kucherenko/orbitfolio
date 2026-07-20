@@ -23,5 +23,6 @@ Autonomous `/loop 30m keep going` progress on Orbitfolio.
 | 20 | Sustained + polish | Method Lab marked sustained; telemetry tape deepened |
 | 21 | Lab compare + thin variants | Compare-two on /lab; deepened Goals Ring, Code Rain, Galaxy Rail, Holo Deck, Credit Roll, Infinite Canvas, ASCII Orbit; deploy workflow scaffold |
 | 22 | Production live | Vercel project `orbitfolio` on kucherenko-web; GitHub tarball install deploy READY |
+| 23 | Canonical host | metadata/sitemap → orbitfolio-kohl.vercel.app; snap chapters progress dots |
 
-Live: https://orbitfolio-kohl.vercel.app (also orbitfolio-kucherenko-web.vercel.app)
+Live: https://orbitfolio-kohl.vercel.app (also orbitfolio-kucherenko-web.vercel.app — may require Vercel SSO)
