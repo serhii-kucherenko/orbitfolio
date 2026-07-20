@@ -24,6 +24,10 @@ npm install
 npm run dev
 ```
 
+## Deploy
+
+Connect the GitHub repo to Vercel (or run `npx vercel`). Sitemap/robots assume `https://orbitfolio.vercel.app` — update if the production host differs.
+
 ## Lab process
 
 1. Ship a distinct variant under `/test/n`

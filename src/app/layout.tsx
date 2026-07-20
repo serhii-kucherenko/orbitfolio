@@ -25,6 +25,7 @@ const mono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://orbitfolio.vercel.app"),
   title: {
     default: "Serhii Kucherenko — Founding Full-Stack Engineer",
     template: "%s · Serhii Kucherenko",
@@ -35,6 +36,13 @@ export const metadata: Metadata = {
     title: "Serhii Kucherenko — Orbitfolio",
     description: "Portfolio design lab: 50 space-grade experiments. Applied AI engineer.",
     type: "website",
+    url: "https://orbitfolio.vercel.app",
+    siteName: "Orbitfolio",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Serhii Kucherenko — Orbitfolio",
+    description: "Founding Full-Stack Engineer · applied AI · Vancouver",
   },
 };
 
