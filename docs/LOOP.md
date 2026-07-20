@@ -25,5 +25,6 @@ Autonomous `/loop 30m keep going` progress on Orbitfolio.
 | 22 | Production live | Vercel project `orbitfolio` on kucherenko-web; GitHub tarball install deploy READY |
 | 23 | Canonical host | metadata/sitemap → orbitfolio-kohl.vercel.app; snap chapters progress dots |
 | 24 | Goals + live | Goals search; goal #1 marked done; synthwave/brutal hire polish |
+| 25 | 404 + R3F | Surprise on 404; planet moons labeled; void whisper metrics |
 
-Live: https://orbitfolio-kohl.vercel.app
+Live: https://orbitfolio-kohl.vercel.app · Repo: https://github.com/serhii-kucherenko/orbitfolio
