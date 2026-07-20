@@ -87,11 +87,9 @@ export function LabChrome({
         >
           Lab
         </Link>
-        {isLab && (
-          <div className="scale-90 origin-right [&_button]:px-3 [&_button]:py-1.5 [&_button]:text-[11px]">
-            <SurpriseButton />
-          </div>
-        )}
+        <div className="scale-90 origin-right [&_button]:px-3 [&_button]:py-1.5 [&_button]:text-[11px]">
+          <SurpriseButton />
+        </div>
         {isTest && variantId != null && (
           <>
             <Link
