@@ -21,6 +21,9 @@ export function LabChrome({
 
   useEffect(() => {
     if (!isTest || variantId == null) return;
+    if (variantId > 1) router.prefetch(`/test/${variantId - 1}`);
+    if (variantId < VARIANT_COUNT) router.prefetch(`/test/${variantId + 1}`);
+
     const onKey = (e: KeyboardEvent) => {
       const tag = (e.target as HTMLElement | null)?.tagName;
       if (tag === "INPUT" || tag === "TEXTAREA" || (e.target as HTMLElement)?.isContentEditable) {
