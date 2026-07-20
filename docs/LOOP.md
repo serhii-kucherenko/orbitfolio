@@ -18,5 +18,6 @@ Autonomous `/loop 30m keep going` progress on Orbitfolio.
 | 15 | Hireability | Printable `/resume` route + nav link |
 | 16 | Goals UX + social | Status filters on /goals; Twitter share image |
 | 17 | CI fix | Standalone twitter-image (no re-export of route config) |
+| 18 | DRY + CTAs | Shared OG card helper; Resume on champion + lab |
 
 Blocked: Vercel deploy (awaiting account auth).

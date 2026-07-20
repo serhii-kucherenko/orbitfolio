@@ -52,6 +52,12 @@ export default function LabPage() {
                 >
                   Open /test/{champion.id}
                 </Link>
+                <Link
+                  href="/resume"
+                  className="rounded-full border border-white/25 px-5 py-2.5 text-sm text-white/80"
+                >
+                  Resume
+                </Link>
                 <SurpriseButton />
               </div>
             </div>
