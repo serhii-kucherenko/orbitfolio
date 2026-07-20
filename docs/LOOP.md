@@ -12,5 +12,6 @@ Autonomous `/loop 30m keep going` progress on Orbitfolio.
 | 9 | A11y + hardening | Skip link, web manifest, security headers |
 | 10 | Lab discovery | MIT license, .nvmrc, Surprise me button |
 | 11 | Experiment browsing | Arrow-key nav between /test pages; Surprise on lab chrome |
+| 12 | Lab leaderboard UX | Sort by axis; CI/license README badges |
 
 Blocked: Vercel deploy (awaiting account auth).
