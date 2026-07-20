@@ -15,6 +15,7 @@ Built as an **AI Method Lab** product experiment: **50 structurally different UI
 | `/test/1` … `/test/50` | Design experiments |
 | `/lab` | Leaderboard + rubric scores |
 | `/goals` | 100 Goals (living list) |
+| `/resume` | Printable / PDF-friendly resume |
 
 ## Stack
 

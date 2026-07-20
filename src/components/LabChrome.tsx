@@ -58,6 +58,16 @@ export function LabChrome({
           </span>
         )}
         <Link
+          href="/resume"
+          className={`rounded-full border px-3 py-1.5 text-[11px] backdrop-blur-md transition ${
+            pathname?.startsWith("/resume")
+              ? "border-teal-300/50 bg-teal-950/50 text-teal-100"
+              : "border-white/15 bg-black/50 text-white/80 hover:border-white/35"
+          }`}
+        >
+          Resume
+        </Link>
+        <Link
           href="/goals"
           className={`rounded-full border px-3 py-1.5 text-[11px] backdrop-blur-md transition ${
             isGoals
