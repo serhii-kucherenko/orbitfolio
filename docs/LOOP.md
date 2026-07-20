@@ -16,5 +16,6 @@ Autonomous `/loop 30m keep going` progress on Orbitfolio.
 | 13 | Resilience | App error boundary; prefetch adjacent /test routes |
 | 14 | Discoverability | Lab search; Person JSON-LD for SEO |
 | 15 | Hireability | Printable `/resume` route + nav link |
+| 16 | Goals UX + social | Status filters on /goals; Twitter share image |
 
 Blocked: Vercel deploy (awaiting account auth).

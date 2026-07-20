@@ -1,8 +1,9 @@
 "use client";
 
 import Link from "next/link";
+import { useMemo, useState } from "react";
 import { LabChrome } from "@/components/LabChrome";
-import { goals } from "@/data/goals";
+import { goals, type Goal } from "@/data/goals";
 import { Starfield } from "@/components/Starfield";
 
 const statusStyle: Record<string, string> = {
@@ -12,8 +13,15 @@ const statusStyle: Record<string, string> = {
   paused: "border-white/15 bg-white/5 text-white/60",
 };
 
+type Status = Goal["status"] | "all";
+
 export function GoalsView() {
-  const byCat = goals.reduce<Record<string, typeof goals>>((acc, g) => {
+  const [status, setStatus] = useState<Status>("all");
+  const filtered = useMemo(
+    () => (status === "all" ? goals : goals.filter((g) => g.status === status)),
+    [status],
+  );
+  const byCat = filtered.reduce<Record<string, typeof goals>>((acc, g) => {
     (acc[g.category] ??= []).push(g);
     return acc;
   }, {});
@@ -33,39 +41,62 @@ export function GoalsView() {
             Seeded from career themes and public GitHub work. Statuses evolve — dream, active, done, paused.
           </p>
           <div className="mt-6 flex flex-wrap gap-2 text-xs">
+            <button
+              type="button"
+              onClick={() => setStatus("all")}
+              className={`rounded-full border px-3 py-1 capitalize transition ${
+                status === "all"
+                  ? "border-amber-300/50 bg-amber-950/50 text-amber-100"
+                  : "border-white/15 bg-black/40 text-white/60 hover:border-white/30"
+              }`}
+            >
+              all · {goals.length}
+            </button>
             {(["active", "done", "dream", "paused"] as const).map((s) => (
-              <span key={s} className={`rounded-full border px-3 py-1 capitalize ${statusStyle[s]}`}>
+              <button
+                key={s}
+                type="button"
+                onClick={() => setStatus(s)}
+                className={`rounded-full border px-3 py-1 capitalize transition ${
+                  status === s ? statusStyle[s] + " ring-1 ring-white/20" : statusStyle[s] + " opacity-70 hover:opacity-100"
+                }`}
+              >
                 {s} · {goals.filter((g) => g.status === s).length}
-              </span>
+              </button>
             ))}
           </div>
+
           <div className="mt-14 space-y-14">
-            {Object.entries(byCat).map(([cat, items]) => (
-              <section key={cat}>
-                <h2 className="mb-4 font-[family-name:var(--font-display)] text-2xl text-amber-100">{cat}</h2>
-                <ol className="space-y-3">
-                  {items.map((g) => (
-                    <li
-                      key={g.id}
-                      className="flex flex-col gap-1 rounded-2xl border border-white/10 bg-black/30 px-4 py-3 sm:flex-row sm:items-center sm:justify-between"
-                    >
-                      <div>
-                        <span className="mr-2 font-[family-name:var(--font-mono)] text-xs text-white/40">
-                          #{String(g.id).padStart(3, "0")}
-                        </span>
-                        <span className="text-sm text-white/90">{g.title}</span>
-                        {g.note && <p className="mt-1 text-xs text-white/45">{g.note}</p>}
-                      </div>
-                      <span
-                        className={`mt-2 w-fit rounded-full border px-2.5 py-0.5 text-[10px] uppercase tracking-wider sm:mt-0 ${statusStyle[g.status]}`}
+            {Object.keys(byCat).length === 0 ? (
+              <p className="text-sm text-white/50">No goals in this status.</p>
+            ) : (
+              Object.entries(byCat).map(([cat, items]) => (
+                <section key={cat}>
+                  <h2 className="mb-4 font-[family-name:var(--font-display)] text-2xl text-amber-100">{cat}</h2>
+                  <ol className="space-y-3">
+                    {items.map((g) => (
+                      <li
+                        key={g.id}
+                        className="flex flex-col gap-1 rounded-2xl border border-white/10 bg-black/30 px-4 py-3 sm:flex-row sm:items-center sm:justify-between"
                       >
-                        {g.status}
-                      </span>
-                    </li>
-                  ))}
-                </ol>
-              </section>
-            ))}
+                        <div>
+                          <span className="mr-2 font-[family-name:var(--font-mono)] text-xs text-white/40">
+                            #{String(g.id).padStart(3, "0")}
+                          </span>
+                          <span className="text-sm text-white/90">{g.title}</span>
+                          {g.note && <p className="mt-1 text-xs text-white/45">{g.note}</p>}
+                        </div>
+                        <span
+                          className={`mt-2 w-fit rounded-full border px-2.5 py-0.5 text-[10px] uppercase tracking-wider sm:mt-0 ${statusStyle[g.status]}`}
+                        >
+                          {g.status}
+                        </span>
+                      </li>
+                    ))}
+                  </ol>
+                </section>
+              ))
+            )}
           </div>
           <p className="mt-16 text-sm text-white/50">
             <Link href="/" className="text-teal-300 hover:underline">
@@ -74,6 +105,10 @@ export function GoalsView() {
             {" · "}
             <Link href="/lab" className="text-teal-300 hover:underline">
               Design lab
+            </Link>
+            {" · "}
+            <Link href="/resume" className="text-teal-300 hover:underline">
+              Resume
             </Link>
           </p>
         </div>
