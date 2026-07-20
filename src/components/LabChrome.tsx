@@ -1,8 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import { useEffect } from "react";
 import { VARIANT_COUNT } from "@/data/variants";
+import { SurpriseButton } from "@/components/SurpriseButton";
 
 export function LabChrome({
   variantId,
@@ -12,9 +14,30 @@ export function LabChrome({
   name?: string;
 }) {
   const pathname = usePathname();
+  const router = useRouter();
   const isLab = pathname?.startsWith("/lab");
   const isGoals = pathname?.startsWith("/goals");
   const isTest = pathname?.startsWith("/test");
+
+  useEffect(() => {
+    if (!isTest || variantId == null) return;
+    const onKey = (e: KeyboardEvent) => {
+      const tag = (e.target as HTMLElement | null)?.tagName;
+      if (tag === "INPUT" || tag === "TEXTAREA" || (e.target as HTMLElement)?.isContentEditable) {
+        return;
+      }
+      if (e.key === "ArrowLeft" && variantId > 1) {
+        e.preventDefault();
+        router.push(`/test/${variantId - 1}`);
+      }
+      if (e.key === "ArrowRight" && variantId < VARIANT_COUNT) {
+        e.preventDefault();
+        router.push(`/test/${variantId + 1}`);
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [isTest, router, variantId]);
 
   return (
     <div className="pointer-events-none fixed inset-x-0 top-0 z-[100] flex items-start justify-between gap-3 p-3 sm:p-4">
@@ -24,10 +47,11 @@ export function LabChrome({
       >
         Orbitfolio
       </Link>
-      <div className="pointer-events-auto flex max-w-[70vw] flex-wrap items-center justify-end gap-2">
+      <div className="pointer-events-auto flex max-w-[75vw] flex-wrap items-center justify-end gap-2">
         {variantId != null && (
           <span className="hidden rounded-full border border-cyan-400/30 bg-cyan-950/40 px-3 py-1.5 text-[11px] text-cyan-100/90 backdrop-blur-md sm:inline">
             Test {variantId}/50 · {name}
+            <span className="ml-2 text-cyan-200/50">← →</span>
           </span>
         )}
         <Link
@@ -50,6 +74,11 @@ export function LabChrome({
         >
           Lab
         </Link>
+        {isLab && (
+          <div className="scale-90 origin-right [&_button]:px-3 [&_button]:py-1.5 [&_button]:text-[11px]">
+            <SurpriseButton />
+          </div>
+        )}
         {isTest && variantId != null && (
           <>
             <Link
