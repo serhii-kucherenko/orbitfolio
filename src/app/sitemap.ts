@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { VARIANT_COUNT } from "@/data/variants";
 
-const base = "https://orbitfolio.vercel.app";
+const base = "https://orbitfolio-kohl.vercel.app";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const tests = Array.from({ length: VARIANT_COUNT }, (_, i) => ({

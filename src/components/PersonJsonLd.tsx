@@ -13,7 +13,7 @@ export function PersonJsonLd() {
       addressLocality: "Vancouver",
       addressCountry: "CA",
     },
-    url: "https://orbitfolio.vercel.app",
+    url: "https://orbitfolio-kohl.vercel.app",
     sameAs: [cv.linkedin, cv.github],
     description: cv.summary,
     knowsAbout: Object.values(cv.skills).flat().slice(0, 24),

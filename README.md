@@ -2,6 +2,8 @@
 
 Personal portfolio for **Serhii Kucherenko** — Founding Full-Stack Engineer (applied AI).
 
+**Live:** [orbitfolio-kohl.vercel.app](https://orbitfolio-kohl.vercel.app)
+
 [![CI](https://github.com/serhii-kucherenko/orbitfolio/actions/workflows/ci.yml/badge.svg)](https://github.com/serhii-kucherenko/orbitfolio/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-teal.svg)](LICENSE)
 
@@ -36,7 +38,7 @@ One-click import to Vercel (team **kucherenko-web**):
 
 Or run `npx vercel` after logging in. Optional GitHub Actions secrets for `.github/workflows/deploy.yml`: `VERCEL_TOKEN`, `VERCEL_ORG_ID`, `VERCEL_PROJECT_ID`.
 
-Sitemap/robots assume `https://orbitfolio.vercel.app` — update `metadataBase` in `src/app/layout.tsx` if the production host differs.
+Sitemap/robots use `https://orbitfolio-kohl.vercel.app`.
 
 ## Lab process
 

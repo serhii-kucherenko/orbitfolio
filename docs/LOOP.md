@@ -22,5 +22,6 @@ Autonomous `/loop 30m keep going` progress on Orbitfolio.
 | 19+ | Keep going burst | Stack filter chips; deepened Clinic/Tron/Synthwave/Brutal; Vercel MCP auth ready |
 | 20 | Sustained + polish | Method Lab marked sustained; telemetry tape deepened |
 | 21 | Lab compare + thin variants | Compare-two on /lab; deepened Goals Ring, Code Rain, Galaxy Rail, Holo Deck, Credit Roll, Infinite Canvas, ASCII Orbit; deploy workflow scaffold |
+| 22 | Production live | Vercel project `orbitfolio` on kucherenko-web; GitHub tarball install deploy READY |
 
-Blocked: live Vercel project — import GitHub repo once (MCP can list teams but CLI device login hangs; deploy secrets workflow ready).
+Live: https://orbitfolio-kohl.vercel.app (also orbitfolio-kucherenko-web.vercel.app)
