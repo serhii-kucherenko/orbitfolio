@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { LabChrome } from "@/components/LabChrome";
+import { SurpriseButton } from "@/components/SurpriseButton";
 import { composite, variants, type VariantMeta } from "@/data/variants";
 
 export const metadata = {
@@ -102,6 +103,7 @@ export default function LabPage() {
                 >
                   Open /test/{champion.id}
                 </Link>
+                <SurpriseButton />
               </div>
             </div>
           )}

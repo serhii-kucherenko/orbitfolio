@@ -10,5 +10,6 @@ Autonomous `/loop 30m keep going` progress on Orbitfolio.
 | 4–7 | Catch-up | 404/loading UX, findings refresh, CI health |
 | 8 | Lab UX hygiene | Removed stock public SVGs; test loading; champion CTA on /lab |
 | 9 | A11y + hardening | Skip link, web manifest, security headers |
+| 10 | Lab discovery | MIT license, .nvmrc, Surprise me button |
 
 Blocked: Vercel deploy (awaiting account auth).
