@@ -17,5 +17,6 @@ Autonomous `/loop 30m keep going` progress on Orbitfolio.
 | 14 | Discoverability | Lab search; Person JSON-LD for SEO |
 | 15 | Hireability | Printable `/resume` route + nav link |
 | 16 | Goals UX + social | Status filters on /goals; Twitter share image |
+| 17 | CI fix | Standalone twitter-image (no re-export of route config) |
 
 Blocked: Vercel deploy (awaiting account auth).
