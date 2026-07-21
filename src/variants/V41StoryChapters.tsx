@@ -1,115 +1,94 @@
 "use client";
 
-import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
-import Link from "next/link";
 import { cv } from "@/data/cv";
-import { Starfield } from "@/components/Starfield";
-import { ContactRow, ProjectLinks } from "@/components/CvBlocks";
 
-const CHAPTERS = [
-  {
-    num: "I",
-    title: "Origin Signal",
-    subtitle: cv.name,
-    body: cv.summary,
-    accent: "#0ea5e9",
-  },
-  {
-    num: "II",
-    title: "Healthcare Frontier",
-    subtitle: cv.experience[0].company,
-    body: cv.experience[0].bullets.join(" "),
-    accent: "#14b8a6",
-  },
-  {
-    num: "III",
-    title: "Global Velocity",
-    subtitle: `${cv.experience[1].company} · ${cv.experience[2].company}`,
-    body: `${cv.experience[1].bullets[0]} ${cv.experience[2].bullets[0]}`,
-    accent: "#f59e0b",
-  },
-  {
-    num: "IV",
-    title: "Founding Years",
-    subtitle: cv.experience[3].company,
-    body: cv.experience[3].bullets.join(" "),
-    accent: "#ef4444",
-  },
-  {
-    num: "V",
-    title: "Open Orbit",
-    subtitle: "Projects & Contact",
-    body: cv.projects.map((p) => p.name).join(" · "),
-    accent: "#6366f1",
-  },
-];
-
+/** Children's-book style chapter story — warm illustration feel, not space */
 export function Variant() {
-  const reduce = useReducedMotion() ?? false;
-  const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({ target: containerRef });
-  const progressWidth = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+  const chapters = [
+    {
+      n: "I",
+      title: "The spark",
+      body: `${cv.education.degree} · ${cv.education.school}. Then a decade of shipping.`,
+    },
+    ...cv.experience.map((job, i) => ({
+      n: ["II", "III", "IV", "V"][i] ?? String(i + 2),
+      title: job.company,
+      body: `${job.role} (${job.period}). ${job.bullets.join(" ")}`,
+    })),
+    {
+      n: "Now",
+      title: "Vancouver",
+      body: `${cv.title}. ${cv.summary}`,
+    },
+  ];
 
   return (
-    <main ref={containerRef} className="relative bg-[#050810] text-white">
-      <div className="fixed inset-0 z-0">
-        <Starfield density={150} color="#64748b" speed={0.03} />
-      </div>
+    <main className="min-h-screen bg-[#FFF8F0] text-[#3D2914]">
+      <div className="mx-auto max-w-3xl px-6 py-20">
+        <p className="text-center text-[10px] uppercase tracking-[0.4em] text-amber-800/50">
+          A career in chapters
+        </p>
+        <h1 className="mt-4 text-center font-[family-name:var(--font-serif)] text-5xl leading-tight">
+          {cv.name}
+        </h1>
+        <p className="mt-3 text-center text-sm text-amber-900/60">{cv.title}</p>
 
-      <div className="fixed left-0 right-0 top-0 z-30 h-1 bg-white/10">
-        {!reduce && (
-          <motion.div className="h-full bg-sky-400" style={{ width: progressWidth }} />
-        )}
-      </div>
+        <div className="mt-16 space-y-16">
+          {chapters.map((ch) => (
+            <article key={ch.n} className="relative border-l-4 border-amber-700/30 pl-8">
+              <span className="absolute -left-3 top-0 flex h-6 w-6 items-center justify-center rounded-full bg-amber-800 text-[10px] font-bold text-[#FFF8F0]">
+                {ch.n}
+              </span>
+              <h2 className="font-[family-name:var(--font-serif)] text-3xl">{ch.title}</h2>
+              <p className="mt-4 text-base leading-8 text-amber-950/75">{ch.body}</p>
+            </article>
+          ))}
+        </div>
 
-      <section className="relative z-10 flex min-h-screen flex-col items-center justify-center px-6 text-center">
-        <p className="text-xs uppercase tracking-[0.5em] text-sky-400">story chapters · v41</p>
-        <h1 className="mt-6 font-[family-name:var(--font-display)] text-5xl sm:text-7xl">{cv.name}</h1>
-        <p className="mt-4 text-xl text-white/70">{cv.title}</p>
-        <p className="mt-8 text-sm text-white/40">Scroll to read five chapters</p>
-      </section>
-
-      {CHAPTERS.map((ch, i) => (
-        <section
-          key={ch.num}
-          className="relative z-10 flex min-h-screen items-center px-6 py-24"
-        >
-          <motion.div
-            initial={reduce ? false : { opacity: 0, y: 60 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-20%" }}
-            transition={{ duration: 0.8 }}
-            className="mx-auto grid max-w-5xl gap-8 lg:grid-cols-[120px_1fr]"
-          >
-            <div className="font-[family-name:var(--font-serif)] text-6xl opacity-30" style={{ color: ch.accent }}>
-              {ch.num}
+        <section className="mt-20 rounded-3xl bg-[#F5E6D3] p-8">
+          <h2 className="font-[family-name:var(--font-serif)] text-2xl">The toolkit</h2>
+          {Object.entries(cv.skills).map(([group, items]) => (
+            <div key={group} className="mt-4">
+              <p className="text-xs uppercase tracking-wider text-amber-800/50">{group}</p>
+              <p className="mt-1 text-sm leading-relaxed">{items.join(" · ")}</p>
             </div>
-            <div>
-              <p className="text-xs uppercase tracking-[0.3em]" style={{ color: ch.accent }}>
-                Chapter {ch.num}
-              </p>
-              <h2 className="mt-2 font-[family-name:var(--font-display)] text-4xl sm:text-5xl">{ch.title}</h2>
-              <p className="mt-3 text-lg text-white/60">{ch.subtitle}</p>
-              <p className="mt-6 max-w-2xl text-sm leading-relaxed text-white/75">{ch.body}</p>
-              {i === CHAPTERS.length - 1 && (
-                <div className="mt-10 space-y-4">
-                  <ProjectLinks tone="dark" />
-                  <div className="flex gap-4">
-                    <a href={`mailto:${cv.email}`} className="rounded-full bg-sky-400 px-5 py-2 text-sm font-semibold text-black">
-                      Email
-                    </a>
-                    <Link href="/goals" className="rounded-full border border-white/30 px-5 py-2 text-sm">
-                      100 Goals
-                    </Link>
-                  </div>
-                  <ContactRow />
-                </div>
-              )}
-            </div>
-          </motion.div>
+          ))}
         </section>
-      ))}
+
+        <section className="mt-10">
+          <h2 className="font-[family-name:var(--font-serif)] text-2xl">Works in the world</h2>
+          <ul className="mt-4 space-y-3">
+            {cv.projects.map((p) => (
+              <li key={p.name}>
+                <a href={p.url} className="font-semibold underline" target="_blank" rel="noreferrer">
+                  {p.name}
+                </a>
+                <p className="text-sm text-amber-900/60">{p.blurb}</p>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <div className="mt-12 flex flex-wrap justify-center gap-4 text-sm">
+          {cv.highlights.map((h) => (
+            <span key={h.label} className="rounded-full border border-amber-800/20 px-4 py-2">
+              <strong>{h.value}</strong> {h.label}
+            </span>
+          ))}
+        </div>
+
+        <div className="mt-10 flex flex-wrap justify-center gap-4 text-sm">
+          <a className="underline" href={`mailto:${cv.email}`}>
+            {cv.email}
+          </a>
+          <a className="underline" href={cv.linkedin} target="_blank" rel="noreferrer">
+            LinkedIn
+          </a>
+          <a className="underline" href="/resume">
+            Resume
+          </a>
+        </div>
+      </div>
     </main>
   );
 }
