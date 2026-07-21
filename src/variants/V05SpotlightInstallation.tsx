@@ -9,12 +9,12 @@ export function Variant() {
   const reduce = useReducedMotion() ?? false;
 
   return (
-    <main className="min-h-screen bg-[#080705] text-[#f4eee4]">
+    <main className="min-h-screen bg-[#060503] text-[#f4eee4]">
       <header className="relative mx-auto flex min-h-screen max-w-7xl flex-col justify-between overflow-hidden px-6 py-24 md:px-10">
         <motion.div
           aria-hidden
           className="pointer-events-none absolute -top-40 h-[720px] w-[720px] rounded-full blur-2xl"
-          style={{ background: "radial-gradient(circle, rgba(255,231,180,.3), transparent 68%)" }}
+          style={{ background: "radial-gradient(circle, rgba(255,231,180,.32), transparent 68%)" }}
           animate={reduce ? undefined : { x: ["-25%", "55%", "-25%"] }}
           transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
         />
@@ -31,12 +31,20 @@ export function Variant() {
         </div>
         <div className="relative flex flex-wrap items-center justify-between gap-6">
           <ContactRow className="text-white/55" />
-          <a
-            href={`mailto:${cv.email}`}
-            className="border border-[#f2c778] bg-[#f2c778] px-6 py-3 text-sm font-bold text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#f2c778]"
-          >
-            Put my work in focus
-          </a>
+          <div className="flex flex-wrap gap-3">
+            <a
+              href="/resume"
+              className="border border-[#f2c778]/50 px-6 py-3 text-sm font-bold text-[#f2c778]"
+            >
+              Program notes
+            </a>
+            <a
+              href={`mailto:${cv.email}`}
+              className="border border-[#f2c778] bg-[#f2c778] px-6 py-3 text-sm font-bold text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#f2c778]"
+            >
+              Put my work in focus
+            </a>
+          </div>
         </div>
       </header>
 
@@ -52,7 +60,9 @@ export function Variant() {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true, amount: 0.45 }}
               className={`flex min-h-64 flex-col justify-center border-t border-[#f2c778]/25 ${index % 2 ? "md:translate-y-20" : ""}`}
-              style={{ background: "radial-gradient(circle at 50% 45%, rgba(242,199,120,.14), transparent 55%)" }}
+              style={{
+                background: "radial-gradient(circle at 50% 45%, rgba(242,199,120,.16), transparent 55%)",
+              }}
             >
               <strong className="font-[family-name:var(--font-serif)] text-6xl text-[#f2c778] sm:text-8xl">
                 {highlight.value}
@@ -68,7 +78,7 @@ export function Variant() {
         <ExperienceList tone="dark" />
       </section>
 
-      <section className="border-t border-[#f2c778]/20 bg-[#100e0a] px-6 py-20 md:px-10">
+      <section className="border-t border-[#f2c778]/20 bg-[#0c0a07] px-6 py-20 md:px-10">
         <div className="mx-auto grid max-w-7xl gap-16 md:grid-cols-2">
           <div>
             <h2 className="mb-8 text-xs uppercase tracking-[0.35em] text-[#f2c778]">Materials</h2>
@@ -78,7 +88,7 @@ export function Variant() {
             <h2 className="mb-8 text-xs uppercase tracking-[0.35em] text-[#f2c778]">Editions</h2>
             <ProjectLinks />
             <p className="mt-10 text-xs text-white/35">
-              {cv.education.degree} · {cv.education.school}
+              {cv.education.degree} · {cv.education.school} · {cv.location}
             </p>
           </div>
         </div>

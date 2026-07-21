@@ -10,7 +10,7 @@ export function Variant() {
   const [first, ...rest] = cv.name.split(" ");
 
   return (
-    <main className="min-h-screen bg-[#f5f6f8] text-[#0a0c10]">
+    <main className="min-h-screen bg-[#eef0f4] text-[#0a0c10]">
       <header className="border-b-4 border-[#0a0c10] px-4 py-10 md:px-8">
         <div className="flex flex-wrap items-start justify-between gap-6">
           <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.4em]">
@@ -34,12 +34,20 @@ export function Variant() {
             <p className="text-xl font-semibold">{cv.title}</p>
             <p className="mt-3 max-w-xl text-sm leading-7 text-black/60">{cv.summary}</p>
           </div>
-          <a
-            href={`mailto:${cv.email}`}
-            className="bg-[#1d4ed8] px-8 py-4 text-xs font-black uppercase tracking-widest text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1d4ed8]"
-          >
-            Hire the proof
-          </a>
+          <div className="flex flex-wrap gap-3">
+            <a
+              href="/resume"
+              className="border-4 border-[#0a0c10] px-8 py-4 text-xs font-black uppercase tracking-widest"
+            >
+              Print sheet
+            </a>
+            <a
+              href={`mailto:${cv.email}`}
+              className="bg-[#1d4ed8] px-8 py-4 text-xs font-black uppercase tracking-widest text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1d4ed8]"
+            >
+              Hire the proof
+            </a>
+          </div>
         </div>
       </header>
 
@@ -69,7 +77,7 @@ export function Variant() {
           </p>
         </div>
         <ExperienceList tone="light" />
-        <div className="mt-20 grid gap-14 md:grid-cols-2">
+        <div className="mt-20 grid gap-14 border-t-4 border-[#0a0c10] pt-16 md:grid-cols-2">
           <div>
             <h2 className="mb-6 text-2xl font-black uppercase">Toolkit</h2>
             <SkillsCloud tone="light" />
@@ -78,7 +86,7 @@ export function Variant() {
             <h2 className="mb-6 text-2xl font-black uppercase">Lab</h2>
             <ProjectLinks tone="light" />
             <p className="mt-10 text-sm text-black/45">
-              {cv.education.degree} · {cv.education.school}
+              {cv.education.degree} · {cv.education.school} · {cv.location}
             </p>
           </div>
         </div>

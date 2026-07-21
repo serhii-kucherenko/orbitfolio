@@ -9,13 +9,16 @@ export function Variant() {
   const reduce = useReducedMotion() ?? false;
 
   return (
-    <main className="min-h-screen bg-[#f2f2f0] text-[#111111]">
+    <main className="min-h-screen bg-[#ededeb] text-[#111111]">
       <header className="mx-auto grid max-w-6xl grid-cols-12 gap-0 border-x border-black/15 px-0 pt-16">
         <div className="col-span-12 border-b border-black/15 px-4 py-3 md:col-span-3 md:border-b-0 md:border-r">
           <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.3em]">
             Grid 20 / A
           </p>
           <p className="mt-8 text-xs leading-5 text-black/55">{cv.location}</p>
+          <a href="/resume" className="mt-6 inline-block text-[10px] font-bold uppercase tracking-wider text-[#e11d48]">
+            Form PDF →
+          </a>
         </div>
         <div className="col-span-12 border-b border-black/15 px-4 py-6 md:col-span-6 md:border-b-0 md:border-r">
           <motion.h1
@@ -44,15 +47,19 @@ export function Variant() {
         </p>
         <div className="grid grid-cols-2 md:grid-cols-4">
           {cv.highlights.map((h, i) => (
-            <div
+            <motion.div
               key={h.label}
+              initial={reduce ? false : { opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: reduce ? 0 : i * 0.04 }}
               className={`border-black/15 px-4 py-6 ${i % 2 === 0 ? "border-r" : ""} md:border-r md:last:border-r-0`}
             >
               <p className="text-3xl font-bold tracking-tight">{h.value}</p>
               <p className="mt-1 font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-wider text-black/45">
                 {h.label}
               </p>
-            </div>
+            </motion.div>
           ))}
         </div>
       </section>
@@ -80,7 +87,7 @@ export function Variant() {
           </div>
           <ProjectLinks tone="light" />
           <p className="mt-10 font-[family-name:var(--font-mono)] text-xs text-black/45">
-            {cv.education.degree} · {cv.education.school}
+            {cv.education.degree} · {cv.education.school} · {cv.location}
           </p>
         </div>
       </section>
