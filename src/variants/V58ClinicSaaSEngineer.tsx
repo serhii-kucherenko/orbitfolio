@@ -40,15 +40,21 @@ export function Variant() {
           <div className="mt-8 flex flex-wrap gap-3">
             <a
               href={`mailto:${cv.email}`}
-              className="rounded-md bg-[#1c2b24] px-5 py-2.5 text-sm font-medium text-[#f3f7f4] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1c2b24]"
+              className="bg-[#1c2b24] px-5 py-2.5 text-sm font-medium text-[#f3f7f4] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1c2b24]"
             >
               Schedule a conversation
+            </a>
+            <a
+              href="/resume"
+              className="border border-[#8aa897] px-5 py-2.5 text-sm text-[#2f4a3d] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1c2b24]"
+            >
+              Clinical resume
             </a>
             <a
               href={cv.linkedin}
               target="_blank"
               rel="noreferrer"
-              className="rounded-md border border-[#8aa897] px-5 py-2.5 text-sm text-[#2f4a3d]"
+              className="border border-[#8aa897] px-5 py-2.5 text-sm text-[#2f4a3d] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1c2b24]"
             >
               LinkedIn
             </a>

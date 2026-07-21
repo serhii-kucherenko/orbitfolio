@@ -49,12 +49,20 @@ export function Variant() {
               </motion.h1>
               <p className="mt-2 text-lg text-slate-300">{cv.title}</p>
             </div>
-            <a
-              href={`mailto:${cv.email}`}
-              className="rounded-md bg-cyan-400 px-5 py-2.5 text-sm font-bold text-[#0b1220] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400"
-            >
-              Hire — email now
-            </a>
+            <div className="flex flex-wrap items-center gap-3">
+              <a
+                href={`mailto:${cv.email}`}
+                className="bg-cyan-400 px-5 py-2.5 text-sm font-bold text-[#0b1220] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400"
+              >
+                Hire — email now
+              </a>
+              <a
+                href="/resume"
+                className="border border-cyan-300/40 px-5 py-2.5 text-sm text-cyan-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400"
+              >
+                Full resume
+              </a>
+            </div>
           </div>
 
           <div className="mt-12 grid gap-3 sm:grid-cols-2">
@@ -64,7 +72,7 @@ export function Variant() {
                 initial={reduce ? false : { opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: reduce ? 0 : 0.06 * i }}
-                className="rounded-xl border border-white/10 bg-white/[0.04] p-5"
+                className="border border-white/10 bg-white/[0.04] p-5"
               >
                 <p className="text-3xl font-bold text-cyan-300 sm:text-4xl">{o.value}</p>
                 <p className="mt-2 text-xs font-semibold uppercase tracking-wide text-slate-400">{o.label}</p>

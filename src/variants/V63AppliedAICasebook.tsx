@@ -40,12 +40,21 @@ export function Variant() {
         <h1 className="mt-4 font-[family-name:var(--font-serif)] text-5xl leading-none sm:text-6xl">{cv.name}</h1>
         <p className="mt-4 text-lg text-[#1a1814]/65">{cv.title}</p>
         <p className="mt-6 max-w-2xl text-sm leading-7 text-[#1a1814]/70">{cv.summary}</p>
-        <a
-          href={`mailto:${cv.email}`}
-          className="mt-8 inline-block border border-[#1a1814] bg-[#1a1814] px-5 py-2.5 text-sm font-medium text-[#faf8f3] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1a1814]"
-        >
-          Discuss a case
-        </a>
+        <div className="mt-8 flex flex-wrap items-center gap-3">
+          <a
+            href={`mailto:${cv.email}`}
+            className="inline-block border border-[#1a1814] bg-[#1a1814] px-5 py-2.5 text-sm font-medium text-[#faf8f3] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1a1814]"
+          >
+            Discuss a case
+          </a>
+          <a
+            href="/resume"
+            className="inline-block border border-[#1a1814]/40 px-5 py-2.5 text-sm text-[#1a1814] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1a1814]"
+          >
+            Case dossier / resume
+          </a>
+          <ContactRow className="text-[#1a1814]/70" />
+        </div>
       </header>
 
       <section className="mx-auto max-w-5xl px-6 pb-8">
