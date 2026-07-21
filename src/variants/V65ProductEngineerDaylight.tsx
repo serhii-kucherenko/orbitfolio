@@ -95,18 +95,18 @@ export function Variant() {
       </section>
 
       <section className="mx-auto mt-12 max-w-5xl px-6 pb-6">
-        <div className="rounded-3xl bg-white p-8 shadow-sm ring-1 ring-sky-100 md:p-12">
+        <div className="border border-sky-200 bg-white p-8 md:p-12">
           <h2 className="mb-8 text-2xl font-bold">Product chapters</h2>
           <ExperienceList tone="light" />
         </div>
       </section>
 
       <section className="mx-auto grid max-w-5xl gap-8 px-6 py-12 md:grid-cols-2">
-        <div className="rounded-3xl bg-white p-8 shadow-sm ring-1 ring-sky-100">
+        <div className="border border-sky-200 bg-white p-8">
           <h2 className="mb-6 text-xl font-bold">Craft stack</h2>
           <SkillsCloud tone="light" />
         </div>
-        <div className="rounded-3xl bg-white p-8 shadow-sm ring-1 ring-sky-100">
+        <div className="border border-sky-200 bg-white p-8">
           <h2 className="mb-6 text-xl font-bold">Labs & repos</h2>
           <ProjectLinks tone="light" />
           <p className="mt-10 text-sm text-sky-900/50">

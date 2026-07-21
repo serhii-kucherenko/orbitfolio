@@ -74,7 +74,7 @@ export function Variant() {
                 initial={reduce ? false : { opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: reduce ? 0 : 0.2 + index * 0.12 }}
-                className={`absolute ${positions[index]} w-28 rounded-full border border-[#b8ff6a]/35 bg-[#0a1814]/90 p-4 text-center backdrop-blur`}
+                className={`absolute ${positions[index]} w-28 rounded-xl border border-[#b8ff6a]/35 bg-[#0a1814]/90 p-4 text-center backdrop-blur`}
               >
                 <strong className="font-[family-name:var(--font-serif)] text-2xl text-[#b8ff6a]">
                   {highlight.value}

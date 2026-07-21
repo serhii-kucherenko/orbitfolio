@@ -25,7 +25,9 @@ export function Variant() {
             animate={reduce ? undefined : { y: [0, -8, 0] }}
             transition={{ duration: 3, repeat: Infinity }}
           />
-          <p className="relative text-[10px] font-bold uppercase tracking-[0.35em]">Bauhaus · proof · form</p>
+          <p className="relative text-[10px] font-bold uppercase tracking-[0.35em]">
+            Bauhaus · proof · {cv.location}
+          </p>
           <h1 className="relative mt-4 font-[family-name:var(--font-display)] text-5xl font-black leading-none sm:text-6xl">
             {cv.name}
           </h1>
