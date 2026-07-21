@@ -9,14 +9,17 @@ export function Variant() {
   const reduce = useReducedMotion() ?? false;
 
   return (
-    <main className="min-h-screen bg-[#ededeb] text-[#111111]">
+    <main className="min-h-screen bg-[#e8e8e4] text-[#111111]">
       <header className="mx-auto grid max-w-6xl grid-cols-12 gap-0 border-x border-black/15 px-0 pt-16">
         <div className="col-span-12 border-b border-black/15 px-4 py-3 md:col-span-3 md:border-b-0 md:border-r">
           <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.3em]">
-            Grid 20 / A
+            Grid 20 / A · Form
           </p>
           <p className="mt-8 text-xs leading-5 text-black/55">{cv.location}</p>
-          <a href="/resume" className="mt-6 inline-block text-[10px] font-bold uppercase tracking-wider text-[#e11d48]">
+          <a
+            href="/resume"
+            className="mt-6 inline-block text-[10px] font-bold uppercase tracking-wider text-[#e11d48] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#e11d48]"
+          >
             Form PDF →
           </a>
         </div>
@@ -24,7 +27,7 @@ export function Variant() {
           <motion.h1
             initial={reduce ? false : { opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="font-[family-name:var(--font-sans)] text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl"
+            className="font-[family-name:var(--font-display)] text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl"
           >
             {cv.name}
           </motion.h1>

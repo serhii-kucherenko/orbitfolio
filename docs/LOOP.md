@@ -74,5 +74,6 @@ Autonomous progress log for Orbitfolio.
 | 71 | Burst tick 22 | Added resume paths to command cases, founding one-pager, daylight PE, pull quote, journey profile, paper terminal |
 | 72 | Burst tick 23 | Cleared remaining resume gaps: swarm, launch, switchboard, dual console, telescope cases, particles, command palette |
 | 73 | Burst tick 24 | Deepened telescope monograph, swarm one-pager, ASCII signal, museum metrics, weighted editorial, brutal stamp |
+| 74 | Burst tick 25 | Deepened recruiter light, bilingual signal, archive rooms, cover stack, recruiter champion, Swiss grid |
 
 Live: https://orbitfolio-kohl.vercel.app · Loop: every 15m — unique award craft + UI must stay green

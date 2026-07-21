@@ -13,21 +13,23 @@ export function Variant() {
     .join("");
 
   return (
-    <main className="min-h-screen bg-[#e8eef3] text-[#0f2430]">
-      <header className="border-b border-[#b8c9d6] bg-gradient-to-br from-[#f7fafc] via-[#eef4f8] to-[#dce8ef]">
+    <main className="min-h-screen bg-[#e4ebf1] text-[#0f2430]">
+      <header className="border-b border-[#b8c9d6] bg-gradient-to-br from-[#f7fafc] via-[#eef4f8] to-[#d5e4ee]">
         <div className="mx-auto max-w-6xl px-6 py-20 lg:px-10">
           <div className="flex flex-wrap items-center gap-8">
             <motion.div
               aria-hidden
               initial={reduce ? false : { scale: 0.88, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              className="grid size-28 place-items-center rounded-full bg-[#1a5f6b] font-[family-name:var(--font-display)] text-3xl font-bold text-white shadow-[0_0_0_8px_rgba(26,95,107,0.12)]"
+              className="grid size-28 place-items-center bg-[#1a5f6b] font-[family-name:var(--font-display)] text-3xl font-bold text-white"
             >
               {initials}
             </motion.div>
             <div className="min-w-0 flex-1">
-              <p className="text-sm font-semibold text-[#1a5f6b]">Available · founding engineer roles</p>
-              <h1 className="mt-1 font-[family-name:var(--font-display)] text-4xl font-bold tracking-tight sm:text-5xl">
+              <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.3em] text-[#1a5f6b]">
+                Available · founding engineer · {cv.location}
+              </p>
+              <h1 className="mt-2 font-[family-name:var(--font-display)] text-4xl font-bold tracking-tight sm:text-5xl">
                 {cv.name}
               </h1>
               <p className="mt-2 text-lg text-[#0f2430]/70">{cv.title}</p>
@@ -37,13 +39,13 @@ export function Variant() {
           <div className="mt-7 flex flex-wrap items-center gap-4">
             <a
               href={`mailto:${cv.email}`}
-              className="rounded-full bg-[#1a5f6b] px-6 py-2.5 text-sm font-semibold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1a5f6b]"
+              className="bg-[#1a5f6b] px-6 py-2.5 text-sm font-semibold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1a5f6b]"
             >
               Email to hire
             </a>
             <a
               href="/resume"
-              className="rounded-full border border-[#1a5f6b]/40 px-6 py-2.5 text-sm font-semibold text-[#1a5f6b]"
+              className="border border-[#1a5f6b]/40 px-6 py-2.5 text-sm font-semibold text-[#1a5f6b] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1a5f6b]"
             >
               Printable resume
             </a>
@@ -52,7 +54,7 @@ export function Variant() {
         </div>
       </header>
 
-      <section className="mx-auto grid max-w-6xl grid-cols-2 gap-3 px-6 py-10 sm:grid-cols-4 lg:px-10">
+      <section className="mx-auto grid max-w-6xl grid-cols-2 gap-6 px-6 py-10 sm:grid-cols-4 lg:px-10">
         {cv.highlights.map((h, i) => (
           <motion.div
             key={h.label}
@@ -60,7 +62,7 @@ export function Variant() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: reduce ? 0 : i * 0.05 }}
-            className="border border-[#b8c9d6] bg-white px-4 py-6"
+            className="border-t-2 border-[#1a5f6b] pt-4"
           >
             <p className="text-3xl font-bold text-[#1a5f6b]">{h.value}</p>
             <p className="mt-1 text-xs text-[#0f2430]/50">{h.label}</p>
@@ -73,13 +75,13 @@ export function Variant() {
           <h2 className="mb-8 text-2xl font-bold">Experience</h2>
           <ExperienceList tone="light" />
         </section>
-        <aside className="space-y-8 lg:sticky lg:top-24 lg:self-start">
-          <div className="border border-[#b8c9d6] bg-white p-6">
-            <h2 className="mb-6 text-xl font-bold">Skills</h2>
+        <aside className="space-y-10 lg:sticky lg:top-24 lg:self-start">
+          <div>
+            <h2 className="mb-6 border-b border-[#b8c9d6] pb-3 text-xl font-bold">Skills</h2>
             <SkillsCloud tone="light" />
           </div>
-          <div className="border border-[#b8c9d6] bg-white p-6">
-            <h2 className="mb-6 text-xl font-bold">Projects</h2>
+          <div>
+            <h2 className="mb-6 border-b border-[#b8c9d6] pb-3 text-xl font-bold">Projects</h2>
             <ProjectLinks tone="light" />
           </div>
           <p className="text-sm text-[#0f2430]/50">
