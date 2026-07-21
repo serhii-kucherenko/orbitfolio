@@ -13,7 +13,7 @@ export function Variant() {
     <main className="min-h-screen bg-[#04060c] text-[#dbeafe]">
       <header className="mx-auto max-w-4xl px-6 pb-6 pt-24 md:px-8">
         <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.4em] text-[#34d399]">
-          Waveform · master
+          Waveform · master · {cv.location}
         </p>
         <h1 className="mt-4 font-[family-name:var(--font-display)] text-5xl font-bold sm:text-6xl">
           {cv.name}
@@ -23,13 +23,13 @@ export function Variant() {
         <div className="mt-8 flex flex-wrap gap-3">
           <a
             href={`mailto:${cv.email}`}
-            className="rounded-full bg-[#34d399] px-5 py-2.5 text-sm font-bold text-[#04060c] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#34d399]"
+            className="bg-[#34d399] px-5 py-2.5 text-sm font-bold text-[#04060c] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#34d399]"
           >
             Drop a line
           </a>
           <a
             href="/resume"
-            className="rounded-full border border-[#34d399]/45 px-5 py-2.5 text-sm font-bold text-[#34d399]"
+            className="border border-[#34d399]/45 px-5 py-2.5 text-sm font-bold text-[#34d399] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#34d399]"
           >
             Stem sheet
           </a>
@@ -38,11 +38,11 @@ export function Variant() {
       </header>
 
       <section className="mx-auto max-w-4xl px-6 py-10 md:px-8">
-        <div className="flex h-32 items-end justify-between gap-1 rounded-2xl border border-[#34d399]/20 bg-[#080e1a] px-3 py-4 sm:gap-1.5">
+        <div className="flex h-32 items-end justify-between gap-1 border border-[#34d399]/20 bg-[#080e1a] px-3 py-4 sm:gap-1.5">
           {bars.map((h, i) => (
             <motion.div
               key={i}
-              className="flex-1 rounded-sm bg-gradient-to-t from-[#34d399] to-[#60a5fa]"
+              className="flex-1 bg-gradient-to-t from-[#34d399] to-[#60a5fa]"
               style={{ height: `${h}%` }}
               animate={
                 reduce
@@ -61,9 +61,9 @@ export function Variant() {
             />
           ))}
         </div>
-        <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
+        <div className="mt-6 grid grid-cols-2 gap-6 sm:grid-cols-4">
           {cv.highlights.map((h) => (
-            <div key={h.label} className="rounded-xl border border-white/10 px-4 py-4">
+            <div key={h.label} className="border-t border-[#34d399]/35 pt-3">
               <p className="text-2xl font-bold text-[#34d399]">{h.value}</p>
               <p className="text-[10px] uppercase tracking-wider opacity-45">{h.label}</p>
             </div>
@@ -73,7 +73,7 @@ export function Variant() {
 
       <section className="mx-auto max-w-4xl px-6 py-16 md:px-8">
         <div className="mb-8 flex items-center gap-3">
-          <span className="h-2 w-2 animate-pulse rounded-full bg-[#34d399]" />
+          <span className={`h-2 w-2 bg-[#34d399] ${reduce ? "" : "animate-pulse"}`} />
           <h2 className="font-[family-name:var(--font-mono)] text-xs uppercase tracking-[0.3em] text-[#34d399]">
             Playhead · experience
           </h2>

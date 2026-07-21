@@ -23,7 +23,7 @@ export function Variant() {
         />
         <div className="relative mx-auto max-w-5xl">
           <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.4em] text-zinc-500">
-            Liquid metal type
+            Liquid metal type · {cv.location}
           </p>
           <motion.h1
             initial={reduce ? false : { opacity: 0, letterSpacing: "0.12em" }}
@@ -45,13 +45,13 @@ export function Variant() {
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <a
               href={`mailto:${cv.email}`}
-              className="rounded-full border border-zinc-400/50 bg-gradient-to-b from-zinc-200 to-zinc-400 px-6 py-2.5 text-sm font-bold text-zinc-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-300"
+              className="border border-zinc-400/50 bg-gradient-to-b from-zinc-200 to-zinc-400 px-6 py-2.5 text-sm font-bold text-zinc-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-300"
             >
               Cast a hire note
             </a>
             <a
               href="/resume"
-              className="rounded-full border border-zinc-500 px-6 py-2.5 text-sm font-bold text-zinc-300"
+              className="border border-zinc-500 px-6 py-2.5 text-sm font-bold text-zinc-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-300"
             >
               Ingot PDF
             </a>
