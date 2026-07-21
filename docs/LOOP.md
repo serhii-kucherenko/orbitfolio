@@ -45,5 +45,6 @@ Autonomous progress log for Orbitfolio.
 | 42 | Depth gate +5 | Handcrafted already 100; raised deepened-UI oracle to ≥15; rebuilt #18/#25/#27/#46/#47 |
 | 43 | Depth gate 20 | Raised deepened oracle to ≥20; rebuilt #75/#79/#86/#90/#99 with hire CTAs + motion |
 | 44 | Public theme picker | Password-gated “Use as public home” on /test pages; phone removed from site |
+| 45 | Depth gate 25 | Raised deepened oracle to ≥25; rebuilt #29/#32/#45/#71/#95 |
 
 Live: https://orbitfolio-kohl.vercel.app · Loop: every 30m — deepen thin cells, raise gates, merge

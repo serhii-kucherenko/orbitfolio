@@ -265,8 +265,8 @@ test("Fail-then-pass: deepened unique UIs keep rising past the 100-handcraft flo
   });
   // Handcrafted gate is already 100/100; depth gate forces richer award craft.
   assert.ok(
-    deepened.length >= 20,
-    `RED: need ≥20 deepened cells (≥40 source lines), got ${deepened.length}`,
+    deepened.length >= 25,
+    `RED: need ≥25 deepened cells (≥40 source lines), got ${deepened.length}`,
   );
 });
 
