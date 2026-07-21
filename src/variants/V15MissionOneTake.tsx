@@ -9,8 +9,8 @@ export function Variant() {
   const reduce = useReducedMotion() ?? false;
 
   return (
-    <main className="min-h-screen bg-[#0a0f0c] text-[#d8f5e3]">
-      <div className="sticky top-0 z-20 flex items-center justify-between border-b border-[#3dff9a]/25 bg-[#0a0f0c]/95 px-4 py-2 font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.25em] text-[#3dff9a] backdrop-blur md:px-8">
+    <main className="min-h-screen bg-[#070c09] text-[#d8f5e3]">
+      <div className="sticky top-0 z-20 flex items-center justify-between border-b border-[#3dff9a]/25 bg-[#070c09]/95 px-4 py-2 font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.25em] text-[#3dff9a] backdrop-blur md:px-8">
         <span>REC ● MISSION / ONE TAKE</span>
         <motion.span
           animate={reduce ? {} : { opacity: [1, 0.35, 1] }}
@@ -39,9 +39,15 @@ export function Variant() {
         <div className="mt-8 flex flex-wrap gap-3">
           <a
             href={`mailto:${cv.email}`}
-            className="bg-[#3dff9a] px-5 py-2.5 text-sm font-bold uppercase tracking-wide text-[#0a0f0c] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3dff9a]"
+            className="bg-[#3dff9a] px-5 py-2.5 text-sm font-bold uppercase tracking-wide text-[#070c09] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3dff9a]"
           >
             Cue call
+          </a>
+          <a
+            href="/resume"
+            className="border border-[#3dff9a]/50 px-5 py-2.5 text-sm font-bold uppercase tracking-wide text-[#3dff9a]"
+          >
+            Continuity PDF
           </a>
           <ContactRow className="text-white/65" />
         </div>
@@ -50,13 +56,20 @@ export function Variant() {
       <div className="mx-auto max-w-4xl border-y border-[#3dff9a]/20 px-6 py-8 md:px-8">
         <div className="flex gap-6 overflow-x-auto pb-1">
           {cv.highlights.map((h, i) => (
-            <div key={h.label} className="min-w-[140px] shrink-0">
+            <motion.div
+              key={h.label}
+              initial={reduce ? false : { opacity: 0, y: 8 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: reduce ? 0 : i * 0.05 }}
+              className="min-w-[140px] shrink-0"
+            >
               <p className="font-[family-name:var(--font-mono)] text-[10px] text-[#3dff9a]/50">
                 MARK {String(i + 1).padStart(2, "0")}
               </p>
               <p className="mt-1 text-3xl font-black">{h.value}</p>
               <p className="text-xs uppercase tracking-wider opacity-50">{h.label}</p>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
@@ -81,7 +94,7 @@ export function Variant() {
             </h2>
             <ProjectLinks />
             <p className="mt-10 font-[family-name:var(--font-mono)] text-xs opacity-50">
-              {cv.education.degree} · {cv.education.school}
+              {cv.education.degree} · {cv.education.school} · {cv.location}
             </p>
           </div>
         </div>
