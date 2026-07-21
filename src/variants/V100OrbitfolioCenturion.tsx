@@ -92,7 +92,7 @@ export function Variant() {
         <div className="mt-10 flex flex-wrap gap-3">
           <a
             href={`mailto:${cv.email}`}
-            className="rounded-full bg-cyan-300 px-6 py-3 text-sm font-bold text-black transition hover:bg-cyan-200"
+            className="rounded-full bg-cyan-300 px-6 py-3 text-sm font-bold text-black transition hover:bg-cyan-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300"
           >
             Start a conversation
           </a>
@@ -100,13 +100,13 @@ export function Variant() {
             href={cv.github}
             target="_blank"
             rel="noreferrer"
-            className="rounded-full border border-white/25 bg-white/5 px-6 py-3 text-sm backdrop-blur transition hover:border-white/45"
+            className="rounded-full border border-white/25 bg-white/5 px-6 py-3 text-sm backdrop-blur transition hover:border-white/45 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300"
           >
             Explore GitHub
           </a>
           <Link
             href="/resume"
-            className="rounded-full border border-white/25 bg-white/5 px-6 py-3 text-sm backdrop-blur transition hover:border-white/45"
+            className="rounded-full border border-white/25 bg-white/5 px-6 py-3 text-sm backdrop-blur transition hover:border-white/45 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300"
           >
             Printable resume
           </Link>

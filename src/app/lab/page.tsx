@@ -6,7 +6,7 @@ import { composite, variants } from "@/data/variants";
 
 export const metadata = {
   title: "Design Lab",
-  description: "50 portfolio experiments scored on coolness, comprehensiveness, uniqueness, motion, and hireability.",
+  description: "100 portfolio experiments scored on coolness, comprehensiveness, uniqueness, motion, and hireability.",
 };
 
 export default function LabPage() {
@@ -23,9 +23,10 @@ export default function LabPage() {
           <p className="text-xs uppercase tracking-[0.35em] text-cyan-300/80">AI Method Lab · product experiment</p>
           <h1 className="mt-4 font-[family-name:var(--font-display)] text-5xl">Design Lab</h1>
           <p className="mt-4 max-w-2xl text-sm text-white/60">
-            Fifty structurally different portfolio UIs at <code className="text-teal-200">/test/1…50</code>. Scored on
-            coolness (30%), comprehensiveness (20%), uniqueness (20%), motion (15%), hireability (15%). Champion
-            promoted to <code className="text-teal-200">/</code>.
+            One hundred structurally different portfolio designs at{" "}
+            <code className="text-teal-200">/test/1…100</code>. Scored on coolness (30%), comprehensiveness (20%),
+            uniqueness (20%), motion (15%), hireability (15%). Champion promoted to{" "}
+            <code className="text-teal-200">/</code>.
           </p>
           {champion && (
             <div className="mt-8 flex flex-col gap-4 rounded-3xl border border-teal-400/30 bg-teal-950/30 p-6 sm:flex-row sm:items-center sm:justify-between">
