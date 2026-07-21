@@ -40,9 +40,9 @@ export function Variant() {
   return (
     <main className="min-h-screen bg-[#e7eef2] text-[#15202b]">
       <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6">
-        <div className="overflow-hidden rounded-3xl border border-[#c5d3dc] bg-[#f7fafc] shadow-[0_24px_60px_rgba(21,32,43,0.12)]">
+        <div className="overflow-hidden border border-[#c5d3dc] bg-[#f7fafc]">
           <header className="flex items-center gap-3 border-b border-[#c5d3dc] bg-white px-5 py-4">
-            <div className="grid size-11 place-items-center rounded-full bg-[#0f6b5c] text-sm font-bold text-white">
+            <div className="grid size-11 place-items-center bg-[#0f6b5c] text-sm font-bold text-white">
               {initials}
             </div>
             <div className="min-w-0 flex-1">
