@@ -2,50 +2,56 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
+import { FallbackGlow, SceneSpotlight, WebGLStage } from "@/components/webgl/AwardWebGL";
 import { cv } from "@/data/cv";
 
 /** Spotlight Installation — dark gallery; one moving spotlight stages claims in turn. */
 export function Variant() {
   const reduce = useReducedMotion() ?? false;
+  const accent = "#f2c778";
 
   return (
     <main className="min-h-screen bg-[#060503] text-[#f4eee4]">
-      <header className="relative mx-auto flex min-h-screen max-w-7xl flex-col justify-between overflow-hidden px-6 py-24 md:px-10">
-        <motion.div
-          aria-hidden
-          className="pointer-events-none absolute -top-40 h-[720px] w-[720px] rounded-full blur-2xl"
-          style={{ background: "radial-gradient(circle, rgba(255,231,180,.32), transparent 68%)" }}
-          animate={reduce ? undefined : { x: ["-25%", "55%", "-25%"] }}
-          transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <div className="relative flex justify-between border-b border-[#f2c778]/25 pb-4 text-[10px] uppercase tracking-[0.4em] text-[#f2c778]">
-          <span>Installation 05 · {cv.location}</span>
-          <span>One claim at a time</span>
-        </div>
-        <div className="relative py-20">
-          <p className="mb-5 text-sm text-[#f2c778]">{cv.title}</p>
-          <h1 className="max-w-5xl font-[family-name:var(--font-serif)] text-6xl leading-[0.86] sm:text-8xl lg:text-[8.5rem]">
-            {cv.name}
-          </h1>
-          <p className="mt-10 max-w-xl text-sm leading-7 text-white/55">{cv.summary}</p>
-        </div>
-        <div className="relative flex flex-wrap items-center justify-between gap-6">
-          <ContactRow className="text-white/55" />
-          <div className="flex flex-wrap gap-3">
-            <a
-              href="/resume"
-              className="border border-[#f2c778]/50 px-6 py-3 text-sm font-bold text-[#f2c778] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#f2c778]"
-            >
-              Program notes
-            </a>
-            <a
-              href={`mailto:${cv.email}`}
-              className="border border-[#f2c778] bg-[#f2c778] px-6 py-3 text-sm font-bold text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#f2c778]"
-            >
-              Put my work in focus
-            </a>
+      <header className="relative mx-auto grid min-h-screen max-w-7xl items-center gap-10 overflow-hidden px-6 py-24 md:grid-cols-[1.1fr_0.9fr] md:px-10">
+        <div className="relative z-10 flex min-h-[70vh] flex-col justify-between">
+          <div className="flex justify-between border-b border-[#f2c778]/25 pb-4 text-[10px] uppercase tracking-[0.4em] text-[#f2c778]">
+            <span>Installation 05 · {cv.location}</span>
+            <span>One claim at a time</span>
+          </div>
+          <div className="py-16">
+            <p className="mb-5 text-sm text-[#f2c778]">{cv.title}</p>
+            <h1 className="max-w-5xl font-[family-name:var(--font-serif)] text-6xl leading-[0.86] sm:text-8xl lg:text-[7.5rem]">
+              {cv.name}
+            </h1>
+            <p className="mt-10 max-w-xl text-sm leading-7 text-white/55">{cv.summary}</p>
+          </div>
+          <div className="flex flex-wrap items-center justify-between gap-6">
+            <ContactRow className="text-white/55" />
+            <div className="flex flex-wrap gap-3">
+              <a
+                href="/resume"
+                className="border border-[#f2c778]/50 px-6 py-3 text-sm font-bold text-[#f2c778] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#f2c778]"
+              >
+                Program notes
+              </a>
+              <a
+                href={`mailto:${cv.email}`}
+                className="border border-[#f2c778] bg-[#f2c778] px-6 py-3 text-sm font-bold text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#f2c778]"
+              >
+                Put my work in focus
+              </a>
+            </div>
           </div>
         </div>
+        <WebGLStage
+          accent={accent}
+          reduce={reduce}
+          label="Moving Three.js spotlight over a sculptural form"
+          className="relative h-[min(58vh,460px)] w-full overflow-hidden rounded-sm border border-[#f2c778]/20 bg-black"
+          fallback={<FallbackGlow accent={accent} />}
+        >
+          <SceneSpotlight accent={accent} />
+        </WebGLStage>
       </header>
 
       <section className="mx-auto max-w-7xl px-6 py-20 md:px-10">

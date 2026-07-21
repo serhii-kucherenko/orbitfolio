@@ -2,33 +2,33 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
+import { FallbackGlow, ScenePlanetary, WebGLStage } from "@/components/webgl/AwardWebGL";
 import { cv } from "@/data/cv";
 
 /** Planetary Dossier — brief planet stage, then evidence-first technical dossier. */
 export function Variant() {
   const reduce = useReducedMotion() ?? false;
+  const accent = "#38bdf8";
 
   return (
     <main className="min-h-screen bg-[#060b16] text-[#e8eef8]">
-      <section className="relative flex min-h-[48vh] items-end overflow-hidden px-6 pb-10 pt-28">
-        <motion.div
-          aria-hidden
-          className="pointer-events-none absolute right-[-12%] top-6 h-[min(72vw,440px)] w-[min(72vw,440px)] rounded-full"
-          animate={reduce ? undefined : { rotate: 360 }}
-          transition={{ duration: 100, repeat: Infinity, ease: "linear" }}
-          style={{
-            background:
-              "radial-gradient(circle at 35% 30%, #7dd3fc 0%, #0369a1 35%, #0c4a6e 55%, transparent 70%)",
-            opacity: 0.55,
-          }}
-        />
-        <div className="relative z-10 mx-auto w-full max-w-5xl">
+      <section className="relative mx-auto grid min-h-[52vh] max-w-6xl items-end gap-8 overflow-hidden px-6 pb-10 pt-28 lg:grid-cols-[1fr_0.9fr] lg:items-center">
+        <div className="relative z-10">
           <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.4em] text-cyan-300/60">
             Planet stage → dossier · {cv.location}
           </p>
           <h1 className="mt-4 font-[family-name:var(--font-display)] text-5xl font-bold sm:text-6xl">{cv.name}</h1>
           <p className="mt-3 text-cyan-100/70">{cv.title}</p>
         </div>
+        <WebGLStage
+          accent={accent}
+          reduce={reduce}
+          label="Three.js planet stage with orbital ring"
+          className="relative h-[min(42vh,360px)] w-full overflow-hidden"
+          fallback={<FallbackGlow accent={accent} />}
+        >
+          <ScenePlanetary accent={accent} />
+        </WebGLStage>
       </section>
 
       <section className="relative z-10 mx-auto -mt-2 max-w-5xl border border-white/10 border-b-0 bg-[#0d1422] px-6 py-12 sm:px-10">

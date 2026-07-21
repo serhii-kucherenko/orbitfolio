@@ -4,11 +4,13 @@ import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion
 import Link from "next/link";
 import { useRef } from "react";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
+import { FallbackGlow, SceneCenturion, WebGLStage } from "@/components/webgl/AwardWebGL";
 import { cv } from "@/data/cv";
 
-/** Orbitfolio Centurion — champion hybrid: warp atmosphere + glass metrics + hire clarity */
+/** Orbitfolio Centurion — champion hybrid: warp atmosphere + glass metrics + hire clarity + real WebGL core */
 export function Variant() {
   const reduce = useReducedMotion() ?? false;
+  const accent = "#67e8f9";
   const heroRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: heroRef,
@@ -20,6 +22,15 @@ export function Variant() {
 
   return (
     <main className="relative min-h-screen overflow-hidden bg-[#05080d] text-white">
+      <WebGLStage
+        accent={accent}
+        reduce={reduce}
+        label="Three.js champion warp core with orbital rings"
+        className="pointer-events-none absolute inset-0 opacity-45"
+        fallback={<FallbackGlow accent={accent} />}
+      >
+        <SceneCenturion accent={accent} />
+      </WebGLStage>
       <div
         className="pointer-events-none absolute inset-0 opacity-70"
         style={{
@@ -155,7 +166,7 @@ export function Variant() {
         <ContactRow className="mt-8 justify-center text-cyan-100/70" />
         <p className="mt-10 text-xs text-white/35">
           Steals the strongest motion, editorial authority, spatial wonder, and hire clarity from the full
-          99-cell ladder.
+          99-cell ladder — now with a real WebGL warp core.
         </p>
       </footer>
     </main>

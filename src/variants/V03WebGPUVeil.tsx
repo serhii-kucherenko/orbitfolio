@@ -2,27 +2,26 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
+import { FallbackGlow, SceneVeil, WebGLStage } from "@/components/webgl/AwardWebGL";
 import { cv } from "@/data/cv";
 
 /** WebGPU Veil — translucent spatial veil parts to reveal the engineer and outcomes. */
 export function Variant() {
   const reduce = useReducedMotion() ?? false;
+  const accent = "#5eb8ae";
 
   return (
     <main className="min-h-screen bg-[#eef3f1] text-[#122524]">
       <header className="relative min-h-screen overflow-hidden px-6 py-24 md:px-12">
-        <motion.div
-          aria-hidden
-          className="absolute -left-[22%] -top-[12%] h-[125%] w-[74%] rounded-[50%] bg-[#9fd9d2]/75 blur-2xl"
-          animate={reduce ? undefined : { x: ["-8%", "5%", "-8%"], rotate: [-4, 3, -4] }}
-          transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.div
-          aria-hidden
-          className="absolute -right-[28%] top-[4%] h-[115%] w-[72%] rounded-[50%] bg-[#c5ddd8]/55 blur-3xl"
-          animate={reduce ? undefined : { x: ["7%", "-4%", "7%"], rotate: [5, -2, 5] }}
-          transition={{ duration: 19, repeat: Infinity, ease: "easeInOut" }}
-        />
+        <WebGLStage
+          accent={accent}
+          reduce={reduce}
+          label="Distorting Three.js veil over the identity core"
+          className="pointer-events-none absolute inset-0 opacity-80"
+          fallback={<FallbackGlow accent={accent} />}
+        >
+          <SceneVeil accent={accent} />
+        </WebGLStage>
         <div className="relative z-10 mx-auto flex min-h-[78vh] max-w-6xl flex-col justify-between">
           <div className="flex justify-between border-b border-[#122524]/15 pb-4 text-[10px] uppercase tracking-[0.35em]">
             <span>WebGPU veil / 03</span>

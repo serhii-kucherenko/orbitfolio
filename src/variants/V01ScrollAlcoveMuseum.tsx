@@ -2,11 +2,13 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
+import { FallbackGlow, SceneAlcove, WebGLStage } from "@/components/webgl/AwardWebGL";
 import { cv } from "@/data/cv";
 
 /** Scroll Alcove Museum — vertical gallery of stone niches; each career chapter sits in its own lit alcove. */
 export function Variant() {
   const reduce = useReducedMotion() ?? false;
+  const accent = "#d4af78";
 
   return (
     <main
@@ -16,48 +18,48 @@ export function Variant() {
         color: "#f3e8d8",
       }}
     >
-      <header className="relative mx-auto flex min-h-[88vh] max-w-5xl flex-col justify-end px-6 pb-16 pt-28 md:px-10">
-        <motion.div
-          aria-hidden
-          className="pointer-events-none absolute inset-x-8 top-16 h-64 rounded-[50%] opacity-50 blur-3xl"
-          style={{
-            background: reduce
-              ? "rgba(212,175,120,0.12)"
-              : "radial-gradient(ellipse, rgba(212,175,120,0.28), transparent 70%)",
-          }}
-          animate={reduce ? undefined : { opacity: [0.35, 0.55, 0.35] }}
-          transition={{ duration: 8, repeat: Infinity }}
-        />
-        <p className="relative font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.45em] text-[#d4af78]/70">
-          Gallery · alcove 01 · {cv.location}
-        </p>
-        <motion.h1
-          initial={reduce ? false : { opacity: 0, y: 28 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          className="relative mt-6 font-[family-name:var(--font-serif)] text-5xl leading-[0.95] sm:text-7xl md:text-8xl"
-        >
-          {cv.name}
-        </motion.h1>
-        <p className="relative mt-5 max-w-xl font-[family-name:var(--font-sans)] text-sm leading-7 text-[#f3e8d8]/70">
-          {cv.summary}
-        </p>
-        <div className="relative mt-8 flex flex-wrap items-center gap-4">
-          <a
-            href={`mailto:${cv.email}`}
-            className="border border-[#d4af78] bg-[#d4af78] px-5 py-2.5 text-sm font-semibold text-[#17130e] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#d4af78]"
+      <header className="relative mx-auto grid min-h-[88vh] max-w-6xl items-end gap-10 px-6 pb-16 pt-28 md:grid-cols-[1.05fr_0.95fr] md:px-10">
+        <div className="relative z-10">
+          <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.45em] text-[#d4af78]/70">
+            Gallery · alcove 01 · {cv.location}
+          </p>
+          <motion.h1
+            initial={reduce ? false : { opacity: 0, y: 28 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            className="mt-6 font-[family-name:var(--font-serif)] text-5xl leading-[0.95] sm:text-7xl md:text-8xl"
           >
-            Commission a hire
-          </a>
-          <a
-            href="/resume"
-            className="border border-[#d4af78]/50 px-5 py-2.5 text-sm font-semibold text-[#d4af78] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#d4af78]"
-          >
-            Catalog sheet
-          </a>
-          <p className="text-sm text-[#d4af78]">{cv.title}</p>
+            {cv.name}
+          </motion.h1>
+          <p className="mt-5 max-w-xl font-[family-name:var(--font-sans)] text-sm leading-7 text-[#f3e8d8]/70">
+            {cv.summary}
+          </p>
+          <div className="mt-8 flex flex-wrap items-center gap-4">
+            <a
+              href={`mailto:${cv.email}`}
+              className="border border-[#d4af78] bg-[#d4af78] px-5 py-2.5 text-sm font-semibold text-[#17130e] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#d4af78]"
+            >
+              Commission a hire
+            </a>
+            <a
+              href="/resume"
+              className="border border-[#d4af78]/50 px-5 py-2.5 text-sm font-semibold text-[#d4af78] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#d4af78]"
+            >
+              Catalog sheet
+            </a>
+            <p className="text-sm text-[#d4af78]">{cv.title}</p>
+          </div>
+          <ContactRow className="mt-6 text-[#f3e8d8]/60" />
         </div>
-        <ContactRow className="relative mt-6 text-[#f3e8d8]/60" />
+        <WebGLStage
+          accent={accent}
+          reduce={reduce}
+          label="Three.js museum alcoves orbiting a lit core"
+          className="relative h-[min(52vh,420px)] w-full overflow-hidden rounded-sm border border-[#d4af78]/25 bg-[#100c08]"
+          fallback={<FallbackGlow accent={accent} />}
+        >
+          <SceneAlcove accent={accent} />
+        </WebGLStage>
       </header>
 
       <section className="mx-auto grid max-w-5xl grid-cols-2 gap-px border border-[#d4af78]/25 md:grid-cols-4">

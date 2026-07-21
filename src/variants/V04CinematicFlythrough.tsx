@@ -2,23 +2,28 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { ContactRow, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
+import { FallbackGlow, SceneFlythrough, WebGLStage } from "@/components/webgl/AwardWebGL";
 import { cv } from "@/data/cv";
 
 /** Cinematic Flythrough — a continuous camera-like progression turns the CV into one restrained film take. */
 export function Variant() {
   const reduce = useReducedMotion() ?? false;
+  const accent = "#e6a56f";
   return (
     <main className="min-h-screen bg-[#0e0d0b] text-[#f2eadc]">
       <header className="relative flex min-h-screen items-end overflow-hidden px-6 pb-16 pt-28 md:px-12">
-        <motion.div
+        <WebGLStage
+          accent={accent}
+          reduce={reduce}
+          label="Three.js corridor flythrough of proof panels"
+          className="absolute inset-0 opacity-70"
+          fallback={<FallbackGlow accent={accent} />}
+        >
+          <SceneFlythrough accent={accent} />
+        </WebGLStage>
+        <div
           aria-hidden
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(90deg, rgba(14,13,11,.96) 0%, rgba(14,13,11,.2) 55%), radial-gradient(circle at 72% 42%, #b46a38 0, #35231b 28%, #0e0d0b 64%)",
-          }}
-          animate={reduce ? undefined : { scale: [1, 1.07] }}
-          transition={{ duration: 12, ease: "easeOut" }}
+          className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#0e0d0b] via-[#0e0d0b]/75 to-transparent"
         />
         <div
           aria-hidden

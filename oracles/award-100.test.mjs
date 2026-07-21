@@ -298,3 +298,29 @@ test("Fail-then-pass: package scripts and GitHub checks run oracles", () => {
   assert.equal(pkg.scripts.test, "node --test oracles/**/*.test.mjs");
   assert.match(read(".github/workflows/ci.yml"), /npm (?:run )?test/);
 });
+
+test("Fail-then-pass: Alpha r3f-stacked cells mount real WebGL", () => {
+  const { variants } = loadVariantsModule();
+  const webglKit = read("src/components/webgl/AwardWebGL.tsx");
+  assert.match(webglKit, /@react-three\/fiber/);
+  assert.match(webglKit, /Canvas/);
+  assert.match(webglKit, /useReducedMotion|reduce/);
+  const r3fCells = variants.filter((v) => v.stack.includes("r3f"));
+  assert.ok(r3fCells.length >= 9, `expected ≥9 r3f-stacked cells, got ${r3fCells.length}`);
+  for (const cell of r3fCells) {
+    const file = listVariantFiles().find((name) => Number(name.match(/^V(\d+)/)[1]) === cell.id);
+    assert.ok(file, `missing file for #${cell.id}`);
+    const src = fs.readFileSync(path.join(variantsDir, file), "utf8");
+    assert.ok(
+      src.includes("@/components/webgl/AwardWebGL") || src.includes("@react-three/fiber"),
+      `RED: #${cell.id} ${file} claims r3f but never mounts WebGL`,
+    );
+    assert.match(src, /WebGLStage|Canvas/, `${file} must render a WebGL stage`);
+  }
+});
+
+test("Fail-then-pass: champion Centurion also mounts WebGL atmosphere", () => {
+  const src = read("src/variants/V100OrbitfolioCenturion.tsx");
+  assert.match(src, /AwardWebGL|@react-three\/fiber/);
+  assert.match(src, /SceneCenturion|WebGLStage/);
+});
