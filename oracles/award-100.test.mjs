@@ -212,6 +212,36 @@ test("Fail-then-pass: structural diversity — not a monoculture of identical la
   );
 });
 
+test("Fail-then-pass: every variant exposes hire surface (name, contact, experience, main)", () => {
+  const files = listVariantFiles();
+  for (const file of files) {
+    const src = fs.readFileSync(path.join(variantsDir, file), "utf8");
+    assert.ok(src.includes("cv.name"), `${file} must show cv.name`);
+    assert.ok(
+      src.includes("mailto:") || src.includes("ContactRow"),
+      `${file} must expose email contact`,
+    );
+    assert.ok(
+      src.includes("ExperienceList") || src.includes("cv.experience"),
+      `${file} must expose experience`,
+    );
+    assert.ok(src.includes("<main"), `${file} must use a main landmark`);
+  }
+});
+
+test("Fail-then-pass: printable resume reachable from every design", () => {
+  const contactRow = read("src/components/CvBlocks.tsx");
+  assert.ok(contactRow.includes('href="/resume"'), "ContactRow must link to printable resume");
+  const files = listVariantFiles();
+  for (const file of files) {
+    const src = fs.readFileSync(path.join(variantsDir, file), "utf8");
+    assert.ok(
+      src.includes("/resume") || src.includes("ContactRow"),
+      `${file} must route recruiters to printable resume`,
+    );
+  }
+});
+
 test("Fail-then-pass: shared AwardVariant shell is fully retired", () => {
   const files = listVariantFiles();
   const shellUsers = files.filter((file) => {

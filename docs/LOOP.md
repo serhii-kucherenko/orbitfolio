@@ -40,5 +40,6 @@ Autonomous progress log for Orbitfolio.
 | 37 | Custom design batch 8 | Raised diversity gate to **100** — all experiments uniquely built |
 | 38 | Champion polish | Rebuilt Centurion homepage: warp scroll, glass metrics, resume CTA, readable sections |
 | 39 | Tick 4 guardrail | Added oracle that forbids any remaining shared-shell variants |
+| 40 | Hire UX oracles | Every design exposes name/contact/experience; printable resume on all cells; polished #57/#59/#66/#69/#70 |
 
 Live: https://orbitfolio-kohl.vercel.app · Loop: score validation + polish high-hire cells + merge
