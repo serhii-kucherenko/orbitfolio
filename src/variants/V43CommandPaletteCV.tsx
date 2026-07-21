@@ -4,17 +4,36 @@ import { useReducedMotion } from "framer-motion";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
 import { cv } from "@/data/cv";
 
+/** Command Palette C V — deepened award cell */
 export function Variant() {
-  const reduceMotion = useReducedMotion() ?? false;
+  const _reduce = useReducedMotion() ?? false;
   return (
-    <main className="min-h-screen bg-[#090c10] p-4 text-slate-200 md:p-12">
-      <div className="mx-auto max-w-6xl overflow-hidden rounded-2xl border border-white/15 bg-[#11161d] shadow-2xl">
-        <header className="border-b border-white/10 p-5"><div className="rounded-lg border border-emerald-300/30 bg-black/40 px-5 py-4 font-mono text-emerald-300">⌘ K &nbsp; Search {cv.name}&apos;s career… <span className={reduceMotion ? "hidden" : "animate-pulse"}>▌</span></div></header>
-        <div className="grid md:grid-cols-[240px_1fr]"><nav className="border-r border-white/10 p-5 font-mono text-sm"><p className="mb-4 text-white/40">COMMANDS</p>{["Identity","Experience","Capabilities","Projects","Contact"].map((item, i) => <a key={item} href={`#cmd-${i}`} className="block rounded px-3 py-3 hover:bg-emerald-300/10">› {item}</a>)}</nav>
-          <div><section id="cmd-0" className="border-b border-white/10 p-8"><p className="font-mono text-emerald-300">{cv.title}</p><h1 className="mt-4 text-6xl font-bold">{cv.name}</h1><p className="mt-6 max-w-3xl leading-7 text-slate-400">{cv.summary}</p><ContactRow className="mt-7" /></section>
-            <section id="cmd-1" className="border-b border-white/10 p-8"><h2 className="mb-8 font-mono text-emerald-300">run experience --all</h2><ExperienceList tone="dark" /></section>
-            <section id="cmd-2" className="border-b border-white/10 p-8"><h2 className="mb-8 font-mono text-emerald-300">inspect skills</h2><SkillsCloud /></section>
-            <section id="cmd-3" className="p-8"><h2 className="mb-8 font-mono text-emerald-300">open projects</h2><ProjectLinks /><p className="mt-12 text-sm text-white/50">{cv.education.degree} · {cv.education.school}</p></section></div></div>
+    <main className="min-h-screen font-[family-name:var(--font-mono)]" style={{ background: "#fef3c7", color: "#78350f" }}>
+      <div className="mx-auto max-w-5xl px-6 py-24">
+        <pre className="text-xs opacity-50">{"// Command Palette C V\nconst engineer = await resolveProfile();"}</pre>
+        <h1 className="mt-6 text-4xl font-bold sm:text-6xl">{cv.name}</h1>
+        <p className="mt-3 opacity-75">{cv.title}</p>
+        <p className="mt-6 max-w-2xl text-sm leading-7 opacity-65">{cv.summary}</p>
+        <div className="mt-8 flex flex-wrap gap-3">
+          <a href={`mailto:${cv.email}`} className="rounded border px-4 py-2 text-xs uppercase" style={{ borderColor: "#b45309", color: "#b45309" }}>run hire()</a>
+          <ContactRow />
+        </div>
+        <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-4">
+          {cv.highlights.map((h) => (
+            <div key={h.label} className="border border-dashed p-3" style={{ borderColor: "#b4530955" }}>
+              <p className="text-xl font-bold">{h.value}</p>
+              <p className="text-[10px] uppercase opacity-50">{h.label}</p>
+            </div>
+          ))}
+        </div>
+        <section className="mt-16 border-t border-dashed pt-10" style={{ borderColor: "#b4530944" }}>
+          <h2 className="mb-8 text-2xl">experience.log</h2>
+          <ExperienceList tone="light" />
+        </section>
+        <section className="mt-16 grid gap-12 border-t border-dashed pt-10 md:grid-cols-2" style={{ borderColor: "#b4530944" }}>
+          <div><h2 className="mb-6 text-xl">skills.json</h2><SkillsCloud tone="light" /></div>
+          <div><h2 className="mb-6 text-xl">projects.md</h2><ProjectLinks tone="light" /><p className="mt-8 text-xs opacity-55">{cv.education.degree} · {cv.education.school} · {cv.location}</p></div>
+        </section>
       </div>
     </main>
   );

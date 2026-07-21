@@ -4,18 +4,41 @@ import { useReducedMotion } from "framer-motion";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
 import { cv } from "@/data/cv";
 
+/** Swiss Evidence Grid — deepened award cell */
 export function Variant() {
-  const reduceMotion = useReducedMotion() ?? false;
+  const _reduce = useReducedMotion() ?? false;
   return (
-    <main className="min-h-screen bg-white text-black">
-      <header className="grid border-b border-black md:grid-cols-12">
-        <div className="bg-[#ff342b] p-8 md:col-span-4"><span className="text-8xl font-black">20</span></div>
-        <div className="p-8 md:col-span-8"><p className="text-xs uppercase tracking-[.4em]">{cv.title}</p><h1 className="mt-10 text-6xl font-bold leading-[.85] md:text-8xl">{cv.name}</h1><p className="mt-8 max-w-3xl text-lg">{cv.summary}</p><ContactRow className="mt-8" /></div>
-      </header>
-      <section className="grid border-b border-black md:grid-cols-4">
-        {cv.highlights.map((item, index) => <div key={item.label} className={`border-black p-7 md:border-r ${reduceMotion ? "" : "transition-colors hover:bg-[#d9ff43]"}`}><span className="text-4xl font-black">{item.value}</span><p className="text-xs uppercase">{index + 1}. {item.label}</p></div>)}
-      </section>
-      <div className="grid md:grid-cols-12"><section className="border-black p-8 md:col-span-7 md:border-r"><h2 className="mb-10 text-sm font-bold uppercase tracking-[.3em]">01 / Experience</h2><ExperienceList tone="light" /></section><aside className="space-y-12 p-8 md:col-span-5"><div><h2 className="mb-6 text-sm font-bold uppercase">02 / Skills</h2><SkillsCloud tone="light" /></div><div><h2 className="mb-6 text-sm font-bold uppercase">03 / Projects</h2><ProjectLinks tone="light" /></div><p>{cv.education.degree} — {cv.education.school}</p></aside></div>
+    <main className="min-h-screen p-3 md:p-8" style={{ background: "#ecfeff", color: "#164e63" }}>
+      <div className="mx-auto max-w-5xl rounded-[2rem] border p-6 md:p-12" style={{ borderColor: "#0891b266", background: "#ffffffcc" }}>
+        <p className="text-[10px] uppercase tracking-[0.4em] opacity-55">Swiss Evidence Grid</p>
+        <h1 className="mt-4 font-[family-name:var(--font-display)] text-4xl font-bold sm:text-6xl">{cv.name}</h1>
+        <p className="mt-3 opacity-75">{cv.title}</p>
+        <p className="mt-6 max-w-2xl text-sm leading-7 opacity-70">{cv.summary}</p>
+        <div className="mt-8 flex flex-wrap gap-3">
+          <a href={`mailto:${cv.email}`} className="rounded-full border px-5 py-2.5 text-sm font-semibold" style={{ borderColor: "#0891b2", color: "#0891b2" }}>Book a chat</a>
+          <ContactRow />
+        </div>
+        <div className="mt-10 grid gap-3 sm:grid-cols-4">
+          {cv.highlights.map((h) => (
+            <div key={h.label} className="rounded-2xl border p-4" style={{ borderColor: "#0891b240" }}>
+              <p className="text-2xl font-bold">{h.value}</p>
+              <p className="text-xs opacity-55">{h.label}</p>
+            </div>
+          ))}
+        </div>
+        <section className="mt-16"><h2 className="mb-8 text-3xl font-bold">Evidence</h2><ExperienceList tone="light" /></section>
+        <section className="mt-16 grid gap-12 md:grid-cols-2">
+          <div><h2 className="mb-6 text-2xl font-bold">Systems</h2><SkillsCloud tone="light" /></div>
+          <div><h2 className="mb-6 text-2xl font-bold">Work</h2><ProjectLinks tone="light" /><p className="mt-8 text-sm opacity-55">{cv.education.degree} · {cv.education.school}</p></div>
+        </section>
+      </div>
+    
+      <footer className="mx-auto max-w-6xl px-6 pb-16 text-sm opacity-55">
+        {/* Education footer */}
+        <p>
+          {cv.education.degree} · {cv.education.school} · {cv.location}
+        </p>
+      </footer>
     </main>
   );
 }

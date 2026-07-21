@@ -1,22 +1,45 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { useReducedMotion } from "framer-motion";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
 import { cv } from "@/data/cv";
 
-/** Aurora Vancouver Canvas — handcrafted award cell */
+/** Aurora Vancouver Canvas — deepened award cell */
 export function Variant() {
-  const reduce = useReducedMotion() ?? false;
+  const _reduce = useReducedMotion() ?? false;
   return (
-    <main className="min-h-screen bg-[#041018] text-emerald-50">
-      {!reduce && <motion.div aria-hidden className="pointer-events-none fixed inset-x-0 top-0 h-[45vh] opacity-45" style={{ background: "linear-gradient(115deg, transparent, rgba(52,211,153,0.35), rgba(56,189,248,0.2), transparent)" }} animate={{ x: ["-8%", "8%", "-8%"] }} transition={{ duration: 14, repeat: Infinity }} />}
-      <section className="relative mx-auto max-w-4xl px-6 pb-8 pt-28">
-        <p className="text-[10px] uppercase tracking-[0.35em] text-emerald-300/70">Aurora · Vancouver</p>
-        <h1 className="mt-4 font-[family-name:var(--font-display)] text-5xl font-bold sm:text-6xl">{cv.name}</h1>
-        <p className="mt-3 text-emerald-100/75">{cv.title}</p>
-        <p className="mt-6 max-w-2xl text-sm leading-7 text-white/55">{cv.summary}</p>
-      </section>
-      <section className="relative mx-auto max-w-4xl space-y-14 px-6 pb-28"><ExperienceList tone="dark" /><SkillsCloud /><ProjectLinks /><ContactRow className="text-emerald-100/70" /></section>
+    <main className="min-h-screen md:grid md:grid-cols-[280px_1fr]" style={{ background: "#f8fafc", color: "#0f172a" }}>
+      <aside className="border-r p-8 md:sticky md:top-0 md:h-screen" style={{ borderColor: "#33415533", background: "#ffffff80" }}>
+        <p className="text-[10px] uppercase tracking-[0.3em] opacity-60">Aurora Vancouver Canvas</p>
+        <h1 className="mt-6 font-[family-name:var(--font-display)] text-3xl font-bold">{cv.name}</h1>
+        <p className="mt-2 text-sm opacity-70">{cv.title}</p>
+        <a href={`mailto:${cv.email}`} className="mt-8 inline-block rounded-full px-4 py-2 text-xs font-bold" style={{ background: "#334155", color: "#fff"}}>Email</a>
+        <ContactRow className="mt-6" />
+        <p className="mt-10 text-xs opacity-50">{cv.location}</p>
+      </aside>
+      <div className="px-6 py-16 md:px-12">
+        <p className="max-w-2xl text-sm leading-7 opacity-70">{cv.summary}</p>
+        <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-4">
+          {cv.highlights.map((h) => (
+            <div key={h.label} className="rounded-xl border p-4" style={{ borderColor: "#33415544" }}>
+              <p className="text-2xl font-bold">{h.value}</p>
+              <p className="text-[10px] uppercase opacity-50">{h.label}</p>
+            </div>
+          ))}
+        </div>
+        <section className="mt-16"><h2 className="mb-8 text-3xl font-bold">Career</h2><ExperienceList tone="light" /></section>
+        <section className="mt-16 grid gap-12 md:grid-cols-2">
+          <div><h2 className="mb-6 text-2xl font-bold">Toolkit</h2><SkillsCloud tone="light" /></div>
+          <div><h2 className="mb-6 text-2xl font-bold">Shipped</h2><ProjectLinks tone="light" /><p className="mt-8 text-sm opacity-55">{cv.education.degree} · {cv.education.school}</p></div>
+        </section>
+      </div>
+    
+      <footer className="mx-auto max-w-6xl px-6 pb-16 text-sm opacity-55">
+        {/* Education footer */}
+        <p>
+          {cv.education.degree} · {cv.education.school} · {cv.location}
+        </p>
+      </footer>
     </main>
   );
 }

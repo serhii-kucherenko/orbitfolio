@@ -26,7 +26,7 @@ Full definitions: [`docs/RUBRIC.md`](RUBRIC.md)
 - Fail-then-pass diversity checks forced at least 20 fully custom designs instead of shared-shell palette swaps — see [`docs/RED_GREEN.md`](RED_GREEN.md)
 - Gate raised to **100** custom designs (batch 8) — every `/test/n` cell is now uniquely built; shared `AwardVariant` shell retired from active experiments
 - Hire UX oracles (tick 40): every cell exposes name, email contact, experience, and a `<main>` landmark; printable `/resume` reachable from every design via `ContactRow` or inline link
-- After 100/100 uniqueness, the next fail-then-pass lever is **depth** — cells that still dump shared resume blocks under a thin hero need full award craft (tick 42 raised deepened gate to ≥15; tick 43 to ≥20)
+- After 100/100 uniqueness, the next fail-then-pass lever is **depth** — drip-feeding +5 cells per loop left ~half the lab looking like thin resume dumps (tick 46 mass-deepened to **100/100** ≥40-line designs)
 - Public homepage is now **selectable**: while browsing `/test/n`, “Use as public home” (password-gated) publishes that design to `/` for everyone
 - Shared resume blocks keep completeness high while experience diverges — but overusing them plus the same starfield made designs feel identical
 - Diversity reboot (tick 26): magazine / [Swiss Style](https://www.designhistory.org/Art_Movements_pages/SwissDesign.html) / clinic product / daylight glass / paper void / dual narrative / mosaic / case chapters / isometric rooms / brutal press / [Bauhaus](https://www.bauhaus.de/en/) / recruiter profile / docs workspace

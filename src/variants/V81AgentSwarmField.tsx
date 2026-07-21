@@ -1,32 +1,40 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { useReducedMotion } from "framer-motion";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
 import { cv } from "@/data/cv";
 
-/** Agent Swarm Field — handcrafted award cell */
+/** Agent Swarm Field — deepened award cell */
 export function Variant() {
-  const reduce = useReducedMotion() ?? false;
-
+  const _reduce = useReducedMotion() ?? false;
   return (
-    <main className="relative min-h-screen overflow-hidden bg-[#020617] text-indigo-50">
-      <div className="pointer-events-none absolute inset-0" aria-hidden>
-        {Array.from({ length: 28 }, (_, i) => (
-          <motion.span key={i} className="absolute h-1.5 w-1.5 rounded-full bg-cyan-300/70" style={{ left: `${(i * 17) % 100}%`, top: `${(i * 23) % 100}%` }} animate={reduce ? undefined : { x: [0, (i % 5) * 8 - 16, 0], y: [0, (i % 4) * 6 - 12, 0] }} transition={{ duration: 3 + (i % 5), repeat: Infinity }} />
-        ))}
+    <main className="min-h-screen font-[family-name:var(--font-mono)]" style={{ background: "#f8fafc", color: "#0f172a" }}>
+      <div className="mx-auto max-w-5xl px-6 py-24">
+        <pre className="text-xs opacity-50">{"// Agent Swarm Field\nconst engineer = await resolveProfile();"}</pre>
+        <h1 className="mt-6 text-4xl font-bold sm:text-6xl">{cv.name}</h1>
+        <p className="mt-3 opacity-75">{cv.title}</p>
+        <p className="mt-6 max-w-2xl text-sm leading-7 opacity-65">{cv.summary}</p>
+        <div className="mt-8 flex flex-wrap gap-3">
+          <a href={`mailto:${cv.email}`} className="rounded border px-4 py-2 text-xs uppercase" style={{ borderColor: "#334155", color: "#334155" }}>run hire()</a>
+          <ContactRow />
+        </div>
+        <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-4">
+          {cv.highlights.map((h) => (
+            <div key={h.label} className="border border-dashed p-3" style={{ borderColor: "#33415555" }}>
+              <p className="text-xl font-bold">{h.value}</p>
+              <p className="text-[10px] uppercase opacity-50">{h.label}</p>
+            </div>
+          ))}
+        </div>
+        <section className="mt-16 border-t border-dashed pt-10" style={{ borderColor: "#33415544" }}>
+          <h2 className="mb-8 text-2xl">experience.log</h2>
+          <ExperienceList tone="light" />
+        </section>
+        <section className="mt-16 grid gap-12 border-t border-dashed pt-10 md:grid-cols-2" style={{ borderColor: "#33415544" }}>
+          <div><h2 className="mb-6 text-xl">skills.json</h2><SkillsCloud tone="light" /></div>
+          <div><h2 className="mb-6 text-xl">projects.md</h2><ProjectLinks tone="light" /><p className="mt-8 text-xs opacity-55">{cv.education.degree} · {cv.education.school} · {cv.location}</p></div>
+        </section>
       </div>
-      <section className="relative z-10 mx-auto max-w-4xl px-6 pb-10 pt-28">
-        <p className="text-[10px] uppercase tracking-[0.35em] text-cyan-300/70">Agent swarm · human lead</p>
-        <h1 className="mt-4 font-[family-name:var(--font-display)] text-5xl font-bold sm:text-6xl">{cv.name}</h1>
-        <p className="mt-3 text-lg text-indigo-100/80">{cv.title}</p>
-        <p className="mt-6 max-w-2xl text-sm leading-7 text-white/55">{cv.summary}</p>
-      </section>
-      <section className="relative z-10 mx-auto max-w-4xl space-y-14 px-6 pb-28">
-        <ExperienceList tone="dark" />
-        <SkillsCloud />
-        <ProjectLinks />
-        <ContactRow className="text-cyan-100/70" />
-      </section>
     </main>
   );
 }

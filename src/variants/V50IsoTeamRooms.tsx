@@ -4,16 +4,42 @@ import { useReducedMotion } from "framer-motion";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
 import { cv } from "@/data/cv";
 
+/** Iso Team Rooms — deepened award cell */
 export function Variant() {
-  const reduceMotion = useReducedMotion() ?? false;
+  const _reduce = useReducedMotion() ?? false;
   return (
-    <main className="overflow-hidden bg-[#07111f] text-white">
-      <header className="mx-auto max-w-6xl p-8 py-20 text-center"><p className="text-amber-300">{cv.title}</p><h1 className="mt-5 text-7xl font-black">{cv.name}</h1><p className="mx-auto mt-7 max-w-3xl text-slate-300">{cv.summary}</p><ContactRow className="mt-8 justify-center" /></header>
-      <div className={`mx-auto grid max-w-6xl gap-12 p-8 md:grid-cols-2 ${reduceMotion ? "" : "[perspective:1200px]"}`}>
-        <section className="border border-amber-300/30 bg-[#12243a] p-8 md:[transform:rotateY(8deg)_rotateX(3deg)]"><h2 className="mb-8 text-3xl text-amber-300">Room 01 / career</h2><ExperienceList tone="dark" /></section>
-        <div className="space-y-12 md:pt-28"><section className="border border-cyan-300/30 bg-[#0c2931] p-8 md:[transform:rotateY(-8deg)_rotateX(3deg)]"><h2 className="mb-7 text-3xl text-cyan-300">Room 02 / systems</h2><SkillsCloud /></section><section className="border border-rose-300/30 bg-[#2d1825] p-8 md:[transform:rotateY(-8deg)_rotateX(3deg)]"><h2 className="mb-7 text-3xl text-rose-300">Room 03 / prototypes</h2><ProjectLinks /></section></div>
+    <main className="min-h-screen md:grid md:grid-cols-[280px_1fr]" style={{ background: "#faf7f2", color: "#1c1917" }}>
+      <aside className="border-r p-8 md:sticky md:top-0 md:h-screen" style={{ borderColor: "#0f766e33", background: "#ffffff80" }}>
+        <p className="text-[10px] uppercase tracking-[0.3em] opacity-60">Iso Team Rooms</p>
+        <h1 className="mt-6 font-[family-name:var(--font-display)] text-3xl font-bold">{cv.name}</h1>
+        <p className="mt-2 text-sm opacity-70">{cv.title}</p>
+        <a href={`mailto:${cv.email}`} className="mt-8 inline-block rounded-full px-4 py-2 text-xs font-bold" style={{ background: "#0f766e", color: "#fff"}}>Email</a>
+        <ContactRow className="mt-6" />
+        <p className="mt-10 text-xs opacity-50">{cv.location}</p>
+      </aside>
+      <div className="px-6 py-16 md:px-12">
+        <p className="max-w-2xl text-sm leading-7 opacity-70">{cv.summary}</p>
+        <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-4">
+          {cv.highlights.map((h) => (
+            <div key={h.label} className="rounded-xl border p-4" style={{ borderColor: "#0f766e44" }}>
+              <p className="text-2xl font-bold">{h.value}</p>
+              <p className="text-[10px] uppercase opacity-50">{h.label}</p>
+            </div>
+          ))}
+        </div>
+        <section className="mt-16"><h2 className="mb-8 text-3xl font-bold">Career</h2><ExperienceList tone="light" /></section>
+        <section className="mt-16 grid gap-12 md:grid-cols-2">
+          <div><h2 className="mb-6 text-2xl font-bold">Toolkit</h2><SkillsCloud tone="light" /></div>
+          <div><h2 className="mb-6 text-2xl font-bold">Shipped</h2><ProjectLinks tone="light" /><p className="mt-8 text-sm opacity-55">{cv.education.degree} · {cv.education.school}</p></div>
+        </section>
       </div>
-      <footer className="mx-auto max-w-6xl p-8 py-20 text-center text-slate-400">{cv.education.degree} · {cv.education.school}</footer>
+    
+      <footer className="mx-auto max-w-6xl px-6 pb-16 text-sm opacity-55">
+        {/* Education footer */}
+        <p>
+          {cv.education.degree} · {cv.education.school} · {cv.location}
+        </p>
+      </footer>
     </main>
   );
 }

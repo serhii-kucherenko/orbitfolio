@@ -1,32 +1,44 @@
 "use client";
 
 import { useReducedMotion } from "framer-motion";
-import { ContactRow, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
+import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
 import { cv } from "@/data/cv";
 
-/** Case File Switchboard — handcrafted award cell */
+/** Case File Switchboard — deepened award cell */
 export function Variant() {
   const _reduce = useReducedMotion() ?? false;
   return (
-    <main className="min-h-screen bg-[#111827] text-slate-100">
-      <section className="mx-auto max-w-5xl px-6 pb-8 pt-28">
-        <p className="text-[10px] uppercase tracking-[0.35em] text-slate-400">Switchboard</p>
-        <h1 className="mt-3 font-[family-name:var(--font-display)] text-4xl font-bold sm:text-5xl">{cv.name}</h1>
-        <p className="mt-2 text-slate-300">{cv.title}</p>
-        <p className="mt-6 max-w-2xl text-sm leading-7 text-white/55">{cv.summary}</p>
-        <div className="mt-8 flex flex-wrap gap-2">{cv.experience.map((job) => <a key={job.company} href={`#${job.company.replace(/\s+/g, "-")}`} className="rounded-full border border-white/15 px-4 py-2 text-xs hover:border-sky-300/50">{job.company}</a>)}</div>
-      </section>
-      <section className="mx-auto max-w-5xl space-y-10 px-6 pb-16">
-        {cv.experience.map((job) => (
-          <article key={job.company} id={job.company.replace(/\s+/g, "-")} className="rounded-2xl border border-white/10 bg-white/5 p-6">
-            <p className="text-xs text-slate-400">{job.period}</p>
-            <h2 className="mt-2 text-2xl font-semibold">{job.role}</h2>
-            <p className="text-sm text-slate-400">{job.company} · {job.place}</p>
-            <ul className="mt-4 space-y-2 text-sm text-white/65">{job.bullets.map((b) => <li key={b.slice(0, 24)}>{b}</li>)}</ul>
-          </article>
+    <main className="min-h-screen" style={{ background: "#1c1917", color: "#fafaf9" }}>
+      <header className="border-b px-6 py-20 md:px-12" style={{ borderColor: "#fb923c44" }}>
+        <div className="mx-auto max-w-6xl">
+          <p className="font-[family-name:var(--font-mono)] text-xs uppercase tracking-[0.35em] opacity-55">Case File Switchboard issue</p>
+          <h1 className="mt-6 font-[family-name:var(--font-display)] text-6xl font-black leading-[0.9] sm:text-8xl">{cv.name}</h1>
+          <div className="mt-8 grid gap-8 md:grid-cols-[1.4fr_1fr]">
+            <p className="text-sm leading-8 opacity-75">{cv.summary}</p>
+            <div>
+              <p className="text-lg font-semibold" style={{ color: "#fb923c" }}>{cv.title}</p>
+              <a href={`mailto:${cv.email}`} className="mt-4 inline-block text-sm underline">Write the editor</a>
+              <ContactRow className="mt-4 text-white/70" />
+            </div>
+          </div>
+        </div>
+      </header>
+      <section className="mx-auto grid max-w-6xl grid-cols-2 gap-4 px-6 py-12 md:grid-cols-4 md:px-12">
+        {cv.highlights.map((h) => (
+          <div key={h.label} className="border-t-4 pt-4" style={{ borderColor: "#fb923c" }}>
+            <p className="text-3xl font-black">{h.value}</p>
+            <p className="mt-1 text-xs uppercase tracking-wider opacity-55">{h.label}</p>
+          </div>
         ))}
       </section>
-      <section className="mx-auto max-w-5xl space-y-12 px-6 pb-28"><SkillsCloud /><ProjectLinks /><ContactRow className="text-slate-300" /></section>
+      <section className="mx-auto max-w-6xl px-6 pb-24 md:px-12">
+        <h2 className="mb-10 text-4xl font-black">Feature</h2>
+        <ExperienceList tone="dark" />
+        <div className="mt-20 grid gap-12 md:grid-cols-2">
+          <div><h2 className="mb-6 text-2xl font-bold">Index</h2><SkillsCloud /></div>
+          <div><h2 className="mb-6 text-2xl font-bold">Links</h2><ProjectLinks /><p className="mt-10 text-sm opacity-55">{cv.education.degree} · {cv.education.school}</p></div>
+        </div>
+      </section>
     </main>
   );
 }

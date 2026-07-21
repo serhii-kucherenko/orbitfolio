@@ -1,21 +1,39 @@
 "use client";
 
-import { useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
 import { cv } from "@/data/cv";
 
-/** Event Horizon Filter — handcrafted award cell */
+/** Event Horizon Filter — deepened award cell */
 export function Variant() {
-  const _reduce = useReducedMotion() ?? false;
+  const reduce = useReducedMotion() ?? false;
   return (
-    <main className="min-h-screen bg-black text-zinc-100">
-      <section className="relative mx-auto flex min-h-[80vh] max-w-4xl flex-col items-center justify-center px-6 pt-24 text-center">
-        <div aria-hidden className="pointer-events-none absolute inset-0 opacity-70" style={{ background: "radial-gradient(circle at 50% 45%, transparent 18%, #000 62%)" }} />
-        <h1 className="relative font-[family-name:var(--font-display)] text-5xl font-bold sm:text-7xl">{cv.name}</h1>
-        <p className="relative mt-5 text-lg text-zinc-300">{cv.title}</p>
-        <p className="relative mt-6 max-w-2xl text-sm leading-7 text-white/55">{cv.summary}</p>
+    <main className="min-h-screen" style={{ background: "#0f172a", color: "#e2e8f0" }}>
+      <section className="mx-auto grid max-w-6xl gap-10 px-6 pb-12 pt-28 md:grid-cols-[1.2fr_0.8fr]">
+        <div>
+          <motion.p initial={reduce ? false : { opacity: 0 }} animate={{ opacity: 1 }} className="text-[10px] uppercase tracking-[0.35em] opacity-60">Event Horizon Filter</motion.p>
+          <h1 className="mt-4 font-[family-name:var(--font-display)] text-5xl font-bold sm:text-6xl">{cv.name}</h1>
+          <p className="mt-3 text-lg opacity-80">{cv.title}</p>
+          <p className="mt-6 max-w-xl text-sm leading-7 opacity-70">{cv.summary}</p>
+          <a href={`mailto:${cv.email}`} className="mt-8 inline-flex rounded-full px-5 py-2.5 text-sm font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2" style={{ background: "#a78bfa", color: "#041016"}}>Hire conversation</a>
+          <ContactRow className="mt-6 text-white/70" />
+        </div>
+        <div className="grid grid-cols-2 gap-3 content-start">
+          {cv.highlights.map((h) => (
+            <div key={h.label} className="rounded-2xl border p-4" style={{ borderColor: "#a78bfa55" }}>
+              <p className="text-3xl font-bold" style={{ color: "#a78bfa" }}>{h.value}</p>
+              <p className="mt-1 text-xs opacity-60">{h.label}</p>
+            </div>
+          ))}
+        </div>
       </section>
-      <section className="mx-auto max-w-4xl space-y-14 px-6 pb-28"><ExperienceList tone="dark" /><SkillsCloud /><ProjectLinks /><ContactRow className="text-zinc-300" /></section>
+      <section className="mx-auto max-w-6xl space-y-16 px-6 pb-28">
+        <div><h2 className="mb-8 text-3xl font-bold">Experience</h2><ExperienceList tone="dark" /></div>
+        <div className="grid gap-12 md:grid-cols-2">
+          <div><h2 className="mb-6 text-2xl font-bold">Skills</h2><SkillsCloud /></div>
+          <div><h2 className="mb-6 text-2xl font-bold">Projects</h2><ProjectLinks /><p className="mt-10 text-sm opacity-55">{cv.education.degree} · {cv.education.school}</p></div>
+        </div>
+      </section>
     </main>
   );
 }
