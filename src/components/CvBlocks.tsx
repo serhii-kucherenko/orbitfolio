@@ -19,7 +19,6 @@ export function ContactRow({ className = "" }: { className?: string }) {
       <Link className={contactLink} href="/resume">
         Printable resume
       </Link>
-      <span>{cv.phone}</span>
       <span>{cv.location}</span>
     </div>
   );

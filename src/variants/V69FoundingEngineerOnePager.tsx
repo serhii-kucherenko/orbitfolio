@@ -30,7 +30,6 @@ export function Variant() {
           <Link className={contactLink} href="/resume">
             Printable resume
           </Link>
-          <span>{cv.phone}</span>
         </div>
         <hr className="my-10 border-slate-200" />
         <ExperienceList tone="light" />

@@ -2,7 +2,6 @@ export const cv = {
   name: "Serhii Kucherenko",
   title: "Founding Full-Stack Engineer",
   location: "Vancouver, Canada (Remote)",
-  phone: "+1 604 831 9408",
   email: "kucherenko.web@gmail.com",
   linkedin: "https://www.linkedin.com/in/serhii-kucherenko/",
   github: "https://github.com/serhii-kucherenko",

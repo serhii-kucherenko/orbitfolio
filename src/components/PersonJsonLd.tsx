@@ -7,7 +7,6 @@ export function PersonJsonLd() {
     name: cv.name,
     jobTitle: cv.title,
     email: cv.email,
-    telephone: cv.phone,
     address: {
       "@type": "PostalAddress",
       addressLocality: "Vancouver",

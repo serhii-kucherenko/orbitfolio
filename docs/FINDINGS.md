@@ -27,6 +27,7 @@ Full definitions: [`docs/RUBRIC.md`](RUBRIC.md)
 - Gate raised to **100** custom designs (batch 8) — every `/test/n` cell is now uniquely built; shared `AwardVariant` shell retired from active experiments
 - Hire UX oracles (tick 40): every cell exposes name, email contact, experience, and a `<main>` landmark; printable `/resume` reachable from every design via `ContactRow` or inline link
 - After 100/100 uniqueness, the next fail-then-pass lever is **depth** — cells that still dump shared resume blocks under a thin hero need full award craft (tick 42 raised deepened gate to ≥15; tick 43 to ≥20)
+- Public homepage is now **selectable**: while browsing `/test/n`, “Use as public home” (password-gated) publishes that design to `/` for everyone
 - Shared resume blocks keep completeness high while experience diverges — but overusing them plus the same starfield made designs feel identical
 - Diversity reboot (tick 26): magazine / [Swiss Style](https://www.designhistory.org/Art_Movements_pages/SwissDesign.html) / clinic product / daylight glass / paper void / dual narrative / mosaic / case chapters / isometric rooms / brutal press / [Bauhaus](https://www.bauhaus.de/en/) / recruiter profile / docs workspace
 - Champion hybrid should synthesize (warp + glass + metrics + clear action buttons), not average mediocre traits — Centurion polish (tick 38) rebuilt `/` with scroll warp, glass metrics, and hire CTAs including printable resume

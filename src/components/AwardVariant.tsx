@@ -70,7 +70,6 @@ function Contact({ cv }: { cv: CV }) {
       <a href={`mailto:${cv.email}`}>{cv.email}</a>
       <a href={cv.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
       <a href={cv.github} target="_blank" rel="noreferrer">GitHub</a>
-      <a href={`tel:${cv.phone.replace(/\s/g, "")}`}>{cv.phone}</a>
       <span>{cv.location}</span>
     </address>
   );

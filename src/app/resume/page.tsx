@@ -25,7 +25,7 @@ export default function ResumePage() {
           <h1 className="font-[family-name:var(--font-display)] text-4xl print:text-3xl">{cv.name}</h1>
           <p className="mt-2 text-lg text-teal-100/90 print:text-black">{cv.title}</p>
           <p className="mt-3 text-sm text-white/60 print:text-black/70">
-            {cv.location} · {cv.phone} · {cv.email}
+            {cv.location} · {cv.email}
           </p>
           <p className="mt-1 text-sm text-white/50 print:text-black/60">
             <a href={cv.linkedin} className="underline print:no-underline">
