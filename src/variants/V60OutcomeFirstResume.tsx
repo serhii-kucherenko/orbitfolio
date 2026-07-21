@@ -36,7 +36,7 @@ export function Variant() {
       <section className="bg-[#0b1220] text-white">
         <div className="mx-auto max-w-5xl px-6 py-16 md:py-20">
           <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.35em] text-cyan-300">
-            Outcomes first · skim under 10s
+            Outcomes first · skim under 10s · {cv.location}
           </p>
           <div className="mt-4 flex flex-wrap items-end justify-between gap-6">
             <div>

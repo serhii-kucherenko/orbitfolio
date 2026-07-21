@@ -33,7 +33,9 @@ export function Variant() {
           transition={{ duration: 8, repeat: Infinity }}
         />
         <div className="relative mx-auto max-w-5xl">
-          <p className="text-[10px] uppercase tracking-[0.35em] text-[#4a6b5c]">Clinical product · founding engineer</p>
+          <p className="text-[10px] uppercase tracking-[0.35em] text-[#4a6b5c]">
+            Clinical product · founding engineer · {cv.location}
+          </p>
           <h1 className="mt-4 font-[family-name:var(--font-serif)] text-4xl tracking-tight sm:text-6xl">{cv.name}</h1>
           <p className="mt-3 text-lg text-[#3d564a]">{cv.title}</p>
           <p className="mt-6 max-w-2xl text-sm leading-7 text-[#1c2b24]/70">{cv.summary}</p>

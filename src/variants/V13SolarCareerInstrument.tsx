@@ -17,7 +17,7 @@ export function Variant() {
       <header className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-24 lg:grid-cols-[1fr_340px] lg:py-28">
         <div>
           <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.4em] text-amber-300/55">
-            Solar instrument · careers in orbit
+            Solar instrument · {cv.location}
           </p>
           <h1 className="mt-4 font-[family-name:var(--font-serif)] text-5xl sm:text-6xl">{cv.name}</h1>
           <p className="mt-3 text-lg text-amber-100/70">{cv.title}</p>

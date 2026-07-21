@@ -21,7 +21,7 @@ export function Variant() {
         />
         <div className="relative max-w-4xl">
           <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.45em]">
-            Chapter 00 · Identity
+            Chapter 00 · Identity · {cv.location}
           </p>
           <motion.h1
             initial={reduce ? false : { opacity: 0, y: 28 }}
