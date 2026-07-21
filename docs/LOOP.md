@@ -50,5 +50,6 @@ Autonomous progress log for Orbitfolio.
 | 47 | Unique rewrite burst | 15m loop + 4 parallel agents rewriting 62 generic template cells into distinct award UIs |
 | 48 | UI smoke e2e | Playwright smoke on /, /lab, sample /test pages, /resume, /goals; CI runs test→lint→build→e2e |
 | 49 | Polish thin leftovers | Rewrote last 19 mass-deepen shells into thesis-true award UIs (Alpha + hire/editorial/systems) |
+| 50 | Hire polish tick | Rebuilt top hire pages #57/#59/#70 plus snap/ASCII/Bauhaus cells for clearer recruiter scans |
 
 Live: https://orbitfolio-kohl.vercel.app · Loop: every 15m — unique award craft + UI must stay green

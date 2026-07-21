@@ -1,62 +1,68 @@
 "use client";
 
-import { useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
 import { cv } from "@/data/cv";
 
-/** ASCII Career Signal — terminal aesthetic with full hire surface */
+const banner = `
+╔══════════════════════════════╗
+║  SIGNAL / CAREER / READABLE  ║
+╚══════════════════════════════╝`.trim();
+
+/** ASCII Career Signal — monospaced signal art around a fully readable portfolio. */
 export function Variant() {
-  const reduceMotion = useReducedMotion() ?? false;
+  const reduce = useReducedMotion() ?? false;
 
   return (
-    <main className="min-h-screen bg-[#050b08] p-4 font-mono text-[#80ff9e] md:p-10">
-      <div className="mx-auto max-w-6xl border border-[#80ff9e]/40 p-5 md:p-10">
-        <pre className="overflow-hidden text-xs opacity-60">{`+--------------------------------------------------+
-| ORBITFOLIO :: CAREER SIGNAL 071 :: ONLINE       |
-+--------------------------------------------------+`}</pre>
-        <header className="py-12">
-          <p>&gt; ROLE: {cv.title}</p>
-          <h1 className="my-7 text-5xl font-bold uppercase md:text-8xl">{cv.name}</h1>
-          <p className="max-w-4xl leading-7">&gt; {cv.summary}</p>
-          <div className="mt-7 flex flex-wrap gap-3">
-            <a
-              href={`mailto:${cv.email}`}
-              className="border border-[#80ff9e] px-4 py-2 text-xs uppercase focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#80ff9e]"
-            >
-              open mail://hire
-            </a>
-            <ContactRow />
-          </div>
-          <p className="mt-5">{reduceMotion ? "[STATIC MODE]" : "[SIGNAL ACTIVE _]"}</p>
-        </header>
-        <section className="grid grid-cols-2 gap-3 border-t border-dashed border-[#80ff9e]/40 py-10 sm:grid-cols-4">
-          {cv.highlights.map((h) => (
-            <div key={h.label} className="border border-[#80ff9e]/25 p-3">
-              <p className="text-2xl font-bold">{h.value}</p>
-              <p className="mt-1 text-[10px] uppercase opacity-60">{h.label}</p>
-            </div>
-          ))}
-        </section>
-        <section className="border-t border-dashed border-[#80ff9e]/40 py-12">
-          <h2 className="mb-8 text-2xl">/EXPERIENCE --ALL</h2>
-          <ExperienceList tone="dark" />
-        </section>
-        <div className="grid gap-12 border-t border-dashed border-[#80ff9e]/40 py-12 md:grid-cols-2">
-          <section>
-            <h2 className="mb-8 text-2xl">/SKILLS --GROUPED</h2>
-            <SkillsCloud />
-          </section>
-          <section>
-            <h2 className="mb-8 text-2xl">/PROJECTS --LINKS</h2>
-            <ProjectLinks />
-          </section>
+    <main className="min-h-screen bg-[#0a0c0a] text-[#b6f5a8]">
+      <header className="mx-auto max-w-5xl px-6 pb-10 pt-24 font-[family-name:var(--font-mono)]">
+        <motion.pre
+          aria-hidden
+          initial={reduce ? false : { opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="overflow-x-auto text-[10px] leading-tight text-[#6fdf5c]/80 sm:text-xs"
+        >
+          {banner}
+        </motion.pre>
+        <p className="mt-8 text-[10px] uppercase tracking-[0.35em] text-[#6fdf5c]/60">tx · founding-engineer</p>
+        <h1 className="mt-3 text-4xl font-bold tracking-tight text-[#d8ffcf] sm:text-6xl">{cv.name}</h1>
+        <p className="mt-3 text-sm text-[#6fdf5c]">{cv.title}</p>
+        <p className="mt-6 max-w-2xl text-xs leading-6 text-[#b6f5a8]/70 sm:text-sm sm:leading-7">{cv.summary}</p>
+        <div className="mt-8 flex flex-wrap gap-3">
+          <a
+            href={`mailto:${cv.email}`}
+            className="border border-[#6fdf5c] bg-[#6fdf5c] px-4 py-2 text-xs font-bold text-[#0a0c0a] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#6fdf5c]"
+          >
+            mailto:hire
+          </a>
+          <ContactRow className="text-[#6fdf5c]/80" />
         </div>
-        <footer className="border-t border-dashed border-[#80ff9e]/40 pt-8">
-          &gt; EDUCATION: {cv.education.degree} @ {cv.education.school}
-          <br />
-          &gt; LOCATION: {cv.location}
-        </footer>
-      </div>
+        <pre className="mt-10 overflow-x-auto border border-[#6fdf5c]/25 bg-[#101510] p-4 text-[10px] leading-5 text-[#6fdf5c]/85 sm:text-xs">
+{cv.highlights.map((h) => `${h.label.padEnd(16, " ")} ${h.value}`).join("\n")}
+        </pre>
+      </header>
+
+      <section className="mx-auto max-w-5xl space-y-14 px-6 pb-28 font-[family-name:var(--font-mono)]">
+        <div>
+          <h2 className="mb-6 text-xs uppercase tracking-[0.3em] text-[#6fdf5c]/55"># experience</h2>
+          <div className="text-[#d8ffcf]">
+            <ExperienceList tone="dark" />
+          </div>
+        </div>
+        <div className="grid gap-12 md:grid-cols-2">
+          <div>
+            <h2 className="mb-6 text-xs uppercase tracking-[0.3em] text-[#6fdf5c]/55"># skills</h2>
+            <SkillsCloud />
+          </div>
+          <div>
+            <h2 className="mb-6 text-xs uppercase tracking-[0.3em] text-[#6fdf5c]/55"># projects</h2>
+            <ProjectLinks />
+          </div>
+        </div>
+        <p className="text-[10px] text-[#6fdf5c]/45">
+          {cv.education.degree} · {cv.education.school} · {cv.location}
+        </p>
+      </section>
     </main>
   );
 }
