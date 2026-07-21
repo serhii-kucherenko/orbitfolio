@@ -12,7 +12,7 @@ export function Variant() {
     <main className="min-h-screen bg-[#16141c] text-[#f0eef5]">
       <header className="mx-auto max-w-6xl px-6 pb-8 pt-20 md:px-10">
         <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.4em] text-[#ff7a59]">
-          Eurorack CV · kinetic synthesis
+          Eurorack CV · kinetic synthesis · {cv.location}
         </p>
         <h1 className="mt-4 font-[family-name:var(--font-display)] text-5xl font-black sm:text-6xl">{cv.name}</h1>
         <p className="mt-3 text-[#ffb39a]">{cv.title}</p>
@@ -20,13 +20,13 @@ export function Variant() {
         <div className="mt-8 flex flex-wrap items-center gap-4">
           <a
             href={`mailto:${cv.email}`}
-            className="rounded-md bg-[#ff7a59] px-5 py-2.5 text-xs font-bold uppercase tracking-widest text-[#16141c] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ffb39a]"
+            className="bg-[#ff7a59] px-5 py-2.5 text-xs font-bold uppercase tracking-widest text-[#16141c] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ffb39a]"
           >
             Patch hire
           </a>
           <a
             href="/resume"
-            className="rounded-md border border-[#ff7a59]/50 px-5 py-2.5 text-xs font-bold uppercase tracking-widest text-[#ffb39a]"
+            className="border border-[#ff7a59]/50 px-5 py-2.5 text-xs font-bold uppercase tracking-widest text-[#ffb39a] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ffb39a]"
           >
             Patch sheet
           </a>
@@ -35,9 +35,9 @@ export function Variant() {
       </header>
 
       <section className="mx-auto max-w-6xl px-6 md:px-10">
-        <div className="grid gap-3 rounded-2xl border border-white/10 bg-[#0e0c14] p-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-3 border border-white/10 bg-[#0e0c14] p-4 sm:grid-cols-2 lg:grid-cols-4">
           {cv.highlights.map((h, i) => (
-            <div key={h.label} className="rounded-xl border border-white/10 bg-[#1f1c28] p-4">
+            <div key={h.label} className="border border-white/10 bg-[#1f1c28] p-4">
               <div className="flex items-center justify-between">
                 <p className="font-[family-name:var(--font-mono)] text-[9px] uppercase tracking-wider text-white/40">
                   Mod {i + 1}

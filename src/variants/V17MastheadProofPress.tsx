@@ -7,14 +7,13 @@ import { cv } from "@/data/cv";
 /** Masthead Proof Press — daily-paper hierarchy: evidence above ornament. */
 export function Variant() {
   const reduce = useReducedMotion() ?? false;
-  const today = "Vol. 10 · Evidence edition";
 
   return (
     <main className="min-h-screen bg-[#ece9e1] text-[#1a1a1a]">
       <header className="border-b-4 border-black px-4 pb-4 pt-20 sm:px-8">
         <div className="mx-auto flex max-w-6xl items-end justify-between gap-4 font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.25em]">
           <span>{cv.location}</span>
-          <span>{today}</span>
+          <span>Vol. 10 · Evidence edition · morning press</span>
         </div>
         <motion.h1
           initial={reduce ? false : { opacity: 0, y: 16 }}
@@ -56,7 +55,10 @@ export function Variant() {
             >
               Assign the story
             </a>
-            <a href="/resume" className="border border-black px-5 py-2.5 text-sm font-semibold">
+            <a
+              href="/resume"
+              className="border border-black px-5 py-2.5 text-sm font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+            >
               Press kit PDF
             </a>
             <ContactRow className="items-center text-black/60" />
