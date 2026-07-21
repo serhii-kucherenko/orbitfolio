@@ -1,28 +1,28 @@
 # Orbitfolio — product brief
 
 **ID:** orbitfolio  
-**Hypothesis:** A Method Lab product loop (many scored UI variants → promote champion) can produce an award-grade personal portfolio faster than a single-shot design.
+**Hypothesis:** Running many scored portfolio designs and promoting the best one produces an award-grade personal site faster than designing a single page once.
 
 ## Success
 
-- 100 distinct `/test/n` variants (structure/UX differ, not only theme)
-- Scored on coolness / comprehensiveness / uniqueness / motion / hireability
-- Champion at `/` with CV completeness + space FX wow
+- 100 distinct `/test/n` designs (structure and interaction differ, not only theme)
+- Scored on coolness / completeness / uniqueness / motion / hireability
+- Best design on `/` with full resume content plus memorable motion or atmosphere
 - `/goals` page with 100 goals seed
-- Public GitHub repo; mergeable trunk
+- Public GitHub repo; trunk stays mergeable
 
 ## Non-goals
 
-- CMS / auth
+- Content management system / login
 - Pixel-perfect resume PDF export
-- Multilingual full site (dual-signal experiment only)
+- Full multilingual site (one bilingual experiment only)
 
 ## Workflow
 
-**A03 red→green** (primary) + craft research (A08). Design cells = variants.
+**Fail-then-pass checks** (primary) plus craft research when the visual approach is unclear. Each design experiment is one “cell.”
 
-1. Write / extend an oracle in `oracles/` that fails (RED)
-2. Implement or deepen the cell until `npm test` is green
-3. Lint + build → PR → merge → note in `docs/FINDINGS.md`
+1. Write or extend a check in `oracles/` that fails
+2. Build or deepen the design until `npm test` passes
+3. Lint + build → open a pull request → merge → note in `docs/FINDINGS.md`
 
 See `docs/RED_GREEN.md`.

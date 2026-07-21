@@ -1,28 +1,28 @@
-# A03 red → green (Orbitfolio)
+# Fail-then-pass checks (Orbitfolio)
 
-Primary Method Lab build loop for this product.
+How we build this product: write a check that fails, then change the site until the check passes.
 
 ```text
-Write oracle (RED) → implement / deepen cell (GREEN) → verify → PR → merge → learn
+Write a failing check → build until it passes → verify → open a pull request → merge → write down what we learned
 ```
 
-## Oracles
+## Automated checks
 
-| Suite | Path | Gate |
-|-------|------|------|
-| Award-100 lab | `oracles/award-100.test.mjs` | Catalog, teams, CV surface, motion, Eta ladder, champion sync, ≥75 handcrafted cells |
+| Suite | Path | What it enforces |
+|-------|------|------------------|
+| Award-100 lab | `oracles/award-100.test.mjs` | Full catalog, team ranges, resume content, motion safety, Hybrid learning ladder, champion sync, at least 75 uniquely built designs |
 
 ```bash
-npm test          # must be green before merge
+npm test          # must pass before merge
 npm run lint
 npm run build
 ```
 
-CI runs **test → lint → build** on every PR and `main` push.
+Automated checks on GitHub run **test → lint → build** on every pull request and every push to `main`.
 
 ## Rules
 
-1. **Never** implement a new lab contract without a failing oracle first.
-2. Handcrafted cells (no `AwardVariant` shell) raise uniqueness — deepen until the diversity oracle is green.
-3. Eta Hybrid theses must start with `Steals …` and composite must strictly increase 86→100.
-4. After merge, record one learn note in `docs/FINDINGS.md`.
+1. **Never** add a new lab rule without a failing check first.
+2. Uniquely built designs (not the shared `AwardVariant` shell) raise uniqueness — keep deepening until the diversity check passes.
+3. Hybrid team designs (#86–#100) must start their thesis with `Steals …`, and each one’s overall score must beat the previous Hybrid.
+4. After merge, add one learning note in `docs/FINDINGS.md`.

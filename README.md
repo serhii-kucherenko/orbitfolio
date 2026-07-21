@@ -4,16 +4,16 @@ Personal portfolio for **Serhii Kucherenko** — Founding Full-Stack Engineer (a
 
 **Live:** [orbitfolio-kohl.vercel.app](https://orbitfolio-kohl.vercel.app)
 
-[![CI](https://github.com/serhii-kucherenko/orbitfolio/actions/workflows/ci.yml/badge.svg)](https://github.com/serhii-kucherenko/orbitfolio/actions/workflows/ci.yml)
+[![Build status](https://github.com/serhii-kucherenko/orbitfolio/actions/workflows/ci.yml/badge.svg)](https://github.com/serhii-kucherenko/orbitfolio/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-teal.svg)](LICENSE)
 
-Built as an **AI Method Lab** product experiment: **100 structurally different UI/UX variants**, scored, with the champion promoted to `/`.
+Built as an **AI Method Lab** product experiment: **100 structurally different portfolio designs**, scored, with the champion promoted to `/`.
 
 ## Routes
 
 | Path | Purpose |
 |------|---------|
-| `/` | Champion portfolio (best composite score) |
+| `/` | Champion portfolio (best overall score) |
 | `/test/1` … `/test/100` | Design experiments |
 | `/lab` | Leaderboard + rubric scores |
 | `/goals` | 100 Goals (living list) |
@@ -21,7 +21,7 @@ Built as an **AI Method Lab** product experiment: **100 structurally different U
 
 ## Stack
 
-Next.js 16 · React 19 · Tailwind 4 · Framer Motion · GSAP · Lenis · Three.js / R3F
+Next.js 16 · React 19 · Tailwind 4 · Framer Motion · GreenSock animation · Lenis smooth scroll · Three.js / React Three Fiber
 
 ## Develop
 
@@ -42,10 +42,11 @@ Sitemap/robots use `https://orbitfolio-kohl.vercel.app`.
 
 ## Lab process
 
-1. Ship a distinct variant under `/test/n`
+1. Ship a distinct design under `/test/n`
 2. Score axes in `src/data/variants.ts` (see `docs/RUBRIC.md`)
-3. Promote highest composite to `/`
-4. Keep losers browsable for comparison
+3. Promote highest overall score to `/`
+4. Keep other experiments browsable for comparison
+5. Use fail-then-pass checks (`docs/RED_GREEN.md`) before merging
 
 ## Contact
 
