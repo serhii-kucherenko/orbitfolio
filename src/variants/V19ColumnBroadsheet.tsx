@@ -1,15 +1,15 @@
 "use client";
 
-import { useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
 import { cv } from "@/data/cv";
 
-/** Column Broadsheet — true multi-column newspaper: masthead rule, lead story, and tight body columns. */
+/** Column Broadsheet — multi-column newspaper: masthead, lead, tight body columns. */
 export function Variant() {
   const reduce = useReducedMotion() ?? false;
 
   return (
-    <main className="min-h-screen bg-[#f7f4ef] text-[#111827]">
+    <main className="min-h-screen bg-[#f5f1ea] text-[#111827]">
       <header className="border-b-[3px] border-black px-4 py-6 md:px-10">
         <div className="mx-auto max-w-6xl">
           <div className="flex flex-wrap items-end justify-between gap-3 border-b border-black/20 pb-3">
@@ -20,19 +20,19 @@ export function Variant() {
               Engineering edition · No. 19
             </p>
           </div>
-          <h1
+          <motion.h1
+            initial={reduce ? false : { opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
             className="mt-4 text-center font-[family-name:var(--font-serif)] text-5xl font-normal leading-none tracking-tight sm:text-7xl md:text-8xl"
             style={reduce ? undefined : { letterSpacing: "-0.04em" }}
           >
             {cv.name}
-          </h1>
-          <p className="mt-3 text-center font-[family-name:var(--font-sans)] text-sm uppercase tracking-[0.2em]">
-            {cv.title}
-          </p>
+          </motion.h1>
+          <p className="mt-3 text-center text-sm uppercase tracking-[0.2em]">{cv.title}</p>
           <div className="mt-4 flex justify-center">
             <a
               href={`mailto:${cv.email}`}
-              className="bg-black px-5 py-2 text-xs font-bold uppercase tracking-widest text-[#f7f4ef] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+              className="bg-black px-5 py-2 text-xs font-bold uppercase tracking-widest text-[#f5f1ea] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
             >
               Hire via letter
             </a>
@@ -58,7 +58,7 @@ export function Variant() {
         </p>
         <div className="mt-12 border-t-2 border-black pt-8">
           <h2 className="mb-8 font-[family-name:var(--font-serif)] text-3xl">Career dispatches</h2>
-          <div className="md:columns-2 md:gap-12 [&_ol]:space-y-8">
+          <div className="md:columns-2 md:gap-12 [&_ol]:break-inside-avoid [&_ol]:space-y-8">
             <ExperienceList tone="light" />
           </div>
         </div>
