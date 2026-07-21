@@ -9,7 +9,7 @@ export function Variant() {
   const reduce = useReducedMotion() ?? false;
 
   return (
-    <main className="min-h-screen bg-[#efece3] text-[#1a1a1a]">
+    <main className="min-h-screen bg-[#e8e4da] text-[#1a1a1a]">
       <header className="mx-auto grid max-w-6xl gap-5 px-6 pb-6 pt-24 lg:grid-cols-[1.25fr_0.75fr] lg:px-10">
         <div className="relative overflow-hidden border-4 border-black bg-[#e31c23] p-8 text-white sm:p-12">
           <motion.div
@@ -31,15 +31,23 @@ export function Variant() {
           </h1>
           <p className="relative mt-4 text-lg">{cv.title}</p>
         </div>
-        <div className="flex flex-col justify-between border-4 border-black bg-[#1a1a1a] p-8 text-[#efece3]">
+        <div className="flex flex-col justify-between border-4 border-black bg-[#1a1a1a] p-8 text-[#e8e4da]">
           <p className="text-sm leading-7 text-white/70">{cv.summary}</p>
           <div className="mt-8 space-y-4">
-            <a
-              href={`mailto:${cv.email}`}
-              className="inline-block self-start bg-[#f5d76e] px-5 py-2.5 text-sm font-bold text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#f5d76e]"
-            >
-              Commission work
-            </a>
+            <div className="flex flex-wrap gap-3">
+              <a
+                href={`mailto:${cv.email}`}
+                className="inline-block self-start bg-[#f5d76e] px-5 py-2.5 text-sm font-bold text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#f5d76e]"
+              >
+                Commission work
+              </a>
+              <a
+                href="/resume"
+                className="inline-block self-start border-2 border-[#f5d76e] px-5 py-2.5 text-sm font-bold text-[#f5d76e]"
+              >
+                Flat plan PDF
+              </a>
+            </div>
             <ContactRow className="text-white/55" />
           </div>
         </div>
@@ -82,7 +90,7 @@ export function Variant() {
           </div>
         </div>
         <p className="text-xs font-bold uppercase tracking-widest text-black/50">
-          {cv.education.degree} · {cv.education.school}
+          {cv.education.degree} · {cv.education.school} · {cv.location}
         </p>
       </section>
     </main>
