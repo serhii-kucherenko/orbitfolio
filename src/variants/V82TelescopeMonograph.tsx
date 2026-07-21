@@ -1,12 +1,16 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
+import { useRef } from "react";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
+import { useGsapReveal } from "@/components/useGsapReveal";
 import { cv } from "@/data/cv";
 
-/** Telescope Monograph — circular reveal + long-form monograph typography and complete proof. */
+/** Telescope Monograph — circular reveal + long-form plates; GSAP opens the field notes. */
 export function Variant() {
   const reduce = useReducedMotion() ?? false;
+  const articleRef = useRef<HTMLElement>(null);
+  useGsapReveal(articleRef, reduce);
 
   return (
     <main className="min-h-screen bg-[#d8dee8] text-[#1c2838]">
@@ -36,7 +40,7 @@ export function Variant() {
             animate={{ opacity: 1 }}
             className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.4em] text-[#1c2838]/50"
           >
-            Monograph · Vol. I · Telescope plates · {cv.location}
+            Monograph · Vol. I · Telescope plates · GSAP · {cv.location}
           </motion.p>
           <h1 className="mt-6 font-[family-name:var(--font-serif)] text-5xl leading-[1.1] sm:text-6xl">{cv.name}</h1>
           <p className="mt-4 text-sm uppercase tracking-[0.15em] text-[#1c2838]/55">{cv.title}</p>
@@ -59,8 +63,8 @@ export function Variant() {
         </div>
       </div>
 
-      <article className="mx-auto max-w-3xl px-8 py-14 md:px-12">
-        <section className="grid grid-cols-2 gap-8 border-b border-[#1c283822] pb-12 sm:grid-cols-4">
+      <article ref={articleRef} className="mx-auto max-w-3xl px-8 py-14 md:px-12">
+        <section data-gsap className="grid grid-cols-2 gap-8 border-b border-[#1c283822] pb-12 sm:grid-cols-4">
           {cv.highlights.map((h, i) => (
             <figure key={h.label}>
               <figcaption className="font-[family-name:var(--font-mono)] text-[9px] uppercase tracking-widest text-[#1c2838]/40">
@@ -72,13 +76,13 @@ export function Variant() {
           ))}
         </section>
 
-        <section className="mt-14">
+        <section data-gsap className="mt-14">
           <h2 className="mb-2 font-[family-name:var(--font-serif)] text-3xl italic">I. Field notes</h2>
           <p className="mb-8 text-xs uppercase tracking-[0.2em] text-[#1c2838]/40">Professional chronology</p>
           <ExperienceList tone="light" />
         </section>
 
-        <section className="mt-16 grid gap-12 border-t border-[#1c283822] pt-12 md:grid-cols-2">
+        <section data-gsap className="mt-16 grid gap-12 border-t border-[#1c283822] pt-12 md:grid-cols-2">
           <div>
             <h2 className="mb-6 font-[family-name:var(--font-serif)] text-2xl italic">II. Instruments</h2>
             <SkillsCloud tone="light" />
@@ -91,6 +95,16 @@ export function Variant() {
             </p>
           </div>
         </section>
+
+        <p data-gsap className="mt-14 border-t border-[#1c283822] pt-8 font-[family-name:var(--font-serif)] text-sm leading-7 text-[#1c2838]/55">
+          The telescope is framing — plates stay readable; GSAP only opens the monograph on scroll.
+        </p>
+        <p className="mt-4 font-[family-name:var(--font-serif)] text-sm leading-7 text-[#1c2838]/45">
+          Prefer quiet typography over spectacle: the aperture is atmosphere, the CV is the specimen.
+        </p>
+        <p className="mt-4 font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.35em] text-[#1c2838]/40">
+          Zeta · monograph · Vol. I · GSAP field notes
+        </p>
       </article>
     </main>
   );

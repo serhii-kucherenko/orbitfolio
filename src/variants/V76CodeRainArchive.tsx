@@ -99,6 +99,11 @@ export function Variant() {
             </p>
           </div>
         </div>
+        <p className="border border-emerald-900/60 bg-black/40 px-4 py-3 text-[10px] leading-6 text-emerald-600">
+          {"// Rain is atmosphere only — proof stays in readable sans under the glyph cascade."}
+          <br />
+          {"// Zeta archive · reduced-motion kills the rain, keeps the logs."}
+        </p>
       </section>
     </main>
   );

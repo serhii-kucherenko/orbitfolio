@@ -2,6 +2,7 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
+import { FallbackGlow, SceneParticleFleet, WebGLStage } from "@/components/webgl/AwardWebGL";
 import { cv } from "@/data/cv";
 
 const NODES = [
@@ -13,22 +14,23 @@ const NODES = [
   { x: "40%", y: "28%", label: "rag" },
 ];
 
-/** Agent Swarm Field — coordinator node amid a living mesh of specialist agents */
+/** Agent Swarm Field — coordinator node amid a living mesh of specialist agents + WebGL fleet. */
 export function Variant() {
   const reduce = useReducedMotion() ?? false;
+  const accent = "#34d399";
 
   return (
     <main className="min-h-screen" style={{ background: "#0a1210", color: "#c8e6d8" }}>
       <section className="relative mx-auto min-h-[70vh] max-w-6xl overflow-hidden px-6 pb-8 pt-20">
-        <div
-          aria-hidden
-          className="absolute inset-0 opacity-30"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle at 1px 1px, #3d8f6a44 1px, transparent 0)",
-            backgroundSize: "28px 28px",
-          }}
-        />
+        <WebGLStage
+          accent={accent}
+          reduce={reduce}
+          label="Agent swarm particle fleet"
+          className="absolute inset-0 opacity-45"
+          fallback={<FallbackGlow accent={accent} />}
+        >
+          <SceneParticleFleet accent={accent} />
+        </WebGLStage>
 
         {NODES.map((n, i) => (
           <motion.div

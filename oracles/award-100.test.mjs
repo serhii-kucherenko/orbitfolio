@@ -433,3 +433,31 @@ test("Fail-then-pass: Beta editorial ships Lenis on ≥3 cells and stays ≥110 
     `RED: need ≥3 Beta editorial cells with Lenis SmoothScroll, got ${withLenis}`,
   );
 });
+
+test("Fail-then-pass: Zeta experimental stays deep and ships award motion on ≥3 cells", () => {
+  const zeta = listVariantFiles().filter((name) => {
+    const id = Number(name.match(/^V(\d+)/)[1]);
+    return id >= 71 && id <= 85;
+  });
+  assert.equal(zeta.length, 15);
+  const shallow = [];
+  let withMotion = 0;
+  for (const file of zeta) {
+    const src = fs.readFileSync(path.join(variantsDir, file), "utf8");
+    const lines = src.split("\n").length;
+    if (lines < 110) shallow.push(`${file}(${lines})`);
+    if (
+      src.includes("AwardWebGL") ||
+      src.includes("SmoothScroll") ||
+      src.includes("useGsapReveal") ||
+      src.includes("@react-three/fiber")
+    ) {
+      withMotion += 1;
+    }
+  }
+  assert.equal(shallow.length, 0, `RED: Zeta cells under 110 lines: ${shallow.join(", ")}`);
+  assert.ok(
+    withMotion >= 3,
+    `RED: need ≥3 Zeta cells with WebGL/Lenis/GSAP, got ${withMotion}`,
+  );
+});

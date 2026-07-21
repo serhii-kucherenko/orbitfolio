@@ -95,6 +95,17 @@ export function Variant() {
           </p>
         </div>
       </section>
+
+      <footer className="border-t border-emerald-900/15 px-6 py-10">
+        <div className="mx-auto flex max-w-5xl flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+          <p className="max-w-xl text-sm leading-7 text-emerald-950/50">
+            Folds are decoration — every crease still opens to a hire path, not a puzzle.
+          </p>
+          <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.3em] text-teal-800/45">
+            Zeta · origami · proof first
+          </p>
+        </div>
+      </footer>
     </main>
   );
 }
