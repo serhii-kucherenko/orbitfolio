@@ -92,11 +92,11 @@ export function Variant() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ delay: reduce ? 0 : 0.05 }}
-              className="grid gap-4 rounded-2xl border p-6 md:grid-cols-[88px_1fr]"
+              className="grid gap-4 border p-6 md:grid-cols-[88px_1fr]"
               style={{ borderColor: "#60a5fa22", background: "#ffffff05" }}
             >
               <div
-                className="flex h-16 w-16 items-center justify-center rounded-full font-[family-name:var(--font-mono)] text-xs text-[#93c5fd]"
+                className="flex h-16 w-16 items-center justify-center font-[family-name:var(--font-mono)] text-xs text-[#93c5fd]"
                 style={{ border: "1px solid #60a5fa44" }}
               >
                 {String(i + 1).padStart(2, "0")}

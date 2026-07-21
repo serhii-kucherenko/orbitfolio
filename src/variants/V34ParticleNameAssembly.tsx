@@ -109,7 +109,7 @@ export function Variant() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ delay: reduce ? 0 : i * 0.06 }}
-            className="rounded-2xl border border-sky-300/20 bg-sky-300/5 px-4 py-5"
+            className="border border-sky-300/20 bg-sky-300/5 px-4 py-5"
           >
             <p className="text-2xl font-bold text-sky-300">{h.value}</p>
             <p className="mt-1 text-[10px] uppercase tracking-wider opacity-45">{h.label}</p>
@@ -133,7 +133,7 @@ export function Variant() {
             <h2 className="mb-6 text-xl font-bold">Bound projects</h2>
             <ProjectLinks />
             <p className="mt-10 text-sm opacity-45">
-              {cv.education.degree} · {cv.education.school}
+              {cv.education.degree} · {cv.education.school} · {cv.location}
             </p>
           </div>
         </div>

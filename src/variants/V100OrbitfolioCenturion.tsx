@@ -81,7 +81,7 @@ export function Variant() {
           {cv.highlights.map((item) => (
             <div
               key={item.label}
-              className="rounded-2xl border border-cyan-300/20 bg-cyan-300/10 px-3 py-4 backdrop-blur-xl"
+              className="border border-cyan-300/20 bg-cyan-300/10 px-3 py-4 backdrop-blur-xl"
             >
               <p className="text-2xl font-bold text-cyan-200 sm:text-3xl">{item.value}</p>
               <p className="mt-1 text-[10px] uppercase tracking-wider text-cyan-100/55">{item.label}</p>
