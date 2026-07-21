@@ -17,7 +17,7 @@ export function Variant() {
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
           className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.55em] text-[#7dffb0]/70"
         >
-          {cv.title}
+          {cv.title} · title sequence
         </motion.p>
 
         <h1 className="mt-16 font-[family-name:var(--font-display)] text-[clamp(3.5rem,16vw,11rem)] font-black uppercase leading-[0.78] tracking-[-0.06em]">
@@ -44,13 +44,13 @@ export function Variant() {
           <div className="mt-8 flex flex-wrap justify-end gap-3">
             <a
               href={`mailto:${cv.email}`}
-              className="rounded-full bg-[#b8ffd0] px-5 py-2.5 text-sm font-bold text-[#04110d] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8ffd0]"
+              className="bg-[#b8ffd0] px-5 py-2.5 text-sm font-bold text-[#04110d] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8ffd0]"
             >
               Start a conversation
             </a>
             <a
               href="/resume"
-              className="rounded-full border border-[#b8ffd0]/40 px-5 py-2.5 text-sm font-bold text-[#b8ffd0]"
+              className="border border-[#b8ffd0]/40 px-5 py-2.5 text-sm font-bold text-[#b8ffd0] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8ffd0]"
             >
               Title card PDF
             </a>
@@ -58,14 +58,14 @@ export function Variant() {
           </div>
         </motion.div>
 
-        <div className="mt-14 grid max-w-3xl grid-cols-2 gap-3 sm:ml-auto sm:grid-cols-4">
+        <div className="mt-14 grid max-w-3xl grid-cols-2 gap-6 sm:ml-auto sm:grid-cols-4">
           {cv.highlights.map((h, i) => (
             <motion.div
               key={h.label}
               initial={reduce ? false : { opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: reduce ? 0 : 0.7 + i * 0.06 }}
-              className="rounded-xl border border-[#b8ffd0]/25 px-3 py-4"
+              className="border-t border-[#b8ffd0]/40 pt-3"
             >
               <p className="text-2xl font-black">{h.value}</p>
               <p className="mt-1 text-[10px] uppercase tracking-wider opacity-55">{h.label}</p>

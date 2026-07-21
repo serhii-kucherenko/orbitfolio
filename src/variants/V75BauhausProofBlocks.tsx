@@ -9,7 +9,7 @@ export function Variant() {
   const reduce = useReducedMotion() ?? false;
 
   return (
-    <main className="min-h-screen bg-[#e8e4da] text-[#1a1a1a]">
+    <main className="min-h-screen bg-[#e4dfd4] text-[#1a1a1a]">
       <header className="mx-auto grid max-w-6xl gap-5 px-6 pb-6 pt-24 lg:grid-cols-[1.25fr_0.75fr] lg:px-10">
         <div className="relative overflow-hidden border-4 border-black bg-[#e31c23] p-8 text-white sm:p-12">
           <motion.div
@@ -25,7 +25,7 @@ export function Variant() {
             animate={reduce ? undefined : { y: [0, -8, 0] }}
             transition={{ duration: 3, repeat: Infinity }}
           />
-          <p className="relative text-[10px] font-bold uppercase tracking-[0.35em]">Bauhaus · proof</p>
+          <p className="relative text-[10px] font-bold uppercase tracking-[0.35em]">Bauhaus · proof · form</p>
           <h1 className="relative mt-4 font-[family-name:var(--font-display)] text-5xl font-black leading-none sm:text-6xl">
             {cv.name}
           </h1>
@@ -43,7 +43,7 @@ export function Variant() {
               </a>
               <a
                 href="/resume"
-                className="inline-block self-start border-2 border-[#f5d76e] px-5 py-2.5 text-sm font-bold text-[#f5d76e]"
+                className="inline-block self-start border-2 border-[#f5d76e] px-5 py-2.5 text-sm font-bold text-[#f5d76e] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#f5d76e]"
               >
                 Flat plan PDF
               </a>
