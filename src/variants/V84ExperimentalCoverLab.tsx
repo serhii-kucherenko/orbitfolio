@@ -34,7 +34,7 @@ export function Variant() {
           <div className="px-8 pb-10 pt-14 md:px-14 md:pt-20">
             <div className="flex items-start justify-between gap-4">
               <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.4em] text-[#fb923c]">
-                Cover lab · proof A3
+                Cover lab · proof A3 · {cv.location}
               </p>
               <p className="font-[family-name:var(--font-mono)] text-[10px] opacity-40">ISSUE 84</p>
             </div>
@@ -104,7 +104,7 @@ export function Variant() {
             <h2 className="mb-6 text-xl font-bold">Back catalog</h2>
             <ProjectLinks />
             <p className="mt-10 text-sm opacity-50">
-              {cv.education.degree} · {cv.education.school}
+              {cv.education.degree} · {cv.education.school} · {cv.location}
             </p>
           </div>
         </section>

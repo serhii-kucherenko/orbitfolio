@@ -45,7 +45,7 @@ export function Variant() {
 
       <div className="bg-[#f1f5f9] px-6 py-16 md:px-12 md:py-24">
         <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.4em] text-[#0e7490]">
-          Signal · locked
+          Signal · locked · {cv.location}
         </p>
         <h1 className="mt-4 font-[family-name:var(--font-display)] text-5xl font-bold leading-none sm:text-6xl">
           {cv.name}
@@ -104,7 +104,7 @@ export function Variant() {
             <h2 className="mb-6 text-xl font-bold">Broadcasts</h2>
             <ProjectLinks tone="light" />
             <p className="mt-8 text-sm opacity-50">
-              {cv.education.degree} · {cv.education.school}
+              {cv.education.degree} · {cv.education.school} · {cv.location}
             </p>
           </div>
         </section>

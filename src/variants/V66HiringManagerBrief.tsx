@@ -11,7 +11,7 @@ export function Variant() {
     { label: "Role fit", value: "Founding / staff-adjacent full-stack with applied AI depth" },
     { label: "Proof", value: "YC healthcare AI, 85% load cut, $78K infra savings" },
     { label: "Team", value: "Leads 2–6 engineers; mentors to senior" },
-    { label: "Availability", value: "Open to hire conversations · Vancouver remote" },
+    { label: "Availability", value: `Open to hire conversations · ${cv.location}` },
   ];
 
   return (
@@ -26,7 +26,7 @@ export function Variant() {
             <div className="flex flex-wrap items-end justify-between gap-3">
               <div>
                 <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.3em] text-slate-500">
-                  Internal brief · hiring manager
+                  Internal brief · hiring manager · {cv.location}
                 </p>
                 <h1 className="mt-2 font-[family-name:var(--font-display)] text-3xl font-bold md:text-4xl">
                   {cv.name}
@@ -96,7 +96,7 @@ export function Variant() {
               <h2 className="mb-6 text-lg font-bold">Appendix C — Projects</h2>
               <ProjectLinks tone="light" />
               <p className="mt-10 text-sm text-slate-500">
-                {cv.education.degree} · {cv.education.school}
+                {cv.education.degree} · {cv.education.school} · {cv.location}
               </p>
             </div>
           </div>
