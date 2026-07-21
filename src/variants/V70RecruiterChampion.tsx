@@ -9,43 +9,57 @@ export function Variant() {
   const reduce = useReducedMotion() ?? false;
 
   return (
-    <main className="min-h-screen bg-[#0b1218] text-[#e8f4f8]">
-      <header className="mx-auto max-w-6xl px-6 pb-12 pt-24 lg:px-10">
-        <div className="flex flex-wrap items-start justify-between gap-8">
-          <div>
-            <motion.span
-              initial={reduce ? false : { opacity: 0, y: -8 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="inline-block bg-[#7dd3fc] px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.25em] text-[#0b1218]"
-            >
-              Founding engineer · ready
-            </motion.span>
-            <h1 className="mt-6 font-[family-name:var(--font-display)] text-5xl font-black leading-none sm:text-7xl">
-              {cv.name}
-            </h1>
-            <p className="mt-4 text-2xl text-[#7dd3fc]">{cv.title}</p>
+    <main className="min-h-screen bg-[#071018] text-[#e8f4f8]">
+      <header className="relative overflow-hidden">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(125,211,252,0.18),transparent_55%)]"
+        />
+        <div className="relative mx-auto max-w-6xl px-6 pb-12 pt-24 lg:px-10">
+          <div className="flex flex-wrap items-start justify-between gap-8">
+            <div>
+              <motion.span
+                initial={reduce ? false : { opacity: 0, y: -8 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="inline-block bg-[#7dd3fc] px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.25em] text-[#071018]"
+              >
+                Founding engineer · ready
+              </motion.span>
+              <h1 className="mt-6 font-[family-name:var(--font-display)] text-5xl font-black leading-none sm:text-7xl">
+                {cv.name}
+              </h1>
+              <p className="mt-4 text-2xl text-[#7dd3fc]">{cv.title}</p>
+            </div>
+            <div className="flex flex-col gap-3 sm:items-end">
+              <a
+                href={`mailto:${cv.email}`}
+                className="border border-[#7dd3fc] bg-[#7dd3fc] px-6 py-3 text-sm font-semibold text-[#071018] transition-colors hover:bg-transparent hover:text-[#7dd3fc] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7dd3fc]"
+              >
+                Start a conversation
+              </a>
+              <a
+                href="/resume"
+                className="border border-white/20 px-6 py-3 text-center text-sm font-semibold text-white/70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+              >
+                Printable resume
+              </a>
+            </div>
           </div>
-          <a
-            href={`mailto:${cv.email}`}
-            className="border border-[#7dd3fc] px-6 py-3 text-sm font-semibold text-[#7dd3fc] transition-colors hover:bg-[#7dd3fc] hover:text-[#0b1218] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7dd3fc]"
-          >
-            Start a conversation
-          </a>
+          <p className="mt-10 max-w-3xl text-base leading-8 text-slate-300">{cv.summary}</p>
+          <ContactRow className="mt-8 text-[#7dd3fc]/80" />
         </div>
-        <p className="mt-10 max-w-3xl text-base leading-8 text-slate-300">{cv.summary}</p>
-        <ContactRow className="mt-8 text-[#7dd3fc]/80" />
       </header>
 
-      <section className="bg-[#7dd3fc] text-[#0b1218]">
-        <div className="mx-auto grid max-w-6xl grid-cols-2 gap-px bg-[#0b1218]/15 sm:grid-cols-4">
+      <section className="bg-[#7dd3fc] text-[#071018]">
+        <div className="mx-auto grid max-w-6xl grid-cols-2 gap-px bg-[#071018]/20 sm:grid-cols-4">
           {cv.highlights.map((h, i) => (
             <motion.div
               key={h.label}
-              initial={reduce ? false : { opacity: 0, y: 12 }}
+              initial={reduce ? false : { opacity: 0, y: 14 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: reduce ? 0 : i * 0.06 }}
-              className="bg-[#7dd3fc] px-6 py-10"
+              className="bg-[#7dd3fc] px-6 py-12"
             >
               <p className="text-4xl font-black sm:text-5xl">{h.value}</p>
               <p className="mt-2 text-xs font-semibold uppercase tracking-wider opacity-70">{h.label}</p>
