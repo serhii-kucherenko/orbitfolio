@@ -9,8 +9,8 @@ export function Variant() {
   const reduce = useReducedMotion() ?? false;
 
   return (
-    <main className="min-h-screen bg-[#ddd9d0] p-3 text-black sm:p-6 md:p-8">
-      <header className="border-[5px] border-black bg-[#f4f2eb] p-6 sm:p-10 md:p-12">
+    <main className="min-h-screen bg-[#d4cfc4] p-3 text-black sm:p-6 md:p-8">
+      <header className="relative border-[5px] border-black bg-[#f4f2eb] p-6 sm:p-10 md:p-12">
         <div className="flex flex-wrap justify-between gap-3 font-black uppercase tracking-wide">
           <span>Proof file 079</span>
           <span className="text-sm">{cv.location}</span>
@@ -34,7 +34,7 @@ export function Variant() {
               </a>
               <a
                 href="/resume"
-                className="inline-block border-[5px] border-black px-5 py-3 text-sm font-black uppercase"
+                className="inline-block border-[5px] border-black px-5 py-3 text-sm font-black uppercase focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
               >
                 Print stamp
               </a>
@@ -44,14 +44,19 @@ export function Variant() {
           <p className="text-base leading-7 sm:text-lg">{cv.summary}</p>
         </div>
 
-        <motion.div
-          aria-hidden
-          animate={reduce ? undefined : { rotate: [-7, -1, -7] }}
-          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-          className="mt-10 inline-block border-[6px] border-[#c4121a] px-5 py-3 text-2xl font-black uppercase tracking-wide text-[#c4121a] sm:text-3xl"
-        >
-          Hire-ready evidence
-        </motion.div>
+        <div className="mt-10 flex flex-wrap items-end gap-6">
+          <motion.div
+            aria-hidden
+            animate={reduce ? undefined : { rotate: [-7, -1, -7] }}
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            className="inline-block border-[6px] border-[#c4121a] px-5 py-3 text-2xl font-black uppercase tracking-wide text-[#c4121a] sm:text-3xl"
+          >
+            Hire-ready evidence
+          </motion.div>
+          <p className="font-[family-name:var(--font-mono)] text-xs font-bold uppercase tracking-widest text-black/50">
+            Ink date · verified · forwardable
+          </p>
+        </div>
 
         <div className="mt-10 grid grid-cols-2 gap-3 md:grid-cols-4">
           {cv.highlights.map((h, i) => (

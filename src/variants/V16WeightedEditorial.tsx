@@ -20,7 +20,7 @@ export function Variant() {
           />
           <div className="relative flex justify-between gap-4 font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.4em] text-[#f97316]/75">
             <span>Vol. 16 · weighted</span>
-            <span>Masthead</span>
+            <span>Masthead · issue 24</span>
           </div>
           <motion.h1
             initial={reduce ? false : { x: -48, opacity: 0 }}
@@ -44,7 +44,15 @@ export function Variant() {
           </div>
         </div>
 
-        <aside className="flex flex-col justify-between bg-[#16120e] p-8 lg:p-10">
+        <aside className="relative flex flex-col justify-between bg-[#16120e] p-8 lg:p-10">
+          <motion.p
+            aria-hidden
+            className="pointer-events-none absolute right-6 top-8 font-[family-name:var(--font-serif)] text-7xl italic text-[#f97316]/10"
+            animate={reduce ? undefined : { y: [0, -8, 0] }}
+            transition={{ duration: 7, repeat: Infinity }}
+          >
+            “
+          </motion.p>
           <div>
             <p className="text-[10px] uppercase tracking-[0.3em] text-white/35">Deck</p>
             <p className="mt-3 text-sm font-semibold text-[#f97316]">{cv.title}</p>
@@ -57,7 +65,10 @@ export function Variant() {
             >
               Pitch the editor →
             </a>
-            <a href="/resume" className="block text-sm text-white/45 underline-offset-4 hover:underline">
+            <a
+              href="/resume"
+              className="block text-sm text-white/45 underline-offset-4 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#f97316]"
+            >
               Printable folio
             </a>
             <ContactRow className="text-white/50" />

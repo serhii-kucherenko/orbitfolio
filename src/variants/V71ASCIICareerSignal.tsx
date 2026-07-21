@@ -17,6 +17,14 @@ export function Variant() {
   return (
     <main className="min-h-screen bg-[#050705] text-[#b6f5a8]">
       <header className="relative mx-auto max-w-5xl overflow-hidden px-6 pb-8 pt-24 font-[family-name:var(--font-mono)]">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 opacity-[0.07]"
+          style={{
+            backgroundImage:
+              "repeating-linear-gradient(0deg, transparent, transparent 2px, #6fdf5c22 3px)",
+          }}
+        />
         <motion.div
           aria-hidden
           className="pointer-events-none absolute -right-16 top-10 h-48 w-48 rounded-full bg-[#6fdf5c]/15 blur-3xl"
@@ -33,6 +41,12 @@ export function Variant() {
         </motion.pre>
         <p className="relative mt-8 text-[10px] uppercase tracking-[0.35em] text-[#6fdf5c]/55">
           tx · founding-engineer · channel open
+          <motion.span
+            aria-hidden
+            className="ml-2 inline-block h-3 w-2 bg-[#6fdf5c]"
+            animate={reduce ? undefined : { opacity: [1, 0, 1] }}
+            transition={{ duration: 1, repeat: Infinity }}
+          />
         </p>
         <h1 className="relative mt-3 text-4xl font-bold tracking-tight text-[#d8ffcf] sm:text-6xl">{cv.name}</h1>
         <p className="relative mt-3 text-sm text-[#6fdf5c]">{cv.title}</p>
@@ -48,7 +62,7 @@ export function Variant() {
           </a>
           <a
             href="/resume"
-            className="border border-[#6fdf5c]/50 px-4 py-2 text-xs font-bold text-[#6fdf5c]"
+            className="border border-[#6fdf5c]/50 px-4 py-2 text-xs font-bold text-[#6fdf5c] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#6fdf5c]"
           >
             cat resume.txt
           </a>
@@ -60,7 +74,18 @@ export function Variant() {
           transition={{ delay: reduce ? 0 : 0.15 }}
           className="relative mt-10 overflow-x-auto border border-[#6fdf5c]/25 bg-[#0c120c] p-4 text-[10px] leading-5 text-[#6fdf5c]/85 sm:text-xs"
         >
-{[`$ whoami`, cv.name, `$ role`, cv.title, `$ status`, `HIRE_READY`, ``, ...cv.highlights.map((h) => `${h.label.padEnd(16, " ")} ${h.value}`)].join("\n")}
+          {[
+            `$ whoami`,
+            cv.name,
+            `$ role`,
+            cv.title,
+            `$ status`,
+            `HIRE_READY`,
+            `$ ping latency`,
+            `0.2s · 85% load cut`,
+            ``,
+            ...cv.highlights.map((h) => `${h.label.padEnd(16, " ")} ${h.value}`),
+          ].join("\n")}
         </motion.pre>
       </header>
 
