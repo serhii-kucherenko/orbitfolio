@@ -10,7 +10,7 @@ export function Variant() {
   const today = "Vol. 10 · Evidence edition";
 
   return (
-    <main className="min-h-screen bg-[#f7f4ec] text-[#1a1a1a]">
+    <main className="min-h-screen bg-[#ece9e1] text-[#1a1a1a]">
       <header className="border-b-4 border-black px-4 pb-4 pt-20 sm:px-8">
         <div className="mx-auto flex max-w-6xl items-end justify-between gap-4 font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.25em]">
           <span>{cv.location}</span>
@@ -36,7 +36,7 @@ export function Variant() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: reduce ? 0 : i * 0.05 }}
-            className="bg-[#f7f4ec] px-4 py-6"
+            className="bg-[#ece9e1] px-4 py-6"
           >
             <p className="font-[family-name:var(--font-serif)] text-3xl font-bold">{h.value}</p>
             <p className="mt-1 text-[10px] uppercase tracking-widest text-black/50">{h.label}</p>
@@ -52,9 +52,12 @@ export function Variant() {
           <div className="mt-8 flex flex-wrap gap-3">
             <a
               href={`mailto:${cv.email}`}
-              className="bg-black px-5 py-2.5 text-sm font-semibold text-[#f7f4ec] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+              className="bg-black px-5 py-2.5 text-sm font-semibold text-[#ece9e1] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
             >
               Assign the story
+            </a>
+            <a href="/resume" className="border border-black px-5 py-2.5 text-sm font-semibold">
+              Press kit PDF
             </a>
             <ContactRow className="items-center text-black/60" />
           </div>
@@ -86,7 +89,7 @@ export function Variant() {
           <h2 className="mb-6 font-[family-name:var(--font-serif)] text-2xl">Published work</h2>
           <ProjectLinks tone="light" />
           <p className="mt-10 text-xs uppercase tracking-widest text-black/45">
-            {cv.education.degree} · {cv.education.school}
+            {cv.education.degree} · {cv.education.school} · {cv.location}
           </p>
         </div>
       </section>

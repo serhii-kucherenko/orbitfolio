@@ -9,18 +9,20 @@ export function Variant() {
   const reduce = useReducedMotion() ?? false;
 
   return (
-    <main className="min-h-screen bg-[#e6ebf1] text-[#1c2838]">
+    <main className="min-h-screen bg-[#e2e8ef] text-[#1c2838]">
       <div className="relative overflow-hidden border-b border-[#1c283822]">
-        <div
+        <motion.div
           aria-hidden
           className="pointer-events-none absolute inset-0"
           style={{
             background:
-              "radial-gradient(circle at 70% 40%, transparent 0 18%, rgba(28,40,56,0.08) 18% 22%, transparent 22%)",
+              "radial-gradient(circle at 70% 40%, transparent 0 18%, rgba(28,40,56,0.1) 18% 22%, transparent 22%)",
             maskImage: reduce
               ? undefined
               : "radial-gradient(circle at 70% 40%, black 0 16%, transparent 42%)",
           }}
+          animate={reduce ? undefined : { opacity: [0.7, 1, 0.7] }}
+          transition={{ duration: 8, repeat: Infinity }}
         />
         <div className="relative mx-auto max-w-3xl px-8 py-20 md:px-12 md:py-24">
           <motion.p
@@ -39,6 +41,9 @@ export function Variant() {
               className="border-b-2 border-[#1c2838] pb-0.5 text-sm font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1c2838]"
             >
               Correspond with the author
+            </a>
+            <a href="/resume" className="text-sm text-[#1c2838]/55 underline-offset-4 hover:underline">
+              Plate index PDF
             </a>
             <ContactRow className="text-sm text-[#1c2838]/65" />
           </div>
@@ -73,7 +78,7 @@ export function Variant() {
             <h2 className="mb-6 font-[family-name:var(--font-serif)] text-2xl italic">III. Specimens</h2>
             <ProjectLinks tone="light" />
             <p className="mt-10 font-[family-name:var(--font-serif)] text-sm italic text-[#1c2838]/55">
-              {cv.education.degree}, {cv.education.school}
+              {cv.education.degree}, {cv.education.school} · {cv.location}
             </p>
           </div>
         </section>

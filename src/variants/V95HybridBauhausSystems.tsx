@@ -16,7 +16,7 @@ export function Variant() {
   const reduce = useReducedMotion() ?? false;
 
   return (
-    <main className="min-h-screen bg-[#eef0ea] text-[#101010]">
+    <main className="min-h-screen bg-[#e8ebe4] text-[#101010]">
       <div className="grid min-h-screen lg:grid-cols-[260px_1fr]">
         <aside className="border-b-4 border-black bg-[#f0c43a] p-7 lg:sticky lg:top-0 lg:h-screen lg:border-b-0 lg:border-r-4">
           <motion.div
@@ -37,12 +37,20 @@ export function Variant() {
               </a>
             ))}
           </nav>
-          <a
-            href={`mailto:${cv.email}`}
-            className="mt-12 inline-block border-4 border-black bg-black px-4 py-2 text-xs font-black uppercase text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-          >
-            Hire signal
-          </a>
+          <div className="mt-12 flex flex-col gap-2">
+            <a
+              href={`mailto:${cv.email}`}
+              className="inline-block border-4 border-black bg-black px-4 py-2 text-xs font-black uppercase text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+            >
+              Hire signal
+            </a>
+            <a
+              href="/resume"
+              className="inline-block border-4 border-black px-4 py-2 text-xs font-black uppercase"
+            >
+              Manual PDF
+            </a>
+          </div>
           <p className="mt-8 text-sm font-semibold">{cv.location}</p>
         </aside>
 
@@ -84,7 +92,7 @@ export function Variant() {
               <h2 className="mb-8 text-2xl font-black sm:text-3xl">03 / Projects</h2>
               <ProjectLinks tone="light" />
               <p className="mt-12 border-t-4 border-black pt-5 font-semibold">
-                {cv.education.degree} · {cv.education.school}
+                {cv.education.degree} · {cv.education.school} · {cv.location}
               </p>
             </div>
           </section>
