@@ -2,11 +2,13 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
+import { FallbackGlow, SceneOrbitProof, WebGLStage } from "@/components/webgl/AwardWebGL";
 import { cv } from "@/data/cv";
 
 /** Orbital Proof Sphere — a tactile evidence planet keeps identity central while proof orbits nearby. */
 export function Variant() {
   const reduce = useReducedMotion() ?? false;
+  const accent = "#b8ff6a";
 
   return (
     <main className="min-h-screen overflow-hidden bg-[#040e0c] text-[#e5f4dc]">
@@ -39,42 +41,11 @@ export function Variant() {
             <span className="text-sm text-[#b8ff6a]/70">{cv.title}</span>
           </div>
           <ContactRow className="mt-7 text-[#e5f4dc]/55" />
-        </div>
-
-        <div className="relative mx-auto aspect-square w-full max-w-[650px]" aria-label="Career proof orbit">
-          {[46, 64, 82].map((size, index) => (
-            <motion.div
-              key={size}
-              aria-hidden
-              className="absolute left-1/2 top-1/2 rounded-full border border-[#b8ff6a]/20"
-              style={{ width: `${size}%`, height: `${size}%`, x: "-50%", y: "-50%" }}
-              animate={reduce ? undefined : { rotate: index % 2 ? -360 : 360 }}
-              transition={{ duration: 38 + index * 14, repeat: Infinity, ease: "linear" }}
-            />
-          ))}
-          <div
-            aria-hidden
-            className="absolute left-1/2 top-1/2 aspect-square w-[44%] -translate-x-1/2 -translate-y-1/2 rounded-full"
-            style={{
-              background:
-                "radial-gradient(circle at 32% 28%, #e4ffb7 0, #7faf43 16%, #183429 56%, #07110e 72%)",
-              boxShadow: "0 0 90px rgba(184,255,106,.18)",
-            }}
-          />
-          {cv.highlights.map((highlight, index) => {
-            const positions = [
-              "left-[4%] top-[18%]",
-              "right-[1%] top-[26%]",
-              "bottom-[10%] left-[13%]",
-              "bottom-[4%] right-[8%]",
-            ];
-            return (
-              <motion.div
+          <div className="mt-10 grid max-w-md grid-cols-2 gap-3">
+            {cv.highlights.map((highlight) => (
+              <div
                 key={highlight.label}
-                initial={reduce ? false : { opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: reduce ? 0 : 0.2 + index * 0.12 }}
-                className={`absolute ${positions[index]} w-28 rounded-xl border border-[#b8ff6a]/35 bg-[#0a1814]/90 p-4 text-center backdrop-blur`}
+                className="rounded-xl border border-[#b8ff6a]/35 bg-[#0a1814]/90 p-4 backdrop-blur"
               >
                 <strong className="font-[family-name:var(--font-serif)] text-2xl text-[#b8ff6a]">
                   {highlight.value}
@@ -82,10 +53,20 @@ export function Variant() {
                 <span className="mt-1 block text-[9px] uppercase tracking-wider opacity-55">
                   {highlight.label}
                 </span>
-              </motion.div>
-            );
-          })}
+              </div>
+            ))}
+          </div>
         </div>
+
+        <WebGLStage
+          accent={accent}
+          reduce={reduce}
+          label="Three.js evidence planet with orbiting proof moons"
+          className="relative mx-auto aspect-square w-full max-w-[650px] overflow-hidden"
+          fallback={<FallbackGlow accent={accent} />}
+        >
+          <SceneOrbitProof accent={accent} />
+        </WebGLStage>
       </section>
 
       <section className="mx-auto max-w-7xl border-t border-[#b8ff6a]/20 px-6 py-24 lg:px-10">

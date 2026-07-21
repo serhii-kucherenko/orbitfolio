@@ -2,41 +2,25 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
+import { FallbackGlow, SceneAtmosphere, WebGLStage } from "@/components/webgl/AwardWebGL";
 import { cv } from "@/data/cv";
 
 /** Shader Atmosphere — CV floats inside a living volumetric fog field; soft plasma bands replace hard layout boxes. */
 export function Variant() {
   const reduce = useReducedMotion() ?? false;
+  const accent = "#5eead4";
 
   return (
     <main className="relative min-h-screen overflow-hidden bg-[#02040a] text-[#c8fff0]">
-      <div aria-hidden className="pointer-events-none absolute inset-0">
-        <motion.div
-          className="absolute -left-1/4 top-[-10%] h-[70vh] w-[70vw] rounded-full blur-[120px]"
-          style={{ background: "radial-gradient(circle, #0ea5a044, transparent 70%)" }}
-          animate={reduce ? {} : { x: [0, 60, -20, 0], y: [0, 40, 10, 0] }}
-          transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.div
-          className="absolute -right-1/4 bottom-[-5%] h-[60vh] w-[60vw] rounded-full blur-[110px]"
-          style={{ background: "radial-gradient(circle, #36d6ff33, transparent 70%)" }}
-          animate={reduce ? {} : { x: [0, -50, 30, 0], y: [0, -30, 20, 0] }}
-          transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.div
-          className="absolute left-1/3 top-1/3 h-[40vh] w-[40vw] rounded-full blur-[90px]"
-          style={{ background: "radial-gradient(circle, #5eead422, transparent 70%)" }}
-          animate={reduce ? {} : { scale: [1, 1.15, 0.95, 1], opacity: [0.5, 0.8, 0.4, 0.5] }}
-          transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <div
-          className="absolute inset-0 opacity-[0.07]"
-          style={{
-            backgroundImage:
-              "repeating-linear-gradient(0deg, transparent, transparent 2px, #5eead418 3px)",
-          }}
-        />
-      </div>
+      <WebGLStage
+        accent={accent}
+        reduce={reduce}
+        label="Three.js atmospheric distorting orb with starfield"
+        className="pointer-events-none absolute inset-0 opacity-55"
+        fallback={<FallbackGlow accent={accent} />}
+      >
+        <SceneAtmosphere accent={accent} />
+      </WebGLStage>
 
       <header className="relative z-10 mx-auto max-w-3xl px-6 pb-12 pt-32 text-center">
         <motion.p

@@ -1,12 +1,14 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { useReducedMotion } from "framer-motion";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
+import { FallbackGlow, SceneParticleFleet, WebGLStage } from "@/components/webgl/AwardWebGL";
 import { cv } from "@/data/cv";
 
 /** Instanced Particle Fleet — compact fleet framing applied-AI leadership + full resume. */
 export function Variant() {
   const reduce = useReducedMotion() ?? false;
+  const accent = "#69dcff";
 
   return (
     <main className="relative min-h-screen overflow-hidden bg-[#061018] text-[#dff8ff]">
@@ -47,30 +49,15 @@ export function Variant() {
               <ContactRow className="items-center text-white/55" />
             </div>
           </div>
-          <div className="relative mx-auto h-[400px] w-full max-w-xl sm:h-[440px]" aria-label="Applied AI fleet formation">
-            {Array.from({ length: 32 }, (_, index) => {
-              const left = 6 + ((index * 31) % 86);
-              const top = 4 + ((index * 41) % 88);
-              return (
-                <motion.span
-                  key={index}
-                  aria-hidden
-                  className="absolute h-1.5 w-8 rounded-full bg-[#69dcff]"
-                  style={{ left: `${left}%`, top: `${top}%`, rotate: `${(index % 5) * 9 - 18}deg` }}
-                  animate={reduce ? undefined : { x: [0, 10 + (index % 8), 0], opacity: [0.2, 0.95, 0.2] }}
-                  transition={{ duration: 3 + (index % 4), repeat: Infinity, delay: index * 0.04 }}
-                />
-              );
-            })}
-            <div className="absolute inset-[22%] rounded-full border border-[#69dcff]/25 bg-[#69dcff]/5 shadow-[0_0_80px_rgba(105,220,255,.12)]">
-              <div className="grid h-full place-items-center text-center">
-                <span className="text-[10px] uppercase tracking-[0.3em] text-[#69dcff]">
-                  Human command
-                  <strong className="mt-2 block text-2xl">01</strong>
-                </span>
-              </div>
-            </div>
-          </div>
+          <WebGLStage
+            accent={accent}
+            reduce={reduce}
+            label="Three.js particle fleet around a command core"
+            className="relative mx-auto h-[400px] w-full max-w-xl sm:h-[440px]"
+            fallback={<FallbackGlow accent={accent} />}
+          >
+            <SceneParticleFleet accent={accent} />
+          </WebGLStage>
         </div>
       </header>
 
