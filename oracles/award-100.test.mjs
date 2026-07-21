@@ -199,13 +199,16 @@ test("Fail-then-pass: structural diversity — not a monoculture of identical la
     if (layoutMatch) layouts.add(layoutMatch[1]);
     if (!src.includes("AwardVariant")) handcrafted += 1;
   }
+  // Once every cell is handcrafted, AwardVariant layout diversity is N/A.
+  if (handcrafted < 100) {
+    assert.ok(
+      layouts.size >= 8,
+      `need ≥8 distinct AwardVariant layouts among remaining shells, got ${layouts.size}`,
+    );
+  }
   assert.ok(
-    layouts.size >= 12,
-    `need ≥12 distinct AwardVariant layouts among remaining shells, got ${layouts.size}`,
-  );
-  assert.ok(
-    handcrafted >= 85,
-    `RED: need ≥85 handcrafted (non-AwardVariant) cells for award diversity, got ${handcrafted}`,
+    handcrafted >= 100,
+    `RED: need ≥100 handcrafted (non-AwardVariant) cells for award diversity, got ${handcrafted}`,
   );
 });
 
