@@ -35,6 +35,7 @@ Autonomous `/loop 30m keep going` progress on Orbitfolio.
 | 30 | Handcraft batch 3 | Raised diversity gate to 45; deepened 10 Alpha spatial cells |
 | 31 | Handcraft batch 4 | Raised diversity gate to 55; deepened 10 editorial / narrative cells |
 | 32 | Handcraft batch 5 | Raised diversity gate to 65; deepened 10 kinetic / systems cells |
+| 33 | Handcraft batch 6 | Raised diversity gate to 75; deepened 10 systems / hire cells |
 
 Live: https://orbitfolio-kohl.vercel.app · Loop: award deepen + merge
 
