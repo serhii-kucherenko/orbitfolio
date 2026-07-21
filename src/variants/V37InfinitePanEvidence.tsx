@@ -27,7 +27,7 @@ export function Variant() {
           transition={{ duration: 9, repeat: Infinity }}
         />
         <p className="relative font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.45em] text-[#c4a574]">
-          Continuum · infinite pan
+          Continuum · infinite pan · {cv.location}
         </p>
         <h1 className="relative mt-5 font-[family-name:var(--font-serif)] text-5xl leading-tight sm:text-7xl">
           {cv.name}
@@ -43,7 +43,7 @@ export function Variant() {
           </a>
           <a
             href="/resume"
-            className="border border-[#c4a574]/45 px-5 py-2.5 text-xs font-bold uppercase tracking-widest text-[#e8c99a]"
+            className="border border-[#c4a574]/45 px-5 py-2.5 text-xs font-bold uppercase tracking-widest text-[#e8c99a] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#e8c99a]"
           >
             Still print
           </a>

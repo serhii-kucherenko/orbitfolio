@@ -19,7 +19,7 @@ export function Variant() {
       <section className="border-b border-[#1e3a5f] bg-gradient-to-br from-[#08101c] via-[#0d1728] to-[#122038]">
         <div className="mx-auto max-w-5xl px-6 py-16 md:py-20">
           <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.35em] text-[#c9a227]">
-            Leadership evidence board
+            Leadership evidence board · {cv.location}
           </p>
           <motion.h1
             initial={reduce ? false : { opacity: 0, y: 14 }}
@@ -33,13 +33,13 @@ export function Variant() {
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <a
               href={`mailto:${cv.email}`}
-              className="rounded-sm bg-[#c9a227] px-5 py-2.5 text-sm font-bold text-[#08101c] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c9a227]"
+              className="bg-[#c9a227] px-5 py-2.5 text-sm font-bold text-[#08101c] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c9a227]"
             >
               Brief the hiring lead
             </a>
             <a
               href="/resume"
-              className="rounded-sm border border-[#c9a227]/50 px-5 py-2.5 text-sm font-bold text-[#c9a227]"
+              className="border border-[#c9a227]/50 px-5 py-2.5 text-sm font-bold text-[#c9a227] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c9a227]"
             >
               Evidence PDF
             </a>

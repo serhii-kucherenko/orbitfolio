@@ -23,13 +23,15 @@ export function Variant() {
           }}
         />
         <div className="relative z-10 mx-auto w-full max-w-5xl">
-          <p className="text-[10px] uppercase tracking-[0.4em] text-cyan-300/60">Planet stage → dossier</p>
+          <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.4em] text-cyan-300/60">
+            Planet stage → dossier · {cv.location}
+          </p>
           <h1 className="mt-4 font-[family-name:var(--font-display)] text-5xl font-bold sm:text-6xl">{cv.name}</h1>
           <p className="mt-3 text-cyan-100/70">{cv.title}</p>
         </div>
       </section>
 
-      <section className="relative z-10 mx-auto -mt-2 max-w-5xl rounded-t-2xl border border-white/10 bg-[#0d1422] px-6 py-12 shadow-2xl sm:px-10">
+      <section className="relative z-10 mx-auto -mt-2 max-w-5xl border border-white/10 border-b-0 bg-[#0d1422] px-6 py-12 sm:px-10">
         <div className="flex flex-wrap items-start justify-between gap-4 border-b border-white/10 pb-6">
           <div>
             <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.3em] text-cyan-300/50">
@@ -41,20 +43,20 @@ export function Variant() {
           <div className="flex flex-wrap gap-2">
             <a
               href={`mailto:${cv.email}`}
-              className="rounded bg-cyan-400 px-4 py-2 text-sm font-semibold text-[#060b16] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300"
+              className="bg-cyan-400 px-4 py-2 text-sm font-semibold text-[#060b16] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300"
             >
               Request clearance
             </a>
             <a
               href="/resume"
-              className="rounded border border-cyan-400/40 px-4 py-2 text-sm font-semibold text-cyan-200"
+              className="border border-cyan-400/40 px-4 py-2 text-sm font-semibold text-cyan-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300"
             >
               Dossier PDF
             </a>
           </div>
         </div>
 
-        <div className="mt-8 grid gap-3 sm:grid-cols-4">
+        <div className="mt-8 grid gap-6 sm:grid-cols-4">
           {cv.highlights.map((h, i) => (
             <motion.div
               key={h.label}
@@ -62,7 +64,7 @@ export function Variant() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: reduce ? 0 : i * 0.05 }}
-              className="border border-cyan-400/15 bg-cyan-950/20 px-4 py-4"
+              className="border-l border-cyan-400/35 pl-4"
             >
               <p className="font-[family-name:var(--font-mono)] text-xl text-cyan-200">{h.value}</p>
               <p className="mt-1 text-[10px] uppercase tracking-wider text-cyan-100/40">{h.label}</p>

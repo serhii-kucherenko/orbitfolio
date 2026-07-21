@@ -77,5 +77,6 @@ Autonomous progress log for Orbitfolio.
 | 74 | Burst tick 25 | Deepened recruiter light, bilingual signal, archive rooms, cover stack, recruiter champion, Swiss grid |
 | 75 | Burst tick 26 | Deepened oversized type, proof mosaic, kinetic nameplate, holo proof, Bauhaus blocks, origami folds |
 | 76 | Burst tick 27 | Deepened telemetry tape, Swiss kinetic, kinetic synth, spotlight, masthead press, void whisper |
+| 77 | Burst tick 28 | Deepened waveform, editorial orbit, planetary dossier, infinite pan, leadership evidence, liquid metal |
 
 Live: https://orbitfolio-kohl.vercel.app · Loop: every 15m — unique award craft + UI must stay green

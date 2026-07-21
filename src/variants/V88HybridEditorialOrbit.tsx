@@ -15,7 +15,7 @@ export function Variant() {
         <div className="flex items-baseline justify-between border-b border-white/10 pb-4">
           <p className="font-[family-name:var(--font-serif)] text-2xl italic text-[#7dd3fc]">Orbit</p>
           <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.3em] opacity-40">
-            Editorial · Vol. 88
+            Editorial · Vol. 88 · {cv.location}
           </p>
         </div>
 
@@ -39,7 +39,7 @@ export function Variant() {
               </a>
               <a
                 href="/resume"
-                className="border border-[#7dd3fc]/40 px-5 py-2.5 text-sm font-semibold text-[#7dd3fc]"
+                className="border border-[#7dd3fc]/40 px-5 py-2.5 text-sm font-semibold text-[#7dd3fc] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7dd3fc]"
               >
                 Folio PDF
               </a>
