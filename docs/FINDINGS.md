@@ -23,7 +23,7 @@ Coolness 30 · Comprehensiveness 20 · Uniqueness 20 · Motion 15 · Hireability
 
 - Structural diversity beats palette swaps for lab signal
 - A03 red→green diversity gate forced at least 20 fully handcrafted cells instead of shared-shell palette swaps
-- Gate raised to **65** handcrafted cells (batch 5) — waveform / particles / aurora / velocity chapters / goals orbit / launch / oversized type / kinetic / journey / blueprint
+- Gate raised to **75** handcrafted cells (batch 6) — holo / switchboard / telemetry / dual narrative / status / outcomes / founder / healthcare / leadership
 - Shared CV blocks keep comprehensiveness high while UX diverges — but overusing them + Starfield made variants feel identical
 - Diversity reboot (tick 26): magazine / Swiss / clinic SaaS / daylight glass / paper void / dual narrative / mosaic / case chapters / iso rooms / brutal press / Bauhaus / recruiter profile / docs workspace
 - Champion hybrid should synthesize (warp + glass + metrics + CTAs), not average mediocre traits
