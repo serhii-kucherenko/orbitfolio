@@ -24,7 +24,7 @@ Full definitions: [`docs/RUBRIC.md`](RUBRIC.md)
 
 - Structural diversity beats palette swaps for lab signal
 - Fail-then-pass diversity checks forced at least 20 fully custom designs instead of shared-shell palette swaps — see [`docs/RED_GREEN.md`](RED_GREEN.md)
-- Gate raised to **75** custom designs (batch 6) — holographic / switchboard / telemetry / dual narrative / status / outcomes / founder / healthcare / leadership
+- Gate raised to **85** custom designs (batch 7) — daylight product / hiring brief / metrics / mosaic / one-pager / origami / void / code rain / aurora / event horizon
 - Shared resume blocks keep completeness high while experience diverges — but overusing them plus the same starfield made designs feel identical
 - Diversity reboot (tick 26): magazine / [Swiss Style](https://www.designhistory.org/Art_Movements_pages/SwissDesign.html) / clinic product / daylight glass / paper void / dual narrative / mosaic / case chapters / isometric rooms / brutal press / [Bauhaus](https://www.bauhaus.de/en/) / recruiter profile / docs workspace
 - Champion hybrid should synthesize (warp + glass + metrics + clear action buttons), not average mediocre traits
