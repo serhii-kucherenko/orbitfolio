@@ -1,18 +1,37 @@
 "use client";
 
-import { useReducedMotion } from "framer-motion";
-import { AwardVariant } from "@/components/AwardVariant";
+import { motion, useReducedMotion } from "framer-motion";
+import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
 import { cv } from "@/data/cv";
 
-/** Event Lens Portfolio — An event-horizon lens bends the opening frame but leaves every proof legible. */
+/** Event Lens Portfolio — handcrafted award cell */
 export function Variant() {
-  const reduceMotion = useReducedMotion() ?? false;
+  const reduce = useReducedMotion() ?? false;
   return (
-    <AwardVariant
-      cv={cv}
-      reduceMotion={reduceMotion}
-      config={{"id":12,"name":"Event Lens Portfolio","thesis":"An event-horizon lens bends the opening frame but leaves every proof legible.","layout":"horizon","team":"Alpha WebGL","accent":"#f87171","background":"#101014","light":false}}
-     
-    />
+    <main className="min-h-screen bg-[#050505] text-zinc-100">
+      <section className="relative mx-auto flex min-h-screen max-w-4xl flex-col items-center justify-center px-6 pt-24 text-center">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 opacity-60"
+          style={{ background: "radial-gradient(circle at 50% 45%, transparent 20%, #000 65%)" }}
+        />
+        <motion.h1
+          className="relative font-[family-name:var(--font-display)] text-5xl font-bold sm:text-7xl"
+          style={{ filter: reduce ? undefined : "url(#)" }}
+          initial={reduce ? false : { scale: 1.15, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+        >
+          {cv.name}
+        </motion.h1>
+        <p className="relative mt-5 text-lg text-zinc-300">{cv.title}</p>
+        <p className="relative mt-6 max-w-2xl text-sm leading-7 text-white/55">{cv.summary}</p>
+      </section>
+      <section className="mx-auto max-w-4xl space-y-14 px-6 pb-28">
+        <ExperienceList tone="dark" />
+        <SkillsCloud />
+        <ProjectLinks />
+        <ContactRow className="text-zinc-300" />
+      </section>
+    </main>
   );
 }

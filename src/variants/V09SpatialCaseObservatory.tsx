@@ -1,18 +1,43 @@
 "use client";
 
-import { useReducedMotion } from "framer-motion";
-import { AwardVariant } from "@/components/AwardVariant";
+import { motion, useReducedMotion } from "framer-motion";
+import { ContactRow, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
 import { cv } from "@/data/cv";
 
-/** Spatial Case Observatory — Career cases behave like observatory stations along a measured vertical route. */
+/** Spatial Case Observatory — handcrafted award cell */
 export function Variant() {
-  const reduceMotion = useReducedMotion() ?? false;
+  const reduce = useReducedMotion() ?? false;
   return (
-    <AwardVariant
-      cv={cv}
-      reduceMotion={reduceMotion}
-      config={{"id":9,"name":"Spatial Case Observatory","thesis":"Career cases behave like observatory stations along a measured vertical route.","layout":"chapters","team":"Alpha WebGL","accent":"#67e8f9","background":"#030712","light":false}}
-     
-    />
+    <main className="min-h-screen bg-[#07111c] text-sky-50">
+      <section className="mx-auto max-w-5xl px-6 pb-8 pt-28">
+        <p className="text-[10px] uppercase tracking-[0.35em] text-sky-300/70">Observatory stations</p>
+        <h1 className="mt-4 font-[family-name:var(--font-display)] text-5xl font-bold sm:text-6xl">{cv.name}</h1>
+        <p className="mt-3 text-sky-100/75">{cv.title}</p>
+        <p className="mt-6 max-w-2xl text-sm leading-7 text-white/55">{cv.summary}</p>
+      </section>
+      <section className="mx-auto grid max-w-5xl gap-4 px-6 pb-12 md:grid-cols-2">
+        {cv.experience.map((job, i) => (
+          <motion.article
+            key={job.company}
+            initial={reduce ? false : { opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="rounded-3xl border border-sky-400/20 bg-sky-950/30 p-6"
+          >
+            <p className="text-xs text-sky-300/60">Station {i + 1} · {job.period}</p>
+            <h2 className="mt-2 text-xl font-semibold">{job.company}</h2>
+            <p className="mt-1 text-sm text-white/70">{job.role}</p>
+            <ul className="mt-4 space-y-2 text-sm text-white/55">
+              {job.bullets.map((b) => <li key={b.slice(0, 24)}>{b}</li>)}
+            </ul>
+          </motion.article>
+        ))}
+      </section>
+      <section className="mx-auto max-w-5xl space-y-12 px-6 pb-28">
+        <SkillsCloud />
+        <ProjectLinks />
+        <ContactRow className="text-sky-200/70" />
+      </section>
+    </main>
   );
 }
