@@ -93,6 +93,24 @@ export function Variant() {
                 </p>
               </div>
             </section>
+            <section className="mt-16 border-4 border-black bg-[#fff7ed] p-6">
+              <p className="text-xs font-black uppercase tracking-[0.2em] text-[#e11d48]">Scan rule</p>
+              <p className="mt-3 max-w-2xl text-sm leading-7">
+                Steals scan speed from #20 and oversized motion type from #41. Lenis keeps the modular grid
+                feeling cinematic without trapping scroll — reduced motion falls back to native scrolling.
+              </p>
+              <div className="mt-5 flex flex-wrap gap-2">
+                {["Identity", "Metrics", "Roles", "Contact", "Lenis"].map((label) => (
+                  <span key={label} className="border border-black px-3 py-1 text-[10px] font-bold uppercase">
+                    {label}
+                  </span>
+                ))}
+              </div>
+              <p className="mt-5 text-xs uppercase tracking-wider opacity-50">
+                Recruiter path: hire CTA → metrics strip → experience → printable resume
+              </p>
+              <p className="mt-2 text-xs opacity-40">Module 91 · Hybrid Swiss Kinetic · Orbitfolio lab</p>
+            </section>
           </div>
         </div>
       </main>

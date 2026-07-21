@@ -86,6 +86,36 @@ export function Variant() {
               </p>
             </div>
           </div>
+          <div className="mt-20 border-t border-white/10 pt-10">
+            <p className="font-[family-name:var(--font-serif)] text-lg italic text-[#7dd3fc]/80">
+              Steals editorial authority from #17 and spatial focus from #2 — the orbit is live WebGL, the
+              copy stays magazine-sharp.
+            </p>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <a
+                href={`mailto:${cv.email}`}
+                className="border border-[#7dd3fc]/50 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-[#7dd3fc] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7dd3fc]"
+              >
+                Assign the feature
+              </a>
+              <a
+                href="/resume"
+                className="border border-white/20 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-white/70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7dd3fc]"
+              >
+                Folio PDF
+              </a>
+              <span className="self-center text-[10px] uppercase tracking-[0.3em] opacity-40">
+                Dateline · {cv.location}
+              </span>
+            </div>
+            <div className="mt-8 grid gap-3 sm:grid-cols-3">
+              {["Masthead identity", "Orbital proof stage", "Feature-well archive"].map((item) => (
+                <p key={item} className="border-l border-[#7dd3fc]/40 pl-3 text-xs uppercase tracking-wider opacity-55">
+                  {item}
+                </p>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
     </main>

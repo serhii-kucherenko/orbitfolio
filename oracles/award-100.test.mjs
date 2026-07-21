@@ -344,3 +344,20 @@ test("Fail-then-pass: Hybrid ladder ships award motion tech (WebGL or Lenis)", (
     );
   }
 });
+
+test("Fail-then-pass: Hybrid cells stay deep enough for award craft", () => {
+  const etaFiles = listVariantFiles().filter((name) => {
+    const id = Number(name.match(/^V(\d+)/)[1]);
+    return id >= 86 && id <= 100;
+  });
+  assert.equal(etaFiles.length, 15);
+  const shallow = etaFiles.filter((file) => {
+    const lines = fs.readFileSync(path.join(variantsDir, file), "utf8").split("\n").length;
+    return lines < 120;
+  });
+  assert.equal(
+    shallow.length,
+    0,
+    `RED: Hybrid cells under 120 lines (too thin for award craft): ${shallow.join(", ")}`,
+  );
+});

@@ -109,6 +109,19 @@ export function Variant() {
             </p>
           </div>
         </section>
+        <section className="mt-16 border border-teal-300/20 bg-teal-300/5 p-6 backdrop-blur-sm md:p-8">
+          <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.35em] text-[#5eead4]">
+            Executive skim
+          </p>
+          <ul className="mt-4 space-y-2 text-sm leading-7 text-white/70">
+            <li>— Founding ownership across healthcare AI scheduling and RAG systems</li>
+            <li>— Team leadership with delivery standards from pilot to multi-org scale</li>
+            <li>— Direct contact + printable resume without fighting the molten chrome</li>
+          </ul>
+          <p className="mt-6 text-sm opacity-50">
+            Steals liquid headline craft from #72 and hiring-manager brevity from #66.
+          </p>
+        </section>
       </div>
       </main>
     </SmoothScroll>

@@ -93,6 +93,28 @@ export function Variant() {
           </p>
         </div>
       </section>
+      <section className="relative z-10 border-t border-white/10 bg-black/40 px-6 py-12 md:px-16">
+        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4">
+          <p className="max-w-xl text-sm text-slate-300">
+            Steals warp motion from #30 and ten-second hire clarity from #59 — now with a live corridor stage.
+          </p>
+          <div className="flex flex-wrap gap-3 text-[10px] uppercase tracking-[0.3em] text-cyan-300/70">
+            <span>Who · Serhii</span>
+            <span>What · Founding engineer</span>
+            <span>Proof · metrics above</span>
+            <span>Motion · WebGL corridor</span>
+          </div>
+        </div>
+        <div className="mx-auto mt-8 grid max-w-6xl gap-3 sm:grid-cols-3">
+          {["Warp without trapping scroll", "Glass metrics in the first viewport", "Resume one click away"].map(
+            (line) => (
+              <p key={line} className="border border-cyan-300/20 px-4 py-3 text-xs text-cyan-100/70">
+                {line}
+              </p>
+            ),
+          )}
+        </div>
+      </section>
     </main>
   );
 }

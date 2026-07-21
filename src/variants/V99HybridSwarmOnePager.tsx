@@ -89,6 +89,34 @@ export function Variant() {
             </p>
           </div>
         </section>
+        <section className="border-t border-emerald-300/20 py-12">
+          <div className="grid gap-6 md:grid-cols-[1.2fr_0.8fr] md:items-end">
+            <p className="max-w-2xl text-sm leading-7 text-slate-300">
+              Steals agent energy from #81 and one-page clarity from #69. The swarm is a live particle field;
+              the page still answers who, what, and proof before the fold ends.
+            </p>
+            <div className="flex flex-wrap gap-3 md:justify-end">
+              <a
+                href={`mailto:${cv.email}`}
+                className={`bg-emerald-300 px-5 py-2.5 text-sm font-bold text-black ${focus}`}
+              >
+                Ping the swarm lead
+              </a>
+              <Link href="/lab" className={`border border-emerald-300/40 px-5 py-2.5 text-sm ${focus}`}>
+                Open the lab
+              </Link>
+            </div>
+          </div>
+          <div className="mt-8 grid gap-3 sm:grid-cols-3">
+            {["Human command stays central", "Agents as atmosphere only", "One-page evidence stream"].map(
+              (line) => (
+                <p key={line} className="border border-emerald-300/20 px-4 py-3 text-xs text-emerald-100/60">
+                  {line}
+                </p>
+              ),
+            )}
+          </div>
+        </section>
       </div>
     </main>
   );

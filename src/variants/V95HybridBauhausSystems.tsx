@@ -98,6 +98,24 @@ export function Variant() {
               </p>
             </div>
           </section>
+          <section className="border-t-4 border-black bg-white p-8 md:p-12">
+            <p className="text-sm font-bold uppercase tracking-[0.2em]">Lesson</p>
+            <p className="mt-4 max-w-3xl text-base leading-8">
+              Steals geometric confidence from #75 and inspectable docs structure from #44. Primary colors
+              carry hierarchy; the TOC keeps recruiters oriented in under ten seconds.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <span className="border-4 border-black bg-[#d91f1f] px-4 py-2 text-xs font-black uppercase text-white">
+                Form
+              </span>
+              <span className="border-4 border-black bg-[#2455a4] px-4 py-2 text-xs font-black uppercase text-white">
+                Function
+              </span>
+              <span className="border-4 border-black bg-[#f0c43a] px-4 py-2 text-xs font-black uppercase">
+                Proof
+              </span>
+            </div>
+          </section>
         </div>
       </div>
       </main>
