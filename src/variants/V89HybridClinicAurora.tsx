@@ -9,7 +9,7 @@ export function Variant() {
   const reduce = useReducedMotion() ?? false;
 
   return (
-    <main className="relative min-h-screen overflow-hidden" style={{ background: "#f0faf8", color: "#0f2f2a" }}>
+    <main className="relative min-h-screen overflow-hidden bg-[#eaf7f4] text-[#0f2f2a]">
       <div
         aria-hidden
         className="pointer-events-none absolute inset-x-0 top-0 h-[50vh]"
@@ -33,8 +33,14 @@ export function Variant() {
       )}
 
       <div className="relative mx-auto max-w-5xl px-6 py-20 md:py-28">
-        <div className="rounded-sm border bg-white/80 px-6 py-10 backdrop-blur-sm md:px-12 md:py-14" style={{ borderColor: "#0f766e33" }}>
-          <div className="flex flex-wrap items-center justify-between gap-3 border-b pb-4" style={{ borderColor: "#0f766e22" }}>
+        <div
+          className="rounded-sm border bg-white/85 px-6 py-10 backdrop-blur-sm md:px-12 md:py-14"
+          style={{ borderColor: "#0f766e33" }}
+        >
+          <div
+            className="flex flex-wrap items-center justify-between gap-3 border-b pb-4"
+            style={{ borderColor: "#0f766e22" }}
+          >
             <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.3em] text-[#0f766e]">
               Clinic · Aurora bay
             </p>
@@ -50,21 +56,22 @@ export function Variant() {
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <a
               href={`mailto:${cv.email}`}
-              className="rounded-sm px-5 py-2.5 text-sm font-semibold"
-              style={{ background: "#0f766e", color: "#ecfdf5" }}
+              className="rounded-sm bg-[#0f766e] px-5 py-2.5 text-sm font-semibold text-[#ecfdf5] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0f766e]"
             >
               Book a consult
+            </a>
+            <a
+              href="/resume"
+              className="rounded-sm border border-[#0f766e]/40 px-5 py-2.5 text-sm font-semibold text-[#0f766e]"
+            >
+              Chart PDF
             </a>
             <ContactRow />
           </div>
 
           <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-4">
             {cv.highlights.map((h) => (
-              <div
-                key={h.label}
-                className="border-t-2 pt-3"
-                style={{ borderColor: "#14b8a6" }}
-              >
+              <div key={h.label} className="border-t-2 border-[#14b8a6] pt-3">
                 <p className="font-[family-name:var(--font-display)] text-3xl font-bold text-[#0f766e]">
                   {h.value}
                 </p>
@@ -88,7 +95,7 @@ export function Variant() {
             <h2 className="mb-6 text-xl font-bold">Case files</h2>
             <ProjectLinks tone="light" />
             <p className="mt-8 text-sm opacity-50">
-              {cv.education.degree} · {cv.education.school}
+              {cv.education.degree} · {cv.education.school} · {cv.location}
             </p>
           </div>
         </section>
