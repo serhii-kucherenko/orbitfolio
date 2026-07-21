@@ -198,8 +198,8 @@ test("RED→GREEN: structural diversity — not a monoculture of identical layou
   }
   assert.ok(layouts.size >= 20, `need ≥20 distinct AwardVariant layouts, got ${layouts.size}`);
   assert.ok(
-    handcrafted >= 35,
-    `RED: need ≥35 handcrafted (non-AwardVariant) cells for award diversity, got ${handcrafted}`,
+    handcrafted >= 45,
+    `RED: need ≥45 handcrafted (non-AwardVariant) cells for award diversity, got ${handcrafted}`,
   );
 });
 
