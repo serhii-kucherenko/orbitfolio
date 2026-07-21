@@ -258,6 +258,19 @@ test("Fail-then-pass: no banned AI-cliché palettes in AwardVariant light mode",
   assert.doesNotMatch(src, /terracotta/i);
 });
 
+test("Fail-then-pass: deepened unique UIs keep rising past the 100-handcraft floor", () => {
+  const files = listVariantFiles();
+  const deepened = files.filter((file) => {
+    const lines = fs.readFileSync(path.join(variantsDir, file), "utf8").split("\n").length;
+    return lines >= 40;
+  });
+  // Handcrafted gate is already 100/100; depth gate forces richer award craft.
+  assert.ok(
+    deepened.length >= 15,
+    `RED: need ≥15 deepened cells (≥40 source lines), got ${deepened.length}`,
+  );
+});
+
 test("Fail-then-pass: package scripts and GitHub checks run oracles", () => {
   const pkg = JSON.parse(read("package.json"));
   assert.equal(pkg.scripts.test, "node --test oracles/**/*.test.mjs");
