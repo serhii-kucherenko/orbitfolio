@@ -31,7 +31,9 @@ export function Variant() {
       )}
 
       <section className="relative mx-auto max-w-5xl px-6 pb-10 pt-20">
-        <p className="text-[10px] uppercase tracking-[0.4em] text-emerald-600">Code rain archive // v76</p>
+        <p className="text-[10px] uppercase tracking-[0.4em] text-emerald-600">
+          Code rain archive // v76 · {cv.location}
+        </p>
         <motion.h1
           initial={reduce ? false : { opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -50,7 +52,7 @@ export function Variant() {
           </a>
           <a
             href="/resume"
-            className="border border-emerald-700/60 px-4 py-2 text-xs font-bold uppercase tracking-wider text-emerald-500"
+            className="border border-emerald-700/60 px-4 py-2 text-xs font-bold uppercase tracking-wider text-emerald-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-400"
           >
             &gt; cat resume.txt
           </a>

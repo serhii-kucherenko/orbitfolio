@@ -25,7 +25,7 @@ export function Variant() {
             animate={reduce ? undefined : { x: [0, 28, 0] }}
             transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
           />
-          <h2 className="mt-10 text-xl font-black uppercase tracking-tight">System manual 95</h2>
+          <h2 className="mt-10 text-xl font-black uppercase tracking-tight">System manual 95 · {cv.location}</h2>
           <nav className="mt-10 space-y-2 font-bold">
             {toc.map((item) => (
               <a
@@ -46,7 +46,7 @@ export function Variant() {
             </a>
             <a
               href="/resume"
-              className="inline-block border-4 border-black px-4 py-2 text-xs font-black uppercase"
+              className="inline-block border-4 border-black px-4 py-2 text-xs font-black uppercase focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
             >
               Manual PDF
             </a>

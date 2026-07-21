@@ -29,7 +29,7 @@ export function Variant() {
           </motion.div>
         )}
         <p className="relative font-[family-name:var(--font-mono)] text-xs uppercase tracking-[0.5em] text-lime-400">
-          Lap 00 · Start
+          Lap 00 · Start · {cv.location}
         </p>
         <h1 className="relative mt-4 max-w-5xl font-[family-name:var(--font-display)] text-6xl font-black uppercase leading-[0.85] sm:text-8xl md:text-9xl">
           {cv.name}
@@ -45,7 +45,7 @@ export function Variant() {
           </a>
           <a
             href="/resume"
-            className="border border-lime-400/50 px-6 py-3 text-xs font-black uppercase tracking-widest text-lime-300"
+            className="border border-lime-400/50 px-6 py-3 text-xs font-black uppercase tracking-widest text-lime-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime-300"
           >
             Timing sheet
           </a>
