@@ -70,7 +70,7 @@ export function Variant() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: reduce ? 0 : i * 0.05 }}
-                className="rounded-xl border border-[#c5d4cb] bg-white/85 px-4 py-5 shadow-sm"
+                className="border border-[#c5d4cb] bg-white/85 px-4 py-5"
               >
                 <p className="text-2xl font-semibold text-[#2f4a3d]">{h.value}</p>
                 <p className="mt-1 text-xs text-[#4a6b5c]/80">{h.label}</p>
@@ -84,7 +84,7 @@ export function Variant() {
         <h2 className="mb-6 font-[family-name:var(--font-serif)] text-2xl">Trust outcomes</h2>
         <div className="grid gap-4 md:grid-cols-3">
           {trust.map((t) => (
-            <article key={t.title} className="rounded-xl border border-[#c5d4cb] bg-white p-5">
+            <article key={t.title} className="border border-[#c5d4cb] bg-white p-5">
               <h3 className="font-semibold text-[#2f4a3d]">{t.title}</h3>
               <p className="mt-2 text-sm leading-6 text-[#1c2b24]/65">{t.detail}</p>
             </article>

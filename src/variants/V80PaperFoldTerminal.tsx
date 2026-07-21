@@ -21,11 +21,11 @@ export function Variant() {
           initial={reduce ? false : { rotateX: 12, opacity: 0.6 }}
           animate={{ rotateX: 0, opacity: 1 }}
           transition={{ duration: 0.8 }}
-          className="origin-top overflow-hidden shadow-2xl"
+          className="origin-top overflow-hidden shadow-lg"
           style={{
             background: "#eef2f6",
             clipPath: "polygon(0 0, 100% 0, 100% 92%, 96% 100%, 0 100%)",
-            boxShadow: "12px 20px 40px #1a233244, inset -40px 0 0 #d8e0e8",
+            boxShadow: "8px 14px 28px #1a233233, inset -40px 0 0 #d8e0e8",
           }}
         >
           <div
@@ -33,7 +33,7 @@ export function Variant() {
             style={{ borderColor: "#1a233222", background: "#1a2332", color: "#7dffa3" }}
           >
             <span className="opacity-60">fold://portfolio</span>
-            <span className="ml-auto opacity-40">paper · 80gsm</span>
+            <span className="ml-auto opacity-40">{cv.location}</span>
           </div>
 
           <div className="grid md:grid-cols-[220px_1fr]">

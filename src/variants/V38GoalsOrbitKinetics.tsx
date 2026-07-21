@@ -72,7 +72,7 @@ export function Variant() {
       <section className="border-t border-sky-400/15 bg-[#080e20] px-6 py-16 lg:px-12">
         <div className="mx-auto grid max-w-7xl gap-4 sm:grid-cols-4">
           {cv.highlights.map((h) => (
-            <div key={h.label} className="rounded-2xl border border-sky-400/20 bg-sky-400/5 p-5">
+            <div key={h.label} className="border border-sky-400/20 bg-sky-400/5 p-5">
               <p className="text-3xl font-black text-sky-200">{h.value}</p>
               <p className="mt-1 text-[10px] uppercase tracking-wider text-white/45">{h.label}</p>
             </div>

@@ -73,7 +73,7 @@ export function Variant() {
               initial={reduce ? false : { opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: reduce ? 0 : 0.05 * i }}
-              className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-sky-100"
+              className="border border-sky-200 bg-white p-5"
             >
               <p className="text-3xl font-bold text-sky-700">{h.value}</p>
               <p className="mt-1 text-xs text-sky-900/50">{h.label}</p>
@@ -86,7 +86,7 @@ export function Variant() {
         <h2 className="mb-4 text-2xl font-bold">Architecture → customer result</h2>
         <div className="grid gap-3 md:grid-cols-2">
           {results.map((r) => (
-            <article key={r.choice} className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-sky-100">
+            <article key={r.choice} className="border border-sky-200 bg-white p-5">
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sky-600">{r.choice}</p>
               <p className="mt-3 text-sm leading-6 text-sky-950/75">{r.result}</p>
             </article>
