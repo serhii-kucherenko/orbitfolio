@@ -8,7 +8,7 @@ export type Goal = {
 
 /** Seed goals — expand / replace later. Drawn from CV themes + public GitHub work. */
 export const goals: Goal[] = [
-  { id: 1, title: "Ship an award-grade personal site", category: "Craft", status: "done", note: "Live at https://orbitfolio-kohl.vercel.app — 50 scored experiments" },
+  { id: 1, title: "Ship an award-grade personal site", category: "Craft", status: "done", note: "Live at https://orbitfolio-kohl.vercel.app — 100 scored experiments" },
   { id: 2, title: "Open-source a production RAG starter", category: "AI", status: "active", note: "dune-expert-rag lineage" },
   { id: 3, title: "Publish agent memory patterns people reuse", category: "AI", status: "active" },
   { id: 4, title: "Run AI Method Lab to a promoted default set", category: "Research", status: "done" },
@@ -53,7 +53,7 @@ export const goals: Goal[] = [
   { id: 43, title: "Automate weekly status digests with agents", category: "Automation", status: "active" },
   { id: 44, title: "Ship Signalboard-quality status page OSS", category: "OSS", status: "dream" },
   { id: 45, title: "Keep a streak of deep work mornings", category: "Life", status: "active" },
-  { id: 46, title: "Design a family of portfolio experiments (this lab)", category: "Craft", status: "active" },
+  { id: 46, title: "Design a family of portfolio experiments (this lab)", category: "Craft", status: "done", note: "100 complete award-pattern cells" },
   { id: 47, title: "Partner with a designer on one shipped product", category: "Career", status: "dream" },
   { id: 48, title: "Publish threat models for AI features as templates", category: "Security", status: "active" },
   { id: 49, title: "Reduce personal cloud spend with clever static arch", category: "Life", status: "done" },

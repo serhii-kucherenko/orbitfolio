@@ -7,105 +7,205 @@ export type VariantModule = {
 export async function loadVariant(id: number): Promise<VariantModule> {
   switch (id) {
     case 1:
-      return import("@/variants/V01NebulaTerminal");
+      return import("@/variants/V01ScrollAlcoveMuseum");
     case 2:
-      return import("@/variants/V02OrbitalTimeline");
+      return import("@/variants/V02OrbitalProofSphere");
     case 3:
-      return import("@/variants/V03WarpCorridor");
+      return import("@/variants/V03WebGPUVeil");
     case 4:
-      return import("@/variants/V04ConstellationSkills");
+      return import("@/variants/V04CinematicFlythrough");
     case 5:
-      return import("@/variants/V05MissionBriefing");
+      return import("@/variants/V05SpotlightInstallation");
     case 6:
-      return import("@/variants/V06GlassNebula");
+      return import("@/variants/V06InstancedParticleFleet");
     case 7:
-      return import("@/variants/V07KineticType");
+      return import("@/variants/V07ShaderAtmosphere");
     case 8:
-      return import("@/variants/V08SplitHorizon");
+      return import("@/variants/V08MouseRevealMonolith");
     case 9:
-      return import("@/variants/V09ParallaxDeep");
+      return import("@/variants/V09SpatialCaseObservatory");
     case 10:
-      return import("@/variants/V10EditorialCosmos");
+      return import("@/variants/V10PlanetaryDossier");
     case 11:
-      return import("@/variants/V11VoidMinimal");
+      return import("@/variants/V11OrbitArchiveRooms");
     case 12:
-      return import("@/variants/V12HoloDeck");
+      return import("@/variants/V12EventLensPortfolio");
     case 13:
-      return import("@/variants/V13GalaxyRail");
+      return import("@/variants/V13SolarCareerInstrument");
     case 14:
-      return import("@/variants/V14PlanetStage");
+      return import("@/variants/V14ConstellationCommand");
     case 15:
-      return import("@/variants/V15AsciiOrbit");
+      return import("@/variants/V15MissionOneTake");
     case 16:
-      return import("@/variants/V16SynthwaveOrbit");
+      return import("@/variants/V16WeightedEditorial");
     case 17:
-      return import("@/variants/V17ClinicCosmos");
+      return import("@/variants/V17MastheadProofPress");
     case 18:
-      return import("@/variants/V18CodeRain");
+      return import("@/variants/V18PullQuoteStage");
     case 19:
-      return import("@/variants/V19LaunchScrub");
+      return import("@/variants/V19ColumnBroadsheet");
     case 20:
-      return import("@/variants/V20SignalMosaic");
+      return import("@/variants/V20SwissEvidenceGrid");
     case 21:
-      return import("@/variants/V21SnapChapters");
+      return import("@/variants/V21BrutalSundayPress");
     case 22:
-      return import("@/variants/V22ParticleCv");
+      return import("@/variants/V22BilingualSignal");
     case 23:
-      return import("@/variants/V23AuroraVancouver");
+      return import("@/variants/V23IssueStack");
     case 24:
-      return import("@/variants/V24EventHorizon");
+      return import("@/variants/V24FootnoteCareer");
     case 25:
-      return import("@/variants/V25TelemetryTape");
+      return import("@/variants/V25RedlineResume");
     case 26:
-      return import("@/variants/V26CreditRoll");
+      return import("@/variants/V26CreditRollCareer");
     case 27:
-      return import("@/variants/V27SolarCareer");
+      return import("@/variants/V27FieldNotesVancouver");
     case 28:
-      return import("@/variants/V28BlueprintEng");
+      return import("@/variants/V28FinalEditionPortfolio");
     case 29:
-      return import("@/variants/V29TronLattice");
+      return import("@/variants/V29KineticNameplate");
     case 30:
-      return import("@/variants/V30OrganicNebula");
+      return import("@/variants/V30WarpTypeCorridor");
     case 31:
-      return import("@/variants/V31StarChart");
+      return import("@/variants/V31ElasticCareerRail");
     case 32:
-      return import("@/variants/V32LiquidMetal");
+      return import("@/variants/V32SnapImpactChapters");
     case 33:
-      return import("@/variants/V33IsoStation");
+      return import("@/variants/V33WaveformResume");
     case 34:
-      return import("@/variants/V34WarpRail");
+      return import("@/variants/V34ParticleNameAssembly");
     case 35:
-      return import("@/variants/V35AgentConsole");
+      return import("@/variants/V35AuroraMotionLedger");
     case 36:
-      return import("@/variants/V36CaseImmersion");
+      return import("@/variants/V36VelocityCaseChapters");
     case 37:
-      return import("@/variants/V37SwissSpace");
+      return import("@/variants/V37InfinitePanEvidence");
     case 38:
-      return import("@/variants/V38BrutalOrbit");
+      return import("@/variants/V38GoalsOrbitKinetics");
     case 39:
-      return import("@/variants/V39Telescope");
+      return import("@/variants/V39LaunchSequenceCV");
     case 40:
-      return import("@/variants/V40CmdPalette");
+      return import("@/variants/V40SignalScrubStory");
     case 41:
-      return import("@/variants/V41StoryChapters");
+      return import("@/variants/V41OversizedProofType");
     case 42:
-      return import("@/variants/V42JourneyMap");
+      return import("@/variants/V42KineticSynthesis");
     case 43:
-      return import("@/variants/V43Waveform");
+      return import("@/variants/V43CommandPaletteCV");
     case 44:
-      return import("@/variants/V44Origami");
+      return import("@/variants/V44DocsSidebarEngineer");
     case 45:
-      return import("@/variants/V45InfiniteCanvas");
+      return import("@/variants/V45AgentChatProfile");
     case 46:
-      return import("@/variants/V46CoverSeries");
+      return import("@/variants/V46JourneyMapSystem");
     case 47:
-      return import("@/variants/V47DualSignal");
+      return import("@/variants/V47BlueprintOperatingManual");
     case 48:
-      return import("@/variants/V48AgentSwarm");
+      return import("@/variants/V48TelescopeFocusIndex");
     case 49:
-      return import("@/variants/V49GoalsRing");
+      return import("@/variants/V49HolographicRecord");
     case 50:
-      return import("@/variants/V50ChampionHybrid");
+      return import("@/variants/V50IsoTeamRooms");
+    case 51:
+      return import("@/variants/V51CaseFileSwitchboard");
+    case 52:
+      return import("@/variants/V52TelemetryTape");
+    case 53:
+      return import("@/variants/V53CoverStackNavigator");
+    case 54:
+      return import("@/variants/V54ConstellationIndex");
+    case 55:
+      return import("@/variants/V55DualNarrativeConsole");
+    case 56:
+      return import("@/variants/V56SystemStatusPortfolio");
+    case 57:
+      return import("@/variants/V57RecruiterProfileLight");
+    case 58:
+      return import("@/variants/V58ClinicSaaSEngineer");
+    case 59:
+      return import("@/variants/V59TenSecondProof");
+    case 60:
+      return import("@/variants/V60OutcomeFirstResume");
+    case 61:
+      return import("@/variants/V61FounderFitProfile");
+    case 62:
+      return import("@/variants/V62HealthcareTrustSheet");
+    case 63:
+      return import("@/variants/V63AppliedAICasebook");
+    case 64:
+      return import("@/variants/V64LeadershipEvidence");
+    case 65:
+      return import("@/variants/V65ProductEngineerDaylight");
+    case 66:
+      return import("@/variants/V66HiringManagerBrief");
+    case 67:
+      return import("@/variants/V67MetricProfile");
+    case 68:
+      return import("@/variants/V68ProofMosaicLight");
+    case 69:
+      return import("@/variants/V69FoundingEngineerOnePager");
+    case 70:
+      return import("@/variants/V70RecruiterChampion");
+    case 71:
+      return import("@/variants/V71ASCIICareerSignal");
+    case 72:
+      return import("@/variants/V72LiquidMetalType");
+    case 73:
+      return import("@/variants/V73OrigamiEvidenceFold");
+    case 74:
+      return import("@/variants/V74VoidWhisper");
+    case 75:
+      return import("@/variants/V75BauhausProofBlocks");
+    case 76:
+      return import("@/variants/V76CodeRainArchive");
+    case 77:
+      return import("@/variants/V77AuroraVancouverCanvas");
+    case 78:
+      return import("@/variants/V78EventHorizonFilter");
+    case 79:
+      return import("@/variants/V79BrutalProofStamp");
+    case 80:
+      return import("@/variants/V80PaperFoldTerminal");
+    case 81:
+      return import("@/variants/V81AgentSwarmField");
+    case 82:
+      return import("@/variants/V82TelescopeMonograph");
+    case 83:
+      return import("@/variants/V83ChromedJourney");
+    case 84:
+      return import("@/variants/V84ExperimentalCoverLab");
+    case 85:
+      return import("@/variants/V85SignalNoiseFinale");
+    case 86:
+      return import("@/variants/V86HybridWarpRecruiter");
+    case 87:
+      return import("@/variants/V87HybridMuseumMetrics");
+    case 88:
+      return import("@/variants/V88HybridEditorialOrbit");
+    case 89:
+      return import("@/variants/V89HybridClinicAurora");
+    case 90:
+      return import("@/variants/V90HybridCommandCases");
+    case 91:
+      return import("@/variants/V91HybridSwissKinetic");
+    case 92:
+      return import("@/variants/V92HybridJourneyProfile");
+    case 93:
+      return import("@/variants/V93HybridHoloProof");
+    case 94:
+      return import("@/variants/V94HybridCoverChapters");
+    case 95:
+      return import("@/variants/V95HybridBauhausSystems");
+    case 96:
+      return import("@/variants/V96HybridTelescopeCases");
+    case 97:
+      return import("@/variants/V97HybridLiquidBrief");
+    case 98:
+      return import("@/variants/V98HybridPlanetPress");
+    case 99:
+      return import("@/variants/V99HybridSwarmOnePager");
+    case 100:
+      return import("@/variants/V100OrbitfolioCenturion");
     default:
       throw new Error(`Unknown variant ${id}`);
   }
