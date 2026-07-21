@@ -39,7 +39,7 @@ export function Variant() {
           className="relative z-10 max-w-3xl"
         >
           <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.45em] text-sky-300/65">
-            Event lens · frame 01
+            Event lens · frame 01 · {cv.location}
           </p>
           <h1 className="mt-5 font-[family-name:var(--font-display)] text-5xl font-bold sm:text-7xl">{cv.name}</h1>
           <p className="mt-4 text-lg text-sky-100/75">{cv.title}</p>
@@ -53,7 +53,7 @@ export function Variant() {
             </a>
             <a
               href="/resume"
-              className="border border-sky-300/40 px-5 py-2.5 text-sm text-sky-100"
+              className="border border-sky-300/40 px-5 py-2.5 text-sm text-sky-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300"
             >
               Lens notes PDF
             </a>

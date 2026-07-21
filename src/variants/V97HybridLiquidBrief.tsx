@@ -45,7 +45,7 @@ export function Variant() {
           }}
         >
           <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.35em] text-[#5eead4]">
-            Liquid brief
+            Liquid brief · {cv.location}
           </p>
           <h1 className="mt-4 font-[family-name:var(--font-display)] text-4xl font-bold leading-tight sm:text-5xl">
             {cv.name}

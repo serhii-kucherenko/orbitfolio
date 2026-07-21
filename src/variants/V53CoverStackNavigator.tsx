@@ -19,7 +19,7 @@ export function Variant() {
     <main className="min-h-screen bg-[#0c0c0e] text-zinc-100">
       <header className="mx-auto max-w-5xl px-6 pb-6 pt-24">
         <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.4em] text-zinc-500">
-          Stack · navigate by cover · 4 editions
+          Stack · navigate by cover · {cv.location}
         </p>
         <h1 className="mt-4 font-[family-name:var(--font-display)] text-5xl font-bold sm:text-6xl">{cv.name}</h1>
         <p className="mt-3 text-lg text-zinc-400">{cv.title}</p>

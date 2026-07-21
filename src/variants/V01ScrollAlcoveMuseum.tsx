@@ -29,7 +29,7 @@ export function Variant() {
           transition={{ duration: 8, repeat: Infinity }}
         />
         <p className="relative font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.45em] text-[#d4af78]/70">
-          Gallery · alcove 01
+          Gallery · alcove 01 · {cv.location}
         </p>
         <motion.h1
           initial={reduce ? false : { opacity: 0, y: 28 }}
@@ -51,7 +51,7 @@ export function Variant() {
           </a>
           <a
             href="/resume"
-            className="border border-[#d4af78]/50 px-5 py-2.5 text-sm font-semibold text-[#d4af78]"
+            className="border border-[#d4af78]/50 px-5 py-2.5 text-sm font-semibold text-[#d4af78] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#d4af78]"
           >
             Catalog sheet
           </a>
