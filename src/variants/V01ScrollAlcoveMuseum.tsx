@@ -12,12 +12,12 @@ export function Variant() {
     <main
       className="min-h-screen"
       style={{
-        background: "linear-gradient(180deg, #1a1510 0%, #0e0b08 40%, #1a1510 100%)",
+        background: "linear-gradient(180deg, #17130e 0%, #0c0907 40%, #17130e 100%)",
         color: "#f3e8d8",
       }}
     >
       <header className="relative mx-auto flex min-h-[88vh] max-w-5xl flex-col justify-end px-6 pb-16 pt-28 md:px-10">
-        <div
+        <motion.div
           aria-hidden
           className="pointer-events-none absolute inset-x-8 top-16 h-64 rounded-[50%] opacity-50 blur-3xl"
           style={{
@@ -25,6 +25,8 @@ export function Variant() {
               ? "rgba(212,175,120,0.12)"
               : "radial-gradient(ellipse, rgba(212,175,120,0.28), transparent 70%)",
           }}
+          animate={reduce ? undefined : { opacity: [0.35, 0.55, 0.35] }}
+          transition={{ duration: 8, repeat: Infinity }}
         />
         <p className="relative font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.45em] text-[#d4af78]/70">
           Gallery · alcove 01
@@ -43,9 +45,15 @@ export function Variant() {
         <div className="relative mt-8 flex flex-wrap items-center gap-4">
           <a
             href={`mailto:${cv.email}`}
-            className="border border-[#d4af78] bg-[#d4af78] px-5 py-2.5 text-sm font-semibold text-[#1a1510] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#d4af78]"
+            className="border border-[#d4af78] bg-[#d4af78] px-5 py-2.5 text-sm font-semibold text-[#17130e] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#d4af78]"
           >
             Commission a hire
+          </a>
+          <a
+            href="/resume"
+            className="border border-[#d4af78]/50 px-5 py-2.5 text-sm font-semibold text-[#d4af78]"
+          >
+            Catalog sheet
           </a>
           <p className="text-sm text-[#d4af78]">{cv.title}</p>
         </div>
@@ -60,7 +68,7 @@ export function Variant() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: reduce ? 0 : i * 0.08 }}
-            className="bg-[#1a1510]/80 px-5 py-8"
+            className="bg-[#17130e]/80 px-5 py-8"
             style={{ boxShadow: "inset 0 0 40px rgba(212,175,120,0.06)" }}
           >
             <p className="font-[family-name:var(--font-serif)] text-3xl text-[#d4af78]">{h.value}</p>
@@ -76,7 +84,7 @@ export function Variant() {
             alcoves 02–05
           </span>
         </div>
-        <div className="rounded-sm border border-[#d4af78]/20 bg-[#120e0a]/60 p-6 md:p-10">
+        <div className="rounded-sm border border-[#d4af78]/20 bg-[#100c08]/60 p-6 md:p-10">
           <ExperienceList tone="dark" />
         </div>
       </section>
@@ -90,7 +98,7 @@ export function Variant() {
           <h2 className="mb-8 font-[family-name:var(--font-serif)] text-3xl">Loans & editions</h2>
           <ProjectLinks />
           <p className="mt-12 border-t border-[#d4af78]/25 pt-6 font-[family-name:var(--font-serif)] text-sm italic opacity-60">
-            {cv.education.degree} · {cv.education.school}
+            {cv.education.degree} · {cv.education.school} · {cv.location}
           </p>
         </div>
       </section>

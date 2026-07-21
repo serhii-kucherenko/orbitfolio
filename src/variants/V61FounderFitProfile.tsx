@@ -15,11 +15,13 @@ export function Variant() {
   ];
 
   return (
-    <main className="min-h-screen bg-[#09090b] text-zinc-100">
+    <main className="min-h-screen bg-[#070709] text-zinc-100">
       <section className="relative overflow-hidden border-b border-zinc-800">
-        <div
+        <motion.div
           aria-hidden
           className="pointer-events-none absolute -right-24 -top-24 size-80 rounded-full bg-[#a3e635]/15 blur-3xl"
+          animate={reduce ? undefined : { opacity: [0.3, 0.55, 0.3] }}
+          transition={{ duration: 6, repeat: Infinity }}
         />
         <div className="relative mx-auto max-w-5xl px-6 py-16 md:py-24">
           <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.4em] text-[#a3e635]">
@@ -40,6 +42,12 @@ export function Variant() {
               className="rounded-full bg-[#a3e635] px-6 py-3 text-sm font-bold text-zinc-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#a3e635]"
             >
               Start a founder conversation
+            </a>
+            <a
+              href="/resume"
+              className="rounded-full border border-[#a3e635]/50 px-6 py-3 text-sm font-bold text-[#a3e635]"
+            >
+              Pitch deck PDF
             </a>
             <ContactRow className="items-center text-zinc-400" />
           </div>
@@ -79,7 +87,7 @@ export function Variant() {
           <h2 className="mb-8 text-2xl font-bold">Proof of founding pace</h2>
           <ExperienceList tone="dark" />
         </div>
-        <div className="grid gap-12 md:grid-cols-2">
+        <div className="grid gap-12 border-t border-zinc-800 pt-16 md:grid-cols-2">
           <div>
             <h2 className="mb-6 text-xl font-bold">Weapons</h2>
             <SkillsCloud />

@@ -9,7 +9,7 @@ export function Variant() {
   const reduce = useReducedMotion() ?? false;
 
   return (
-    <main className="min-h-screen bg-[#f3f6f1] text-[#0c1f18]">
+    <main className="min-h-screen bg-[#eef3ed] text-[#0c1f18]">
       <header className="mx-auto grid max-w-6xl gap-10 px-6 pb-10 pt-24 lg:grid-cols-[1.35fr_0.85fr] lg:px-10">
         <div>
           <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.4em] text-[#1f6b52]">
@@ -27,9 +27,15 @@ export function Variant() {
           <div className="mt-8 flex flex-wrap gap-3">
             <a
               href={`mailto:${cv.email}`}
-              className="bg-[#0c1f18] px-5 py-2.5 text-sm font-semibold text-[#f3f6f1] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0c1f18]"
+              className="bg-[#0c1f18] px-5 py-2.5 text-sm font-semibold text-[#eef3ed] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0c1f18]"
             >
               Hire in one email
+            </a>
+            <a
+              href="/resume"
+              className="border border-[#0c1f18] px-5 py-2.5 text-sm font-semibold"
+            >
+              Ten-second PDF
             </a>
             <ContactRow className="items-center text-[#1f6b52]" />
           </div>
@@ -42,14 +48,14 @@ export function Variant() {
               initial={reduce ? false : { opacity: 0, scale: 0.96 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: reduce ? 0 : 0.05 * i }}
-              className="flex min-h-[7.5rem] flex-col justify-between rounded-2xl bg-[#0c1f18] p-5 text-[#f3f6f1]"
+              className="flex min-h-[7.5rem] flex-col justify-between rounded-2xl bg-[#0c1f18] p-5 text-[#eef3ed]"
             >
               <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-widest text-[#7dcaa8]">
                 {String(i + 1).padStart(2, "0")}
               </p>
               <div>
                 <p className="text-3xl font-black sm:text-4xl">{h.value}</p>
-                <p className="mt-1 text-xs text-[#f3f6f1]/55">{h.label}</p>
+                <p className="mt-1 text-xs text-[#eef3ed]/55">{h.label}</p>
               </div>
             </motion.div>
           ))}
@@ -73,7 +79,7 @@ export function Variant() {
         </div>
       </section>
 
-      <section className="bg-[#0c1f18] px-6 py-16 text-[#f3f6f1] lg:px-10">
+      <section className="bg-[#0c1f18] px-6 py-16 text-[#eef3ed] lg:px-10">
         <div className="mx-auto max-w-6xl">
           <h2 className="mb-10 font-[family-name:var(--font-display)] text-4xl font-bold">Proof ledger</h2>
           <ExperienceList tone="dark" />
@@ -89,7 +95,7 @@ export function Variant() {
           <h2 className="mb-8 text-2xl font-bold">Open work</h2>
           <ProjectLinks tone="light" />
           <p className="mt-12 border-t border-[#0c1f18]/15 pt-5 text-sm text-[#0c1f18]/55">
-            {cv.education.degree} · {cv.education.school}
+            {cv.education.degree} · {cv.education.school} · {cv.location}
           </p>
         </div>
       </section>
