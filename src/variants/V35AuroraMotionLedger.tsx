@@ -30,7 +30,7 @@ export function Variant() {
         <div className="flex flex-wrap items-end justify-between gap-6 border-b border-cyan-300/25 pb-8">
           <div>
             <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.4em] text-cyan-200/70">
-              Ledger · Vol. Aurora
+              Ledger · Vol. Aurora · balanced
             </p>
             <h1 className="mt-4 font-[family-name:var(--font-display)] text-5xl font-black tracking-tight sm:text-7xl">
               {cv.name}
@@ -48,6 +48,12 @@ export function Variant() {
             className="bg-cyan-300 px-5 py-2.5 text-xs font-bold uppercase tracking-widest text-[#061018] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-200"
           >
             Hire — open ledger
+          </a>
+          <a
+            href="/resume"
+            className="border border-cyan-300/40 px-5 py-2.5 text-xs font-bold uppercase tracking-widest text-cyan-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-200"
+          >
+            Export resume
           </a>
           <ContactRow className="text-cyan-100/70" />
         </div>
@@ -74,6 +80,11 @@ export function Variant() {
               <span className="px-4 py-4 text-cyan-200/80">shipped</span>
             </motion.div>
           ))}
+          <div className="grid grid-cols-[1.2fr_1fr_1fr] font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.2em] text-cyan-200/40">
+            <span className="px-4 py-3">Closing</span>
+            <span className="px-4 py-3 text-emerald-300/70">proof held</span>
+            <span className="px-4 py-3">ready to hire</span>
+          </div>
         </div>
       </section>
 

@@ -20,6 +20,17 @@ export function Variant() {
               "radial-gradient(ellipse at 50% 80%, #14532d44 0%, transparent 55%), linear-gradient(180deg, #050508 0%, #0a120e 100%)",
           }}
         />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 opacity-30"
+          style={{
+            backgroundImage:
+              "linear-gradient(90deg, transparent 49%, #4ade8033 50%, transparent 51%), linear-gradient(0deg, #4ade8022 1px, transparent 1px)",
+            backgroundSize: "12% 100%, 100% 28px",
+            transform: reduce ? undefined : "perspective(600px) rotateX(58deg)",
+            transformOrigin: "50% 100%",
+          }}
+        />
         <p className="relative z-10 font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.5em] text-[#4ade80]">
           Corridor · warp in
         </p>
@@ -56,18 +67,24 @@ export function Variant() {
         <div className="relative z-10 mt-8 flex flex-wrap justify-center gap-3">
           <a
             href={`mailto:${cv.email}`}
-            className="rounded-full bg-[#4ade80] px-6 py-2.5 text-sm font-bold text-[#050508] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4ade80]"
+            className="bg-[#4ade80] px-6 py-2.5 text-sm font-bold text-[#050508] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4ade80]"
           >
             Enter hiring lane
+          </a>
+          <a
+            href="/resume"
+            className="border border-[#4ade80]/50 px-5 py-2.5 text-sm text-[#bbf7d0] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4ade80]"
+          >
+            Exit to resume
           </a>
           <ContactRow className="justify-center text-white/50" />
         </div>
         <p className="relative z-10 mt-4 text-sm text-[#4ade80]">{cv.title}</p>
       </header>
 
-      <section className="relative z-10 mx-auto grid max-w-4xl grid-cols-2 gap-3 px-6 py-12 sm:grid-cols-4">
+      <section className="relative z-10 mx-auto grid max-w-4xl grid-cols-2 gap-6 px-6 py-12 sm:grid-cols-4">
         {cv.highlights.map((h) => (
-          <div key={h.label} className="border border-[#4ade80]/25 bg-[#4ade80]/05 px-4 py-5">
+          <div key={h.label} className="border-l border-[#4ade80]/40 pl-4">
             <p className="text-2xl font-black text-[#bbf7d0]">{h.value}</p>
             <p className="mt-1 text-[10px] uppercase tracking-wider opacity-45">{h.label}</p>
           </div>

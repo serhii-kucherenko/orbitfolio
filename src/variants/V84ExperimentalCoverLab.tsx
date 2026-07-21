@@ -18,11 +18,18 @@ export function Variant() {
             boxShadow: "0 0 0 1px #f9731633, 0 40px 80px #00000066",
           }}
         >
-          {/* crop marks */}
           <span aria-hidden className="absolute left-3 top-3 h-4 w-4 border-l border-t border-[#f97316]/50" />
           <span aria-hidden className="absolute right-3 top-3 h-4 w-4 border-r border-t border-[#f97316]/50" />
           <span aria-hidden className="absolute bottom-3 left-3 h-4 w-4 border-b border-l border-[#f97316]/50" />
           <span aria-hidden className="absolute bottom-3 right-3 h-4 w-4 border-b border-r border-[#f97316]/50" />
+          <motion.p
+            aria-hidden
+            className="pointer-events-none absolute right-10 top-24 rotate-12 font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.35em] text-[#fb923c]/50"
+            animate={reduce ? undefined : { opacity: [0.35, 0.7, 0.35] }}
+            transition={{ duration: 4, repeat: Infinity }}
+          >
+            Press proof
+          </motion.p>
 
           <div className="px-8 pb-10 pt-14 md:px-14 md:pt-20">
             <div className="flex items-start justify-between gap-4">
@@ -50,19 +57,25 @@ export function Variant() {
                 <p className="text-lg font-semibold text-[#fb923c]">{cv.title}</p>
                 <p className="mt-4 text-sm leading-7 opacity-75">{cv.summary}</p>
               </div>
-              <div className="flex flex-col justify-end">
+              <div className="flex flex-col justify-end gap-3">
                 <a
                   href={`mailto:${cv.email}`}
-                  className="inline-flex w-fit px-5 py-3 text-sm font-bold"
+                  className="inline-flex w-fit px-5 py-3 text-sm font-bold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#fb923c]"
                   style={{ background: "#fb923c", color: "#1f1a16" }}
                 >
                   Commission a cover
                 </a>
-                <ContactRow className="mt-4 text-[#faf6f1]/65" />
+                <a
+                  href="/resume"
+                  className="inline-flex w-fit border border-[#fb923c]/50 px-5 py-2.5 text-sm text-[#fb923c] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#fb923c]"
+                >
+                  Tear sheet / resume
+                </a>
+                <ContactRow className="text-[#faf6f1]/65" />
               </div>
             </div>
 
-            <div className="mt-12 grid grid-cols-2 gap-4 border-t border-[#fb923c]/25 pt-8 sm:grid-cols-4">
+            <div className="mt-12 grid grid-cols-2 gap-6 border-t border-[#fb923c]/25 pt-8 sm:grid-cols-4">
               {cv.highlights.map((h) => (
                 <div key={h.label}>
                   <p className="font-[family-name:var(--font-display)] text-3xl font-black text-[#fb923c]">
