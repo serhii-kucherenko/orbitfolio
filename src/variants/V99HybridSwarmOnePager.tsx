@@ -39,7 +39,7 @@ export function Variant() {
         <header className="grid gap-10 border-b border-emerald-300/20 py-16 md:grid-cols-[2fr_1fr]">
           <div>
             <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.35em] text-emerald-300">
-              Swarm · one page · hire-ready
+              Swarm · one page · {cv.location}
             </p>
             <p className="mt-3 text-emerald-200/80">{cv.title}</p>
             <motion.h1

@@ -13,7 +13,7 @@ export function Variant() {
       <header className="mx-auto grid max-w-6xl gap-10 px-6 pb-10 pt-24 lg:grid-cols-[1.35fr_0.85fr] lg:px-10">
         <div>
           <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.4em] text-[#1f6b52]">
-            00:00 → 00:10 · hire scan
+            00:00 → 00:10 · hire scan · {cv.location}
           </p>
           <motion.h1
             initial={reduce ? false : { opacity: 0, y: 16 }}
@@ -33,7 +33,7 @@ export function Variant() {
             </a>
             <a
               href="/resume"
-              className="border border-[#0c1f18] px-5 py-2.5 text-sm font-semibold"
+              className="border border-[#0c1f18] px-5 py-2.5 text-sm font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0c1f18]"
             >
               Ten-second PDF
             </a>
