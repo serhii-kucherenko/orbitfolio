@@ -48,14 +48,20 @@ export function Variant() {
             <div className="min-w-0 flex-1">
               <h1 className="truncate text-base font-bold">{cv.name}</h1>
               <p className="text-xs text-[#0f6b5c]">
-                {reduce ? "profile ready · offline" : "agent composing career answers…"}
+                {cv.location} · {reduce ? "profile ready · offline" : "agent composing career answers…"}
               </p>
             </div>
             <a
               href={`mailto:${cv.email}`}
-              className="rounded-full bg-[#0f6b5c] px-4 py-2 text-xs font-semibold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0f6b5c]"
+              className="bg-[#0f6b5c] px-4 py-2 text-xs font-semibold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0f6b5c]"
             >
               Message
+            </a>
+            <a
+              href="/resume"
+              className="border border-[#0f6b5c]/40 px-4 py-2 text-xs font-semibold text-[#0f6b5c] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0f6b5c]"
+            >
+              Resume
             </a>
           </header>
 

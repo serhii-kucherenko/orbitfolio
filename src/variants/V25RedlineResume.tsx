@@ -11,7 +11,7 @@ export function Variant() {
   return (
     <main className="min-h-screen bg-[#f7f7f4] text-black">
       <div className="border-b border-red-200 bg-red-50 px-6 py-2 text-center font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.35em] text-red-700">
-        Edit pass · still in motion · hire-ready draft
+        Edit pass · still in motion · {cv.location}
       </div>
 
       <header className="mx-auto max-w-3xl px-6 pb-8 pt-20">
@@ -45,13 +45,13 @@ export function Variant() {
         <div className="mt-8 flex flex-wrap gap-3">
           <a
             href={`mailto:${cv.email}`}
-            className="rounded-full bg-red-600 px-5 py-2.5 text-sm font-semibold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
+            className="bg-red-600 px-5 py-2.5 text-sm font-semibold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
           >
             Approve and email
           </a>
           <a
             href="/resume"
-            className="rounded-full border border-red-600 px-5 py-2.5 text-sm font-semibold text-red-700"
+            className="border border-red-600 px-5 py-2.5 text-sm font-semibold text-red-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
           >
             Clean proof PDF
           </a>
