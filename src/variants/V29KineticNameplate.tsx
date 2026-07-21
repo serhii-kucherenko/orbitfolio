@@ -17,7 +17,7 @@ export function Variant() {
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
           className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.55em] text-[#7dffb0]/70"
         >
-          {cv.title} · title sequence
+          {cv.title} · title sequence · {cv.location}
         </motion.p>
 
         <h1 className="mt-16 font-[family-name:var(--font-display)] text-[clamp(3.5rem,16vw,11rem)] font-black uppercase leading-[0.78] tracking-[-0.06em]">

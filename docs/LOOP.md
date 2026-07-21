@@ -88,5 +88,6 @@ Autonomous progress log for Orbitfolio.
 | 85 | Burst tick 36 | Deepened shader atmosphere, daylight product, AI casebook, particle assembly, launch sequence, signal scrub |
 | 86 | Burst tick 37 | Deepened telescope focus, iso rooms, constellation index, ASCII signal, agent swarm, command palette |
 | 87 | Burst tick 38 | Deepened warp corridor, case switchboard, hiring brief, event horizon, cover lab, signal/noise |
+| 88 | Burst tick 39 | Cleared last location gaps (command cases, telescope cases) plus nameplate, origami, footnotes, docs sidebar |
 
 Live: https://orbitfolio-kohl.vercel.app · Loop: every 15m — unique award craft + UI must stay green
