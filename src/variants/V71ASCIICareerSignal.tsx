@@ -40,7 +40,7 @@ export function Variant() {
           {banner}
         </motion.pre>
         <p className="relative mt-8 text-[10px] uppercase tracking-[0.35em] text-[#6fdf5c]/55">
-          tx · founding-engineer · channel open
+          tx · founding-engineer · {cv.location} · channel open
           <motion.span
             aria-hidden
             className="ml-2 inline-block h-3 w-2 bg-[#6fdf5c]"

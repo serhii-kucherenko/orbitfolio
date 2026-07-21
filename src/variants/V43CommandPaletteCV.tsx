@@ -40,7 +40,7 @@ export function Variant() {
         >
           <div className="flex items-center gap-3 border-b border-white/10 px-4 py-3">
             <span className="rounded bg-white/10 px-2 py-0.5 font-[family-name:var(--font-mono)] text-[10px] text-white/50">
-              ⌘K
+              ⌘K · {cv.location}
             </span>
             <input
               value={query}

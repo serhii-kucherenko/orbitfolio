@@ -55,7 +55,7 @@ export function Variant() {
 
         <div className="relative z-10 max-w-xl">
           <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.35em] text-[#5eead4]">
-            swarm · coordinator online
+            swarm · coordinator online · {cv.location}
           </p>
           <h1 className="mt-4 font-[family-name:var(--font-display)] text-5xl font-bold leading-[0.95] sm:text-6xl">
             {cv.name}
