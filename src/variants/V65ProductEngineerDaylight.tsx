@@ -4,18 +4,37 @@ import { motion, useReducedMotion } from "framer-motion";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
 import { cv } from "@/data/cv";
 
-/** Product Engineer Daylight — bright product studio layout with crisp hire path */
+const results = [
+  {
+    choice: "AI scheduling assistant",
+    result: "Automated clinic scheduling across healthcare orgs with LLM intent + hard constraints.",
+  },
+  {
+    choice: "Production RAG",
+    result: "Grounded answers over enterprise healthcare documents with ingestion and search.",
+  },
+  {
+    choice: "Perf rewrite",
+    result: "Cut first-page load 85% (1.4s → 0.2s), improving retention and conversion.",
+  },
+  {
+    choice: "Cloud redesign",
+    result: "Delivered $78K/yr infrastructure savings while speeding delivery.",
+  },
+] as const;
+
+/** Product Engineer Daylight — bright product page tying architecture choices to business results. */
 export function Variant() {
   const reduce = useReducedMotion() ?? false;
 
   return (
-    <main className="min-h-screen bg-[#f0f7ff] text-[#0c2340]">
+    <main className="min-h-screen bg-[#eef6ff] text-[#0b1f38]">
       <section className="relative overflow-hidden">
         <div
           aria-hidden
           className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_#bfdbfe_0%,_transparent_55%)]"
         />
-        <div className="relative mx-auto max-w-5xl px-6 pb-12 pt-20 md:pt-28">
+        <div className="relative mx-auto max-w-5xl px-6 pb-10 pt-24 md:pt-28">
           <motion.p
             initial={reduce ? false : { opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -57,7 +76,19 @@ export function Variant() {
         </div>
       </section>
 
-      <section className="mx-auto mt-14 max-w-5xl px-6 pb-6">
+      <section className="mx-auto mt-12 max-w-5xl px-6">
+        <h2 className="mb-4 text-2xl font-bold">Architecture → customer result</h2>
+        <div className="grid gap-3 md:grid-cols-2">
+          {results.map((r) => (
+            <article key={r.choice} className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-sky-100">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sky-600">{r.choice}</p>
+              <p className="mt-3 text-sm leading-6 text-sky-950/75">{r.result}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="mx-auto mt-12 max-w-5xl px-6 pb-6">
         <div className="rounded-3xl bg-white p-8 shadow-sm ring-1 ring-sky-100 md:p-12">
           <h2 className="mb-8 text-2xl font-bold">Product chapters</h2>
           <ExperienceList tone="light" />
