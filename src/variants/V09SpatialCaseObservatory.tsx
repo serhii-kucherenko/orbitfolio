@@ -12,7 +12,7 @@ export function Variant() {
     <main className="min-h-screen bg-[#050912] text-[#d7e3ff]">
       <header className="mx-auto max-w-5xl px-6 pb-10 pt-28">
         <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.4em] text-sky-300/70">
-          Observatory route · stations
+          Observatory route · stations · {cv.location}
         </p>
         <h1 className="mt-4 font-[family-name:var(--font-serif)] text-5xl sm:text-7xl">{cv.name}</h1>
         <p className="mt-4 text-lg text-sky-100/70">{cv.title}</p>
@@ -24,7 +24,10 @@ export function Variant() {
           >
             Book observation time
           </a>
-          <a href="/resume" className="inline-block border border-sky-300/25 px-5 py-2.5 text-sm text-sky-100/70">
+          <a
+            href="/resume"
+            className="inline-block border border-sky-300/25 px-5 py-2.5 text-sm text-sky-100/70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300"
+          >
             Logbook PDF
           </a>
           <ContactRow className="text-sky-100/60" />
@@ -57,7 +60,7 @@ export function Variant() {
                 </p>
               </div>
               <div
-                className="rounded-xl border border-sky-400/20 bg-sky-950/30 p-5"
+                className="border border-sky-400/20 bg-sky-950/30 p-5"
                 style={{
                   transform: reduce ? undefined : `perspective(900px) rotateY(${i % 2 === 0 ? -4 : 4}deg)`,
                 }}
@@ -73,9 +76,9 @@ export function Variant() {
         </div>
       </section>
 
-      <section className="mx-auto grid max-w-5xl gap-3 px-6 py-12 sm:grid-cols-4">
+      <section className="mx-auto grid max-w-5xl gap-6 px-6 py-12 sm:grid-cols-4">
         {cv.highlights.map((h) => (
-          <div key={h.label} className="border border-sky-400/15 px-4 py-5">
+          <div key={h.label} className="border-t border-sky-400/30 pt-4">
             <p className="text-2xl font-bold text-sky-200">{h.value}</p>
             <p className="mt-1 text-[10px] uppercase tracking-wider text-sky-200/45">{h.label}</p>
           </div>

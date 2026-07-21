@@ -28,7 +28,7 @@ export function Variant() {
           className={`relative max-w-5xl ${reduce ? "" : "[transform:translateZ(80px)] transition-transform duration-700 hover:[transform:translateZ(120px)]"}`}
         >
           <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.5em] text-cyan-300">
-            Hybrid 86 · warp + hire
+            Hybrid 86 · warp + hire · {cv.location}
           </p>
           <motion.h1
             initial={reduce ? false : { opacity: 0, y: 24 }}
@@ -41,21 +41,18 @@ export function Variant() {
           <p className="mt-4 text-cyan-200/80">{cv.title}</p>
           <ContactRow className="mt-8 justify-center text-cyan-100/70" />
           <div className="mt-10 flex flex-wrap justify-center gap-3">
-            <a
-              href={`mailto:${cv.email}`}
-              className={`rounded-full bg-cyan-300 px-6 py-3 font-bold text-black ${focus}`}
-            >
+            <a href={`mailto:${cv.email}`} className={`bg-cyan-300 px-6 py-3 font-bold text-black ${focus}`}>
               Recruit me
             </a>
             <a
               href={cv.github}
               target="_blank"
               rel="noreferrer"
-              className={`rounded-full border border-white/40 px-6 py-3 ${focus}`}
+              className={`border border-white/40 px-6 py-3 ${focus}`}
             >
               View code
             </a>
-            <Link href="/resume" className={`rounded-full border border-white/40 px-6 py-3 ${focus}`}>
+            <Link href="/resume" className={`border border-white/40 px-6 py-3 ${focus}`}>
               Printable resume
             </Link>
           </div>
@@ -63,7 +60,7 @@ export function Variant() {
       </header>
 
       <section className="mx-auto max-w-6xl px-6 py-16">
-        <div className="grid gap-3 sm:grid-cols-2 md:grid-cols-4">
+        <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-4">
           {cv.highlights.map((item, i) => (
             <motion.div
               key={item.label}
@@ -71,7 +68,7 @@ export function Variant() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: reduce ? 0 : i * 0.05 }}
-              className="rounded-2xl border border-cyan-300/25 bg-cyan-300/5 p-6"
+              className="border-t border-cyan-300/40 pt-4"
             >
               <strong className="text-4xl text-cyan-300">{item.value}</strong>
               <p className="mt-2 text-sm text-slate-300">{item.label}</p>
