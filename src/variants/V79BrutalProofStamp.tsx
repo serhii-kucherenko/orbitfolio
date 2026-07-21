@@ -94,6 +94,16 @@ export function Variant() {
           </p>
         </div>
       </section>
+
+      <footer className="mt-3 border-[5px] border-black bg-black p-5 text-sm font-bold uppercase tracking-wide text-[#f4f2eb]">
+        No soft edges. Stamp says hire-ready — email is the only next step that matters.
+      </footer>
+      <p className="mt-3 px-1 text-sm leading-6 text-black/55">
+        Thick borders replace soft cards. If the stamp is readable in five seconds, the hire path is done.
+      </p>
+      <p className="mt-2 px-1 font-[family-name:var(--font-mono)] text-[10px] font-bold uppercase tracking-[0.3em] text-black/45">
+        Zeta · brutal stamp · ink over vibe
+      </p>
     </main>
   );
 }

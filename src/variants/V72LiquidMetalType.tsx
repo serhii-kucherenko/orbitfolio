@@ -2,28 +2,29 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
+import { FallbackGlow, SceneVeil, WebGLStage } from "@/components/webgl/AwardWebGL";
 import { cv } from "@/data/cv";
 
-/** Liquid Metal Type — chrome-sheen display type on industrial charcoal */
+/** Liquid Metal Type — chrome-sheen display type on industrial charcoal + distorting metal veil. */
 export function Variant() {
   const reduce = useReducedMotion() ?? false;
+  const accent = "#c0c4cc";
 
   return (
     <main className="min-h-screen bg-[#0e0e0e] text-[#ececec]">
       <section className="relative overflow-hidden px-6 pb-16 pt-24">
-        <motion.div
-          aria-hidden
-          className="pointer-events-none absolute inset-0 opacity-45"
-          style={{
-            background:
-              "radial-gradient(ellipse at 30% 20%, rgba(192,192,200,0.28), transparent 50%), radial-gradient(ellipse at 70% 60%, rgba(100,116,139,0.22), transparent 45%)",
-          }}
-          animate={reduce ? undefined : { opacity: [0.35, 0.5, 0.35] }}
-          transition={{ duration: 7, repeat: Infinity }}
-        />
+        <WebGLStage
+          accent={accent}
+          reduce={reduce}
+          label="Liquid metal distorting veil"
+          className="pointer-events-none absolute inset-0 opacity-50"
+          fallback={<FallbackGlow accent={accent} />}
+        >
+          <SceneVeil accent={accent} />
+        </WebGLStage>
         <div className="relative mx-auto max-w-5xl">
           <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.4em] text-zinc-500">
-            Liquid metal type · {cv.location}
+            Liquid metal type · WebGL · {cv.location}
           </p>
           <motion.h1
             initial={reduce ? false : { opacity: 0, letterSpacing: "0.12em" }}
@@ -42,6 +43,9 @@ export function Variant() {
           </motion.h1>
           <p className="mt-6 text-xl text-zinc-400">{cv.title}</p>
           <p className="mt-5 max-w-xl text-sm leading-7 text-zinc-500">{cv.summary}</p>
+          <p className="mt-3 font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.3em] text-zinc-600">
+            Chrome sheen · distorting veil · hire path intact
+          </p>
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <a
               href={`mailto:${cv.email}`}
@@ -98,6 +102,11 @@ export function Variant() {
           </div>
         </div>
       </section>
+      <footer className="relative z-10 border-t border-zinc-800 px-6 py-8">
+        <p className="mx-auto max-w-5xl text-sm leading-7 text-zinc-500">
+          Mercury headlines, stable body copy — WebGL atmosphere never buries the hire path.
+        </p>
+      </footer>
     </main>
   );
 }

@@ -2,13 +2,15 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
+import { SmoothScroll } from "@/components/SmoothScroll";
 import { cv } from "@/data/cv";
 
-/** Void Whisper — near-silent deep space with sparse luminous type */
+/** Void Whisper — near-silent deep space with sparse luminous type + Lenis quiet scroll. */
 export function Variant() {
   const reduce = useReducedMotion() ?? false;
 
   return (
+    <SmoothScroll>
     <main className="min-h-screen bg-[#010102] text-[#d4d4d8]">
       <section className="relative mx-auto flex min-h-[70vh] max-w-4xl flex-col justify-center px-6 py-24">
         <div
@@ -105,6 +107,12 @@ export function Variant() {
           </div>
         </div>
       </section>
+      <footer className="border-t border-white/5 px-6 py-8 text-center">
+        <p className="mx-auto max-w-lg text-sm leading-7 text-zinc-500">
+          Extreme black space makes the name deliberate — Lenis keeps the whisper continuous.
+        </p>
+      </footer>
     </main>
+    </SmoothScroll>
   );
 }

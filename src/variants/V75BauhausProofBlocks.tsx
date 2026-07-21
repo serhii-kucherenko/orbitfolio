@@ -94,6 +94,15 @@ export function Variant() {
         <p className="text-xs font-bold uppercase tracking-widest text-black/50">
           {cv.education.degree} · {cv.education.school} · {cv.location}
         </p>
+        <p className="mt-6 max-w-2xl text-sm leading-7 text-black/55">
+          Circle, square, rectangle — each block is a proof class, not a mood board. Yellow is the hire signal.
+        </p>
+        <p className="mt-3 max-w-xl text-sm leading-7 text-black/45">
+          Red names the candidate; black holds the brief; blue and yellow carry skills and builds.
+        </p>
+        <p className="mt-3 font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.35em] text-black/40">
+          Zeta · Bauhaus · geometry = evidence
+        </p>
       </section>
     </main>
   );
