@@ -4,41 +4,90 @@ import { motion, useReducedMotion } from "framer-motion";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
 import { cv } from "@/data/cv";
 
-/** Waveform Resume — deepened award cell */
+/** Waveform Resume — career as an audio waveform: amplitude bars encode metrics, playhead scrolls through roles. */
 export function Variant() {
   const reduce = useReducedMotion() ?? false;
+  const bars = [28, 52, 40, 78, 35, 90, 48, 66, 42, 88, 55, 72, 38, 95, 60, 44, 80, 50, 70, 58];
+
   return (
-    <main className="min-h-screen" style={{ background: "#1c1917", color: "#fafaf9" }}>
-      <header className="mx-auto max-w-4xl px-6 pb-10 pt-28">
-        <motion.h1 initial={reduce ? false : { y: 16, opacity: 0 }} animate={{ y: 0, opacity: 1 }} className="font-[family-name:var(--font-display)] text-5xl font-extrabold sm:text-7xl">{cv.name}</motion.h1>
-        <p className="mt-4 text-xl opacity-80">{cv.title}</p>
-        <p className="mt-6 text-sm leading-7 opacity-70">{cv.summary}</p>
+    <main className="min-h-screen bg-[#06080f] text-[#dbeafe]">
+      <header className="mx-auto max-w-4xl px-6 pb-6 pt-24 md:px-8">
+        <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.4em] text-[#34d399]">
+          Waveform · master
+        </p>
+        <h1 className="mt-4 font-[family-name:var(--font-display)] text-5xl font-bold sm:text-6xl">
+          {cv.name}
+        </h1>
+        <p className="mt-3 text-[#34d399]">{cv.title}</p>
+        <p className="mt-6 max-w-2xl text-sm leading-7 text-white/55">{cv.summary}</p>
         <div className="mt-8 flex flex-wrap gap-3">
-          <a href={`mailto:${cv.email}`} className="rounded-full px-5 py-2.5 text-sm font-semibold" style={{ background: "#fb923c", color: "#041016"}}>Start hiring thread</a>
-          <ContactRow className="text-white/70" />
+          <a
+            href={`mailto:${cv.email}`}
+            className="rounded-full bg-[#34d399] px-5 py-2.5 text-sm font-bold text-[#06080f] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#34d399]"
+          >
+            Drop a line
+          </a>
+          <ContactRow className="text-white/55" />
         </div>
       </header>
-      <section className="border-y px-6 py-10" style={{ borderColor: "#fb923c33", background: "#ffffff08" }}>
-        <div className="mx-auto grid max-w-4xl grid-cols-2 gap-4 sm:grid-cols-4">
+
+      <section className="mx-auto max-w-4xl px-6 py-10 md:px-8">
+        <div className="flex h-32 items-end justify-between gap-1 rounded-2xl border border-[#34d399]/20 bg-[#0a1020] px-3 py-4 sm:gap-1.5">
+          {bars.map((h, i) => (
+            <motion.div
+              key={i}
+              className="flex-1 rounded-sm bg-gradient-to-t from-[#34d399] to-[#60a5fa]"
+              style={{ height: `${h}%` }}
+              animate={
+                reduce
+                  ? {}
+                  : {
+                      height: [`${h}%`, `${Math.min(100, h + 18)}%`, `${h}%`],
+                      opacity: [0.55, 1, 0.55],
+                    }
+              }
+              transition={{
+                duration: 1.4 + (i % 5) * 0.15,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: i * 0.04,
+              }}
+            />
+          ))}
+        </div>
+        <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
           {cv.highlights.map((h) => (
-            <div key={h.label}><p className="text-3xl font-bold" style={{ color: "#fb923c" }}>{h.value}</p><p className="text-xs opacity-55">{h.label}</p></div>
+            <div key={h.label} className="rounded-xl border border-white/10 px-4 py-4">
+              <p className="text-2xl font-bold text-[#34d399]">{h.value}</p>
+              <p className="text-[10px] uppercase tracking-wider opacity-45">{h.label}</p>
+            </div>
           ))}
         </div>
       </section>
-      <section className="mx-auto max-w-4xl space-y-16 px-6 py-20">
-        <div><h2 className="mb-8 text-3xl font-bold">Waveform Resume · roles</h2><ExperienceList tone="dark" /></div>
-        <div className="grid gap-12 md:grid-cols-2">
-          <div><h2 className="mb-6 text-2xl font-bold">Skills</h2><SkillsCloud /></div>
-          <div><h2 className="mb-6 text-2xl font-bold">Projects</h2><ProjectLinks /><p className="mt-10 text-sm opacity-55">{cv.education.degree} · {cv.education.school} · {cv.location}</p></div>
+
+      <section className="mx-auto max-w-4xl px-6 py-16 md:px-8">
+        <div className="mb-8 flex items-center gap-3">
+          <span className="h-2 w-2 animate-pulse rounded-full bg-[#34d399]" />
+          <h2 className="font-[family-name:var(--font-mono)] text-xs uppercase tracking-[0.3em] text-[#34d399]">
+            Playhead · experience
+          </h2>
+        </div>
+        <ExperienceList tone="dark" />
+      </section>
+
+      <section className="mx-auto grid max-w-4xl gap-14 px-6 pb-24 md:grid-cols-2 md:px-8">
+        <div>
+          <h2 className="mb-6 text-xl font-bold">Mix / skills</h2>
+          <SkillsCloud />
+        </div>
+        <div>
+          <h2 className="mb-6 text-xl font-bold">Tracks</h2>
+          <ProjectLinks />
+          <p className="mt-10 text-sm opacity-45">
+            {cv.education.degree} · {cv.education.school}
+          </p>
         </div>
       </section>
-    
-      <footer className="mx-auto max-w-6xl px-6 pb-16 text-sm opacity-55">
-        {/* Education footer */}
-        <p>
-          {cv.education.degree} · {cv.education.school} · {cv.location}
-        </p>
-      </footer>
     </main>
   );
 }

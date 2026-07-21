@@ -4,41 +4,87 @@ import { motion, useReducedMotion } from "framer-motion";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
 import { cv } from "@/data/cv";
 
-/** Void Whisper — deepened award cell */
+/** Void Whisper — near-silent deep space with sparse luminous type */
 export function Variant() {
   const reduce = useReducedMotion() ?? false;
+
   return (
-    <main className="min-h-screen" style={{ background: "#111827", color: "#f9fafb" }}>
-      <header className="mx-auto max-w-4xl px-6 pb-10 pt-28">
-        <motion.h1 initial={reduce ? false : { y: 16, opacity: 0 }} animate={{ y: 0, opacity: 1 }} className="font-[family-name:var(--font-display)] text-5xl font-extrabold sm:text-7xl">{cv.name}</motion.h1>
-        <p className="mt-4 text-xl opacity-80">{cv.title}</p>
-        <p className="mt-6 text-sm leading-7 opacity-70">{cv.summary}</p>
-        <div className="mt-8 flex flex-wrap gap-3">
-          <a href={`mailto:${cv.email}`} className="rounded-full px-5 py-2.5 text-sm font-semibold" style={{ background: "#fbbf24", color: "#041016"}}>Start hiring thread</a>
-          <ContactRow className="text-white/70" />
+    <main className="min-h-screen bg-[#020203] text-[#d4d4d8]">
+      <section className="relative mx-auto flex min-h-[70vh] max-w-4xl flex-col justify-center px-6 py-24">
+        <motion.div
+          aria-hidden
+          className="pointer-events-none absolute left-1/2 top-1/3 size-64 -translate-x-1/2 rounded-full bg-white/[0.03] blur-3xl"
+          animate={reduce ? undefined : { opacity: [0.4, 0.7, 0.4] }}
+          transition={reduce ? undefined : { duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <p className="font-[family-name:var(--font-mono)] text-[9px] uppercase tracking-[0.5em] text-zinc-600">
+          Void whisper
+        </p>
+        <motion.h1
+          initial={reduce ? false : { opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.2 }}
+          className="mt-8 font-[family-name:var(--font-serif)] text-5xl font-normal tracking-tight text-zinc-100 sm:text-7xl"
+        >
+          {cv.name}
+        </motion.h1>
+        <motion.p
+          initial={reduce ? false : { opacity: 0 }}
+          animate={{ opacity: 0.55 }}
+          transition={{ delay: reduce ? 0 : 0.4, duration: 1 }}
+          className="mt-4 text-sm tracking-wide text-zinc-400"
+        >
+          {cv.title}
+        </motion.p>
+        <motion.p
+          initial={reduce ? false : { opacity: 0 }}
+          animate={{ opacity: 0.45 }}
+          transition={{ delay: reduce ? 0 : 0.7, duration: 1 }}
+          className="mt-10 max-w-md text-sm leading-8 text-zinc-500"
+        >
+          {cv.summary}
+        </motion.p>
+        <div className="mt-12 flex flex-wrap items-center gap-6">
+          <a
+            href={`mailto:${cv.email}`}
+            className="border-b border-zinc-500 pb-0.5 text-sm text-zinc-300 transition-colors hover:border-zinc-200 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-zinc-400"
+          >
+            Whisper back — hire
+          </a>
+          <ContactRow className="text-zinc-600" />
         </div>
-      </header>
-      <section className="border-y px-6 py-10" style={{ borderColor: "#fbbf2433", background: "#ffffff08" }}>
-        <div className="mx-auto grid max-w-4xl grid-cols-2 gap-4 sm:grid-cols-4">
+      </section>
+
+      <section className="mx-auto max-w-4xl border-t border-white/[0.06] px-6 py-16">
+        <div className="grid grid-cols-2 gap-y-10 sm:grid-cols-4">
           {cv.highlights.map((h) => (
-            <div key={h.label}><p className="text-3xl font-bold" style={{ color: "#fbbf24" }}>{h.value}</p><p className="text-xs opacity-55">{h.label}</p></div>
+            <div key={h.label}>
+              <p className="font-[family-name:var(--font-serif)] text-3xl text-zinc-200">{h.value}</p>
+              <p className="mt-2 text-[10px] uppercase tracking-[0.3em] text-zinc-600">{h.label}</p>
+            </div>
           ))}
         </div>
       </section>
-      <section className="mx-auto max-w-4xl space-y-16 px-6 py-20">
-        <div><h2 className="mb-8 text-3xl font-bold">Void Whisper · roles</h2><ExperienceList tone="dark" /></div>
-        <div className="grid gap-12 md:grid-cols-2">
-          <div><h2 className="mb-6 text-2xl font-bold">Skills</h2><SkillsCloud /></div>
-          <div><h2 className="mb-6 text-2xl font-bold">Projects</h2><ProjectLinks /><p className="mt-10 text-sm opacity-55">{cv.education.degree} · {cv.education.school} · {cv.location}</p></div>
+
+      <section className="mx-auto max-w-4xl space-y-20 px-6 pb-28">
+        <div>
+          <h2 className="mb-10 font-[family-name:var(--font-serif)] text-2xl text-zinc-300">Echoes of work</h2>
+          <ExperienceList tone="dark" />
+        </div>
+        <div className="grid gap-16 md:grid-cols-2">
+          <div>
+            <h2 className="mb-6 font-[family-name:var(--font-serif)] text-xl text-zinc-300">Quiet skills</h2>
+            <SkillsCloud />
+          </div>
+          <div>
+            <h2 className="mb-6 font-[family-name:var(--font-serif)] text-xl text-zinc-300">Signals</h2>
+            <ProjectLinks />
+            <p className="mt-10 text-sm text-zinc-600">
+              {cv.education.degree} · {cv.education.school} · {cv.location}
+            </p>
+          </div>
         </div>
       </section>
-    
-      <footer className="mx-auto max-w-6xl px-6 pb-16 text-sm opacity-55">
-        {/* Education footer */}
-        <p>
-          {cv.education.degree} · {cv.education.school} · {cv.location}
-        </p>
-      </footer>
     </main>
   );
 }

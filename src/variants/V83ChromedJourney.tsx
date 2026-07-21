@@ -4,41 +4,104 @@ import { motion, useReducedMotion } from "framer-motion";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
 import { cv } from "@/data/cv";
 
-/** Chromed Journey — deepened award cell */
+/** Chromed Journey — liquid-metal timeline: roles as chrome milestones on a road */
 export function Variant() {
   const reduce = useReducedMotion() ?? false;
+
   return (
-    <main className="min-h-screen" style={{ background: "#0b1220", color: "white" }}>
-      <header className="mx-auto max-w-4xl px-6 pb-10 pt-28">
-        <motion.h1 initial={reduce ? false : { y: 16, opacity: 0 }} animate={{ y: 0, opacity: 1 }} className="font-[family-name:var(--font-display)] text-5xl font-extrabold sm:text-7xl">{cv.name}</motion.h1>
-        <p className="mt-4 text-xl opacity-80">{cv.title}</p>
-        <p className="mt-6 text-sm leading-7 opacity-70">{cv.summary}</p>
-        <div className="mt-8 flex flex-wrap gap-3">
-          <a href={`mailto:${cv.email}`} className="rounded-full px-5 py-2.5 text-sm font-semibold" style={{ background: "#67e8f9", color: "#041016"}}>Start hiring thread</a>
-          <ContactRow className="text-white/70" />
+    <main
+      className="min-h-screen"
+      style={{
+        background: "linear-gradient(180deg, #1a1d24 0%, #0c0e12 40%, #151820 100%)",
+        color: "#e8eaef",
+      }}
+    >
+      <header className="relative overflow-hidden px-6 pb-16 pt-24 md:px-12">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -right-20 top-10 h-72 w-72 rounded-full opacity-50 blur-3xl"
+          style={{
+            background: "linear-gradient(135deg, #c0c8d4 0%, #6b7280 50%, #9ca3af 100%)",
+          }}
+        />
+        <motion.h1
+          initial={reduce ? false : { x: -40, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.7 }}
+          className="relative font-[family-name:var(--font-display)] text-6xl font-extrabold tracking-tight sm:text-8xl"
+          style={{
+            backgroundImage: "linear-gradient(105deg, #f8fafc 0%, #94a3b8 35%, #e2e8f0 55%, #64748b 100%)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+            backgroundClip: "text",
+          }}
+        >
+          {cv.name}
+        </motion.h1>
+        <p className="relative mt-4 text-xl text-slate-400">{cv.title}</p>
+        <p className="relative mt-6 max-w-2xl text-sm leading-7 text-slate-400">{cv.summary}</p>
+        <div className="relative mt-8 flex flex-wrap items-center gap-4">
+          <a
+            href={`mailto:${cv.email}`}
+            className="px-6 py-3 text-sm font-bold tracking-wide"
+            style={{
+              background: "linear-gradient(135deg, #e2e8f0, #94a3b8)",
+              color: "#0c0e12",
+            }}
+          >
+            Start the journey
+          </a>
+          <ContactRow className="text-slate-400" />
         </div>
       </header>
-      <section className="border-y px-6 py-10" style={{ borderColor: "#67e8f933", background: "#ffffff08" }}>
-        <div className="mx-auto grid max-w-4xl grid-cols-2 gap-4 sm:grid-cols-4">
+
+      <section className="border-y px-6 py-8 md:px-12" style={{ borderColor: "#ffffff12", background: "#ffffff06" }}>
+        <div className="mx-auto flex max-w-5xl flex-wrap justify-between gap-6">
           {cv.highlights.map((h) => (
-            <div key={h.label}><p className="text-3xl font-bold" style={{ color: "#67e8f9" }}>{h.value}</p><p className="text-xs opacity-55">{h.label}</p></div>
+            <div key={h.label} className="min-w-[120px]">
+              <p
+                className="font-[family-name:var(--font-display)] text-4xl font-bold"
+                style={{
+                  backgroundImage: "linear-gradient(180deg, #f1f5f9, #64748b)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                }}
+              >
+                {h.value}
+              </p>
+              <p className="mt-1 text-[10px] uppercase tracking-[0.25em] text-slate-500">{h.label}</p>
+            </div>
           ))}
         </div>
       </section>
-      <section className="mx-auto max-w-4xl space-y-16 px-6 py-20">
-        <div><h2 className="mb-8 text-3xl font-bold">Chromed Journey · roles</h2><ExperienceList tone="dark" /></div>
-        <div className="grid gap-12 md:grid-cols-2">
-          <div><h2 className="mb-6 text-2xl font-bold">Skills</h2><SkillsCloud /></div>
-          <div><h2 className="mb-6 text-2xl font-bold">Projects</h2><ProjectLinks /><p className="mt-10 text-sm opacity-55">{cv.education.degree} · {cv.education.school} · {cv.location}</p></div>
+
+      <section className="mx-auto max-w-5xl px-6 py-20 md:px-12">
+        <div className="relative">
+          <div
+            aria-hidden
+            className="absolute bottom-0 left-4 top-0 w-px md:left-1/2"
+            style={{ background: "linear-gradient(180deg, #94a3b8, transparent)" }}
+          />
+          <h2 className="mb-12 font-[family-name:var(--font-display)] text-3xl font-bold">
+            Chrome milestones
+          </h2>
+          <ExperienceList tone="dark" />
+        </div>
+
+        <div className="mt-20 grid gap-14 md:grid-cols-2">
+          <div>
+            <h2 className="mb-6 text-2xl font-bold">Alloy</h2>
+            <SkillsCloud />
+          </div>
+          <div>
+            <h2 className="mb-6 text-2xl font-bold">Garage</h2>
+            <ProjectLinks />
+            <p className="mt-10 text-sm text-slate-500">
+              {cv.education.degree} · {cv.education.school} · {cv.location}
+            </p>
+          </div>
         </div>
       </section>
-    
-      <footer className="mx-auto max-w-6xl px-6 pb-16 text-sm opacity-55">
-        {/* Education footer */}
-        <p>
-          {cv.education.degree} · {cv.education.school} · {cv.location}
-        </p>
-      </footer>
     </main>
   );
 }

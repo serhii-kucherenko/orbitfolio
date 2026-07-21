@@ -4,34 +4,96 @@ import { motion, useReducedMotion } from "framer-motion";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
 import { cv } from "@/data/cv";
 
-/** Footnote Career — deepened award cell */
+/** Footnote Career — academic monograph layout; claims in the body, citations and contact as numbered footnotes. */
 export function Variant() {
   const reduce = useReducedMotion() ?? false;
+
   return (
-    <main className="min-h-screen" style={{ background: "#0b1220", color: "white" }}>
-      <section className="mx-auto grid max-w-6xl gap-10 px-6 pb-12 pt-28 md:grid-cols-[1.2fr_0.8fr]">
-        <div>
-          <motion.p initial={reduce ? false : { opacity: 0 }} animate={{ opacity: 1 }} className="text-[10px] uppercase tracking-[0.35em] opacity-60">Footnote Career</motion.p>
-          <h1 className="mt-4 font-[family-name:var(--font-display)] text-5xl font-bold sm:text-6xl">{cv.name}</h1>
-          <p className="mt-3 text-lg opacity-80">{cv.title}</p>
-          <p className="mt-6 max-w-xl text-sm leading-7 opacity-70">{cv.summary}</p>
-          <a href={`mailto:${cv.email}`} className="mt-8 inline-flex rounded-full px-5 py-2.5 text-sm font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2" style={{ background: "#67e8f9", color: "#041016"}}>Hire conversation</a>
-          <ContactRow className="mt-6 text-white/70" />
+    <main className="min-h-screen bg-[#faf8f5] text-[#1c1917]">
+      <header className="mx-auto max-w-3xl px-6 pb-8 pt-24 md:px-8">
+        <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.3em] text-[#57534e]">
+          Monograph · §1
+        </p>
+        <motion.h1
+          initial={reduce ? false : { opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="mt-6 font-[family-name:var(--font-serif)] text-4xl leading-tight sm:text-6xl"
+        >
+          {cv.name}
+          <sup className="ml-1 text-base text-[#b45309]">1</sup>
+        </motion.h1>
+        <p className="mt-4 font-[family-name:var(--font-serif)] text-lg italic text-[#57534e]">
+          {cv.title}
+          <sup className="ml-1 not-italic text-sm text-[#b45309]">2</sup>
+        </p>
+        <p className="mt-8 text-sm leading-8 text-[#292524]">
+          {cv.summary}
+          <sup className="text-[#b45309]">3</sup>
+        </p>
+        <div className="mt-8 flex flex-wrap gap-3">
+          <a
+            href={`mailto:${cv.email}`}
+            className="border-b border-[#b45309] pb-0.5 text-sm font-medium text-[#b45309] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b45309]"
+          >
+            Correspondence<sup className="ml-0.5">4</sup>
+          </a>
+          <ContactRow className="text-[#57534e]" />
         </div>
-        <div className="grid grid-cols-2 gap-3 content-start">
-          {cv.highlights.map((h) => (
-            <div key={h.label} className="rounded-2xl border p-4" style={{ borderColor: "#67e8f955" }}>
-              <p className="text-3xl font-bold" style={{ color: "#67e8f9" }}>{h.value}</p>
-              <p className="mt-1 text-xs opacity-60">{h.label}</p>
+      </header>
+
+      <section className="mx-auto max-w-3xl border-y border-[#d6d3d1] px-6 py-8 md:px-8">
+        <ol className="space-y-2 font-[family-name:var(--font-serif)] text-xs leading-6 text-[#57534e]">
+          <li>
+            <span className="mr-2 text-[#b45309]">1.</span>
+            Author affiliation: {cv.location}.
+          </li>
+          <li>
+            <span className="mr-2 text-[#b45309]">2.</span>
+            Role as stated on primary professional record.
+          </li>
+          <li>
+            <span className="mr-2 text-[#b45309]">3.</span>
+            Abstract compressed from full CV narrative.
+          </li>
+          <li>
+            <span className="mr-2 text-[#b45309]">4.</span>
+            Preferred contact: {cv.email}.
+          </li>
+        </ol>
+      </section>
+
+      <section className="mx-auto max-w-3xl px-6 py-10 md:px-8">
+        <div className="grid grid-cols-2 gap-6 sm:grid-cols-4">
+          {cv.highlights.map((h, i) => (
+            <div key={h.label}>
+              <p className="font-[family-name:var(--font-serif)] text-3xl">{h.value}</p>
+              <p className="mt-1 text-[10px] uppercase tracking-wider text-[#78716c]">
+                {h.label}
+                <sup className="ml-0.5 text-[#b45309]">{i + 5}</sup>
+              </p>
             </div>
           ))}
         </div>
       </section>
-      <section className="mx-auto max-w-6xl space-y-16 px-6 pb-28">
-        <div><h2 className="mb-8 text-3xl font-bold">Experience</h2><ExperienceList tone="dark" /></div>
-        <div className="grid gap-12 md:grid-cols-2">
-          <div><h2 className="mb-6 text-2xl font-bold">Skills</h2><SkillsCloud /></div>
-          <div><h2 className="mb-6 text-2xl font-bold">Projects</h2><ProjectLinks /><p className="mt-10 text-sm opacity-55">{cv.education.degree} · {cv.education.school}</p></div>
+
+      <section className="mx-auto max-w-3xl px-6 pb-8 md:px-8">
+        <h2 className="mb-8 font-[family-name:var(--font-serif)] text-2xl">
+          §2 Empirical record
+        </h2>
+        <ExperienceList tone="light" />
+      </section>
+
+      <section className="mx-auto grid max-w-3xl gap-12 border-t border-[#d6d3d1] px-6 py-14 md:grid-cols-2 md:px-8">
+        <div>
+          <h2 className="mb-6 font-[family-name:var(--font-serif)] text-xl">§3 Methods</h2>
+          <SkillsCloud tone="light" />
+        </div>
+        <div>
+          <h2 className="mb-6 font-[family-name:var(--font-serif)] text-xl">§4 Related work</h2>
+          <ProjectLinks tone="light" />
+          <p className="mt-10 font-[family-name:var(--font-serif)] text-sm italic text-[#78716c]">
+            {cv.education.degree} · {cv.education.school}
+          </p>
         </div>
       </section>
     </main>

@@ -1,40 +1,92 @@
 "use client";
 
-import { useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
 import { cv } from "@/data/cv";
 
-/** Bilingual Signal — deepened award cell */
+/** Bilingual Signal — split-channel EN / UA masthead; parallel rails of identity and proof. */
 export function Variant() {
-  const _reduce = useReducedMotion() ?? false;
+  const reduce = useReducedMotion() ?? false;
+
   return (
-    <main className="min-h-screen font-[family-name:var(--font-mono)]" style={{ background: "#faf7f2", color: "#1c1917" }}>
-      <div className="mx-auto max-w-5xl px-6 py-24">
-        <pre className="text-xs opacity-50">{"// Bilingual Signal\nconst engineer = await resolveProfile();"}</pre>
-        <h1 className="mt-6 text-4xl font-bold sm:text-6xl">{cv.name}</h1>
-        <p className="mt-3 opacity-75">{cv.title}</p>
-        <p className="mt-6 max-w-2xl text-sm leading-7 opacity-65">{cv.summary}</p>
-        <div className="mt-8 flex flex-wrap gap-3">
-          <a href={`mailto:${cv.email}`} className="rounded border px-4 py-2 text-xs uppercase" style={{ borderColor: "#0f766e", color: "#0f766e" }}>run hire()</a>
-          <ContactRow />
+    <main className="min-h-screen bg-[#07101c] text-[#e8f0ff]">
+      <header className="grid min-h-[70vh] md:grid-cols-2">
+        <div className="relative flex flex-col justify-center border-b border-[#7dd3fc]/30 p-8 md:border-b-0 md:border-r md:p-12">
+          <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.35em] text-[#7dd3fc]">
+            Channel A · EN
+          </p>
+          <motion.h1
+            initial={reduce ? false : { x: -24, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            className="mt-6 font-[family-name:var(--font-display)] text-4xl font-bold sm:text-6xl"
+          >
+            {cv.name}
+          </motion.h1>
+          <p className="mt-4 text-[#7dd3fc]">{cv.title}</p>
+          <p className="mt-6 max-w-md text-sm leading-7 text-white/60">{cv.summary}</p>
         </div>
-        <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-4">
-          {cv.highlights.map((h) => (
-            <div key={h.label} className="border border-dashed p-3" style={{ borderColor: "#0f766e55" }}>
-              <p className="text-xl font-bold">{h.value}</p>
-              <p className="text-[10px] uppercase opacity-50">{h.label}</p>
-            </div>
-          ))}
+        <div className="relative flex flex-col justify-center bg-[#0a1628] p-8 md:p-12">
+          <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.35em] text-[#fbbf24]">
+            Канал Б · UA
+          </p>
+          <motion.h2
+            initial={reduce ? false : { x: 24, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ delay: reduce ? 0 : 0.15 }}
+            className="mt-6 font-[family-name:var(--font-serif)] text-4xl italic sm:text-6xl"
+          >
+            Сергій Кучеренко
+          </motion.h2>
+          <p className="mt-4 text-[#fbbf24]">Інженер-засновник · повний стек</p>
+          <p className="mt-6 max-w-md text-sm leading-7 text-white/55">
+            Побудова продакшн-систем з AI: агенти, RAG, автоматизація — від архітектури до масштабу.
+          </p>
+          <div className="mt-10 flex flex-wrap gap-3">
+            <a
+              href={`mailto:${cv.email}`}
+              className="border border-[#7dd3fc] bg-[#7dd3fc] px-5 py-2.5 text-sm font-semibold text-[#07101c] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7dd3fc]"
+            >
+              Signal / Написати
+            </a>
+            <ContactRow className="text-white/55" />
+          </div>
         </div>
-        <section className="mt-16 border-t border-dashed pt-10" style={{ borderColor: "#0f766e44" }}>
-          <h2 className="mb-8 text-2xl">experience.log</h2>
-          <ExperienceList tone="light" />
-        </section>
-        <section className="mt-16 grid gap-12 border-t border-dashed pt-10 md:grid-cols-2" style={{ borderColor: "#0f766e44" }}>
-          <div><h2 className="mb-6 text-xl">skills.json</h2><SkillsCloud tone="light" /></div>
-          <div><h2 className="mb-6 text-xl">projects.md</h2><ProjectLinks tone="light" /><p className="mt-8 text-xs opacity-55">{cv.education.degree} · {cv.education.school} · {cv.location}</p></div>
-        </section>
-      </div>
+      </header>
+
+      <section className="grid grid-cols-2 border-y border-[#7dd3fc]/25 md:grid-cols-4">
+        {cv.highlights.map((h, i) => (
+          <div
+            key={h.label}
+            className={`px-5 py-7 ${i % 2 === 0 ? "bg-[#0a1628]" : ""}`}
+          >
+            <p className="text-3xl font-bold" style={{ color: i % 2 === 0 ? "#7dd3fc" : "#fbbf24" }}>
+              {h.value}
+            </p>
+            <p className="mt-1 text-[10px] uppercase tracking-wider opacity-45">{h.label}</p>
+          </div>
+        ))}
+      </section>
+
+      <section className="mx-auto max-w-5xl px-6 py-20 md:px-10">
+        <h2 className="mb-10 font-[family-name:var(--font-mono)] text-xs uppercase tracking-[0.35em] text-[#7dd3fc]">
+          Shared timeline · спільна лінія
+        </h2>
+        <ExperienceList tone="dark" />
+      </section>
+
+      <section className="mx-auto grid max-w-5xl gap-14 px-6 pb-24 md:grid-cols-2 md:px-10">
+        <div>
+          <h2 className="mb-6 text-xl font-bold text-[#7dd3fc]">Skills / Навички</h2>
+          <SkillsCloud />
+        </div>
+        <div>
+          <h2 className="mb-6 text-xl font-bold text-[#fbbf24]">Projects / Проєкти</h2>
+          <ProjectLinks />
+          <p className="mt-10 text-sm opacity-50">
+            {cv.education.degree} · {cv.education.school}
+          </p>
+        </div>
+      </section>
     </main>
   );
 }

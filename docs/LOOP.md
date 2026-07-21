@@ -47,5 +47,7 @@ Autonomous progress log for Orbitfolio.
 | 44 | Public theme picker | Password-gated “Use as public home” on /test pages; phone removed from site |
 | 45 | Depth gate 25 | Raised deepened oracle to ≥25; rebuilt #29/#32/#45/#71/#95 |
 | 46 | Mass deepen 100 | Admitted drip-feed was too weak; rebuilt all remaining thin shells — depth gate **100/100** |
+| 47 | Unique rewrite burst | 15m loop + 4 parallel agents rewriting 62 generic template cells into distinct award UIs |
+| 48 | UI smoke e2e | Playwright smoke on /, /lab, sample /test pages, /resume, /goals; CI runs test→lint→build→e2e |
 
-Live: https://orbitfolio-kohl.vercel.app · Loop: every 30m — quality + visual polish, not +5 line-count drips
+Live: https://orbitfolio-kohl.vercel.app · Loop: every 15m — unique award craft + UI must stay green

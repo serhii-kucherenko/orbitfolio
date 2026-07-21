@@ -4,41 +4,105 @@ import { motion, useReducedMotion } from "framer-motion";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
 import { cv } from "@/data/cv";
 
-/** Hybrid Liquid Brief — deepened award cell */
+/** Hybrid Liquid Brief — molten ink blobs frame a terse executive brief */
 export function Variant() {
   const reduce = useReducedMotion() ?? false;
+
   return (
-    <main className="min-h-screen" style={{ background: "#0f172a", color: "#e2e8f0" }}>
-      <header className="mx-auto max-w-4xl px-6 pb-10 pt-28">
-        <motion.h1 initial={reduce ? false : { y: 16, opacity: 0 }} animate={{ y: 0, opacity: 1 }} className="font-[family-name:var(--font-display)] text-5xl font-extrabold sm:text-7xl">{cv.name}</motion.h1>
-        <p className="mt-4 text-xl opacity-80">{cv.title}</p>
-        <p className="mt-6 text-sm leading-7 opacity-70">{cv.summary}</p>
-        <div className="mt-8 flex flex-wrap gap-3">
-          <a href={`mailto:${cv.email}`} className="rounded-full px-5 py-2.5 text-sm font-semibold" style={{ background: "#a78bfa", color: "#041016"}}>Start hiring thread</a>
-          <ContactRow className="text-white/70" />
+    <main
+      className="relative min-h-screen overflow-hidden"
+      style={{
+        background: "#07141a",
+        color: "#e6f7f4",
+      }}
+    >
+      {!reduce && (
+        <>
+          <motion.div
+            aria-hidden
+            className="pointer-events-none absolute -left-32 top-20 h-72 w-72 rounded-[60%_40%_55%_45%] opacity-50 blur-2xl"
+            style={{ background: "#0d9488" }}
+            animate={{ borderRadius: ["60% 40% 55% 45%", "45% 55% 40% 60%", "60% 40% 55% 45%"] }}
+            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+          />
+          <motion.div
+            aria-hidden
+            className="pointer-events-none absolute -right-24 bottom-40 h-80 w-80 rounded-[40%_60%_45%_55%] opacity-40 blur-2xl"
+            style={{ background: "#0369a1" }}
+            animate={{ borderRadius: ["40% 60% 45% 55%", "55% 45% 60% 40%", "40% 60% 45% 55%"] }}
+            transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+          />
+        </>
+      )}
+
+      <div className="relative mx-auto max-w-3xl px-6 py-24">
+        <div
+          className="rounded-[2rem] border px-8 py-12 backdrop-blur-md md:px-12 md:py-16"
+          style={{
+            borderColor: "#2dd4bf33",
+            background: "linear-gradient(160deg, #0c222aee 0%, #07141add 100%)",
+            boxShadow: "0 40px 80px #00000066",
+          }}
+        >
+          <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.35em] text-[#5eead4]">
+            Liquid brief
+          </p>
+          <h1 className="mt-4 font-[family-name:var(--font-display)] text-4xl font-bold leading-tight sm:text-5xl">
+            {cv.name}
+          </h1>
+          <p className="mt-3 text-[#5eead4]">{cv.title}</p>
+          <p className="mt-6 text-sm leading-7 opacity-75">{cv.summary}</p>
+
+          <div className="mt-8 flex flex-wrap items-center gap-4">
+            <a
+              href={`mailto:${cv.email}`}
+              className="rounded-full px-6 py-2.5 text-sm font-semibold"
+              style={{ background: "#14b8a6", color: "#042f2e" }}
+            >
+              Pour a hire thread
+            </a>
+            <ContactRow className="text-white/60" />
+          </div>
+
+          <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-4">
+            {cv.highlights.map((h, i) => (
+              <motion.div
+                key={h.label}
+                initial={reduce ? false : { y: 10, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: reduce ? 0 : 0.08 * i }}
+                className="rounded-2xl p-4 text-center"
+                style={{
+                  background: "rgba(45, 212, 191, 0.08)",
+                  borderRadius: `${40 + i * 5}% ${60 - i * 5}% ${45 + i * 3}% ${55 - i * 3}%`,
+                }}
+              >
+                <p className="text-2xl font-bold text-[#5eead4]">{h.value}</p>
+                <p className="mt-1 text-[10px] uppercase opacity-45">{h.label}</p>
+              </motion.div>
+            ))}
+          </div>
         </div>
-      </header>
-      <section className="border-y px-6 py-10" style={{ borderColor: "#a78bfa33", background: "#ffffff08" }}>
-        <div className="mx-auto grid max-w-4xl grid-cols-2 gap-4 sm:grid-cols-4">
-          {cv.highlights.map((h) => (
-            <div key={h.label}><p className="text-3xl font-bold" style={{ color: "#a78bfa" }}>{h.value}</p><p className="text-xs opacity-55">{h.label}</p></div>
-          ))}
-        </div>
-      </section>
-      <section className="mx-auto max-w-4xl space-y-16 px-6 py-20">
-        <div><h2 className="mb-8 text-3xl font-bold">Hybrid Liquid Brief · roles</h2><ExperienceList tone="dark" /></div>
-        <div className="grid gap-12 md:grid-cols-2">
-          <div><h2 className="mb-6 text-2xl font-bold">Skills</h2><SkillsCloud /></div>
-          <div><h2 className="mb-6 text-2xl font-bold">Projects</h2><ProjectLinks /><p className="mt-10 text-sm opacity-55">{cv.education.degree} · {cv.education.school} · {cv.location}</p></div>
-        </div>
-      </section>
-    
-      <footer className="mx-auto max-w-6xl px-6 pb-16 text-sm opacity-55">
-        {/* Education footer */}
-        <p>
-          {cv.education.degree} · {cv.education.school} · {cv.location}
-        </p>
-      </footer>
+
+        <section className="mt-20">
+          <h2 className="mb-8 text-2xl font-bold">Flow of work</h2>
+          <ExperienceList tone="dark" />
+        </section>
+
+        <section className="mt-16 grid gap-12 md:grid-cols-2">
+          <div>
+            <h2 className="mb-6 text-xl font-bold">Viscosity</h2>
+            <SkillsCloud />
+          </div>
+          <div>
+            <h2 className="mb-6 text-xl font-bold">Puddles shipped</h2>
+            <ProjectLinks />
+            <p className="mt-8 text-sm opacity-45">
+              {cv.education.degree} · {cv.education.school} · {cv.location}
+            </p>
+          </div>
+        </section>
+      </div>
     </main>
   );
 }

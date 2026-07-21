@@ -4,36 +4,84 @@ import { motion, useReducedMotion } from "framer-motion";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
 import { cv } from "@/data/cv";
 
-/** Telescope Monograph — deepened award cell */
+/** Telescope Monograph — scholarly folio: wide margins, serif body, numbered plates of evidence */
 export function Variant() {
   const reduce = useReducedMotion() ?? false;
+
   return (
-    <main className="min-h-screen" style={{ background: "#0f172a", color: "#e2e8f0" }}>
-      <section className="mx-auto grid max-w-6xl gap-10 px-6 pb-12 pt-28 md:grid-cols-[1.2fr_0.8fr]">
-        <div>
-          <motion.p initial={reduce ? false : { opacity: 0 }} animate={{ opacity: 1 }} className="text-[10px] uppercase tracking-[0.35em] opacity-60">Telescope Monograph</motion.p>
-          <h1 className="mt-4 font-[family-name:var(--font-display)] text-5xl font-bold sm:text-6xl">{cv.name}</h1>
-          <p className="mt-3 text-lg opacity-80">{cv.title}</p>
-          <p className="mt-6 max-w-xl text-sm leading-7 opacity-70">{cv.summary}</p>
-          <a href={`mailto:${cv.email}`} className="mt-8 inline-flex rounded-full px-5 py-2.5 text-sm font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2" style={{ background: "#a78bfa", color: "#041016"}}>Hire conversation</a>
-          <ContactRow className="mt-6 text-white/70" />
-        </div>
-        <div className="grid grid-cols-2 gap-3 content-start">
-          {cv.highlights.map((h) => (
-            <div key={h.label} className="rounded-2xl border p-4" style={{ borderColor: "#a78bfa55" }}>
-              <p className="text-3xl font-bold" style={{ color: "#a78bfa" }}>{h.value}</p>
-              <p className="mt-1 text-xs opacity-60">{h.label}</p>
-            </div>
+    <main
+      className="min-h-screen"
+      style={{
+        background: "#e8edf2",
+        color: "#1c2838",
+        backgroundImage:
+          "linear-gradient(90deg, #dce3eb 0, #dce3eb 48px, transparent 48px), linear-gradient(#c5ced840 1px, transparent 1px)",
+        backgroundSize: "100% 100%, 100% 2rem",
+        backgroundPosition: "0 0, 0 7rem",
+      }}
+    >
+      <article className="mx-auto max-w-3xl px-8 py-20 md:px-12 md:py-28">
+        <header className="border-b-2 pb-10" style={{ borderColor: "#1c2838" }}>
+          <motion.p
+            initial={reduce ? false : { opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.4em] opacity-50"
+          >
+            Monograph · Vol. I · Observational notes
+          </motion.p>
+          <h1 className="mt-6 font-[family-name:var(--font-serif)] text-5xl leading-[1.1] sm:text-6xl">
+            {cv.name}
+          </h1>
+          <p className="mt-4 font-[family-name:var(--font-sans)] text-sm uppercase tracking-[0.15em] opacity-60">
+            {cv.title}
+          </p>
+          <p className="mt-8 font-[family-name:var(--font-serif)] text-lg leading-8 opacity-80">
+            {cv.summary}
+          </p>
+          <div className="mt-8 flex flex-wrap items-center gap-4">
+            <a
+              href={`mailto:${cv.email}`}
+              className="border-b-2 pb-0.5 text-sm font-semibold"
+              style={{ borderColor: "#1c2838" }}
+            >
+              Correspond with the author
+            </a>
+            <ContactRow className="text-sm opacity-70" />
+          </div>
+        </header>
+
+        <section className="mt-12 grid grid-cols-2 gap-6 border-b pb-12 sm:grid-cols-4" style={{ borderColor: "#1c283822" }}>
+          {cv.highlights.map((h, i) => (
+            <figure key={h.label}>
+              <figcaption className="font-[family-name:var(--font-mono)] text-[9px] uppercase tracking-widest opacity-40">
+                Plate {String(i + 1).padStart(2, "0")}
+              </figcaption>
+              <p className="mt-2 font-[family-name:var(--font-serif)] text-3xl">{h.value}</p>
+              <p className="mt-1 text-xs opacity-55">{h.label}</p>
+            </figure>
           ))}
-        </div>
-      </section>
-      <section className="mx-auto max-w-6xl space-y-16 px-6 pb-28">
-        <div><h2 className="mb-8 text-3xl font-bold">Experience</h2><ExperienceList tone="dark" /></div>
-        <div className="grid gap-12 md:grid-cols-2">
-          <div><h2 className="mb-6 text-2xl font-bold">Skills</h2><SkillsCloud /></div>
-          <div><h2 className="mb-6 text-2xl font-bold">Projects</h2><ProjectLinks /><p className="mt-10 text-sm opacity-55">{cv.education.degree} · {cv.education.school}</p></div>
-        </div>
-      </section>
+        </section>
+
+        <section className="mt-14">
+          <h2 className="mb-2 font-[family-name:var(--font-serif)] text-3xl italic">I. Field notes</h2>
+          <p className="mb-8 text-xs uppercase tracking-[0.2em] opacity-40">Professional chronology</p>
+          <ExperienceList tone="light" />
+        </section>
+
+        <section className="mt-16 grid gap-12 border-t pt-12 md:grid-cols-2" style={{ borderColor: "#1c283822" }}>
+          <div>
+            <h2 className="mb-2 font-[family-name:var(--font-serif)] text-2xl italic">II. Instruments</h2>
+            <SkillsCloud tone="light" />
+          </div>
+          <div>
+            <h2 className="mb-2 font-[family-name:var(--font-serif)] text-2xl italic">III. Specimens</h2>
+            <ProjectLinks tone="light" />
+            <p className="mt-10 font-[family-name:var(--font-serif)] text-sm italic opacity-55">
+              {cv.education.degree}, {cv.education.school}
+            </p>
+          </div>
+        </section>
+      </article>
     </main>
   );
 }

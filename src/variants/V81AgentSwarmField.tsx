@@ -1,40 +1,120 @@
 "use client";
 
-import { useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
 import { cv } from "@/data/cv";
 
-/** Agent Swarm Field — deepened award cell */
+const NODES = [
+  { x: "8%", y: "18%", label: "plan" },
+  { x: "72%", y: "12%", label: "retrieve" },
+  { x: "88%", y: "48%", label: "tool" },
+  { x: "55%", y: "70%", label: "eval" },
+  { x: "18%", y: "62%", label: "ship" },
+  { x: "40%", y: "28%", label: "rag" },
+];
+
+/** Agent Swarm Field — coordinator node amid a living mesh of specialist agents */
 export function Variant() {
-  const _reduce = useReducedMotion() ?? false;
+  const reduce = useReducedMotion() ?? false;
+
   return (
-    <main className="min-h-screen font-[family-name:var(--font-mono)]" style={{ background: "#f8fafc", color: "#0f172a" }}>
-      <div className="mx-auto max-w-5xl px-6 py-24">
-        <pre className="text-xs opacity-50">{"// Agent Swarm Field\nconst engineer = await resolveProfile();"}</pre>
-        <h1 className="mt-6 text-4xl font-bold sm:text-6xl">{cv.name}</h1>
-        <p className="mt-3 opacity-75">{cv.title}</p>
-        <p className="mt-6 max-w-2xl text-sm leading-7 opacity-65">{cv.summary}</p>
-        <div className="mt-8 flex flex-wrap gap-3">
-          <a href={`mailto:${cv.email}`} className="rounded border px-4 py-2 text-xs uppercase" style={{ borderColor: "#334155", color: "#334155" }}>run hire()</a>
-          <ContactRow />
+    <main className="min-h-screen" style={{ background: "#0a1210", color: "#c8e6d8" }}>
+      <section className="relative mx-auto min-h-[70vh] max-w-6xl overflow-hidden px-6 pb-8 pt-20">
+        <div
+          aria-hidden
+          className="absolute inset-0 opacity-30"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle at 1px 1px, #3d8f6a44 1px, transparent 0)",
+            backgroundSize: "28px 28px",
+          }}
+        />
+
+        {NODES.map((n, i) => (
+          <motion.div
+            key={n.label}
+            className="absolute hidden h-2 w-2 rounded-full md:block"
+            style={{ left: n.x, top: n.y, background: "#5eead4" }}
+            initial={reduce ? false : { opacity: 0.3, scale: 0.5 }}
+            animate={
+              reduce
+                ? { opacity: 0.7 }
+                : { opacity: [0.4, 1, 0.4], scale: [0.8, 1.2, 0.8] }
+            }
+            transition={
+              reduce
+                ? undefined
+                : { duration: 2.4 + i * 0.3, repeat: Infinity, ease: "easeInOut" }
+            }
+          >
+            <span className="absolute left-4 top-[-2px] whitespace-nowrap font-[family-name:var(--font-mono)] text-[9px] uppercase tracking-widest text-[#5eead4]/70">
+              {n.label}
+            </span>
+          </motion.div>
+        ))}
+
+        <div className="relative z-10 max-w-xl">
+          <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.35em] text-[#5eead4]">
+            swarm · coordinator online
+          </p>
+          <h1 className="mt-4 font-[family-name:var(--font-display)] text-5xl font-bold leading-[0.95] sm:text-6xl">
+            {cv.name}
+          </h1>
+          <p className="mt-3 text-base text-[#5eead4]">{cv.title}</p>
+          <p className="mt-5 text-sm leading-7 text-[#c8e6d8]/75">{cv.summary}</p>
+          <div className="mt-8 flex flex-wrap items-center gap-4">
+            <a
+              href={`mailto:${cv.email}`}
+              className="border px-5 py-2.5 font-[family-name:var(--font-mono)] text-xs uppercase tracking-wider"
+              style={{ borderColor: "#5eead4", color: "#5eead4" }}
+            >
+              dispatch hire agent
+            </a>
+            <ContactRow className="text-[#c8e6d8]/65" />
+          </div>
         </div>
-        <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-4">
+      </section>
+
+      <section className="mx-auto max-w-6xl px-6 pb-8">
+        <div className="flex flex-wrap gap-2">
           {cv.highlights.map((h) => (
-            <div key={h.label} className="border border-dashed p-3" style={{ borderColor: "#33415555" }}>
-              <p className="text-xl font-bold">{h.value}</p>
-              <p className="text-[10px] uppercase opacity-50">{h.label}</p>
+            <div
+              key={h.label}
+              className="flex items-baseline gap-3 border px-4 py-3 font-[family-name:var(--font-mono)]"
+              style={{ borderColor: "#3d8f6a55", background: "#0f1c18" }}
+            >
+              <span className="text-2xl font-bold text-[#5eead4]">{h.value}</span>
+              <span className="text-[10px] uppercase tracking-wider opacity-45">{h.label}</span>
             </div>
           ))}
         </div>
-        <section className="mt-16 border-t border-dashed pt-10" style={{ borderColor: "#33415544" }}>
-          <h2 className="mb-8 text-2xl">experience.log</h2>
-          <ExperienceList tone="light" />
-        </section>
-        <section className="mt-16 grid gap-12 border-t border-dashed pt-10 md:grid-cols-2" style={{ borderColor: "#33415544" }}>
-          <div><h2 className="mb-6 text-xl">skills.json</h2><SkillsCloud tone="light" /></div>
-          <div><h2 className="mb-6 text-xl">projects.md</h2><ProjectLinks tone="light" /><p className="mt-8 text-xs opacity-55">{cv.education.degree} · {cv.education.school} · {cv.location}</p></div>
-        </section>
-      </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl space-y-16 px-6 pb-28">
+        <div>
+          <h2 className="mb-8 font-[family-name:var(--font-mono)] text-sm uppercase tracking-[0.25em] text-[#5eead4]">
+            mission log
+          </h2>
+          <ExperienceList tone="dark" />
+        </div>
+        <div className="grid gap-12 md:grid-cols-2">
+          <div>
+            <h2 className="mb-6 font-[family-name:var(--font-mono)] text-sm uppercase tracking-[0.25em]">
+              capabilities
+            </h2>
+            <SkillsCloud />
+          </div>
+          <div>
+            <h2 className="mb-6 font-[family-name:var(--font-mono)] text-sm uppercase tracking-[0.25em]">
+              artifacts
+            </h2>
+            <ProjectLinks />
+            <p className="mt-10 font-[family-name:var(--font-mono)] text-xs opacity-45">
+              {cv.education.degree} · {cv.education.school} · {cv.location}
+            </p>
+          </div>
+        </div>
+      </section>
     </main>
   );
 }
