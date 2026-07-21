@@ -9,7 +9,7 @@ export function Variant() {
   const reduce = useReducedMotion() ?? false;
 
   return (
-    <main className="min-h-screen bg-[#0b1220] text-[#e2e8f0]">
+    <main className="min-h-screen bg-[#08101c] text-[#e2e8f0]">
       <header className="px-6 pb-8 pt-24 md:px-10">
         <motion.p
           animate={reduce ? {} : { letterSpacing: ["0.2em", "0.45em", "0.2em"] }}
@@ -26,9 +26,15 @@ export function Variant() {
         <div className="mt-8 flex flex-wrap gap-3">
           <a
             href={`mailto:${cv.email}`}
-            className="rounded-full border-2 border-[#38bdf8] px-5 py-2.5 text-sm font-semibold text-[#38bdf8] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#38bdf8]"
+            className="rounded-full border-2 border-[#38bdf8] bg-[#38bdf8] px-5 py-2.5 text-sm font-semibold text-[#08101c] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#38bdf8]"
           >
             Stretch a conversation
+          </a>
+          <a
+            href="/resume"
+            className="rounded-full border-2 border-[#38bdf8]/50 px-5 py-2.5 text-sm font-semibold text-[#38bdf8]"
+          >
+            Tension sheet
           </a>
           <ContactRow className="text-white/55" />
         </div>
@@ -51,7 +57,7 @@ export function Variant() {
                 whileInView={{ y: 0, opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: reduce ? 0 : i * 0.08 }}
-                className="min-w-[160px] shrink-0 rounded-2xl border border-[#38bdf8]/30 bg-[#0f172a] px-5 py-6"
+                className="min-w-[160px] shrink-0 rounded-2xl border border-[#38bdf8]/30 bg-[#0c1526] px-5 py-6"
               >
                 <p className="text-3xl font-black text-[#38bdf8]">{h.value}</p>
                 <p className="mt-1 text-[10px] uppercase tracking-wider opacity-50">{h.label}</p>
@@ -60,11 +66,9 @@ export function Variant() {
             {cv.experience.map((job) => (
               <div
                 key={job.company}
-                className="min-w-[220px] shrink-0 rounded-2xl border border-white/10 bg-[#0f172a]/80 px-5 py-6"
+                className="min-w-[220px] shrink-0 rounded-2xl border border-white/10 bg-[#0c1526]/80 px-5 py-6"
               >
-                <p className="font-[family-name:var(--font-mono)] text-[10px] text-[#38bdf8]/70">
-                  {job.period}
-                </p>
+                <p className="font-[family-name:var(--font-mono)] text-[10px] text-[#38bdf8]/70">{job.period}</p>
                 <p className="mt-2 text-sm font-semibold">{job.company}</p>
                 <p className="mt-1 text-xs opacity-50">{job.role}</p>
               </div>
@@ -78,7 +82,7 @@ export function Variant() {
         <ExperienceList tone="dark" />
       </section>
 
-      <section className="mx-auto grid max-w-4xl gap-14 px-6 pb-24 md:grid-cols-2 md:px-10">
+      <section className="mx-auto grid max-w-4xl gap-14 border-t border-white/10 px-6 pb-24 pt-16 md:grid-cols-2 md:px-10">
         <div>
           <h2 className="mb-6 text-xl font-bold">Elastic skills</h2>
           <SkillsCloud />
@@ -87,7 +91,7 @@ export function Variant() {
           <h2 className="mb-6 text-xl font-bold">Anchors</h2>
           <ProjectLinks />
           <p className="mt-10 text-sm opacity-45">
-            {cv.education.degree} · {cv.education.school}
+            {cv.education.degree} · {cv.education.school} · {cv.location}
           </p>
         </div>
       </section>

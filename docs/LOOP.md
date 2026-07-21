@@ -64,5 +64,6 @@ Autonomous progress log for Orbitfolio.
 | 61 | Burst tick 12 | Polished cinematic flythrough, mission take, credit roll, kinetic nameplate, code rain, waveform |
 | 62 | Burst tick 13 | Deepened planet press, bilingual signal, kinetic synth, telemetry, redline, healthcare trust |
 | 63 | Burst tick 14 | Polished telescope monograph, Swiss kinetic, observatory, masthead press, liquid metal, Bauhaus systems |
+| 64 | Burst tick 15 | Deepened planetary dossier, archive rooms, elastic rail, velocity chapters, goals orbit, journey map |
 
 Live: https://orbitfolio-kohl.vercel.app · Loop: every 15m — unique award craft + UI must stay green
