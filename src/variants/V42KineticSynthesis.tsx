@@ -93,6 +93,18 @@ export function Variant() {
           </div>
         </div>
       </section>
-    </main>
+    
+      <footer className="border-t border-white/10 px-6 py-8">
+        <p className="mx-auto max-w-5xl text-sm leading-7 text-white/45">
+          Synthesis closes Gamma — motion vocabulary without losing the hire CTA.
+        </p>
+        <p className="mx-auto mt-3 max-w-5xl text-sm leading-7 text-white/35">
+          Pull the best kinetic ideas into one readable close — email still wins.
+        </p>
+        <p className="mx-auto mt-3 max-w-5xl font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.3em] text-white/30">
+          Gamma · kinetic · craft depth
+        </p>
+      </footer>
+</main>
   );
 }

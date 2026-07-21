@@ -99,6 +99,18 @@ export function Variant() {
           </div>
         </div>
       </section>
-    </main>
+    
+      <footer className="border-t border-black/10 px-6 py-8">
+        <p className="mx-auto max-w-5xl text-sm leading-7 text-[#0a0c10]/55">
+          Oversized type is a hero signal; the resume body must survive the scale.
+        </p>
+        <p className="mx-auto mt-3 max-w-5xl text-sm leading-7 text-[#0a0c10]/45">
+          Scale for impact, keep the email and experience rail at human size.
+        </p>
+        <p className="mx-auto mt-3 max-w-5xl font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.3em] text-[#0a0c10]/35">
+          Gamma · kinetic · craft depth
+        </p>
+      </footer>
+</main>
   );
 }

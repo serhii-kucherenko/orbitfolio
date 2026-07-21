@@ -102,5 +102,6 @@ Autonomous progress log for Orbitfolio.
 | 99 | Beta editorial Lenis | Beta #16–#28 ≥110 lines; ≥3 cells use Lenis for long-form reading craft |
 | 100 | Zeta experimental craft | Zeta #71–#85 ≥110 lines; ≥3 cells mount WebGL / Lenis / GSAP |
 | 101 | Delta systems craft | Delta #43–#56 ≥110 lines; ≥3 cells mount WebGL / Lenis / GSAP |
+| 102 | Gamma kinetic depth | Gamma #29–#42 ≥110 lines; GSAP still required on ≥3 cells |
 
 Live: https://orbitfolio-kohl.vercel.app · Loop: every 15m — unique award craft + UI must stay green

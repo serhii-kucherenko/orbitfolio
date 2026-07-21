@@ -92,6 +92,18 @@ export function Variant() {
           </p>
         </div>
       </section>
-    </main>
+    
+      <footer className="border-t border-white/10 px-6 py-8">
+        <p className="mx-auto max-w-5xl text-sm leading-7 text-white/45">
+          Nameplate kinetics sell the first frame — proof and hire path stay below the type.
+        </p>
+        <p className="mx-auto mt-3 max-w-5xl text-sm leading-7 text-white/35">
+          Motion earns the glance; the contact row and experience still close the hire.
+        </p>
+        <p className="mx-auto mt-3 max-w-5xl font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.3em] text-white/30">
+          Gamma · kinetic · craft depth
+        </p>
+      </footer>
+</main>
   );
 }
