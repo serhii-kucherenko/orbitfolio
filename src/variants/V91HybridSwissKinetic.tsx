@@ -24,7 +24,7 @@ export function Variant() {
         <div className="px-6 py-16 md:px-12 md:py-20">
           <div className="grid gap-2 border-b-4 border-black pb-8 sm:grid-cols-12">
             <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.25em] sm:col-span-3">
-              Mod. 91
+              Mod. 91 · {cv.location}
             </p>
             <div className="sm:col-span-9">
               <h1 className="font-[family-name:var(--font-display)] text-5xl font-black uppercase leading-[0.9] tracking-tight sm:text-7xl">
@@ -46,7 +46,7 @@ export function Variant() {
                 </a>
                 <a
                   href="/resume"
-                  className="inline-flex border-2 border-black px-5 py-3 text-xs font-bold uppercase tracking-wider"
+                  className="inline-flex border-2 border-black px-5 py-3 text-xs font-bold uppercase tracking-wider focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
                 >
                   Spec PDF
                 </a>

@@ -19,7 +19,7 @@ export function Variant() {
           transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
         />
         <div className="relative flex justify-between border-b border-[#f2c778]/25 pb-4 text-[10px] uppercase tracking-[0.4em] text-[#f2c778]">
-          <span>Installation 05</span>
+          <span>Installation 05 · {cv.location}</span>
           <span>One claim at a time</span>
         </div>
         <div className="relative py-20">
@@ -34,7 +34,7 @@ export function Variant() {
           <div className="flex flex-wrap gap-3">
             <a
               href="/resume"
-              className="border border-[#f2c778]/50 px-6 py-3 text-sm font-bold text-[#f2c778]"
+              className="border border-[#f2c778]/50 px-6 py-3 text-sm font-bold text-[#f2c778] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#f2c778]"
             >
               Program notes
             </a>
