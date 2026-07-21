@@ -27,7 +27,7 @@ Full definitions: [`docs/RUBRIC.md`](RUBRIC.md)
 - Gate raised to **100** custom designs (batch 8) — every `/test/n` cell is now uniquely built; shared `AwardVariant` shell retired from active experiments
 - Shared resume blocks keep completeness high while experience diverges — but overusing them plus the same starfield made designs feel identical
 - Diversity reboot (tick 26): magazine / [Swiss Style](https://www.designhistory.org/Art_Movements_pages/SwissDesign.html) / clinic product / daylight glass / paper void / dual narrative / mosaic / case chapters / isometric rooms / brutal press / [Bauhaus](https://www.bauhaus.de/en/) / recruiter profile / docs workspace
-- Champion hybrid should synthesize (warp + glass + metrics + clear action buttons), not average mediocre traits
+- Champion hybrid should synthesize (warp + glass + metrics + clear action buttons), not average mediocre traits — Centurion polish (tick 38) rebuilt `/` with scroll warp, glass metrics, and hire CTAs including printable resume
 - Hireability peaks when proof (metrics + experience) is reachable in under 10 seconds without fighting the effects
 - Hybrid designs #86–#100 form a rising learning ladder: every thesis cites earlier cells and the provisional overall score improves each step
 
