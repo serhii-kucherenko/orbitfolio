@@ -2,7 +2,7 @@
 
 import { Float, MeshDistortMaterial, Stars } from "@react-three/drei";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
+import { useMemo, useRef, useSyncExternalStore, type ReactNode } from "react";
 import type { Group, Mesh, Points } from "three";
 import * as THREE from "three";
 
@@ -15,10 +15,17 @@ type StageProps = {
   children: ReactNode;
 };
 
+function useIsClient() {
+  return useSyncExternalStore(
+    () => () => {},
+    () => true,
+    () => false,
+  );
+}
+
 /** Client-only WebGL mount with reduced-motion CSS fallback — never traps scroll. */
-export function WebGLStage({ accent, className, label, reduce, fallback, children }: StageProps) {
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
+export function WebGLStage({ className, label, reduce, fallback, children }: StageProps) {
+  const mounted = useIsClient();
 
   if (reduce || !mounted) {
     return (
@@ -221,10 +228,15 @@ export function SceneParticleFleet({ accent }: { accent: string }) {
   const positions = useMemo(() => {
     const count = 420;
     const arr = new Float32Array(count * 3);
+    let seed = 42;
+    const rand = () => {
+      seed = (seed * 16807) % 2147483647;
+      return (seed - 1) / 2147483646;
+    };
     for (let i = 0; i < count; i++) {
-      const r = 1.2 + Math.random() * 2.2;
-      const theta = Math.random() * Math.PI * 2;
-      const phi = Math.acos(2 * Math.random() - 1);
+      const r = 1.2 + rand() * 2.2;
+      const theta = rand() * Math.PI * 2;
+      const phi = Math.acos(2 * rand() - 1);
       arr[i * 3] = r * Math.sin(phi) * Math.cos(theta);
       arr[i * 3 + 1] = r * Math.sin(phi) * Math.sin(theta) * 0.55;
       arr[i * 3 + 2] = r * Math.cos(phi);
