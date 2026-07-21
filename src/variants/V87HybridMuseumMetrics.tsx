@@ -9,9 +9,13 @@ export function Variant() {
   const reduce = useReducedMotion() ?? false;
 
   return (
-    <main className="min-h-screen bg-[#f6f6f3] text-[#171717]">
-      <header className="border-b border-black/10 px-6 py-16 md:px-16 md:py-24">
-        <div className="mx-auto max-w-6xl">
+    <main className="min-h-screen bg-[#f3f3ef] text-[#171717]">
+      <header className="relative overflow-hidden border-b border-black/10 px-6 py-16 md:px-16 md:py-24">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(0,0,0,0.04),transparent_55%)]"
+        />
+        <div className="relative mx-auto max-w-6xl">
           <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.35em] text-black/40">
             Gallery 87 · Permanent collection
           </p>
@@ -22,12 +26,17 @@ export function Variant() {
             <p className="max-w-xl text-sm leading-7 text-black/65">{cv.summary}</p>
             <div>
               <p className="text-sm font-medium text-black/80">{cv.title}</p>
-              <a
-                href={`mailto:${cv.email}`}
-                className="mt-3 inline-block border-b border-current pb-0.5 text-sm font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-              >
-                Request a private viewing
-              </a>
+              <div className="mt-3 flex flex-wrap gap-4">
+                <a
+                  href={`mailto:${cv.email}`}
+                  className="border-b border-current pb-0.5 text-sm font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                >
+                  Request a private viewing
+                </a>
+                <a href="/resume" className="border-b border-black/30 pb-0.5 text-sm text-black/55">
+                  Catalog sheet
+                </a>
+              </div>
               <ContactRow className="mt-3 text-black/55" />
             </div>
           </div>
@@ -38,10 +47,10 @@ export function Variant() {
         {cv.highlights.map((h, i) => (
           <motion.div
             key={h.label}
-            initial={reduce ? false : { opacity: 0, y: 18 }}
+            initial={reduce ? false : { opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: reduce ? 0 : 0.08 * i }}
-            className="flex min-h-[210px] flex-col justify-between bg-[#f6f6f3] p-8"
+            className="group flex min-h-[230px] flex-col justify-between bg-[#f3f3ef] p-8 transition-colors hover:bg-white"
           >
             <p className="font-[family-name:var(--font-mono)] text-[9px] uppercase tracking-[0.3em] text-black/35">
               Acc. {String(100 + i).padStart(3, "0")}
@@ -49,6 +58,7 @@ export function Variant() {
             <div>
               <p className="font-[family-name:var(--font-display)] text-5xl font-bold leading-none">{h.value}</p>
               <p className="mt-3 text-xs uppercase tracking-wider text-black/45">{h.label}</p>
+              <div aria-hidden className="mt-5 h-px w-8 bg-black/25 transition-all group-hover:w-14" />
             </div>
           </motion.div>
         ))}

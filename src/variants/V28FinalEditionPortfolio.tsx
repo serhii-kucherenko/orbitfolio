@@ -9,20 +9,32 @@ export function Variant() {
   const reduce = useReducedMotion() ?? false;
 
   return (
-    <main className="min-h-screen bg-[#17150f] text-[#e8e0d4]">
+    <main className="min-h-screen bg-[#12100c] text-[#e8e0d4]">
       <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#c4a574]/30 px-6 py-2 font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.3em] text-[#c4a574]/70 md:px-12">
         <span>Final edition</span>
-        <a href="#record" className="hover:text-[#c4a574]">Record</a>
-        <a href="#skills" className="hover:text-[#c4a574]">Skills</a>
-        <a href="#archive" className="hover:text-[#c4a574]">Archive</a>
-        <a href={`mailto:${cv.email}`} className="hover:text-[#c4a574]">Hire desk</a>
+        <a href="#record" className="hover:text-[#c4a574]">
+          Record
+        </a>
+        <a href="#skills" className="hover:text-[#c4a574]">
+          Skills
+        </a>
+        <a href="#archive" className="hover:text-[#c4a574]">
+          Archive
+        </a>
+        <a href="/resume" className="hover:text-[#c4a574]">
+          PDF
+        </a>
+        <a href={`mailto:${cv.email}`} className="hover:text-[#c4a574]">
+          Hire desk
+        </a>
       </div>
 
       <header className="relative overflow-hidden border-b border-[#c4a574]/40 px-6 py-16 md:px-12">
         <motion.div
           aria-hidden
-          initial={reduce ? false : { rotate: -12, opacity: 0 }}
-          animate={{ rotate: -12, opacity: 0.95 }}
+          initial={reduce ? false : { rotate: -14, opacity: 0, scale: 0.9 }}
+          animate={{ rotate: -12, opacity: 0.95, scale: 1 }}
+          transition={{ type: "spring", stiffness: 120 }}
           className="pointer-events-none absolute right-6 top-8 border-4 border-[#ef4444] px-4 py-2 font-[family-name:var(--font-display)] text-3xl font-black uppercase tracking-widest text-[#ef4444] md:right-14 md:text-5xl"
         >
           Last
@@ -38,20 +50,33 @@ export function Variant() {
         <div className="mt-10 flex flex-wrap gap-4">
           <a
             href={`mailto:${cv.email}`}
-            className="bg-[#c4a574] px-5 py-2.5 text-sm font-bold text-[#17150f] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c4a574]"
+            className="bg-[#c4a574] px-5 py-2.5 text-sm font-bold text-[#12100c] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c4a574]"
           >
             Hold the presses — hire
+          </a>
+          <a
+            href="/resume"
+            className="border border-[#c4a574]/50 px-5 py-2.5 text-sm font-bold text-[#c4a574]"
+          >
+            Print edition
           </a>
           <ContactRow className="text-[#e8e0d4]/55" />
         </div>
       </header>
 
       <section className="mx-auto grid max-w-5xl grid-cols-2 gap-px bg-[#c4a574]/30 md:grid-cols-4">
-        {cv.highlights.map((h) => (
-          <div key={h.label} className="bg-[#17150f] px-5 py-8">
+        {cv.highlights.map((h, i) => (
+          <motion.div
+            key={h.label}
+            initial={reduce ? false : { opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: reduce ? 0 : i * 0.05 }}
+            className="bg-[#12100c] px-5 py-8"
+          >
             <p className="font-[family-name:var(--font-serif)] text-3xl text-[#c4a574]">{h.value}</p>
             <p className="mt-1 text-[10px] uppercase tracking-wider opacity-45">{h.label}</p>
-          </div>
+          </motion.div>
         ))}
       </section>
 

@@ -18,20 +18,34 @@ export function Variant() {
   const strip = [...frames, ...frames];
 
   return (
-    <main className="min-h-screen bg-[#17120c] text-[#f2e8da]">
-      <header className="border-b border-[#c4a574]/30 px-6 py-20 md:px-12">
-        <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.45em] text-[#c4a574]">
+    <main className="min-h-screen bg-[#120e09] text-[#f2e8da]">
+      <header className="relative overflow-hidden border-b border-[#c4a574]/30 px-6 py-20 md:px-12">
+        <motion.div
+          aria-hidden
+          className="pointer-events-none absolute right-0 top-0 h-72 w-72 translate-x-1/3 -translate-y-1/4 rounded-full bg-[#c4a574]/15 blur-3xl"
+          animate={reduce ? undefined : { opacity: [0.25, 0.45, 0.25] }}
+          transition={{ duration: 9, repeat: Infinity }}
+        />
+        <p className="relative font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.45em] text-[#c4a574]">
           Continuum · infinite pan
         </p>
-        <h1 className="mt-5 font-[family-name:var(--font-serif)] text-5xl leading-tight sm:text-7xl">{cv.name}</h1>
-        <p className="mt-4 text-lg text-[#e8c99a]">{cv.title}</p>
-        <p className="mt-6 max-w-2xl text-sm leading-8 text-white/65">{cv.summary}</p>
-        <div className="mt-8 flex flex-wrap items-center gap-4">
+        <h1 className="relative mt-5 font-[family-name:var(--font-serif)] text-5xl leading-tight sm:text-7xl">
+          {cv.name}
+        </h1>
+        <p className="relative mt-4 text-lg text-[#e8c99a]">{cv.title}</p>
+        <p className="relative mt-6 max-w-2xl text-sm leading-8 text-white/65">{cv.summary}</p>
+        <div className="relative mt-8 flex flex-wrap items-center gap-4">
           <a
             href={`mailto:${cv.email}`}
-            className="border border-[#c4a574] bg-[#c4a574] px-5 py-2.5 text-xs font-bold uppercase tracking-widest text-[#17120c] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#e8c99a]"
+            className="border border-[#c4a574] bg-[#c4a574] px-5 py-2.5 text-xs font-bold uppercase tracking-widest text-[#120e09] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#e8c99a]"
           >
             Commission a frame
+          </a>
+          <a
+            href="/resume"
+            className="border border-[#c4a574]/45 px-5 py-2.5 text-xs font-bold uppercase tracking-widest text-[#e8c99a]"
+          >
+            Still print
           </a>
           <ContactRow className="text-[#e8c99a]/80" />
         </div>
@@ -49,11 +63,12 @@ export function Variant() {
           {strip.map((frame, i) => (
             <div
               key={`${frame.label}-${i}`}
-              className="w-52 shrink-0 border border-[#c4a574]/35 bg-[#221a12] p-5"
+              className="w-52 shrink-0 border border-[#c4a574]/35 bg-[#1c1610] p-5"
               style={{ aspectRatio: "4/3" }}
             >
               <p className="font-[family-name:var(--font-mono)] text-[10px] text-[#c4a574]/55">
-                {frame.kind === "metric" ? "METRIC" : "ROLE"} · F-{String((i % frames.length) + 1).padStart(2, "0")}
+                {frame.kind === "metric" ? "METRIC" : "ROLE"} · F-
+                {String((i % frames.length) + 1).padStart(2, "0")}
               </p>
               <p className="mt-6 text-3xl font-black text-[#e8c99a]">{frame.value}</p>
               <p className="mt-2 text-xs uppercase tracking-wider text-white/45">{frame.label}</p>
@@ -66,7 +81,7 @@ export function Variant() {
         <h2 className="mb-3 font-[family-name:var(--font-serif)] text-3xl">Linear archive</h2>
         <p className="mb-10 text-sm text-white/45">Fallback for recruiters who prefer a still frame.</p>
         <ExperienceList tone="dark" />
-        <div className="mt-20 grid gap-14 md:grid-cols-2">
+        <div className="mt-20 grid gap-14 border-t border-[#c4a574]/20 pt-16 md:grid-cols-2">
           <div>
             <h2 className="mb-6 text-xl font-semibold text-[#e8c99a]">Emulsions</h2>
             <SkillsCloud />
@@ -75,7 +90,7 @@ export function Variant() {
             <h2 className="mb-6 text-xl font-semibold text-[#e8c99a]">Prints</h2>
             <ProjectLinks />
             <p className="mt-10 text-sm text-white/45">
-              {cv.education.degree} · {cv.education.school}
+              {cv.education.degree} · {cv.education.school} · {cv.location}
             </p>
           </div>
         </div>
