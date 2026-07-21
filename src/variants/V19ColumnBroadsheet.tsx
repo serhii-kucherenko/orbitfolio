@@ -2,6 +2,7 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
+import { SmoothScroll } from "@/components/SmoothScroll";
 import { cv } from "@/data/cv";
 
 /** Column Broadsheet — multi-column newspaper: masthead, lead, tight body columns. */
@@ -9,6 +10,7 @@ export function Variant() {
   const reduce = useReducedMotion() ?? false;
 
   return (
+    <SmoothScroll>
     <main className="min-h-screen bg-[#eceae4] text-[#111827]">
       <header className="border-b-[3px] border-black px-4 py-6 md:px-10">
         <div className="mx-auto max-w-6xl">
@@ -93,6 +95,17 @@ export function Variant() {
           </p>
         </div>
       </section>
+      <footer className="border-t-[3px] border-black px-4 py-8 md:px-10">
+        <div className="mx-auto flex max-w-6xl flex-col gap-3 md:flex-row md:justify-between">
+          <p className="max-w-xl text-sm leading-7 text-black/55">
+            Broadsheet columns reward slow reading — Lenis keeps the folio continuous without trapping scroll.
+          </p>
+          <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.3em] text-black/45">
+            Engineering edition · No. 19 · {cv.location}
+          </p>
+        </div>
+      </footer>
     </main>
+    </SmoothScroll>
   );
 }

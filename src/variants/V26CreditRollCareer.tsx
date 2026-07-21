@@ -102,6 +102,14 @@ export function Variant() {
           {cv.education.degree} · {cv.education.school} · {cv.location}
         </p>
       </section>
+      <footer className="border-t border-white/10 px-6 py-10 text-center">
+        <p className="mx-auto max-w-xl text-sm leading-7 text-white/50">
+          End credits stay reduced-motion safe — every era gets full billing without a trapped scroll.
+        </p>
+        <p className="mt-4 font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.35em] text-white/35">
+          Roll · Vol. 26 · {cv.location}
+        </p>
+      </footer>
     </main>
   );
 }

@@ -2,6 +2,7 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
+import { SmoothScroll } from "@/components/SmoothScroll";
 import { cv } from "@/data/cv";
 
 /** Swiss Evidence Grid — modular 12-unit grid, hairline rules, signal-red accents, zero ornament. */
@@ -9,6 +10,7 @@ export function Variant() {
   const reduce = useReducedMotion() ?? false;
 
   return (
+    <SmoothScroll>
     <main className="min-h-screen bg-[#e8e8e4] text-[#111111]">
       <header className="mx-auto grid max-w-6xl grid-cols-12 gap-0 border-x border-black/15 px-0 pt-16">
         <div className="col-span-12 border-b border-black/15 px-4 py-3 md:col-span-3 md:border-b-0 md:border-r">
@@ -94,6 +96,15 @@ export function Variant() {
           </p>
         </div>
       </section>
+      <footer className="mx-auto max-w-6xl border-x border-t border-black/15 px-4 py-8">
+        <p className="max-w-2xl text-sm leading-7 text-black/55">
+          International grid + Lenis: scan speed without jitter. Form, metrics, roles, artifacts — in that order.
+        </p>
+        <p className="mt-3 font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.3em] text-[#e11d48]">
+          Grid 20 / colophon · {cv.location}
+        </p>
+      </footer>
     </main>
+    </SmoothScroll>
   );
 }

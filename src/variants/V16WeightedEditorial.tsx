@@ -2,6 +2,7 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
+import { SmoothScroll } from "@/components/SmoothScroll";
 import { cv } from "@/data/cv";
 
 /** Weighted Editorial — colossal name mass vs featherweight proof; magazine asymmetry. */
@@ -9,6 +10,7 @@ export function Variant() {
   const reduce = useReducedMotion() ?? false;
 
   return (
+    <SmoothScroll>
     <main className="min-h-screen bg-[#0e0c0a] text-[#f4efe8]">
       <header className="grid min-h-[92vh] lg:grid-cols-[1.4fr_0.6fr]">
         <div className="relative flex flex-col justify-between overflow-hidden border-b border-[#f97316]/25 p-8 lg:border-b-0 lg:border-r lg:p-14">
@@ -99,6 +101,16 @@ export function Variant() {
           </p>
         </div>
       </section>
+      <footer className="border-t border-[#f97316]/25 px-8 py-10 lg:px-14">
+        <p className="max-w-2xl text-sm leading-7 text-white/55">
+          Lenis keeps the weighted masthead readable on long scrolls. Brand first, proof second — never the
+          reverse.
+        </p>
+        <p className="mt-4 font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.3em] text-[#f97316]/60">
+          Editorial · Vol. 16 · {cv.location}
+        </p>
+      </footer>
     </main>
+    </SmoothScroll>
   );
 }

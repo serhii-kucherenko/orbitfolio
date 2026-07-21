@@ -412,3 +412,24 @@ test("Fail-then-pass: Epsilon hire cells stay deep and expose a 10-second proof 
     `RED: Epsilon cells missing 10-second proof strip: ${missingProof.join(", ")}`,
   );
 });
+
+test("Fail-then-pass: Beta editorial ships Lenis on ≥3 cells and stays ≥110 lines", () => {
+  const beta = listVariantFiles().filter((name) => {
+    const id = Number(name.match(/^V(\d+)/)[1]);
+    return id >= 16 && id <= 28;
+  });
+  assert.equal(beta.length, 13);
+  const shallow = [];
+  let withLenis = 0;
+  for (const file of beta) {
+    const src = fs.readFileSync(path.join(variantsDir, file), "utf8");
+    const lines = src.split("\n").length;
+    if (lines < 110) shallow.push(`${file}(${lines})`);
+    if (src.includes("SmoothScroll") || src.includes("lenis")) withLenis += 1;
+  }
+  assert.equal(shallow.length, 0, `RED: Beta cells under 110 lines: ${shallow.join(", ")}`);
+  assert.ok(
+    withLenis >= 3,
+    `RED: need ≥3 Beta editorial cells with Lenis SmoothScroll, got ${withLenis}`,
+  );
+});
