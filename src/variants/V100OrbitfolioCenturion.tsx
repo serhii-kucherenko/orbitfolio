@@ -127,7 +127,7 @@ export function Variant() {
       </section>
 
       <section className="relative z-10 mx-auto grid max-w-7xl gap-8 px-6 py-20 md:grid-cols-2 md:px-12">
-        <div className="rounded-[2rem] border border-white/10 bg-gradient-to-br from-cyan-300/10 to-transparent p-8 backdrop-blur">
+        <div className="border border-white/10 bg-gradient-to-br from-cyan-300/10 to-transparent p-8 backdrop-blur">
           <p className="text-cyan-300">02 / Systems</p>
           <h2 className="mt-4 font-[family-name:var(--font-display)] text-3xl font-black">
             Capability matrix
@@ -136,7 +136,7 @@ export function Variant() {
             <SkillsCloud />
           </div>
         </div>
-        <div className="rounded-[2rem] border border-white/10 bg-white/5 p-8 backdrop-blur">
+        <div className="border border-white/10 bg-white/5 p-8 backdrop-blur">
           <p className="text-cyan-300">03 / Shipped</p>
           <h2 className="mt-4 font-[family-name:var(--font-display)] text-3xl font-black">
             Selected work

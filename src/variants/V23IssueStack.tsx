@@ -51,7 +51,7 @@ export function Variant() {
               whileInView={{ y: i * 32, opacity: 1, rotate: -3.5 + i * 1.6 }}
               viewport={{ once: true }}
               transition={{ delay: reduce ? 0 : i * 0.1, type: "spring", stiffness: 85 }}
-              className="relative w-full border border-white/10 p-7 shadow-2xl md:absolute md:left-0 md:right-0"
+              className="relative w-full border border-white/10 p-7 shadow-lg md:absolute md:left-0 md:right-0"
               style={{
                 background: c.bg,
                 zIndex: covers.length - i,

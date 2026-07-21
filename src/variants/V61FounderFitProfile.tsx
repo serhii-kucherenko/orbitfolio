@@ -65,7 +65,7 @@ export function Variant() {
               initial={reduce ? false : { opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: reduce ? 0 : 0.05 * i }}
-              className="flex gap-3 rounded-xl border border-zinc-800 bg-zinc-950/80 p-4 text-sm"
+              className="flex gap-3 border border-zinc-800 bg-zinc-950/80 p-4 text-sm"
             >
               <span className="font-bold text-[#a3e635]">✓</span>
               {item}
@@ -74,7 +74,7 @@ export function Variant() {
         </ul>
         <div className="mt-8 grid grid-cols-2 gap-3 md:grid-cols-4">
           {cv.highlights.map((h) => (
-            <div key={h.label} className="rounded-xl border border-zinc-800 p-4">
+            <div key={h.label} className="border border-zinc-800 p-4">
               <p className="text-3xl font-bold text-[#a3e635]">{h.value}</p>
               <p className="mt-1 text-[10px] uppercase tracking-wider text-zinc-500">{h.label}</p>
             </div>

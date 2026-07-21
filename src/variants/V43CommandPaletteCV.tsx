@@ -33,7 +33,7 @@ export function Variant() {
     <main className="min-h-screen bg-[#0d1117] text-[#e6edf3]">
       <div className="mx-auto max-w-3xl px-4 pb-8 pt-24">
         <motion.div
-          className="overflow-hidden rounded-xl border border-white/10 bg-[#161b22] shadow-2xl shadow-black/50"
+          className="overflow-hidden border border-white/10 bg-[#161b22] shadow-lg shadow-black/40"
           initial={reduce ? false : { y: 24, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.4 }}

@@ -7,6 +7,10 @@ import { cv } from "@/data/cv";
 /** Hybrid Journey Profile — identity card docked beside a vertical route of career stops */
 export function Variant() {
   const reduce = useReducedMotion() ?? false;
+  const initials = cv.name
+    .split(" ")
+    .map((p) => p[0])
+    .join("");
 
   return (
     <main
@@ -21,20 +25,19 @@ export function Variant() {
           <motion.div
             initial={reduce ? false : { y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            className="overflow-hidden rounded-2xl border"
+            className="overflow-hidden border"
             style={{
               borderColor: "#5b9bd655",
               background: "linear-gradient(160deg, #2a5080 0%, #163556 100%)",
-              boxShadow: "0 24px 48px #00000044",
             }}
           >
             <div className="h-24" style={{ background: "linear-gradient(90deg, #3b82f6, #06b6d4)" }} />
             <div className="px-6 pb-6 pt-0">
               <div
-                className="-mt-10 mb-4 flex h-20 w-20 items-center justify-center rounded-full border-4 font-[family-name:var(--font-display)] text-2xl font-bold"
+                className="-mt-10 mb-4 flex h-20 w-20 items-center justify-center border-4 font-[family-name:var(--font-display)] text-2xl font-bold"
                 style={{ borderColor: "#1e3a5f", background: "#0f2744", color: "#67e8f9" }}
               >
-                SK
+                {initials}
               </div>
               <h1 className="font-[family-name:var(--font-display)] text-2xl font-bold">{cv.name}</h1>
               <p className="mt-1 text-sm text-[#67e8f9]">{cv.title}</p>
