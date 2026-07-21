@@ -41,12 +41,20 @@ export function Variant() {
             </div>
           </div>
           <p className="mt-5 max-w-3xl text-sm leading-relaxed text-zinc-700">{cv.summary}</p>
-          <a
-            href={`mailto:${cv.email}`}
-            className="mt-5 inline-block bg-zinc-900 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-900"
-          >
-            Hire founding engineer
-          </a>
+          <div className="mt-5 flex flex-wrap gap-3">
+            <a
+              href={`mailto:${cv.email}`}
+              className="inline-block bg-zinc-900 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-900"
+            >
+              Hire founding engineer
+            </a>
+            <a
+              href="/resume"
+              className="inline-block border border-zinc-900 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-zinc-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-900"
+            >
+              One-pager / resume
+            </a>
+          </div>
         </header>
 
         <section className="grid grid-cols-2 gap-px border-b border-zinc-900 bg-zinc-900 sm:grid-cols-4">

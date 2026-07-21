@@ -27,12 +27,18 @@ export function Variant() {
         </motion.h1>
         <p className="mt-3 text-stone-600">{cv.title}</p>
         <p className="mt-8 text-sm leading-8 text-stone-600">{cv.summary}</p>
-        <div className="mt-8 flex flex-wrap gap-3">
+        <div className="mt-8 flex flex-wrap items-center gap-3">
           <a
             href={`mailto:${cv.email}`}
-            className="rounded-full bg-stone-900 px-5 py-2.5 text-sm font-medium text-stone-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-900"
+            className="bg-stone-900 px-5 py-2.5 text-sm font-medium text-stone-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-900"
           >
             Continue the conversation
+          </a>
+          <a
+            href="/resume"
+            className="border border-stone-400 px-5 py-2.5 text-sm text-stone-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-900"
+          >
+            Pull quote / resume
           </a>
           <ContactRow className="text-stone-600" />
         </div>

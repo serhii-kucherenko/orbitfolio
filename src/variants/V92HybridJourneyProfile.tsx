@@ -41,10 +41,16 @@ export function Variant() {
               <p className="mt-4 text-xs leading-5 opacity-65">{cv.summary.slice(0, 140)}…</p>
               <a
                 href={`mailto:${cv.email}`}
-                className="mt-5 inline-flex w-full justify-center rounded-lg py-2.5 text-sm font-semibold"
+                className="mt-5 inline-flex w-full justify-center py-2.5 text-sm font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#67e8f9]"
                 style={{ background: "#67e8f9", color: "#0f2744" }}
               >
                 Message
+              </a>
+              <a
+                href="/resume"
+                className="mt-2 inline-flex w-full justify-center border border-cyan-300/40 py-2.5 text-sm text-cyan-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#67e8f9]"
+              >
+                Journey resume
               </a>
               <ContactRow className="mt-4 text-xs text-white/60" />
               <p className="mt-4 text-[10px] uppercase tracking-wider opacity-40">{cv.location}</p>

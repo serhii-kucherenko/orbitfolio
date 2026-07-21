@@ -54,10 +54,16 @@ export function Variant() {
               <p className="mt-2 text-xs leading-5 opacity-65">{cv.title}</p>
               <a
                 href={`mailto:${cv.email}`}
-                className="mt-6 inline-block px-3 py-2 font-[family-name:var(--font-mono)] text-[11px] font-bold"
+                className="mt-6 inline-block px-3 py-2 font-[family-name:var(--font-mono)] text-[11px] font-bold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7dffa3]"
                 style={{ background: "#1a2332", color: "#7dffa3" }}
               >
                 $ mail hire
+              </a>
+              <a
+                href="/resume"
+                className="mt-2 inline-block border border-[#1a2332]/30 px-3 py-2 font-[family-name:var(--font-mono)] text-[11px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7dffa3]"
+              >
+                $ cat resume
               </a>
               <ContactRow className="mt-5 text-xs" />
               <p className="mt-8 text-[10px] opacity-40">{cv.location}</p>

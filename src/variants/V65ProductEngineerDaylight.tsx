@@ -50,9 +50,15 @@ export function Variant() {
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <a
               href={`mailto:${cv.email}`}
-              className="rounded-full bg-sky-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-sky-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-600"
+              className="bg-sky-600 px-6 py-3 text-sm font-semibold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-600"
             >
               Let’s build together
+            </a>
+            <a
+              href="/resume"
+              className="border border-sky-600/40 px-5 py-3 text-sm text-sky-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-600"
+            >
+              Daylight resume
             </a>
             <ContactRow className="text-sky-800" />
           </div>
