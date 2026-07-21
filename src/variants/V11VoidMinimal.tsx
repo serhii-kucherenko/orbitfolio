@@ -1,10 +1,9 @@
 "use client";
 
+import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { cv } from "@/data/cv";
-import { Starfield } from "@/components/Starfield";
-import { ContactRow, ExperienceList, SkillsCloud, ProjectLinks } from "@/components/CvBlocks";
 
 export function Variant() {
   const reduce = useReducedMotion() ?? false;
@@ -19,66 +18,170 @@ export function Variant() {
   }, []);
 
   return (
-    <main className="relative min-h-screen bg-black text-white">
-      <Starfield density={22} color="#f8fafc" speed={0.012} interactive={false} />
+    <main className="relative min-h-[300vh] bg-[#FAFAF8] text-[#111111]">
       {!reduce && (
         <div
-          className="pointer-events-none fixed z-20 h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white shadow-[0_0_24px_#fff]"
+          className="pointer-events-none fixed z-30 h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-black"
           style={{ left: `${cursor.x}%`, top: `${cursor.y}%` }}
           aria-hidden
         />
       )}
-      <div className="relative z-10 mx-auto flex min-h-screen max-w-2xl flex-col justify-center px-8 pt-24">
+
+      <div className="flex min-h-screen flex-col justify-center px-8 sm:px-16">
         <motion.p
           initial={reduce ? false : { opacity: 0 }}
-          animate={{ opacity: 0.35 }}
-          className="text-[10px] uppercase tracking-[0.5em]"
+          animate={{ opacity: 0.3 }}
+          className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.6em]"
         >
-          void
+          Paper Void
         </motion.p>
         <motion.h1
-          initial={reduce ? false : { opacity: 0, y: 8 }}
+          initial={reduce ? false : { opacity: 0, y: 6 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.6 }}
-          className="mt-8 font-[family-name:var(--font-serif)] text-5xl font-normal tracking-tight sm:text-7xl"
+          transition={{ duration: 1.8 }}
+          className="mt-12 max-w-xl font-[family-name:var(--font-serif)] text-5xl font-normal leading-[1.1] tracking-tight sm:text-7xl"
         >
           {cv.name}
         </motion.h1>
         <motion.p
           initial={reduce ? false : { opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.5, duration: 1.2 }}
-          className="mt-10 text-sm text-white/35"
+          animate={{ opacity: 0.45 }}
+          transition={{ delay: 0.6, duration: 1.4 }}
+          className="mt-10 text-sm tracking-wide"
         >
           {cv.title}
         </motion.p>
+      </div>
+
+      <div className="mx-auto max-w-xl space-y-32 px-8 pb-40 pt-[40vh] sm:px-16">
         <motion.p
           initial={reduce ? false : { opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.9, duration: 1.2 }}
-          className="mt-14 max-w-md text-sm leading-9 text-white/50"
+          whileInView={{ opacity: 0.55 }}
+          viewport={{ once: true, margin: "-80px" }}
+          className="text-sm leading-[2] tracking-wide"
         >
           {cv.summary}
         </motion.p>
+
         <motion.div
           initial={reduce ? false : { opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.3, duration: 1 }}
-          className="mt-16 flex flex-wrap gap-6 text-[11px] uppercase tracking-[0.25em] text-white/25"
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, margin: "-80px" }}
+          className="flex flex-wrap gap-8 font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.3em] opacity-40"
         >
-          {cv.highlights.slice(0, 3).map((h) => (
+          {cv.highlights.map((h) => (
             <span key={h.label}>
-              <span className="text-white/45">{h.value}</span> {h.label}
+              {h.value} {h.label}
             </span>
           ))}
         </motion.div>
+
+        <motion.section
+          initial={reduce ? false : { opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, margin: "-80px" }}
+        >
+          <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.4em] opacity-30">
+            Experience
+          </p>
+          <ol className="mt-12 space-y-20">
+            {cv.experience.map((job) => (
+              <li key={`${job.company}-${job.period}`}>
+                <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.3em] opacity-35">
+                  {job.period}
+                </p>
+                <h3 className="mt-3 font-[family-name:var(--font-serif)] text-2xl">{job.role}</h3>
+                <p className="mt-1 text-sm opacity-50">
+                  {job.company} · {job.place}
+                </p>
+                <ul className="mt-6 space-y-4 text-sm leading-[1.9] opacity-60">
+                  {job.bullets.map((b) => (
+                    <li key={b.slice(0, 40)}>{b}</li>
+                  ))}
+                </ul>
+              </li>
+            ))}
+          </ol>
+        </motion.section>
+
+        <motion.section
+          initial={reduce ? false : { opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, margin: "-80px" }}
+        >
+          <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.4em] opacity-30">
+            Skills
+          </p>
+          <div className="mt-12 space-y-10">
+            {Object.entries(cv.skills).map(([group, items]) => (
+              <div key={group}>
+                <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.3em] opacity-35">
+                  {group}
+                </p>
+                <p className="mt-3 text-sm leading-[1.9] opacity-55">{items.join(" · ")}</p>
+              </div>
+            ))}
+          </div>
+        </motion.section>
+
+        <motion.section
+          initial={reduce ? false : { opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, margin: "-80px" }}
+        >
+          <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.4em] opacity-30">
+            Projects
+          </p>
+          <ul className="mt-12 space-y-10">
+            {cv.projects.map((p) => (
+              <li key={p.name}>
+                <a
+                  href={p.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="font-[family-name:var(--font-serif)] text-xl opacity-70 hover:opacity-100"
+                >
+                  {p.name}
+                </a>
+                <p className="mt-2 text-sm leading-[1.9] opacity-50">{p.blurb}</p>
+              </li>
+            ))}
+            <li>
+              <Link href="/goals" className="font-[family-name:var(--font-serif)] text-xl opacity-70 hover:opacity-100">
+                100 Goals
+              </Link>
+              <p className="mt-2 text-sm leading-[1.9] opacity-50">
+                Living list of ambitions, craft, and impact.
+              </p>
+            </li>
+          </ul>
+        </motion.section>
+
+        <motion.footer
+          initial={reduce ? false : { opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, margin: "-80px" }}
+          className="space-y-2 text-sm opacity-45"
+        >
+          <p className="font-[family-name:var(--font-serif)] text-lg opacity-70">{cv.education.degree}</p>
+          <p>{cv.education.school}</p>
+          <div className="mt-8 space-y-1">
+            <a href={`mailto:${cv.email}`} className="block hover:opacity-100">
+              {cv.email}
+            </a>
+            <p>{cv.phone}</p>
+            <p>{cv.location}</p>
+          </div>
+          <div className="mt-4 flex gap-6">
+            <a href={cv.linkedin} target="_blank" rel="noreferrer" className="hover:opacity-100">
+              LinkedIn
+            </a>
+            <a href={cv.github} target="_blank" rel="noreferrer" className="hover:opacity-100">
+              GitHub
+            </a>
+          </div>
+        </motion.footer>
       </div>
-      <section className="relative z-10 mx-auto max-w-2xl space-y-24 px-8 pb-32">
-        <ExperienceList tone="dark" />
-        <SkillsCloud />
-        <ProjectLinks />
-        <ContactRow className="text-white/40" />
-      </section>
     </main>
   );
 }

@@ -1,113 +1,139 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
 import { useState } from "react";
 import { cv } from "@/data/cv";
-import { Starfield } from "@/components/Starfield";
-import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
 
-const ROOMS = [
-  { id: "bridge", label: "Bridge", icon: "◈", desc: "Command center" },
-  { id: "lab", label: "AI Lab", icon: "⬡", desc: "Skills & systems" },
-  { id: "bay", label: "Dock Bay", icon: "▣", desc: "Experience log" },
-  { id: "comm", label: "Comms", icon: "◎", desc: "Projects & contact" },
-] as const;
+type Room = "lobby" | "experience" | "skills" | "projects" | "contact";
 
-type RoomId = (typeof ROOMS)[number]["id"];
-
+/** Isometric light rooms — not dark space station */
 export function Variant() {
-  const reduce = useReducedMotion() ?? false;
-  const [room, setRoom] = useState<RoomId>("bridge");
+  const [room, setRoom] = useState<Room>("lobby");
+  const rooms: { id: Room; label: string }[] = [
+    { id: "lobby", label: "Lobby" },
+    { id: "experience", label: "Archive" },
+    { id: "skills", label: "Workshop" },
+    { id: "projects", label: "Gallery" },
+    { id: "contact", label: "Desk" },
+  ];
 
   return (
-    <main className="relative min-h-screen overflow-hidden bg-[#080c14] text-[#c5d4e8]">
-      <Starfield density={100} color="#4a6a8a" speed={0.03} />
+    <main className="min-h-screen bg-[#E8F0F7] text-slate-800">
+      <div className="mx-auto max-w-5xl px-6 pb-24 pt-24">
+        <p className="text-xs uppercase tracking-[0.3em] text-sky-700/70">Iso rooms</p>
+        <h1 className="mt-3 font-[family-name:var(--font-display)] text-4xl sm:text-5xl">{cv.name}</h1>
+        <p className="mt-2 text-slate-600">{cv.title}</p>
 
-      <div className="relative z-10 mx-auto max-w-6xl px-6 pb-24 pt-20">
-        <p className="text-xs uppercase tracking-[0.35em] text-[#4a6a8a]">iso station · v33</p>
-
-        <div className="mt-10 flex flex-wrap justify-center gap-4">
-          {ROOMS.map((r, i) => {
-            const row = Math.floor(i / 2);
-            const col = i % 2;
-            return (
-              <motion.button
-                key={r.id}
-                type="button"
-                onClick={() => setRoom(r.id)}
-                initial={reduce ? false : { opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.08 }}
-                className="group relative h-36 w-44 sm:h-44 sm:w-52"
-                style={{
-                  transform: `translate(${col * 8}px, ${row * -12}px)`,
-                }}
-              >
-                <div
-                  className={`absolute inset-0 transition-all duration-300 ${
-                    room === r.id ? "opacity-100" : "opacity-60 group-hover:opacity-90"
-                  }`}
-                  style={{
-                    transform: "rotateX(55deg) rotateZ(-45deg)",
-                    transformStyle: "preserve-3d",
-                    background: room === r.id
-                      ? "linear-gradient(135deg, #1a3050, #0d1828)"
-                      : "linear-gradient(135deg, #142030, #0a1018)",
-                    border: room === r.id ? "2px solid #5a9fd4" : "1px solid #2a4060",
-                    boxShadow: room === r.id ? "0 0 30px rgba(90,159,212,0.3)" : "4px 4px 0 #050810",
-                  }}
-                >
-                  <div className="flex h-full flex-col items-center justify-center p-4">
-                    <span className="text-2xl text-[#5a9fd4]">{r.icon}</span>
-                    <span className="mt-2 font-[family-name:var(--font-display)] text-sm">{r.label}</span>
-                    <span className="text-[10px] text-[#4a6a8a]">{r.desc}</span>
-                  </div>
-                </div>
-              </motion.button>
-            );
-          })}
+        <div className="mt-10 flex flex-wrap gap-2">
+          {rooms.map((r) => (
+            <button
+              key={r.id}
+              type="button"
+              onClick={() => setRoom(r.id)}
+              className={`border px-3 py-1.5 text-xs uppercase tracking-wider ${
+                room === r.id
+                  ? "border-sky-700 bg-sky-700 text-white"
+                  : "border-sky-300 bg-white/70 text-sky-900"
+              }`}
+            >
+              {r.label}
+            </button>
+          ))}
         </div>
 
-        <motion.div
-          key={room}
-          initial={reduce ? false : { opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="mx-auto mt-16 max-w-3xl rounded-2xl border border-[#2a4060] bg-[#0d1520]/90 p-8 backdrop-blur"
+        <div
+          className="relative mt-12 min-h-[420px] border border-sky-200 bg-white/80 p-8"
+          style={{
+            boxShadow: "12px 12px 0 rgba(14,165,233,0.15)",
+            transform: "perspective(900px) rotateX(2deg)",
+          }}
         >
-          {room === "bridge" && (
-            <>
-              <h1 className="font-[family-name:var(--font-display)] text-4xl text-[#e8f2ff] sm:text-5xl">{cv.name}</h1>
-              <p className="mt-2 text-lg text-[#5a9fd4]">{cv.title}</p>
-              <p className="mt-4 text-sm leading-relaxed text-[#c5d4e8]/80">{cv.summary}</p>
-              <div className="mt-6 flex flex-wrap gap-3">
+          {room === "lobby" && (
+            <div>
+              <h2 className="text-2xl font-semibold">Lobby</h2>
+              <p className="mt-4 max-w-xl text-sm leading-relaxed text-slate-600">{cv.summary}</p>
+              <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4">
                 {cv.highlights.map((h) => (
-                  <span key={h.label} className="rounded border border-[#2a4060] px-3 py-1.5 text-xs">
-                    <strong className="text-[#5a9fd4]">{h.value}</strong> {h.label}
-                  </span>
+                  <div key={h.label} className="border border-sky-100 bg-sky-50/80 p-3">
+                    <p className="text-xl font-semibold text-sky-900">{h.value}</p>
+                    <p className="text-[10px] uppercase text-sky-700/70">{h.label}</p>
+                  </div>
                 ))}
               </div>
-            </>
+            </div>
           )}
-          {room === "lab" && (
-            <>
-              <h2 className="font-[family-name:var(--font-display)] text-2xl text-[#e8f2ff]">Research Lab</h2>
-              <div className="mt-6"><SkillsCloud tone="dark" /></div>
-            </>
+
+          {room === "experience" && (
+            <div className="max-h-[520px] space-y-8 overflow-y-auto pr-2">
+              <h2 className="text-2xl font-semibold">Archive</h2>
+              {cv.experience.map((job) => (
+                <article key={job.company}>
+                  <p className="text-xs text-sky-700">{job.period}</p>
+                  <h3 className="text-lg font-semibold">{job.company}</h3>
+                  <p className="text-sm text-slate-600">
+                    {job.role} · {job.place}
+                  </p>
+                  <ul className="mt-2 space-y-1 text-sm text-slate-700">
+                    {job.bullets.map((b) => (
+                      <li key={b.slice(0, 36)}>• {b}</li>
+                    ))}
+                  </ul>
+                </article>
+              ))}
+            </div>
           )}
-          {room === "bay" && (
-            <>
-              <h2 className="font-[family-name:var(--font-display)] text-2xl text-[#e8f2ff]">Mission Bay</h2>
-              <div className="mt-6"><ExperienceList tone="dark" /></div>
-            </>
+
+          {room === "skills" && (
+            <div>
+              <h2 className="text-2xl font-semibold">Workshop</h2>
+              <div className="mt-6 grid gap-6 sm:grid-cols-2">
+                {Object.entries(cv.skills).map(([group, items]) => (
+                  <div key={group} className="border border-sky-100 bg-sky-50/50 p-4">
+                    <p className="text-xs uppercase tracking-wider text-sky-700">{group}</p>
+                    <p className="mt-2 text-sm leading-relaxed">{items.join(", ")}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
           )}
-          {room === "comm" && (
-            <>
-              <h2 className="font-[family-name:var(--font-display)] text-2xl text-[#e8f2ff]">Comms Array</h2>
-              <div className="mt-6"><ProjectLinks tone="dark" /></div>
-              <ContactRow className="mt-8" />
-            </>
+
+          {room === "projects" && (
+            <div>
+              <h2 className="text-2xl font-semibold">Gallery</h2>
+              <ul className="mt-6 space-y-4">
+                {cv.projects.map((p) => (
+                  <li key={p.name} className="border-b border-sky-100 pb-3">
+                    <a href={p.url} className="font-semibold text-sky-800 underline" target="_blank" rel="noreferrer">
+                      {p.name}
+                    </a>
+                    <p className="text-sm text-slate-600">{p.blurb}</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
           )}
-        </motion.div>
+
+          {room === "contact" && (
+            <div>
+              <h2 className="text-2xl font-semibold">Desk</h2>
+              <p className="mt-4 text-sm text-slate-600">{cv.location}</p>
+              <div className="mt-6 space-y-2 text-sm">
+                <a className="block underline" href={`mailto:${cv.email}`}>
+                  {cv.email}
+                </a>
+                <a className="block underline" href={cv.linkedin} target="_blank" rel="noreferrer">
+                  LinkedIn
+                </a>
+                <a className="block underline" href={cv.github} target="_blank" rel="noreferrer">
+                  GitHub
+                </a>
+                <a className="block underline" href="/resume">
+                  Resume
+                </a>
+                <p className="pt-2 text-slate-500">{cv.phone}</p>
+              </div>
+            </div>
+          )}
+        </div>
       </div>
     </main>
   );

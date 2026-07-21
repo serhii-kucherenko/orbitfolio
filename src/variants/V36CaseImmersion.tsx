@@ -1,117 +1,93 @@
 "use client";
 
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { useCallback, useEffect, useState } from "react";
-import Link from "next/link";
 import { cv } from "@/data/cv";
-import { Starfield } from "@/components/Starfield";
-import { ContactRow } from "@/components/CvBlocks";
 
-type Slide = {
-  id: string;
-  tag: string;
-  title: string;
-  subtitle: string;
-  body: string[];
-  accent: string;
-};
-
-const SLIDES: Slide[] = [
-  {
-    id: "intro",
-    tag: "Case 00",
-    title: cv.name,
-    subtitle: cv.title,
-    body: [cv.summary],
-    accent: "#38bdf8",
-  },
-  ...cv.experience.map((job, i) => ({
-    id: job.company,
-    tag: `Case ${String(i + 1).padStart(2, "0")}`,
-    title: job.company,
-    subtitle: `${job.role} · ${job.period}`,
-    body: [job.place, ...job.bullets],
-    accent: ["#22d3ee", "#34d399", "#fbbf24", "#fb7185"][i % 4],
-  })),
-  ...cv.projects.slice(0, 3).map((p, i) => ({
-    id: p.name,
-    tag: `Signal ${i + 1}`,
-    title: p.name,
-    subtitle: "Open source",
-    body: [p.blurb],
-    accent: "#a3e635",
-  })),
-];
-
+/** Longform case immersion — one company chapter at a time, light */
 export function Variant() {
-  const reduce = useReducedMotion() ?? false;
-  const [idx, setIdx] = useState(0);
-  const slide = SLIDES[idx];
-
-  const next = useCallback(() => setIdx((i) => (i + 1) % SLIDES.length), []);
-  const prev = useCallback(() => setIdx((i) => (i - 1 + SLIDES.length) % SLIDES.length), []);
-
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "ArrowRight" || e.key === " ") next();
-      if (e.key === "ArrowLeft") prev();
-    };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [next, prev]);
-
   return (
-    <main className="relative h-screen overflow-hidden bg-black text-white">
-      <Starfield density={200} color="#ffffff" speed={0.08} />
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={slide.id}
-          initial={reduce ? false : { opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={reduce ? undefined : { opacity: 0 }}
-          transition={{ duration: 0.5 }}
-          className="absolute inset-0 flex flex-col justify-end p-8 sm:p-16"
-          style={{
-            background: `radial-gradient(ellipse 100% 80% at 50% 100%, ${slide.accent}18, transparent 70%)`,
-          }}
+    <main className="bg-[#FAFAFA] text-[#171717]">
+      <header className="mx-auto max-w-3xl px-6 pb-20 pt-28">
+        <p className="text-xs uppercase tracking-[0.3em] text-neutral-400">Case immersion</p>
+        <h1 className="mt-4 font-[family-name:var(--font-display)] text-5xl sm:text-6xl">{cv.name}</h1>
+        <p className="mt-4 text-lg text-neutral-600">{cv.title}</p>
+        <p className="mt-6 text-sm leading-relaxed text-neutral-600">{cv.summary}</p>
+        <div className="mt-8 flex flex-wrap gap-6 text-sm">
+          {cv.highlights.map((h) => (
+            <div key={h.label}>
+              <p className="text-2xl font-semibold">{h.value}</p>
+              <p className="text-xs text-neutral-500">{h.label}</p>
+            </div>
+          ))}
+        </div>
+      </header>
+
+      {cv.experience.map((job, i) => (
+        <section
+          key={job.company}
+          className="flex min-h-[100svh] flex-col justify-center border-t border-neutral-200 px-6 py-24"
         >
-          <p className="text-xs uppercase tracking-[0.4em]" style={{ color: slide.accent }}>
-            {slide.tag} · case immersion
-          </p>
-          <h1 className="mt-4 max-w-4xl font-[family-name:var(--font-display)] text-5xl leading-none sm:text-7xl lg:text-8xl">
-            {slide.title}
-          </h1>
-          <p className="mt-4 text-xl text-white/70">{slide.subtitle}</p>
-          <ul className="mt-8 max-w-2xl space-y-3 text-sm leading-relaxed text-white/80">
-            {slide.body.map((line) => (
-              <li key={line.slice(0, 50)}>{line}</li>
+          <div className="mx-auto w-full max-w-3xl">
+            <p className="font-[family-name:var(--font-mono)] text-xs text-neutral-400">
+              Chapter {String(i + 1).padStart(2, "0")} / {String(cv.experience.length).padStart(2, "0")}
+            </p>
+            <p className="mt-6 font-[family-name:var(--font-display)] text-7xl font-bold text-neutral-200 sm:text-9xl">
+              {String(i + 1).padStart(2, "0")}
+            </p>
+            <h2 className="mt-4 text-3xl font-semibold sm:text-4xl">{job.company}</h2>
+            <p className="mt-2 text-neutral-600">
+              {job.role} · {job.period}
+            </p>
+            <p className="text-sm text-neutral-500">{job.place}</p>
+            <ul className="mt-10 space-y-4 text-base leading-relaxed text-neutral-700">
+              {job.bullets.map((b) => (
+                <li key={b.slice(0, 40)} className="border-l-2 border-neutral-300 pl-4">
+                  {b}
+                </li>
+              ))}
+            </ul>
+            {i < cv.experience.length - 1 && (
+              <p className="mt-16 text-xs uppercase tracking-[0.3em] text-neutral-400">
+                Scroll for next chapter
+              </p>
+            )}
+          </div>
+        </section>
+      ))}
+
+      <section className="border-t border-neutral-200 px-6 py-24">
+        <div className="mx-auto max-w-3xl">
+          <h2 className="text-2xl font-semibold">Skills & work</h2>
+          <div className="mt-8 grid gap-8 sm:grid-cols-2">
+            {Object.entries(cv.skills).map(([group, items]) => (
+              <div key={group}>
+                <p className="text-xs uppercase tracking-wider text-neutral-400">{group}</p>
+                <p className="mt-2 text-sm leading-relaxed text-neutral-600">{items.join(", ")}</p>
+              </div>
+            ))}
+          </div>
+          <ul className="mt-12 space-y-4">
+            {cv.projects.map((p) => (
+              <li key={p.name}>
+                <a href={p.url} className="font-medium underline" target="_blank" rel="noreferrer">
+                  {p.name}
+                </a>
+                <p className="text-sm text-neutral-600">{p.blurb}</p>
+              </li>
             ))}
           </ul>
-        </motion.div>
-      </AnimatePresence>
-
-      <div className="absolute bottom-8 left-8 right-8 z-20 flex items-center justify-between">
-        <div className="flex gap-2">
-          <button type="button" onClick={prev} className="rounded-full border border-white/20 px-4 py-2 text-xs uppercase tracking-wider hover:bg-white/10">
-            Prev
-          </button>
-          <button type="button" onClick={next} className="rounded-full border border-white/20 px-4 py-2 text-xs uppercase tracking-wider hover:bg-white/10">
-            Next
-          </button>
+          <div className="mt-10 flex flex-wrap gap-4 text-sm">
+            <a href={`mailto:${cv.email}`} className="underline">
+              {cv.email}
+            </a>
+            <a href={cv.linkedin} className="underline" target="_blank" rel="noreferrer">
+              LinkedIn
+            </a>
+            <a href="/resume" className="underline">
+              Resume
+            </a>
+          </div>
         </div>
-        <span className="font-[family-name:var(--font-mono)] text-xs text-white/40">
-          {idx + 1} / {SLIDES.length}
-        </span>
-        <div className="hidden gap-3 sm:flex">
-          <a href={`mailto:${cv.email}`} className="text-xs underline-offset-4 hover:underline">
-            {cv.email}
-          </a>
-          <Link href="/goals" className="text-xs underline-offset-4 hover:underline">
-            Goals
-          </Link>
-          <ContactRow className="text-xs" />
-        </div>
-      </div>
+      </section>
     </main>
   );
 }
