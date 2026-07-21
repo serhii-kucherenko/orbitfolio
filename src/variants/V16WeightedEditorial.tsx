@@ -19,7 +19,7 @@ export function Variant() {
             transition={{ duration: 8, repeat: Infinity }}
           />
           <div className="relative flex justify-between gap-4 font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.4em] text-[#f97316]/75">
-            <span>Vol. 16 · weighted</span>
+            <span>Vol. 16 · weighted · {cv.location}</span>
             <span>Masthead · issue 24</span>
           </div>
           <motion.h1

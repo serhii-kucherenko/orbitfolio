@@ -48,7 +48,7 @@ export function Variant() {
               initial={reduce ? false : { opacity: 0, scale: 0.96 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: reduce ? 0 : 0.05 * i }}
-              className="flex min-h-[7.5rem] flex-col justify-between rounded-2xl bg-[#0c1f18] p-5 text-[#eef3ed]"
+              className="flex min-h-[7.5rem] flex-col justify-between bg-[#0c1f18] p-5 text-[#eef3ed]"
             >
               <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-widest text-[#7dcaa8]">
                 {String(i + 1).padStart(2, "0")}
