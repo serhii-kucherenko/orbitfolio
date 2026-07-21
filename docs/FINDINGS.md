@@ -22,13 +22,13 @@ Coolness 30 · Comprehensiveness 20 · Uniqueness 20 · Motion 15 · Hireability
 ## Learn
 
 - Structural diversity beats palette swaps for lab signal
-- Shared CV blocks keep comprehensiveness high while UX diverges
+- Shared CV blocks keep comprehensiveness high while UX diverges — but overusing them + Starfield made variants feel identical
+- Diversity reboot (tick 26): magazine / Swiss / clinic SaaS / daylight glass / paper void / dual narrative / mosaic / case chapters / iso rooms / brutal press / Bauhaus / recruiter profile / docs workspace
 - Champion hybrid should synthesize (warp + glass + metrics + CTAs), not average mediocre traits
-- Interactive metaphors (⌘K palette, infinite canvas, R3F planet) score high on uniqueness
 - Hireability peaks when proof (metrics + experience) is reachable in <10s without fighting the FX
 
 ## Next
 
-- Deploy to Vercel
+- Keep rewriting remaining space-clone experiments into distinct systems
+- Optionally A/B champion vs high-hireability light layouts (#17 Clinic, #16 Recruiter, #8 Dual)
 - Enrich goals from ongoing GitHub / life updates
-- Optional: A/B champion vs #40 Command Palette with real recruiter feedback
