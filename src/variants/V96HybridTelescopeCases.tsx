@@ -2,6 +2,7 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { ContactRow, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
+import { SmoothScroll } from "@/components/SmoothScroll";
 import { cv } from "@/data/cv";
 
 /** Hybrid Telescope Cases — observatory case-study drawer: each role framed in a circular aperture */
@@ -9,7 +10,8 @@ export function Variant() {
   const reduce = useReducedMotion() ?? false;
 
   return (
-    <main className="min-h-screen" style={{ background: "#0a1628", color: "#d6e4f5" }}>
+    <SmoothScroll>
+      <main className="min-h-screen" style={{ background: "#0a1628", color: "#d6e4f5" }}>
       <header className="relative overflow-hidden px-6 pb-16 pt-24 md:px-12">
         <div
           aria-hidden
@@ -131,6 +133,7 @@ export function Variant() {
           </p>
         </div>
       </section>
-    </main>
+      </main>
+    </SmoothScroll>
   );
 }

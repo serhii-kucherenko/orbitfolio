@@ -2,6 +2,7 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
+import { SmoothScroll } from "@/components/SmoothScroll";
 import { cv } from "@/data/cv";
 
 const toc = [
@@ -16,7 +17,8 @@ export function Variant() {
   const reduce = useReducedMotion() ?? false;
 
   return (
-    <main className="min-h-screen bg-[#e8ebe4] text-[#101010]">
+    <SmoothScroll>
+      <main className="min-h-screen bg-[#e8ebe4] text-[#101010]">
       <div className="grid min-h-screen lg:grid-cols-[260px_1fr]">
         <aside className="border-b-4 border-black bg-[#f0c43a] p-7 lg:sticky lg:top-0 lg:h-screen lg:border-b-0 lg:border-r-4">
           <motion.div
@@ -98,6 +100,7 @@ export function Variant() {
           </section>
         </div>
       </div>
-    </main>
+      </main>
+    </SmoothScroll>
   );
 }

@@ -2,19 +2,25 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
+import { FallbackGlow, SceneAlcove, WebGLStage } from "@/components/webgl/AwardWebGL";
 import { cv } from "@/data/cv";
 
-/** Hybrid Museum Metrics — white-cube gallery: metrics as plaques, career as wall labels. */
+/** Hybrid Museum Metrics — white-cube gallery: metrics as plaques, career as wall labels + 3D alcoves. */
 export function Variant() {
   const reduce = useReducedMotion() ?? false;
 
   return (
     <main className="min-h-screen bg-[#efefe9] text-[#171717]">
       <header className="relative overflow-hidden border-b border-black/10 px-6 py-16 md:px-16 md:py-24">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(0,0,0,0.05),transparent_55%)]"
-        />
+        <WebGLStage
+          accent="#d4af78"
+          reduce={reduce}
+          label="Museum alcove sculpture in Three.js"
+          className="pointer-events-none absolute right-0 top-0 h-full w-full max-w-xl opacity-40 md:opacity-55"
+          fallback={<FallbackGlow accent="#d4af78" />}
+        >
+          <SceneAlcove accent="#d4af78" />
+        </WebGLStage>
         <motion.div
           aria-hidden
           className="pointer-events-none absolute bottom-0 left-0 h-px w-full origin-left bg-black/20"

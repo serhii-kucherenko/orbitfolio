@@ -2,6 +2,7 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
+import { SmoothScroll } from "@/components/SmoothScroll";
 import { cv } from "@/data/cv";
 
 /** Hybrid Clinic Aurora — calm clinical rails under soft northern-light bands */
@@ -9,7 +10,8 @@ export function Variant() {
   const reduce = useReducedMotion() ?? false;
 
   return (
-    <main className="relative min-h-screen overflow-hidden bg-[#eaf7f4] text-[#0f2f2a]">
+    <SmoothScroll>
+      <main className="relative min-h-screen overflow-hidden bg-[#eaf7f4] text-[#0f2f2a]">
       <div
         aria-hidden
         className="pointer-events-none absolute inset-x-0 top-0 h-[50vh]"
@@ -100,6 +102,7 @@ export function Variant() {
           </div>
         </section>
       </div>
-    </main>
+      </main>
+    </SmoothScroll>
   );
 }

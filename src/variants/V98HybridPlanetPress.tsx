@@ -2,6 +2,7 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
+import { SmoothScroll } from "@/components/SmoothScroll";
 import { cv } from "@/data/cv";
 
 /** Hybrid Planet Press — interplanetary news desk: masthead, dateline, stacked dispatches */
@@ -10,7 +11,8 @@ export function Variant() {
   const today = "Vancouver desk";
 
   return (
-    <main className="min-h-screen bg-[#ebe8e0] text-[#1a1a1a]">
+    <SmoothScroll>
+      <main className="min-h-screen bg-[#ebe8e0] text-[#1a1a1a]">
       <header className="border-b-4 border-black px-4 py-6 md:px-8">
         <div className="mx-auto max-w-5xl">
           <div className="flex flex-wrap items-end justify-between gap-4">
@@ -100,6 +102,7 @@ export function Variant() {
           </div>
         </div>
       </section>
-    </main>
+      </main>
+    </SmoothScroll>
   );
 }

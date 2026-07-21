@@ -95,5 +95,6 @@ Autonomous progress log for Orbitfolio.
 | 92 | Burst tick 43 | Craft polish: field notes, particle metrics, telescope cases, centurion tiles, journey grid, agent chat panels |
 | 93 | Burst tick 44 | Craft polish: command palette, liquid metrics, AI casebook, holodisc badge, aurora ledger, origami & mosaic |
 | 94 | Real WebGL gate | Alpha r3f cells + champion now mount Three.js via AwardWebGL; oracle forbids fake WebGL claims |
+| 95 | Hybrid award motion | Hybrid ladder must ship WebGL or Lenis; deepened 86–91/93/99 + Lenis on remaining Hybrids |
 
 Live: https://orbitfolio-kohl.vercel.app · Loop: every 15m — unique award craft + UI must stay green

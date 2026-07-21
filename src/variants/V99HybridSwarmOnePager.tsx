@@ -3,39 +3,37 @@
 import { motion, useReducedMotion } from "framer-motion";
 import Link from "next/link";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
+import { FallbackGlow, SceneParticleFleet, WebGLStage } from "@/components/webgl/AwardWebGL";
 import { cv } from "@/data/cv";
 
-/** Hybrid Swarm One Pager — steals agent energy + one-page hire clarity */
+/** Hybrid Swarm One Pager — agent particle WebGL + one-page hire clarity. */
 export function Variant() {
   const reduce = useReducedMotion() ?? false;
+  const accent = "#34d399";
   const focus =
     "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-300";
 
   return (
     <main className="relative overflow-hidden bg-[#06100d] text-white">
-      <div aria-hidden className="absolute inset-0">
-        {Array.from({ length: 22 }, (_, i) => (
-          <motion.span
-            key={i}
-            className="absolute size-1.5 bg-emerald-300"
-            style={{
-              left: `${(i * 37) % 97}%`,
-              top: `${(i * 61) % 91}%`,
-            }}
-            animate={reduce ? undefined : { opacity: [0.15, 0.95, 0.15], y: [0, -6, 0] }}
-            transition={{ duration: 2.4 + (i % 5) * 0.3, repeat: Infinity, delay: i * 0.08 }}
-          />
-        ))}
-        <div
-          className="absolute inset-0 opacity-20"
-          style={{
-            backgroundImage:
-              "linear-gradient(#10b98122 1px, transparent 1px), linear-gradient(90deg, #10b98122 1px, transparent 1px)",
-            backgroundSize: "40px 40px",
-          }}
-        />
-      </div>
-      <div className="relative mx-auto max-w-7xl p-6 md:p-12">
+      <WebGLStage
+        accent={accent}
+        reduce={reduce}
+        label="Agent swarm particle field"
+        className="absolute inset-0 opacity-50"
+        fallback={<FallbackGlow accent={accent} />}
+      >
+        <SceneParticleFleet accent={accent} />
+      </WebGLStage>
+      <div
+        aria-hidden
+        className="absolute inset-0 opacity-15"
+        style={{
+          backgroundImage:
+            "linear-gradient(#10b98122 1px, transparent 1px), linear-gradient(90deg, #10b98122 1px, transparent 1px)",
+          backgroundSize: "40px 40px",
+        }}
+      />
+      <div className="relative z-10 mx-auto max-w-7xl p-6 md:p-12">
         <header className="grid gap-10 border-b border-emerald-300/20 py-16 md:grid-cols-[2fr_1fr]">
           <div>
             <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.35em] text-emerald-300">
@@ -65,7 +63,7 @@ export function Variant() {
           </div>
           <div className="grid grid-cols-2 gap-6">
             {cv.highlights.map((item) => (
-              <div key={item.label} className="border-l border-emerald-300/40 pl-4">
+              <div key={item.label} className="border-l border-emerald-300/40 bg-emerald-300/5 pl-4 backdrop-blur-sm">
                 <strong className="block text-4xl text-emerald-300">{item.value}</strong>
                 <p className="mt-1 text-[10px] uppercase tracking-wider text-emerald-100/50">{item.label}</p>
               </div>

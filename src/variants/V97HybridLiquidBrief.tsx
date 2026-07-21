@@ -2,6 +2,7 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
+import { SmoothScroll } from "@/components/SmoothScroll";
 import { cv } from "@/data/cv";
 
 /** Hybrid Liquid Brief — molten ink blobs frame a terse executive brief */
@@ -9,13 +10,14 @@ export function Variant() {
   const reduce = useReducedMotion() ?? false;
 
   return (
-    <main
-      className="relative min-h-screen overflow-hidden"
-      style={{
-        background: "#07141a",
-        color: "#e6f7f4",
-      }}
-    >
+    <SmoothScroll>
+      <main
+        className="relative min-h-screen overflow-hidden"
+        style={{
+          background: "#07141a",
+          color: "#e6f7f4",
+        }}
+      >
       {!reduce && (
         <>
           <motion.div
@@ -108,6 +110,7 @@ export function Variant() {
           </div>
         </section>
       </div>
-    </main>
+      </main>
+    </SmoothScroll>
   );
 }

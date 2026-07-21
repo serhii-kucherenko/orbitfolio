@@ -2,6 +2,7 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { ContactRow, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
+import { SmoothScroll } from "@/components/SmoothScroll";
 import { cv } from "@/data/cv";
 
 /** Hybrid Command Cases — command-palette density + employer case-file depth. */
@@ -16,7 +17,8 @@ export function Variant() {
   ] as const;
 
   return (
-    <main className="min-h-screen bg-[#0e1012] text-[#f4efe6]">
+    <SmoothScroll>
+      <main className="min-h-screen bg-[#0e1012] text-[#f4efe6]">
       <div className="mx-auto grid min-h-screen max-w-6xl lg:grid-cols-[240px_1fr]">
         <aside className="border-b border-amber-300/25 bg-[#0a0c0e] p-6 lg:sticky lg:top-0 lg:h-screen lg:border-b-0 lg:border-r">
           <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.35em] text-amber-300/70">
@@ -114,6 +116,7 @@ export function Variant() {
           </section>
         </div>
       </div>
-    </main>
+      </main>
+    </SmoothScroll>
   );
 }

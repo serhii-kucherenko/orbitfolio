@@ -4,10 +4,11 @@ import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion
 import Link from "next/link";
 import { useRef } from "react";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
+import { SmoothScroll } from "@/components/SmoothScroll";
 import { FallbackGlow, SceneCenturion, WebGLStage } from "@/components/webgl/AwardWebGL";
 import { cv } from "@/data/cv";
 
-/** Orbitfolio Centurion — champion hybrid: warp atmosphere + glass metrics + hire clarity + real WebGL core */
+/** Orbitfolio Centurion — champion hybrid: warp atmosphere + glass metrics + hire clarity + WebGL + Lenis */
 export function Variant() {
   const reduce = useReducedMotion() ?? false;
   const accent = "#67e8f9";
@@ -21,6 +22,7 @@ export function Variant() {
   const warpScale = useTransform(scrollYProgress, [0, 1], [1, reduce ? 1 : 1.12]);
 
   return (
+    <SmoothScroll>
     <main className="relative min-h-screen overflow-hidden bg-[#05080d] text-white">
       <WebGLStage
         accent={accent}
@@ -170,5 +172,6 @@ export function Variant() {
         </p>
       </footer>
     </main>
+    </SmoothScroll>
   );
 }
