@@ -9,7 +9,7 @@ export function Variant() {
   const reduce = useReducedMotion() ?? false;
 
   return (
-    <main className="min-h-screen bg-[#1c1a22] text-[#f0eef5]">
+    <main className="min-h-screen bg-[#16141c] text-[#f0eef5]">
       <header className="mx-auto max-w-6xl px-6 pb-8 pt-20 md:px-10">
         <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.4em] text-[#ff7a59]">
           Eurorack CV · kinetic synthesis
@@ -20,27 +20,33 @@ export function Variant() {
         <div className="mt-8 flex flex-wrap items-center gap-4">
           <a
             href={`mailto:${cv.email}`}
-            className="rounded-md bg-[#ff7a59] px-5 py-2.5 text-xs font-bold uppercase tracking-widest text-[#1c1a22] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ffb39a]"
+            className="rounded-md bg-[#ff7a59] px-5 py-2.5 text-xs font-bold uppercase tracking-widest text-[#16141c] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ffb39a]"
           >
             Patch hire
+          </a>
+          <a
+            href="/resume"
+            className="rounded-md border border-[#ff7a59]/50 px-5 py-2.5 text-xs font-bold uppercase tracking-widest text-[#ffb39a]"
+          >
+            Patch sheet
           </a>
           <ContactRow className="text-white/60" />
         </div>
       </header>
 
       <section className="mx-auto max-w-6xl px-6 md:px-10">
-        <div className="grid gap-3 rounded-2xl border border-white/10 bg-[#121018] p-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-3 rounded-2xl border border-white/10 bg-[#0e0c14] p-4 sm:grid-cols-2 lg:grid-cols-4">
           {cv.highlights.map((h, i) => (
-            <div key={h.label} className="rounded-xl border border-white/10 bg-[#25222e] p-4">
+            <div key={h.label} className="rounded-xl border border-white/10 bg-[#1f1c28] p-4">
               <div className="flex items-center justify-between">
                 <p className="font-[family-name:var(--font-mono)] text-[9px] uppercase tracking-wider text-white/40">
                   Mod {i + 1}
                 </p>
                 <motion.div
-                  className="h-10 w-10 rounded-full border-2 border-[#ff7a59] bg-[#1c1a22]"
+                  className="h-10 w-10 rounded-full border-2 border-[#ff7a59] bg-[#16141c]"
                   style={{
                     backgroundImage:
-                      "radial-gradient(circle at 35% 30%, #ffb39a 0%, transparent 45%), radial-gradient(circle at 50% 50%, #25222e 40%, #121018 70%)",
+                      "radial-gradient(circle at 35% 30%, #ffb39a 0%, transparent 45%), radial-gradient(circle at 50% 50%, #1f1c28 40%, #0e0c14 70%)",
                   }}
                   animate={reduce ? undefined : { rotate: [0, 25, -10, 0] }}
                   transition={{ duration: 4 + i, repeat: Infinity, ease: "easeInOut" }}
@@ -73,7 +79,7 @@ export function Variant() {
       <section className="mx-auto max-w-6xl px-6 py-20 md:px-10">
         <h2 className="mb-10 text-2xl font-bold text-[#ffb39a]">Sequenced roles</h2>
         <ExperienceList tone="dark" />
-        <div className="mt-20 grid gap-14 md:grid-cols-2">
+        <div className="mt-20 grid gap-14 border-t border-white/10 pt-16 md:grid-cols-2">
           <div>
             <h2 className="mb-6 text-xl font-semibold">Oscillator bank</h2>
             <SkillsCloud />
@@ -82,7 +88,7 @@ export function Variant() {
             <h2 className="mb-6 text-xl font-semibold">Output bus</h2>
             <ProjectLinks />
             <p className="mt-10 text-sm text-white/45">
-              {cv.education.degree} · {cv.education.school}
+              {cv.education.degree} · {cv.education.school} · {cv.location}
             </p>
           </div>
         </div>

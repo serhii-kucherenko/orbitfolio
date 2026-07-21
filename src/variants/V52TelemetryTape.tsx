@@ -11,8 +11,8 @@ export function Variant() {
   const tape = `${ticker}   ···   ${ticker}   ···   `;
 
   return (
-    <main className="min-h-screen bg-[#0f140e] font-[family-name:var(--font-mono)] text-[#f4e8a8]">
-      <div className="border-b border-[#6b8f3c]/40 bg-[#121a10]">
+    <main className="min-h-screen bg-[#0c110b] font-[family-name:var(--font-mono)] text-[#f4e8a8]">
+      <div className="border-b border-[#6b8f3c]/40 bg-[#10180e]">
         <motion.p
           className="whitespace-nowrap py-2 text-xs tracking-widest text-[#c8e06a]"
           animate={reduce ? undefined : { x: ["0%", "-50%"] }}
@@ -37,9 +37,15 @@ export function Variant() {
         <div className="mt-8 flex flex-wrap items-center gap-4">
           <a
             href={`mailto:${cv.email}`}
-            className="border border-[#c8e06a] bg-[#c8e06a] px-5 py-2.5 text-xs font-bold uppercase tracking-widest text-[#0f140e] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c8e06a]"
+            className="border border-[#c8e06a] bg-[#c8e06a] px-5 py-2.5 text-xs font-bold uppercase tracking-widest text-[#0c110b] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c8e06a]"
           >
             Ground-to-hire
+          </a>
+          <a
+            href="/resume"
+            className="border border-[#c8e06a]/50 px-5 py-2.5 text-xs font-bold uppercase tracking-widest text-[#c8e06a]"
+          >
+            Dump frame PDF
           </a>
           <ContactRow className="text-[#c8e06a]/75" />
         </div>
@@ -50,7 +56,7 @@ export function Variant() {
           {cv.highlights.map((h, i) => (
             <motion.div
               key={h.label}
-              className="border border-[#6b8f3c]/35 bg-[#151c12] p-4"
+              className="border border-[#6b8f3c]/35 bg-[#121a10] p-4"
               initial={reduce ? false : { opacity: 0.3 }}
               whileInView={reduce ? undefined : { opacity: [0.4, 1, 0.85] }}
               viewport={{ once: true }}
@@ -69,7 +75,7 @@ export function Variant() {
           Black-box transcript
         </h2>
         <ExperienceList tone="dark" />
-        <div className="mt-20 grid gap-14 md:grid-cols-2">
+        <div className="mt-20 grid gap-14 border-t border-[#6b8f3c]/25 pt-16 md:grid-cols-2">
           <div>
             <h2 className="mb-6 font-[family-name:var(--font-mono)] text-sm uppercase tracking-[0.35em] text-[#c8e06a]">
               Sensor suite
@@ -82,7 +88,7 @@ export function Variant() {
             </h2>
             <ProjectLinks />
             <p className="mt-10 text-sm text-white/45">
-              {cv.education.degree} · {cv.education.school}
+              {cv.education.degree} · {cv.education.school} · {cv.location}
             </p>
           </div>
         </div>

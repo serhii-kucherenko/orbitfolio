@@ -9,7 +9,7 @@ export function Variant() {
   const reduce = useReducedMotion() ?? false;
 
   return (
-    <main className="min-h-screen bg-[#fbfbf8] text-black">
+    <main className="min-h-screen bg-[#f7f7f4] text-black">
       <div className="border-b border-red-200 bg-red-50 px-6 py-2 text-center font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.35em] text-red-700">
         Edit pass · still in motion · hire-ready draft
       </div>
@@ -29,11 +29,17 @@ export function Variant() {
         </p>
         <p className="mt-6 border-l-4 border-red-500 pl-4 text-sm leading-7 text-black/70">{cv.summary}</p>
         <div className="mt-8 grid gap-3 sm:grid-cols-4">
-          {cv.highlights.map((h) => (
-            <div key={h.label} className="rounded border border-dashed border-red-300 bg-white p-3">
+          {cv.highlights.map((h, i) => (
+            <motion.div
+              key={h.label}
+              initial={reduce ? false : { opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: reduce ? 0 : i * 0.05 }}
+              className="rounded border border-dashed border-red-300 bg-white p-3"
+            >
               <p className="text-2xl font-bold text-red-700">{h.value}</p>
               <p className="mt-1 text-[10px] uppercase tracking-wider text-black/45">{h.label}</p>
-            </div>
+            </motion.div>
           ))}
         </div>
         <div className="mt-8 flex flex-wrap gap-3">
@@ -42,6 +48,12 @@ export function Variant() {
             className="rounded-full bg-red-600 px-5 py-2.5 text-sm font-semibold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
           >
             Approve and email
+          </a>
+          <a
+            href="/resume"
+            className="rounded-full border border-red-600 px-5 py-2.5 text-sm font-semibold text-red-700"
+          >
+            Clean proof PDF
           </a>
           <ContactRow className="text-red-800/80" />
         </div>
@@ -63,7 +75,10 @@ export function Variant() {
             <p className="pl-10 text-sm text-black/50">{job.place}</p>
             <ul className="mt-4 space-y-2 pl-10 text-sm leading-relaxed text-black/80">
               {job.bullets.map((b) => (
-                <li key={b.slice(0, 28)} className="relative pl-4 before:absolute before:left-0 before:content-['▸'] before:text-red-400">
+                <li
+                  key={b.slice(0, 28)}
+                  className="relative pl-4 before:absolute before:left-0 before:content-['▸'] before:text-red-400"
+                >
                   {b}
                 </li>
               ))}
@@ -85,7 +100,7 @@ export function Variant() {
           </p>
           <ProjectLinks tone="light" />
           <p className="mt-10 text-sm text-black/50">
-            {cv.education.degree} · {cv.education.school}
+            {cv.education.degree} · {cv.education.school} · {cv.location}
           </p>
         </div>
       </section>
