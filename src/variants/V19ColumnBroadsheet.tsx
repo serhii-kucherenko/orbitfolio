@@ -9,7 +9,7 @@ export function Variant() {
   const reduce = useReducedMotion() ?? false;
 
   return (
-    <main className="min-h-screen bg-[#f5f1ea] text-[#111827]">
+    <main className="min-h-screen bg-[#eceae4] text-[#111827]">
       <header className="border-b-[3px] border-black px-4 py-6 md:px-10">
         <div className="mx-auto max-w-6xl">
           <div className="flex flex-wrap items-end justify-between gap-3 border-b border-black/20 pb-3">
@@ -21,7 +21,7 @@ export function Variant() {
             </p>
           </div>
           <motion.h1
-            initial={reduce ? false : { opacity: 0, y: 8 }}
+            initial={reduce ? false : { opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             className="mt-4 text-center font-[family-name:var(--font-serif)] text-5xl font-normal leading-none tracking-tight sm:text-7xl md:text-8xl"
             style={reduce ? undefined : { letterSpacing: "-0.04em" }}
@@ -29,12 +29,18 @@ export function Variant() {
             {cv.name}
           </motion.h1>
           <p className="mt-3 text-center text-sm uppercase tracking-[0.2em]">{cv.title}</p>
-          <div className="mt-4 flex justify-center">
+          <div className="mt-5 flex flex-wrap justify-center gap-3">
             <a
               href={`mailto:${cv.email}`}
-              className="bg-black px-5 py-2 text-xs font-bold uppercase tracking-widest text-[#f5f1ea] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+              className="bg-black px-5 py-2 text-xs font-bold uppercase tracking-widest text-[#eceae4] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
             >
               Hire via letter
+            </a>
+            <a
+              href="/resume"
+              className="border border-black px-5 py-2 text-xs font-bold uppercase tracking-widest"
+            >
+              Morning edition PDF
             </a>
           </div>
           <ContactRow className="mt-4 justify-center text-black/60" />
@@ -42,12 +48,18 @@ export function Variant() {
       </header>
 
       <section className="mx-auto max-w-6xl border-b border-black/20 px-4 py-8 md:px-10">
-        <div className="grid grid-cols-2 gap-6 border-y-2 border-black py-4 md:grid-cols-4">
-          {cv.highlights.map((h) => (
-            <div key={h.label} className="text-center">
+        <div className="grid grid-cols-2 gap-6 border-y-2 border-black py-5 md:grid-cols-4">
+          {cv.highlights.map((h, i) => (
+            <motion.div
+              key={h.label}
+              initial={reduce ? false : { opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: reduce ? 0 : i * 0.05 }}
+              className="text-center"
+            >
               <p className="font-[family-name:var(--font-serif)] text-3xl">{h.value}</p>
               <p className="mt-1 text-[10px] uppercase tracking-wider text-black/50">{h.label}</p>
-            </div>
+            </motion.div>
           ))}
         </div>
       </section>
@@ -77,7 +89,7 @@ export function Variant() {
           </h2>
           <ProjectLinks tone="light" />
           <p className="mt-10 text-sm text-black/50">
-            {cv.education.degree} · {cv.education.school}
+            {cv.education.degree} · {cv.education.school} · {cv.location}
           </p>
         </div>
       </section>

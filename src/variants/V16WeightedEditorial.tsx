@@ -9,10 +9,16 @@ export function Variant() {
   const reduce = useReducedMotion() ?? false;
 
   return (
-    <main className="min-h-screen bg-[#12100e] text-[#f4efe8]">
+    <main className="min-h-screen bg-[#0e0c0a] text-[#f4efe8]">
       <header className="grid min-h-[92vh] lg:grid-cols-[1.4fr_0.6fr]">
-        <div className="relative flex flex-col justify-between border-b border-[#f97316]/25 p-8 lg:border-b-0 lg:border-r lg:p-14">
-          <div className="flex justify-between gap-4 font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.4em] text-[#f97316]/75">
+        <div className="relative flex flex-col justify-between overflow-hidden border-b border-[#f97316]/25 p-8 lg:border-b-0 lg:border-r lg:p-14">
+          <motion.div
+            aria-hidden
+            className="pointer-events-none absolute -bottom-24 -left-16 h-64 w-64 rounded-full bg-[#f97316]/15 blur-3xl"
+            animate={reduce ? undefined : { opacity: [0.2, 0.4, 0.2] }}
+            transition={{ duration: 8, repeat: Infinity }}
+          />
+          <div className="relative flex justify-between gap-4 font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.4em] text-[#f97316]/75">
             <span>Vol. 16 · weighted</span>
             <span>Masthead</span>
           </div>
@@ -20,7 +26,7 @@ export function Variant() {
             initial={reduce ? false : { x: -48, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.85 }}
-            className="my-12 font-[family-name:var(--font-display)] text-[13vw] font-black leading-[0.76] tracking-[-0.06em] lg:text-[8.5vw]"
+            className="relative my-12 font-[family-name:var(--font-display)] text-[13vw] font-black leading-[0.76] tracking-[-0.06em] lg:text-[8.5vw]"
           >
             {cv.name.split(" ").map((w) => (
               <span key={w} className="block">
@@ -28,7 +34,7 @@ export function Variant() {
               </span>
             ))}
           </motion.h1>
-          <div className="grid grid-cols-2 gap-5 sm:grid-cols-4">
+          <div className="relative grid grid-cols-2 gap-5 sm:grid-cols-4">
             {cv.highlights.map((h) => (
               <div key={h.label} className="border-t border-[#f97316]/35 pt-3">
                 <p className="text-2xl font-black text-[#f97316]">{h.value}</p>
@@ -38,7 +44,7 @@ export function Variant() {
           </div>
         </div>
 
-        <aside className="flex flex-col justify-between bg-[#1a1612] p-8 lg:p-10">
+        <aside className="flex flex-col justify-between bg-[#16120e] p-8 lg:p-10">
           <div>
             <p className="text-[10px] uppercase tracking-[0.3em] text-white/35">Deck</p>
             <p className="mt-3 text-sm font-semibold text-[#f97316]">{cv.title}</p>
@@ -50,6 +56,9 @@ export function Variant() {
               className="inline-block border-b-2 border-[#f97316] pb-1 text-sm font-semibold text-[#f97316] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#f97316]"
             >
               Pitch the editor →
+            </a>
+            <a href="/resume" className="block text-sm text-white/45 underline-offset-4 hover:underline">
+              Printable folio
             </a>
             <ContactRow className="text-white/50" />
           </div>
@@ -75,7 +84,7 @@ export function Variant() {
           <h2 className="mb-8 text-xs font-bold uppercase tracking-[0.35em] text-[#f97316]">Pull quotes</h2>
           <ProjectLinks />
           <p className="mt-12 font-[family-name:var(--font-serif)] text-sm italic opacity-45">
-            {cv.education.degree} · {cv.education.school}
+            {cv.education.degree} · {cv.education.school} · {cv.location}
           </p>
         </div>
       </section>
