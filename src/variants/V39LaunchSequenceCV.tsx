@@ -1,17 +1,20 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
+import { useGsapReveal } from "@/components/useGsapReveal";
 import { cv } from "@/data/cv";
 
 const STEPS = ["T-3 Systems", "T-2 Crew", "T-1 Proof", "LIFTOFF"] as const;
 
-/** Launch Sequence CV — countdown console that stages identity, metrics, then career lift */
+/** Launch Sequence CV — countdown console; GSAP reveals the pad after liftoff controls. */
 export function Variant() {
   const reduce = useReducedMotion() ?? false;
   const [step, setStep] = useState(0);
   const label = STEPS[Math.min(step, STEPS.length - 1)] ?? STEPS[0];
+  const padRef = useRef<HTMLElement>(null);
+  useGsapReveal(padRef, reduce);
 
   return (
     <main className="min-h-screen bg-[#120a06] text-[#ffe8d6]">
@@ -19,7 +22,7 @@ export function Variant() {
         <div className="mx-auto flex max-w-6xl flex-wrap items-end justify-between gap-8">
           <div>
             <p className="font-[family-name:var(--font-mono)] text-xs uppercase tracking-[0.5em] text-orange-400">
-              Launch sequence · {cv.location} · {label}
+              Launch sequence · GSAP · {cv.location} · {label}
             </p>
             <h1 className="mt-4 font-[family-name:var(--font-display)] text-5xl font-black uppercase leading-none sm:text-7xl">
               {cv.name}
@@ -62,10 +65,11 @@ export function Variant() {
         </div>
       </header>
 
-      <section className="mx-auto max-w-6xl px-6 py-14 md:px-12">
+      <section ref={padRef} className="mx-auto max-w-6xl px-6 py-14 md:px-12">
         <AnimatePresence mode="wait">
           <motion.div
             key={step}
+            data-gsap
             initial={reduce ? false : { opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             exit={reduce ? undefined : { opacity: 0, y: -12 }}

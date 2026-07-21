@@ -97,5 +97,6 @@ Autonomous progress log for Orbitfolio.
 | 94 | Real WebGL gate | Alpha r3f cells + champion now mount Three.js via AwardWebGL; oracle forbids fake WebGL claims |
 | 95 | Hybrid award motion | Hybrid ladder must ship WebGL or Lenis; deepened 86–91/93/99 + Lenis on remaining Hybrids |
 | 96 | Hybrid craft depth | Raised Hybrid depth gate to ≥120 lines — Lenis wrap alone no longer counts as craft |
+| 97 | Gamma GSAP kinetic | Warp / waveform / launch cells use GSAP ScrollTrigger reveals; oracle requires ≥3 Gamma GSAP cells |
 
 Live: https://orbitfolio-kohl.vercel.app · Loop: every 15m — unique award craft + UI must stay green

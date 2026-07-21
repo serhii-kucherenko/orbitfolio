@@ -1,13 +1,17 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
+import { useRef } from "react";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
+import { useGsapReveal } from "@/components/useGsapReveal";
 import { cv } from "@/data/cv";
 
-/** Warp Type Corridor — vanishing-point typography tunnel; name stretches into depth before evidence unfolds. */
+/** Warp Type Corridor — vanishing-point typography tunnel; GSAP stages the evidence after warp. */
 export function Variant() {
   const reduce = useReducedMotion() ?? false;
   const parts = cv.name.split(" ");
+  const evidenceRef = useRef<HTMLDivElement>(null);
+  useGsapReveal(evidenceRef, reduce);
 
   return (
     <main className="min-h-screen overflow-x-hidden bg-[#050508] text-[#f0f0ff]">
@@ -32,7 +36,7 @@ export function Variant() {
           }}
         />
         <p className="relative z-10 font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.5em] text-[#4ade80]">
-          Corridor · warp in · {cv.location}
+          Corridor · warp in · GSAP · {cv.location}
         </p>
         <div
           className="relative z-10 mt-8 w-full max-w-5xl text-center"
@@ -82,9 +86,10 @@ export function Variant() {
         <p className="relative z-10 mt-4 text-sm text-[#4ade80]">{cv.title}</p>
       </header>
 
+      <div ref={evidenceRef}>
       <section className="relative z-10 mx-auto grid max-w-4xl grid-cols-2 gap-6 px-6 py-12 sm:grid-cols-4">
         {cv.highlights.map((h) => (
-          <div key={h.label} className="border-l border-[#4ade80]/40 pl-4">
+          <div key={h.label} data-gsap className="border-l border-[#4ade80]/40 pl-4">
             <p className="text-2xl font-black text-[#bbf7d0]">{h.value}</p>
             <p className="mt-1 text-[10px] uppercase tracking-wider opacity-45">{h.label}</p>
           </div>
@@ -92,18 +97,18 @@ export function Variant() {
       </section>
 
       <section className="relative z-10 mx-auto max-w-3xl space-y-16 px-6 py-16">
-        <div>
+        <div data-gsap>
           <h2 className="mb-8 text-center text-xs font-bold uppercase tracking-[0.4em] text-[#4ade80]">
             Depth stations
           </h2>
           <ExperienceList tone="dark" />
         </div>
         <div className="grid gap-12 md:grid-cols-2">
-          <div>
+          <div data-gsap>
             <h2 className="mb-6 text-xl font-bold">Signal stack</h2>
             <SkillsCloud />
           </div>
-          <div>
+          <div data-gsap>
             <h2 className="mb-6 text-xl font-bold">Exit links</h2>
             <ProjectLinks />
             <p className="mt-10 text-sm opacity-45">
@@ -112,6 +117,7 @@ export function Variant() {
           </div>
         </div>
       </section>
+      </div>
     </main>
   );
 }

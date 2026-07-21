@@ -1,19 +1,23 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
+import { useRef } from "react";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
+import { useGsapReveal } from "@/components/useGsapReveal";
 import { cv } from "@/data/cv";
 
-/** Waveform Resume — career as an audio waveform: amplitude bars encode metrics, playhead scrolls through roles. */
+/** Waveform Resume — career as an audio waveform; GSAP reveals the track sheet on scroll. */
 export function Variant() {
   const reduce = useReducedMotion() ?? false;
   const bars = [28, 52, 40, 78, 35, 90, 48, 66, 42, 88, 55, 72, 38, 95, 60, 44, 80, 50, 70, 58];
+  const sheetRef = useRef<HTMLElement>(null);
+  useGsapReveal(sheetRef, reduce);
 
   return (
     <main className="min-h-screen bg-[#04060c] text-[#dbeafe]">
       <header className="mx-auto max-w-4xl px-6 pb-6 pt-24 md:px-8">
         <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.4em] text-[#34d399]">
-          Waveform · master · {cv.location}
+          Waveform · master · GSAP · {cv.location}
         </p>
         <h1 className="mt-4 font-[family-name:var(--font-display)] text-5xl font-bold sm:text-6xl">
           {cv.name}
@@ -71,22 +75,24 @@ export function Variant() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-4xl px-6 py-16 md:px-8">
-        <div className="mb-8 flex items-center gap-3">
+      <section ref={sheetRef} className="mx-auto max-w-4xl px-6 py-16 md:px-8">
+        <div data-gsap className="mb-8 flex items-center gap-3">
           <span className={`h-2 w-2 bg-[#34d399] ${reduce ? "" : "animate-pulse"}`} />
           <h2 className="font-[family-name:var(--font-mono)] text-xs uppercase tracking-[0.3em] text-[#34d399]">
             Playhead · experience
           </h2>
         </div>
-        <ExperienceList tone="dark" />
+        <div data-gsap>
+          <ExperienceList tone="dark" />
+        </div>
       </section>
 
       <section className="mx-auto grid max-w-4xl gap-14 border-t border-white/10 px-6 pb-24 pt-16 md:grid-cols-2 md:px-8">
-        <div>
+        <div data-gsap>
           <h2 className="mb-6 text-xl font-bold">Mix / skills</h2>
           <SkillsCloud />
         </div>
-        <div>
+        <div data-gsap>
           <h2 className="mb-6 text-xl font-bold">Tracks</h2>
           <ProjectLinks />
           <p className="mt-10 text-sm opacity-45">
