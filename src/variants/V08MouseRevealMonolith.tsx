@@ -37,7 +37,7 @@ export function Variant() {
           transition={{ duration: 6, repeat: Infinity }}
         />
         <p className="relative text-[10px] uppercase tracking-[0.45em] text-zinc-500">
-          Monolith · {reduce ? "static reveal" : "move to peel"}
+          Monolith · {cv.location} · {reduce ? "static reveal" : "move to peel"}
         </p>
         <motion.h1
           initial={reduce ? false : { opacity: 0, y: 22 }}
@@ -55,7 +55,10 @@ export function Variant() {
           >
             Carve a role
           </a>
-          <a href="/resume" className="inline-flex border border-white/25 px-5 py-2.5 text-sm text-zinc-300">
+          <a
+            href="/resume"
+            className="inline-flex border border-white/25 px-5 py-2.5 text-sm text-zinc-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+          >
             Stone rubbing
           </a>
           <ContactRow className="text-zinc-500" />

@@ -18,7 +18,7 @@ export function Variant() {
     <main className="min-h-screen bg-[#090807] text-[#fafaf9]">
       <header className="mx-auto max-w-4xl px-6 pb-8 pt-24 md:px-8">
         <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.4em] text-white/45">
-          Stack · current issue
+          Stack · current issue · {cv.location}
         </p>
         <h1 className="mt-4 font-[family-name:var(--font-display)] text-5xl font-extrabold sm:text-7xl">
           {cv.name}
@@ -28,13 +28,13 @@ export function Variant() {
         <div className="mt-8 flex flex-wrap items-center gap-3">
           <a
             href={`mailto:${cv.email}`}
-            className="rounded-sm bg-[#7dd3fc] px-5 py-2.5 text-sm font-bold text-[#0f172a] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7dd3fc]"
+            className="bg-[#7dd3fc] px-5 py-2.5 text-sm font-bold text-[#0f172a] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7dd3fc]"
           >
             Subscribe / hire
           </a>
           <a
             href="/resume"
-            className="rounded-sm border border-white/25 px-5 py-2.5 text-sm font-bold text-white/70"
+            className="border border-white/25 px-5 py-2.5 text-sm font-bold text-white/70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
           >
             Back catalog PDF
           </a>

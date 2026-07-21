@@ -20,7 +20,7 @@ export function Variant() {
         <div className="relative mx-auto flex max-w-6xl flex-wrap items-end justify-between gap-8 px-6 pb-10 pt-24 lg:px-10">
           <div>
             <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.4em] text-[#ff7a18]">
-              Metric profile · board
+              Metric profile · board · {cv.location}
             </p>
             <h1 className="mt-3 font-[family-name:var(--font-display)] text-4xl font-extrabold sm:text-6xl">
               {cv.name}

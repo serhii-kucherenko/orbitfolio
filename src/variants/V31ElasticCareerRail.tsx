@@ -16,7 +16,7 @@ export function Variant() {
           transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
           className="font-[family-name:var(--font-mono)] text-[10px] uppercase text-[#38bdf8]"
         >
-          Elastic rail · tension live
+          Elastic rail · tension live · {cv.location}
         </motion.p>
         <h1 className="mt-5 font-[family-name:var(--font-display)] text-5xl font-extrabold tracking-tight sm:text-7xl">
           {cv.name}
@@ -26,13 +26,13 @@ export function Variant() {
         <div className="mt-8 flex flex-wrap gap-3">
           <a
             href={`mailto:${cv.email}`}
-            className="rounded-full border-2 border-[#38bdf8] bg-[#38bdf8] px-5 py-2.5 text-sm font-semibold text-[#08101c] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#38bdf8]"
+            className="border-2 border-[#38bdf8] bg-[#38bdf8] px-5 py-2.5 text-sm font-semibold text-[#08101c] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#38bdf8]"
           >
             Stretch a conversation
           </a>
           <a
             href="/resume"
-            className="rounded-full border-2 border-[#38bdf8]/50 px-5 py-2.5 text-sm font-semibold text-[#38bdf8]"
+            className="border-2 border-[#38bdf8]/50 px-5 py-2.5 text-sm font-semibold text-[#38bdf8] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#38bdf8]"
           >
             Tension sheet
           </a>
@@ -44,7 +44,7 @@ export function Variant() {
         <div className="relative">
           <motion.div
             aria-hidden
-            className="absolute left-0 right-0 top-1/2 h-1 -translate-y-1/2 rounded-full bg-[#38bdf8]/40"
+            className="absolute left-0 right-0 top-1/2 h-1 -translate-y-1/2 bg-[#38bdf8]/40"
             animate={reduce ? {} : { scaleX: [0.92, 1.04, 0.92] }}
             transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
             style={{ transformOrigin: "center" }}
@@ -57,7 +57,7 @@ export function Variant() {
                 whileInView={{ y: 0, opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: reduce ? 0 : i * 0.08 }}
-                className="min-w-[160px] shrink-0 rounded-2xl border border-[#38bdf8]/30 bg-[#0c1526] px-5 py-6"
+                className="min-w-[160px] shrink-0 border border-[#38bdf8]/30 bg-[#0c1526] px-5 py-6"
               >
                 <p className="text-3xl font-black text-[#38bdf8]">{h.value}</p>
                 <p className="mt-1 text-[10px] uppercase tracking-wider opacity-50">{h.label}</p>
@@ -66,7 +66,7 @@ export function Variant() {
             {cv.experience.map((job) => (
               <div
                 key={job.company}
-                className="min-w-[220px] shrink-0 rounded-2xl border border-white/10 bg-[#0c1526]/80 px-5 py-6"
+                className="min-w-[220px] shrink-0 border border-white/10 bg-[#0c1526]/80 px-5 py-6"
               >
                 <p className="font-[family-name:var(--font-mono)] text-[10px] text-[#38bdf8]/70">{job.period}</p>
                 <p className="mt-2 text-sm font-semibold">{job.company}</p>
