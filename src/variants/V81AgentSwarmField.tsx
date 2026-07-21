@@ -65,10 +65,16 @@ export function Variant() {
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <a
               href={`mailto:${cv.email}`}
-              className="border px-5 py-2.5 font-[family-name:var(--font-mono)] text-xs uppercase tracking-wider"
+              className="border px-5 py-2.5 font-[family-name:var(--font-mono)] text-xs uppercase tracking-wider focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5eead4]"
               style={{ borderColor: "#5eead4", color: "#5eead4" }}
             >
               dispatch hire agent
+            </a>
+            <a
+              href="/resume"
+              className="border border-[#5eead4]/40 px-5 py-2.5 font-[family-name:var(--font-mono)] text-xs uppercase tracking-wider text-[#5eead4]/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5eead4]"
+            >
+              export swarm brief
             </a>
             <ContactRow className="text-[#c8e6d8]/65" />
           </div>

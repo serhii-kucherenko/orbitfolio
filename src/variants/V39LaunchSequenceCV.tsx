@@ -52,6 +52,12 @@ export function Variant() {
           >
             Request clearance
           </a>
+          <a
+            href="/resume"
+            className="border border-orange-400/50 px-5 py-3 text-xs font-black uppercase tracking-widest text-orange-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-300"
+          >
+            Flight plan / resume
+          </a>
           <ContactRow className="text-orange-100/70" />
         </div>
       </header>

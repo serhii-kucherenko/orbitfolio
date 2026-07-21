@@ -34,6 +34,12 @@ export function Variant() {
             >
               Open the line
             </a>
+            <a
+              href="/resume"
+              className="border border-[#c4a574]/50 px-5 py-2.5 text-xs font-bold uppercase tracking-widest text-[#d4b896] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#d4b896]"
+            >
+              Case file / resume
+            </a>
             <ContactRow className="text-[#d4b896]/80" />
           </div>
         </div>

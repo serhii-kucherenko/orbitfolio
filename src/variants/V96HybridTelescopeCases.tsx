@@ -41,13 +41,21 @@ export function Variant() {
           </h1>
           <p className="mt-3 text-[#93c5fd]">{cv.title}</p>
           <p className="mt-5 text-sm leading-7 opacity-70">{cv.summary}</p>
-          <a
-            href={`mailto:${cv.email}`}
-            className="mt-8 inline-flex rounded-full px-6 py-2.5 text-sm font-semibold"
-            style={{ background: "#3b82f6", color: "#0a1628" }}
-          >
-            Focus hire lens
-          </a>
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+            <a
+              href={`mailto:${cv.email}`}
+              className="inline-flex px-6 py-2.5 text-sm font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3b82f6]"
+              style={{ background: "#3b82f6", color: "#0a1628" }}
+            >
+              Focus hire lens
+            </a>
+            <a
+              href="/resume"
+              className="inline-flex border border-blue-400/40 px-5 py-2.5 text-sm text-blue-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3b82f6]"
+            >
+              Plate / resume
+            </a>
+          </div>
           <ContactRow className="mt-5 justify-center text-white/55" />
         </motion.div>
       </header>

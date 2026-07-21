@@ -72,5 +72,6 @@ Autonomous progress log for Orbitfolio.
 | 69 | Burst tick 20 | Added resume paths to particle fleet, outcome-first, chromed journey, clinic SaaS, constellation, AI casebook |
 | 70 | Burst tick 21 | Added resume paths to signal/noise, field notes, liquid brief, docs sidebar, event horizon, signal scrub |
 | 71 | Burst tick 22 | Added resume paths to command cases, founding one-pager, daylight PE, pull quote, journey profile, paper terminal |
+| 72 | Burst tick 23 | Cleared remaining resume gaps: swarm, launch, switchboard, dual console, telescope cases, particles, command palette |
 
 Live: https://orbitfolio-kohl.vercel.app · Loop: every 15m — unique award craft + UI must stay green

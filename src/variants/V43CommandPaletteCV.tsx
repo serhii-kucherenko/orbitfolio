@@ -14,6 +14,7 @@ const COMMANDS: Cmd[] = [
   { id: "skills", label: "> list skills", hint: "Grouped toolkit" },
   { id: "lab", label: "> open projects", hint: "Links + education" },
   { id: "hire", label: "> mailto hire", hint: "Compose email" },
+  { id: "resume", label: "> open resume", hint: "Printable CV" },
 ];
 
 /** Command Palette CV — IDE-style ⌘K palette as the navigation surface for the resume */
@@ -59,6 +60,10 @@ export function Variant() {
                       window.location.href = `mailto:${cv.email}`;
                       return;
                     }
+                    if (cmd.id === "resume") {
+                      window.location.href = "/resume";
+                      return;
+                    }
                     setActive(cmd.id);
                   }}
                   className={`flex w-full items-center justify-between px-4 py-2.5 text-left text-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-sky-400 ${
@@ -80,12 +85,20 @@ export function Variant() {
               <p className="mt-2 text-sky-300">{cv.title}</p>
               <p className="mt-5 text-sm leading-8 text-white/65">{cv.summary}</p>
               <ContactRow className="mt-6 text-white/55" />
-              <a
-                href={`mailto:${cv.email}`}
-                className="mt-6 inline-block rounded-md bg-sky-500 px-5 py-2.5 text-xs font-bold uppercase tracking-widest text-[#0d1117] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300"
-              >
-                mailto://hire
-              </a>
+              <div className="mt-6 flex flex-wrap gap-3">
+                <a
+                  href={`mailto:${cv.email}`}
+                  className="inline-block bg-sky-500 px-5 py-2.5 text-xs font-bold uppercase tracking-widest text-[#0d1117] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300"
+                >
+                  mailto://hire
+                </a>
+                <a
+                  href="/resume"
+                  className="inline-block border border-sky-400/40 px-5 py-2.5 text-xs font-bold uppercase tracking-widest text-sky-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300"
+                >
+                  open://resume
+                </a>
+              </div>
             </div>
           )}
           {active === "metrics" && (

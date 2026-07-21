@@ -41,9 +41,15 @@ export function Variant() {
           <div className="mt-7 flex flex-wrap items-center gap-4">
             <a
               href={`mailto:${cv.email}`}
-              className="rounded-sm bg-[#7dd3c0] px-5 py-2.5 text-sm font-bold text-[#042f2a] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7dd3c0]"
+              className="bg-[#7dd3c0] px-5 py-2.5 text-sm font-bold text-[#042f2a] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7dd3c0]"
             >
               Open hire channel
+            </a>
+            <a
+              href="/resume"
+              className="border border-[#7dd3c0]/50 px-5 py-2.5 text-sm text-[#7dd3c0] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7dd3c0]"
+            >
+              Console dump / resume
             </a>
             <ContactRow className="text-[#7dd3c0]/70" />
           </div>
