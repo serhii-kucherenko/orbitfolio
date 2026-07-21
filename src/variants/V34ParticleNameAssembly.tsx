@@ -39,7 +39,7 @@ export function Variant() {
             />
           ))}
         <p className="relative z-10 font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.45em] text-sky-300/70">
-          Assembly sequence
+          Assembly sequence · {cv.location}
         </p>
         <h1 className="relative z-10 mt-8 flex flex-wrap justify-center gap-x-1 gap-y-2 font-[family-name:var(--font-display)] text-4xl font-black sm:text-6xl md:text-7xl">
           {letters.map((ch, i) => (

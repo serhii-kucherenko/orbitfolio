@@ -40,7 +40,7 @@ export function Variant() {
             animate={{ opacity: 1 }}
             className="text-[10px] uppercase tracking-[0.4em] text-sky-700"
           >
-            Product engineer · daylight studio
+            Product engineer · daylight studio · {cv.location}
           </motion.p>
           <h1 className="mt-4 font-[family-name:var(--font-display)] text-5xl font-extrabold tracking-tight sm:text-6xl">
             {cv.name}
