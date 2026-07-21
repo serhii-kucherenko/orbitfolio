@@ -5,40 +5,41 @@ import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/compone
 import { cv } from "@/data/cv";
 
 const banner = `
-╔══════════════════════════════╗
-║  SIGNAL / CAREER / READABLE  ║
-╚══════════════════════════════╝`.trim();
+╔══════════════════════════════════╗
+║  SIGNAL / CAREER / READABLE      ║
+║  CHANNEL OPEN · HIRE READY       ║
+╚══════════════════════════════════╝`.trim();
 
 /** ASCII Career Signal — monospaced signal art around a fully readable portfolio. */
 export function Variant() {
   const reduce = useReducedMotion() ?? false;
 
   return (
-    <main className="min-h-screen bg-[#0a0c0a] text-[#b6f5a8]">
-      <header className="mx-auto max-w-5xl px-6 pb-10 pt-24 font-[family-name:var(--font-mono)]">
+    <main className="min-h-screen bg-[#080a08] text-[#b6f5a8]">
+      <header className="mx-auto max-w-5xl px-6 pb-8 pt-24 font-[family-name:var(--font-mono)]">
         <motion.pre
           aria-hidden
           initial={reduce ? false : { opacity: 0 }}
           animate={{ opacity: 1 }}
-          className="overflow-x-auto text-[10px] leading-tight text-[#6fdf5c]/80 sm:text-xs"
+          className="overflow-x-auto text-[10px] leading-tight text-[#6fdf5c]/75 sm:text-xs"
         >
           {banner}
         </motion.pre>
-        <p className="mt-8 text-[10px] uppercase tracking-[0.35em] text-[#6fdf5c]/60">tx · founding-engineer</p>
+        <p className="mt-8 text-[10px] uppercase tracking-[0.35em] text-[#6fdf5c]/55">tx · founding-engineer</p>
         <h1 className="mt-3 text-4xl font-bold tracking-tight text-[#d8ffcf] sm:text-6xl">{cv.name}</h1>
         <p className="mt-3 text-sm text-[#6fdf5c]">{cv.title}</p>
         <p className="mt-6 max-w-2xl text-xs leading-6 text-[#b6f5a8]/70 sm:text-sm sm:leading-7">{cv.summary}</p>
         <div className="mt-8 flex flex-wrap gap-3">
           <a
             href={`mailto:${cv.email}`}
-            className="border border-[#6fdf5c] bg-[#6fdf5c] px-4 py-2 text-xs font-bold text-[#0a0c0a] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#6fdf5c]"
+            className="border border-[#6fdf5c] bg-[#6fdf5c] px-4 py-2 text-xs font-bold text-[#080a08] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#6fdf5c]"
           >
             mailto:hire
           </a>
           <ContactRow className="text-[#6fdf5c]/80" />
         </div>
         <pre className="mt-10 overflow-x-auto border border-[#6fdf5c]/25 bg-[#101510] p-4 text-[10px] leading-5 text-[#6fdf5c]/85 sm:text-xs">
-{cv.highlights.map((h) => `${h.label.padEnd(16, " ")} ${h.value}`).join("\n")}
+{[`$ whoami`, cv.name, `$ role`, cv.title, ``, ...cv.highlights.map((h) => `${h.label.padEnd(16, " ")} ${h.value}`)].join("\n")}
         </pre>
       </header>
 
