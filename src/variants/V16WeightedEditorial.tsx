@@ -4,22 +4,23 @@ import { motion, useReducedMotion } from "framer-motion";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
 import { cv } from "@/data/cv";
 
-/** Weighted Editorial — asymmetric magazine spread: colossal name mass on the left, featherweight copy and proof on the right. */
+/** Weighted Editorial — colossal name mass vs featherweight proof; magazine asymmetry. */
 export function Variant() {
   const reduce = useReducedMotion() ?? false;
 
   return (
-    <main className="min-h-screen bg-[#14110f] text-[#f5f0ea]">
-      <header className="grid min-h-screen md:grid-cols-[1.35fr_0.65fr]">
-        <div className="relative flex flex-col justify-between border-b border-[#f97316]/30 p-8 md:border-b-0 md:border-r md:p-14">
-          <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.4em] text-[#f97316]/80">
-            Vol. 16 · weighted
-          </p>
+    <main className="min-h-screen bg-[#12100e] text-[#f4efe8]">
+      <header className="grid min-h-[92vh] lg:grid-cols-[1.4fr_0.6fr]">
+        <div className="relative flex flex-col justify-between border-b border-[#f97316]/25 p-8 lg:border-b-0 lg:border-r lg:p-14">
+          <div className="flex justify-between gap-4 font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.4em] text-[#f97316]/75">
+            <span>Vol. 16 · weighted</span>
+            <span>Masthead</span>
+          </div>
           <motion.h1
-            initial={reduce ? false : { x: -40, opacity: 0 }}
+            initial={reduce ? false : { x: -48, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
-            transition={{ duration: 0.8 }}
-            className="my-10 font-[family-name:var(--font-display)] text-[14vw] font-black leading-[0.78] tracking-[-0.06em] md:text-[9vw]"
+            transition={{ duration: 0.85 }}
+            className="my-12 font-[family-name:var(--font-display)] text-[13vw] font-black leading-[0.76] tracking-[-0.06em] lg:text-[8.5vw]"
           >
             {cv.name.split(" ").map((w) => (
               <span key={w} className="block">
@@ -27,20 +28,21 @@ export function Variant() {
               </span>
             ))}
           </motion.h1>
-          <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
+          <div className="grid grid-cols-2 gap-5 sm:grid-cols-4">
             {cv.highlights.map((h) => (
-              <div key={h.label}>
+              <div key={h.label} className="border-t border-[#f97316]/35 pt-3">
                 <p className="text-2xl font-black text-[#f97316]">{h.value}</p>
-                <p className="text-[10px] uppercase tracking-wider opacity-45">{h.label}</p>
+                <p className="mt-1 text-[10px] uppercase tracking-wider opacity-45">{h.label}</p>
               </div>
             ))}
           </div>
         </div>
 
-        <aside className="flex flex-col justify-between bg-[#1c1814] p-8 md:p-10">
+        <aside className="flex flex-col justify-between bg-[#1a1612] p-8 lg:p-10">
           <div>
-            <p className="text-sm font-semibold text-[#f97316]">{cv.title}</p>
-            <p className="mt-6 text-sm leading-8 text-white/65">{cv.summary}</p>
+            <p className="text-[10px] uppercase tracking-[0.3em] text-white/35">Deck</p>
+            <p className="mt-3 text-sm font-semibold text-[#f97316]">{cv.title}</p>
+            <p className="mt-6 text-sm leading-8 text-white/60">{cv.summary}</p>
           </div>
           <div className="mt-12 space-y-4">
             <a
@@ -49,17 +51,22 @@ export function Variant() {
             >
               Pitch the editor →
             </a>
-            <ContactRow className="text-white/55" />
+            <ContactRow className="text-white/50" />
           </div>
         </aside>
       </header>
 
-      <section className="mx-auto max-w-5xl px-8 py-24 md:px-14">
-        <h2 className="mb-12 font-[family-name:var(--font-serif)] text-5xl italic">The body copy</h2>
+      <section className="mx-auto max-w-5xl px-8 py-20 lg:px-14">
+        <div className="mb-12 flex flex-wrap items-end justify-between gap-4">
+          <h2 className="font-[family-name:var(--font-serif)] text-5xl italic">The body copy</h2>
+          <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.3em] text-[#f97316]/60">
+            Outcomes as news
+          </p>
+        </div>
         <ExperienceList tone="dark" />
       </section>
 
-      <section className="grid gap-16 border-t border-[#f97316]/25 px-8 py-20 md:grid-cols-2 md:px-14">
+      <section className="grid gap-16 border-t border-[#f97316]/20 px-8 py-16 lg:grid-cols-2 lg:px-14">
         <div>
           <h2 className="mb-8 text-xs font-bold uppercase tracking-[0.35em] text-[#f97316]">Index</h2>
           <SkillsCloud />
@@ -67,7 +74,7 @@ export function Variant() {
         <div>
           <h2 className="mb-8 text-xs font-bold uppercase tracking-[0.35em] text-[#f97316]">Pull quotes</h2>
           <ProjectLinks />
-          <p className="mt-12 font-[family-name:var(--font-serif)] text-sm italic opacity-50">
+          <p className="mt-12 font-[family-name:var(--font-serif)] text-sm italic opacity-45">
             {cv.education.degree} · {cv.education.school}
           </p>
         </div>
