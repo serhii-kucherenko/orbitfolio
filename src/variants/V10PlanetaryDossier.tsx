@@ -9,17 +9,17 @@ export function Variant() {
   const reduce = useReducedMotion() ?? false;
 
   return (
-    <main className="min-h-screen bg-[#0a0f1a] text-[#e8eef8]">
-      <section className="relative flex min-h-[52vh] items-end overflow-hidden px-6 pb-12 pt-28">
+    <main className="min-h-screen bg-[#080d18] text-[#e8eef8]">
+      <section className="relative flex min-h-[48vh] items-end overflow-hidden px-6 pb-10 pt-28">
         <motion.div
           aria-hidden
-          className="pointer-events-none absolute right-[-10%] top-8 h-[min(70vw,420px)] w-[min(70vw,420px)] rounded-full"
+          className="pointer-events-none absolute right-[-12%] top-6 h-[min(72vw,440px)] w-[min(72vw,440px)] rounded-full"
           animate={reduce ? undefined : { rotate: 360 }}
-          transition={{ duration: 90, repeat: Infinity, ease: "linear" }}
+          transition={{ duration: 100, repeat: Infinity, ease: "linear" }}
           style={{
             background:
               "radial-gradient(circle at 35% 30%, #7dd3fc 0%, #0369a1 35%, #0c4a6e 55%, transparent 70%)",
-            opacity: 0.55,
+            opacity: 0.5,
           }}
         />
         <div className="relative z-10 mx-auto w-full max-w-5xl">
@@ -29,17 +29,18 @@ export function Variant() {
         </div>
       </section>
 
-      <section className="relative z-10 mx-auto -mt-4 max-w-5xl rounded-t-2xl border border-white/10 bg-[#101826] px-6 py-12 shadow-2xl sm:px-10">
+      <section className="relative z-10 mx-auto -mt-2 max-w-5xl rounded-t-2xl border border-white/10 bg-[#0f1624] px-6 py-12 shadow-2xl sm:px-10">
         <div className="flex flex-wrap items-start justify-between gap-4 border-b border-white/10 pb-6">
           <div>
             <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.3em] text-cyan-300/50">
-              Classified · technical dossier
+              Classified · technical dossier · OF-010
             </p>
             <p className="mt-3 max-w-2xl text-sm leading-7 text-white/60">{cv.summary}</p>
+            <ContactRow className="mt-5 text-cyan-100/55" />
           </div>
           <a
             href={`mailto:${cv.email}`}
-            className="rounded bg-cyan-400 px-4 py-2 text-sm font-semibold text-[#0a0f1a] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300"
+            className="rounded bg-cyan-400 px-4 py-2 text-sm font-semibold text-[#080d18] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300"
           >
             Request clearance
           </a>
@@ -76,7 +77,6 @@ export function Variant() {
               <ProjectLinks />
             </div>
           </div>
-          <ContactRow className="text-cyan-100/60" />
           <p className="text-xs text-white/35">
             {cv.education.degree} · {cv.education.school} · {cv.location}
           </p>
