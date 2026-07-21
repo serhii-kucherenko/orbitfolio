@@ -37,11 +37,10 @@ export function Variant() {
 
       <div className="relative mx-auto max-w-3xl px-6 py-24">
         <div
-          className="rounded-[2rem] border px-8 py-12 backdrop-blur-md md:px-12 md:py-16"
+          className="border px-8 py-12 backdrop-blur-md md:px-12 md:py-16"
           style={{
             borderColor: "#2dd4bf33",
             background: "linear-gradient(160deg, #0c222aee 0%, #07141add 100%)",
-            boxShadow: "0 40px 80px #00000066",
           }}
         >
           <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.35em] text-[#5eead4]">

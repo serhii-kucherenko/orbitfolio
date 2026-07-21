@@ -12,19 +12,34 @@ export function Variant() {
     <main className="min-h-screen bg-[#12100c] text-[#e8e0d4]">
       <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#c4a574]/30 px-6 py-2 font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.3em] text-[#c4a574]/70 md:px-12">
         <span>Final edition</span>
-        <a href="#record" className="hover:text-[#c4a574]">
+        <a
+          href="#record"
+          className="hover:text-[#c4a574] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c4a574]"
+        >
           Record
         </a>
-        <a href="#skills" className="hover:text-[#c4a574]">
+        <a
+          href="#skills"
+          className="hover:text-[#c4a574] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c4a574]"
+        >
           Skills
         </a>
-        <a href="#archive" className="hover:text-[#c4a574]">
+        <a
+          href="#archive"
+          className="hover:text-[#c4a574] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c4a574]"
+        >
           Archive
         </a>
-        <a href="/resume" className="hover:text-[#c4a574]">
+        <a
+          href="/resume"
+          className="hover:text-[#c4a574] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c4a574]"
+        >
           PDF
         </a>
-        <a href={`mailto:${cv.email}`} className="hover:text-[#c4a574]">
+        <a
+          href={`mailto:${cv.email}`}
+          className="hover:text-[#c4a574] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c4a574]"
+        >
           Hire desk
         </a>
       </div>
