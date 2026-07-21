@@ -145,13 +145,13 @@ test("Fail-then-pass: AwardVariant resume surface is complete", () => {
     "cv.email",
     "cv.linkedin",
     "cv.github",
-    "cv.phone",
     "cv.location",
     "cv.highlights",
     "cv.education",
   ]) {
     assert.ok(src.includes(needle), `AwardVariant missing ${needle}`);
   }
+  assert.doesNotMatch(src, /cv\.phone/, "AwardVariant must not expose phone");
 });
 
 test("Fail-then-pass: Hybrid learning ladder rises in composite", () => {
@@ -168,19 +168,18 @@ test("Fail-then-pass: Hybrid learning ladder rises in composite", () => {
   }
 });
 
-test("Fail-then-pass: champion route matches getChampion()", () => {
-  const { getChampion } = loadVariantsModule();
-  const champion = getChampion();
+test("Fail-then-pass: public homepage loads selected theme dynamically", () => {
   const home = read("src/app/page.tsx");
-  const slugPascal = champion.slug
-    .split("-")
-    .map((part) => part[0].toUpperCase() + part.slice(1))
-    .join("");
-  const expected = `V${champion.id}${slugPascal}`;
-  assert.ok(
-    home.includes(expected) || home.includes(`V${champion.id}`),
-    `page.tsx must import champion ${expected}`,
-  );
+  assert.match(home, /getPublicThemeId/);
+  assert.match(home, /loadVariant/);
+  assert.match(home, /force-dynamic/);
+  assert.ok(fs.existsSync(path.join(root, "src", "data", "publicTheme.json")));
+  assert.ok(fs.existsSync(path.join(root, "src", "app", "api", "public-theme", "route.ts")));
+  const api = read("src/app/api/public-theme/route.ts");
+  assert.match(api, /passwordsMatch|getAdminPassword/);
+  assert.match(api, /setPublicTheme/);
+  const cv = read("src/data/cv.ts");
+  assert.doesNotMatch(cv, /phone\s*:/);
 });
 
 test("Fail-then-pass: test route generates 100 static params and bounds", () => {

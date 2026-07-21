@@ -5,6 +5,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { VARIANT_COUNT } from "@/data/variants";
 import { SurpriseButton } from "@/components/SurpriseButton";
+import { SetPublicThemeButton } from "@/components/SetPublicThemeButton";
 
 export function LabChrome({
   variantId,
@@ -90,6 +91,7 @@ export function LabChrome({
         <div className="scale-90 origin-right [&_button]:px-3 [&_button]:py-1.5 [&_button]:text-[11px]">
           <SurpriseButton />
         </div>
+        {isTest && variantId != null && <SetPublicThemeButton variantId={variantId} />}
         {isTest && variantId != null && (
           <>
             <Link
