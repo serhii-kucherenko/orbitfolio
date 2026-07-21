@@ -10,7 +10,7 @@ Write oracle (RED) → implement / deepen cell (GREEN) → verify → PR → mer
 
 | Suite | Path | Gate |
 |-------|------|------|
-| Award-100 lab | `oracles/award-100.test.mjs` | Catalog, teams, CV surface, motion, Eta ladder, champion sync, ≥45 handcrafted cells |
+| Award-100 lab | `oracles/award-100.test.mjs` | Catalog, teams, CV surface, motion, Eta ladder, champion sync, ≥55 handcrafted cells |
 
 ```bash
 npm test          # must be green before merge
