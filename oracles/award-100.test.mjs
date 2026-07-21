@@ -461,3 +461,31 @@ test("Fail-then-pass: Zeta experimental stays deep and ships award motion on ≥
     `RED: need ≥3 Zeta cells with WebGL/Lenis/GSAP, got ${withMotion}`,
   );
 });
+
+test("Fail-then-pass: Delta systems stay deep and ship award motion on ≥3 cells", () => {
+  const delta = listVariantFiles().filter((name) => {
+    const id = Number(name.match(/^V(\d+)/)[1]);
+    return id >= 43 && id <= 56;
+  });
+  assert.equal(delta.length, 14);
+  const shallow = [];
+  let withMotion = 0;
+  for (const file of delta) {
+    const src = fs.readFileSync(path.join(variantsDir, file), "utf8");
+    const lines = src.split("\n").length;
+    if (lines < 110) shallow.push(`${file}(${lines})`);
+    if (
+      src.includes("AwardWebGL") ||
+      src.includes("SmoothScroll") ||
+      src.includes("useGsapReveal") ||
+      src.includes("@react-three/fiber")
+    ) {
+      withMotion += 1;
+    }
+  }
+  assert.equal(shallow.length, 0, `RED: Delta cells under 110 lines: ${shallow.join(", ")}`);
+  assert.ok(
+    withMotion >= 3,
+    `RED: need ≥3 Delta systems cells with WebGL/Lenis/GSAP, got ${withMotion}`,
+  );
+});

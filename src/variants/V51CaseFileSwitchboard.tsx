@@ -1,13 +1,16 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
+import { useGsapReveal } from "@/components/useGsapReveal";
 import { cv } from "@/data/cv";
 
-/** Case File Switchboard — detective dossier + patchboard plugs that route to evidence drawers */
+/** Case File Switchboard — detective dossier + GSAP docket reveal. */
 export function Variant() {
   const reduce = useReducedMotion() ?? false;
+  const docketRef = useRef<HTMLElement>(null);
+  useGsapReveal(docketRef, reduce);
   const channels = [
     { id: "untether", label: "CH-01 Untether", job: cv.experience[0] },
     { id: "spd", label: "CH-02 SPD", job: cv.experience[1] },
@@ -22,7 +25,7 @@ export function Variant() {
       <header className="border-b border-[#8b7355]/40 px-6 py-16 md:px-12">
         <div className="mx-auto max-w-6xl">
           <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.4em] text-[#c4a574]">
-            Case file · switchboard · {cv.location}
+            Case file · switchboard · GSAP · {cv.location}
           </p>
           <h1 className="mt-4 font-[family-name:var(--font-serif)] text-5xl sm:text-6xl">{cv.name}</h1>
           <p className="mt-3 text-[#d4b896]">{cv.title}</p>
@@ -105,10 +108,12 @@ export function Variant() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-5xl px-6 pb-24 md:px-12">
-        <h2 className="mb-8 text-xl font-semibold text-[#e8c99a]">Complete docket</h2>
-        <ExperienceList tone="dark" />
-        <div className="mt-20 grid gap-14 md:grid-cols-2">
+      <section ref={docketRef} className="mx-auto max-w-5xl px-6 pb-24 md:px-12">
+        <h2 data-gsap className="mb-8 text-xl font-semibold text-[#e8c99a]">Complete docket</h2>
+        <div data-gsap>
+          <ExperienceList tone="dark" />
+        </div>
+        <div data-gsap className="mt-20 grid gap-14 md:grid-cols-2">
           <div>
             <h2 className="mb-6 text-lg font-semibold">Field kit</h2>
             <SkillsCloud />
@@ -121,6 +126,9 @@ export function Variant() {
             </p>
           </div>
         </div>
+        <p data-gsap className="mt-12 max-w-xl text-sm leading-7 text-[#c4a574]/70">
+          Plugs route attention — the docket still opens in order under GSAP.
+        </p>
       </section>
     </main>
   );

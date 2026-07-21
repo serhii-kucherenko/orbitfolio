@@ -101,5 +101,6 @@ Autonomous progress log for Orbitfolio.
 | 98 | Epsilon hire proof | Epsilon #57–#70 must be ≥110 lines + visible 10-second who/what/proof strip |
 | 99 | Beta editorial Lenis | Beta #16–#28 ≥110 lines; ≥3 cells use Lenis for long-form reading craft |
 | 100 | Zeta experimental craft | Zeta #71–#85 ≥110 lines; ≥3 cells mount WebGL / Lenis / GSAP |
+| 101 | Delta systems craft | Delta #43–#56 ≥110 lines; ≥3 cells mount WebGL / Lenis / GSAP |
 
 Live: https://orbitfolio-kohl.vercel.app · Loop: every 15m — unique award craft + UI must stay green

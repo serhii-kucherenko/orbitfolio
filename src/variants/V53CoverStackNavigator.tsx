@@ -91,6 +91,18 @@ export function Variant() {
         <p className="text-xs text-zinc-600">
           {cv.education.degree} · {cv.education.school} · {cv.location}
         </p>
+        <p className="mt-8 max-w-xl text-sm leading-7 text-zinc-500">
+          Covers are navigation objects — each stack face lands on a complete hire section below.
+        </p>
+        <p className="mt-4 max-w-xl text-sm leading-7 text-zinc-600">
+          Identity, proof, craft, editions — four covers, one continuous hire path. No dead ends.
+        </p>
+        <p className="mt-4 max-w-xl text-sm leading-7 text-zinc-600">
+          Stack chrome stays secondary to the email CTA and the experience rail under each cover.
+        </p>
+        <p className="mt-3 font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.3em] text-zinc-600">
+          Delta · cover stack · systems navigator
+        </p>
       </section>
     </main>
   );

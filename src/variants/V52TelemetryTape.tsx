@@ -100,6 +100,12 @@ export function Variant() {
             </p>
           </div>
         </div>
+        <p className="mt-12 max-w-2xl text-sm leading-7 text-white/40">
+          Tape scroll is telemetry theater — metrics and roles stay readable when the scroll stops.
+        </p>
+        <p className="mt-3 font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.3em] text-emerald-500/45">
+          Delta · telemetry · signal over noise
+        </p>
       </section>
     </main>
   );

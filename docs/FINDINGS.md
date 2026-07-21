@@ -29,6 +29,7 @@ Full definitions: [`docs/RUBRIC.md`](RUBRIC.md)
 - Epsilon hire proof (tick 98): hire cells must stay ≥110 lines and expose an explicit who / what / proof strip — depth without a ten-second scan still fails recruiters
 - Beta editorial Lenis (tick 99): magazine cells need depth plus smooth reading — ≥3 Beta designs mount Lenis; all stay ≥110 lines
 - Zeta experimental craft (tick 100): experimental cells stay ≥110 lines and at least three mount AwardWebGL, Lenis, or GSAP — liquid metal + swarm fleet, void Lenis, telescope GSAP
+- Delta systems craft (tick 101): systems cells stay ≥110 lines with docs Lenis, holodisc WebGL, and switchboard GSAP — dense UI still has to feel like a product, not a dump
 - Structural diversity beats palette swaps for lab signal
 - Fail-then-pass diversity checks forced at least 20 fully custom designs instead of shared-shell palette swaps — see [`docs/RED_GREEN.md`](RED_GREEN.md)
 - Gate raised to **100** custom designs (batch 8) — every `/test/n` cell is now uniquely built; shared `AwardVariant` shell retired from active experiments
