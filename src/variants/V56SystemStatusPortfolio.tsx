@@ -44,9 +44,15 @@ export function Variant() {
         <div className="mt-8 flex flex-wrap items-center gap-4">
           <a
             href={`mailto:${cv.email}`}
-            className="rounded-md bg-emerald-700 px-5 py-2.5 text-sm font-semibold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700"
+            className="bg-emerald-700 px-5 py-2.5 text-sm font-semibold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700"
           >
             Page the engineer
+          </a>
+          <a
+            href="/resume"
+            className="border border-emerald-700/40 px-5 py-2.5 text-sm font-semibold text-emerald-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700"
+          >
+            Status report / resume
           </a>
           <ContactRow className="text-emerald-800/80" />
         </div>
@@ -56,7 +62,7 @@ export function Variant() {
         <h2 className="mb-4 font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.3em] text-emerald-700">
           Service health
         </h2>
-        <div className="overflow-hidden rounded-lg border border-emerald-200 bg-white">
+        <div className="overflow-hidden border border-emerald-200 bg-white">
           {services.map((s, i) => (
             <div
               key={s.name}
@@ -72,9 +78,9 @@ export function Variant() {
         </div>
       </section>
 
-      <section className="mx-auto mt-10 grid max-w-5xl grid-cols-2 gap-3 px-6 sm:grid-cols-4">
+      <section className="mx-auto mt-10 grid max-w-5xl grid-cols-2 gap-6 px-6 sm:grid-cols-4">
         {cv.highlights.map((h) => (
-          <div key={h.label} className="rounded-lg border border-emerald-200 bg-white p-4 shadow-sm">
+          <div key={h.label} className="border-t border-emerald-300 pt-4">
             <p className="text-3xl font-bold text-emerald-800">{h.value}</p>
             <p className="mt-1 text-[10px] uppercase tracking-wider text-emerald-700/55">{h.label}</p>
           </div>

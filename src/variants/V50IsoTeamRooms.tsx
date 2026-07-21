@@ -31,6 +31,12 @@ export function Variant() {
             >
               Book a room
             </a>
+            <a
+              href="/resume"
+              className="border border-[#0d2a32]/40 px-5 py-3 text-xs font-bold uppercase tracking-widest text-[#0d2a32] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1a6b7a]"
+            >
+              Floor plan / resume
+            </a>
             <ContactRow className="text-[#0d2a32]/70" />
           </div>
         </div>

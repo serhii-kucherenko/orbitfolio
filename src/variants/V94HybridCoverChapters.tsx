@@ -50,12 +50,20 @@ export function Variant() {
           </motion.h1>
           <p className="mt-4 text-[#e8a87c]">{cv.title}</p>
           <p className="mt-6 max-w-md text-sm leading-7 opacity-70">{cv.summary}</p>
-          <a
-            href={`mailto:${cv.email}`}
-            className="mt-8 inline-block border border-[#e8a87c] px-5 py-2.5 text-sm font-semibold text-[#e8a87c]"
-          >
-            Request a signed copy
-          </a>
+          <div className="mt-8 flex flex-wrap items-center gap-3">
+            <a
+              href={`mailto:${cv.email}`}
+              className="inline-block border border-[#e8a87c] px-5 py-2.5 text-sm font-semibold text-[#e8a87c] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#e8a87c]"
+            >
+              Request a signed copy
+            </a>
+            <a
+              href="/resume"
+              className="inline-block border border-[#f3ebe040] px-5 py-2.5 text-sm text-[#f3ebe0]/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#f3ebe0]"
+            >
+              Printable folio
+            </a>
+          </div>
           <ContactRow className="mt-5 text-white/55" />
         </div>
         <div className="flex flex-col justify-between border border-l-0 border-[#f3ebe015] p-6 md:p-8" style={{ background: "#1a140f" }}>
