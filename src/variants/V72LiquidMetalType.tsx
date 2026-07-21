@@ -9,15 +9,17 @@ export function Variant() {
   const reduce = useReducedMotion() ?? false;
 
   return (
-    <main className="min-h-screen bg-[#121212] text-[#ececec]">
+    <main className="min-h-screen bg-[#0e0e0e] text-[#ececec]">
       <section className="relative overflow-hidden px-6 pb-16 pt-24">
-        <div
+        <motion.div
           aria-hidden
-          className={`pointer-events-none absolute inset-0 opacity-40 ${reduce ? "" : ""}`}
+          className="pointer-events-none absolute inset-0 opacity-45"
           style={{
             background:
-              "radial-gradient(ellipse at 30% 20%, rgba(192,192,200,0.25), transparent 50%), radial-gradient(ellipse at 70% 60%, rgba(100,116,139,0.2), transparent 45%)",
+              "radial-gradient(ellipse at 30% 20%, rgba(192,192,200,0.28), transparent 50%), radial-gradient(ellipse at 70% 60%, rgba(100,116,139,0.22), transparent 45%)",
           }}
+          animate={reduce ? undefined : { opacity: [0.35, 0.5, 0.35] }}
+          transition={{ duration: 7, repeat: Infinity }}
         />
         <div className="relative mx-auto max-w-5xl">
           <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.4em] text-zinc-500">
@@ -47,6 +49,12 @@ export function Variant() {
             >
               Cast a hire note
             </a>
+            <a
+              href="/resume"
+              className="rounded-full border border-zinc-500 px-6 py-2.5 text-sm font-bold text-zinc-300"
+            >
+              Ingot PDF
+            </a>
             <ContactRow className="text-zinc-400" />
           </div>
         </div>
@@ -54,7 +62,7 @@ export function Variant() {
 
       <section className="mx-auto grid max-w-5xl grid-cols-2 gap-px bg-zinc-800 px-6 sm:grid-cols-4">
         {cv.highlights.map((h) => (
-          <div key={h.label} className="bg-[#121212] p-5">
+          <div key={h.label} className="bg-[#0e0e0e] p-5">
             <p
               className="text-3xl font-bold"
               style={{
@@ -76,7 +84,7 @@ export function Variant() {
           <h2 className="mb-8 text-2xl font-bold text-zinc-200">Forged roles</h2>
           <ExperienceList tone="dark" />
         </div>
-        <div className="grid gap-12 md:grid-cols-2">
+        <div className="grid gap-12 border-t border-zinc-800 pt-16 md:grid-cols-2">
           <div>
             <h2 className="mb-6 text-xl font-bold text-zinc-200">Alloy skills</h2>
             <SkillsCloud />
