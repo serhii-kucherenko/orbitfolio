@@ -12,7 +12,7 @@ This is the same idea as [test-driven development](https://martinfowler.com/blik
 
 | Suite | Path | What it enforces |
 |-------|------|------------------|
-| Award-100 lab | [`oracles/award-100.test.mjs`](../oracles/award-100.test.mjs) | Full catalog, team ranges, resume content, motion safety, Hybrid learning ladder, champion sync, **100** uniquely built designs |
+| Award-100 lab | [`oracles/award-100.test.mjs`](../oracles/award-100.test.mjs) | Full catalog, team ranges, resume content, motion safety, Hybrid learning ladder, champion sync, **100** uniquely built designs, hire surface + printable resume on every cell |
 
 ```bash
 npm test          # must pass before merge

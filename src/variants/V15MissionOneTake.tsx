@@ -6,7 +6,7 @@ import { cv } from "@/data/cv";
 
 /** Mission One-Take — handcrafted award cell */
 export function Variant() {
-  const _reduce = useReducedMotion() ?? false;
+  const reduce = useReducedMotion() ?? false;
   return (
     <main className="min-h-screen bg-[#05080f] text-slate-50">
       <section className="mx-auto flex min-h-screen max-w-4xl flex-col justify-center px-6 pt-24">

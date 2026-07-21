@@ -1,18 +1,24 @@
 import Link from "next/link";
 import { cv } from "@/data/cv";
 
+const contactLink =
+  "rounded-sm underline-offset-4 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500";
+
 export function ContactRow({ className = "" }: { className?: string }) {
   return (
     <div className={`flex flex-wrap gap-x-4 gap-y-2 text-sm ${className}`}>
-      <a className="underline-offset-4 hover:underline" href={`mailto:${cv.email}`}>
+      <a className={contactLink} href={`mailto:${cv.email}`}>
         {cv.email}
       </a>
-      <a className="underline-offset-4 hover:underline" href={cv.linkedin} target="_blank" rel="noreferrer">
+      <a className={contactLink} href={cv.linkedin} target="_blank" rel="noreferrer">
         LinkedIn
       </a>
-      <a className="underline-offset-4 hover:underline" href={cv.github} target="_blank" rel="noreferrer">
+      <a className={contactLink} href={cv.github} target="_blank" rel="noreferrer">
         GitHub
       </a>
+      <Link className={contactLink} href="/resume">
+        Printable resume
+      </Link>
       <span>{cv.phone}</span>
       <span>{cv.location}</span>
     </div>
