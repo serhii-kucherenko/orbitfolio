@@ -87,9 +87,15 @@ export function Variant() {
         >
           <a
             href={`mailto:${cv.email}`}
-            className="rounded-full bg-sky-300 px-6 py-2.5 text-sm font-bold text-[#030712] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300"
+            className="bg-sky-300 px-6 py-2.5 text-sm font-bold text-[#030712] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300"
           >
             Assemble a hire
+          </a>
+          <a
+            href="/resume"
+            className="border border-sky-300/50 px-5 py-2.5 text-sm text-sky-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300"
+          >
+            Particle sheet / resume
           </a>
           <ContactRow className="justify-center text-white/55" />
         </motion.div>
