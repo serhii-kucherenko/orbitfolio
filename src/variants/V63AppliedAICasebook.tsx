@@ -35,7 +35,7 @@ export function Variant() {
     <main className="min-h-screen bg-[#faf8f3] text-[#1a1814]">
       <header className="mx-auto max-w-5xl px-6 pb-10 pt-28">
         <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.35em] text-[#8b6914]">
-          Casebook · applied AI
+          Casebook · applied AI · {cv.location}
         </p>
         <h1 className="mt-4 font-[family-name:var(--font-serif)] text-5xl leading-none sm:text-6xl">{cv.name}</h1>
         <p className="mt-4 text-lg text-[#1a1814]/65">{cv.title}</p>

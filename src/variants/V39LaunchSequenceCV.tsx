@@ -19,7 +19,7 @@ export function Variant() {
         <div className="mx-auto flex max-w-6xl flex-wrap items-end justify-between gap-8">
           <div>
             <p className="font-[family-name:var(--font-mono)] text-xs uppercase tracking-[0.5em] text-orange-400">
-              Launch sequence · {label}
+              Launch sequence · {cv.location} · {label}
             </p>
             <h1 className="mt-4 font-[family-name:var(--font-display)] text-5xl font-black uppercase leading-none sm:text-7xl">
               {cv.name}

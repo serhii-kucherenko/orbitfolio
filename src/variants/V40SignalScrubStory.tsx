@@ -14,7 +14,9 @@ export function Variant() {
   return (
     <main className="min-h-screen bg-[#050806] font-[family-name:var(--font-mono)] text-[#9dffb0]">
       <header className="mx-auto max-w-6xl px-6 pb-10 pt-20 md:px-10">
-        <p className="text-[10px] uppercase tracking-[0.4em] text-[#9dffb0]/55">Edit bay · scrub story</p>
+        <p className="text-[10px] uppercase tracking-[0.4em] text-[#9dffb0]/55">
+          Edit bay · scrub story · {cv.location}
+        </p>
         <h1 className="mt-4 font-[family-name:var(--font-display)] text-5xl font-black text-white sm:text-7xl">
           {cv.name}
         </h1>

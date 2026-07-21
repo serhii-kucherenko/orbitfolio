@@ -44,7 +44,7 @@ export function Variant() {
           animate={{ opacity: 1 }}
           className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.5em] text-[#5eead4]/70"
         >
-          Atmosphere pass · density live
+          Atmosphere pass · {cv.location}
         </motion.p>
         <motion.h1
           initial={reduce ? false : { opacity: 0, filter: "blur(12px)" }}
