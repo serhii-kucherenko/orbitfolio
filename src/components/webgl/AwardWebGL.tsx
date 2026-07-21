@@ -24,7 +24,7 @@ function useIsClient() {
 }
 
 /** Client-only WebGL mount with reduced-motion CSS fallback — never traps scroll. */
-export function WebGLStage({ className, label, reduce, fallback, children }: StageProps) {
+export function WebGLStage({ accent, className, label, reduce, fallback, children }: StageProps) {
   const mounted = useIsClient();
 
   if (reduce || !mounted) {
