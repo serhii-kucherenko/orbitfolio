@@ -1,40 +1,92 @@
 "use client";
 
-import { useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
 import { cv } from "@/data/cv";
 
-/** Telemetry Tape — deepened award cell */
+/** Telemetry Tape — aviation FDR ticker: amber glyphs on olive CRT streaming career frames */
 export function Variant() {
-  const _reduce = useReducedMotion() ?? false;
+  const reduce = useReducedMotion() ?? false;
+  const ticker = cv.highlights.map((h) => `${h.label.toUpperCase()}:${h.value}`).join("   ···   ");
+  const tape = `${ticker}   ···   ${ticker}   ···   `;
+
   return (
-    <main className="min-h-screen font-[family-name:var(--font-mono)]" style={{ background: "#fef3c7", color: "#78350f" }}>
-      <div className="mx-auto max-w-5xl px-6 py-24">
-        <pre className="text-xs opacity-50">{"// Telemetry Tape\nconst engineer = await resolveProfile();"}</pre>
-        <h1 className="mt-6 text-4xl font-bold sm:text-6xl">{cv.name}</h1>
-        <p className="mt-3 opacity-75">{cv.title}</p>
-        <p className="mt-6 max-w-2xl text-sm leading-7 opacity-65">{cv.summary}</p>
-        <div className="mt-8 flex flex-wrap gap-3">
-          <a href={`mailto:${cv.email}`} className="rounded border px-4 py-2 text-xs uppercase" style={{ borderColor: "#b45309", color: "#b45309" }}>run hire()</a>
-          <ContactRow />
+    <main className="min-h-screen bg-[#0f140e] font-[family-name:var(--font-mono)] text-[#f4e8a8]">
+      <div className="border-b border-[#6b8f3c]/40 bg-[#121a10]">
+        <motion.p
+          className="whitespace-nowrap py-2 text-xs tracking-widest text-[#c8e06a]"
+          animate={reduce ? undefined : { x: ["0%", "-50%"] }}
+          transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+        >
+          {tape}
+          {tape}
+        </motion.p>
+      </div>
+
+      <header className="mx-auto max-w-6xl px-6 py-20 md:px-10">
+        <p className="text-[10px] uppercase tracking-[0.45em] text-[#9bbf5a]/70">
+          FDR · telemetry tape online
+        </p>
+        <h1 className="mt-4 font-[family-name:var(--font-display)] text-5xl font-black text-[#f4e8a8] sm:text-7xl">
+          {cv.name}
+        </h1>
+        <p className="mt-3 text-[#c8e06a]">{cv.title}</p>
+        <p className="mt-6 max-w-3xl font-[family-name:var(--font-sans)] text-sm leading-8 text-[#d5e8b8]/70">
+          {cv.summary}
+        </p>
+        <div className="mt-8 flex flex-wrap items-center gap-4">
+          <a
+            href={`mailto:${cv.email}`}
+            className="border border-[#c8e06a] bg-[#c8e06a] px-5 py-2.5 text-xs font-bold uppercase tracking-widest text-[#0f140e] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c8e06a]"
+          >
+            Ground-to-hire
+          </a>
+          <ContactRow className="text-[#c8e06a]/75" />
         </div>
-        <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-4">
-          {cv.highlights.map((h) => (
-            <div key={h.label} className="border border-dashed p-3" style={{ borderColor: "#b4530955" }}>
-              <p className="text-xl font-bold">{h.value}</p>
-              <p className="text-[10px] uppercase opacity-50">{h.label}</p>
-            </div>
+      </header>
+
+      <section className="mx-auto max-w-6xl px-6 md:px-10">
+        <div className="grid gap-2 sm:grid-cols-4">
+          {cv.highlights.map((h, i) => (
+            <motion.div
+              key={h.label}
+              className="border border-[#6b8f3c]/35 bg-[#151c12] p-4"
+              initial={reduce ? false : { opacity: 0.3 }}
+              whileInView={reduce ? undefined : { opacity: [0.4, 1, 0.85] }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1, duration: 0.8 }}
+            >
+              <p className="text-[10px] text-[#9bbf5a]/60">FRAME {String(i + 1).padStart(3, "0")}</p>
+              <p className="mt-2 text-3xl font-bold text-[#f4e8a8]">{h.value}</p>
+              <p className="mt-1 text-[10px] uppercase tracking-wider text-[#9bbf5a]/70">{h.label}</p>
+            </motion.div>
           ))}
         </div>
-        <section className="mt-16 border-t border-dashed pt-10" style={{ borderColor: "#b4530944" }}>
-          <h2 className="mb-8 text-2xl">experience.log</h2>
-          <ExperienceList tone="light" />
-        </section>
-        <section className="mt-16 grid gap-12 border-t border-dashed pt-10 md:grid-cols-2" style={{ borderColor: "#b4530944" }}>
-          <div><h2 className="mb-6 text-xl">skills.json</h2><SkillsCloud tone="light" /></div>
-          <div><h2 className="mb-6 text-xl">projects.md</h2><ProjectLinks tone="light" /><p className="mt-8 text-xs opacity-55">{cv.education.degree} · {cv.education.school} · {cv.location}</p></div>
-        </section>
-      </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-6 py-20 font-[family-name:var(--font-sans)] md:px-10">
+        <h2 className="mb-10 font-[family-name:var(--font-mono)] text-sm uppercase tracking-[0.35em] text-[#c8e06a]">
+          Black-box transcript
+        </h2>
+        <ExperienceList tone="dark" />
+        <div className="mt-20 grid gap-14 md:grid-cols-2">
+          <div>
+            <h2 className="mb-6 font-[family-name:var(--font-mono)] text-sm uppercase tracking-[0.35em] text-[#c8e06a]">
+              Sensor suite
+            </h2>
+            <SkillsCloud />
+          </div>
+          <div>
+            <h2 className="mb-6 font-[family-name:var(--font-mono)] text-sm uppercase tracking-[0.35em] text-[#c8e06a]">
+              External beacons
+            </h2>
+            <ProjectLinks />
+            <p className="mt-10 text-sm text-white/45">
+              {cv.education.degree} · {cv.education.school}
+            </p>
+          </div>
+        </div>
+      </section>
     </main>
   );
 }

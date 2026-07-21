@@ -1,42 +1,75 @@
 "use client";
 
-import { useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
 import { cv } from "@/data/cv";
 
-/** Weighted Editorial — deepened award cell */
+/** Weighted Editorial — asymmetric magazine spread: colossal name mass on the left, featherweight copy and proof on the right. */
 export function Variant() {
-  const _reduce = useReducedMotion() ?? false;
+  const reduce = useReducedMotion() ?? false;
+
   return (
-    <main className="min-h-screen" style={{ background: "#1c1917", color: "#fafaf9" }}>
-      <header className="border-b px-6 py-20 md:px-12" style={{ borderColor: "#fb923c44" }}>
-        <div className="mx-auto max-w-6xl">
-          <p className="font-[family-name:var(--font-mono)] text-xs uppercase tracking-[0.35em] opacity-55">Weighted Editorial issue</p>
-          <h1 className="mt-6 font-[family-name:var(--font-display)] text-6xl font-black leading-[0.9] sm:text-8xl">{cv.name}</h1>
-          <div className="mt-8 grid gap-8 md:grid-cols-[1.4fr_1fr]">
-            <p className="text-sm leading-8 opacity-75">{cv.summary}</p>
-            <div>
-              <p className="text-lg font-semibold" style={{ color: "#fb923c" }}>{cv.title}</p>
-              <a href={`mailto:${cv.email}`} className="mt-4 inline-block text-sm underline">Write the editor</a>
-              <ContactRow className="mt-4 text-white/70" />
-            </div>
+    <main className="min-h-screen bg-[#14110f] text-[#f5f0ea]">
+      <header className="grid min-h-screen md:grid-cols-[1.35fr_0.65fr]">
+        <div className="relative flex flex-col justify-between border-b border-[#f97316]/30 p-8 md:border-b-0 md:border-r md:p-14">
+          <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.4em] text-[#f97316]/80">
+            Vol. 16 · weighted
+          </p>
+          <motion.h1
+            initial={reduce ? false : { x: -40, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.8 }}
+            className="my-10 font-[family-name:var(--font-display)] text-[14vw] font-black leading-[0.78] tracking-[-0.06em] md:text-[9vw]"
+          >
+            {cv.name.split(" ").map((w) => (
+              <span key={w} className="block">
+                {w}
+              </span>
+            ))}
+          </motion.h1>
+          <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
+            {cv.highlights.map((h) => (
+              <div key={h.label}>
+                <p className="text-2xl font-black text-[#f97316]">{h.value}</p>
+                <p className="text-[10px] uppercase tracking-wider opacity-45">{h.label}</p>
+              </div>
+            ))}
           </div>
         </div>
-      </header>
-      <section className="mx-auto grid max-w-6xl grid-cols-2 gap-4 px-6 py-12 md:grid-cols-4 md:px-12">
-        {cv.highlights.map((h) => (
-          <div key={h.label} className="border-t-4 pt-4" style={{ borderColor: "#fb923c" }}>
-            <p className="text-3xl font-black">{h.value}</p>
-            <p className="mt-1 text-xs uppercase tracking-wider opacity-55">{h.label}</p>
+
+        <aside className="flex flex-col justify-between bg-[#1c1814] p-8 md:p-10">
+          <div>
+            <p className="text-sm font-semibold text-[#f97316]">{cv.title}</p>
+            <p className="mt-6 text-sm leading-8 text-white/65">{cv.summary}</p>
           </div>
-        ))}
-      </section>
-      <section className="mx-auto max-w-6xl px-6 pb-24 md:px-12">
-        <h2 className="mb-10 text-4xl font-black">Feature</h2>
+          <div className="mt-12 space-y-4">
+            <a
+              href={`mailto:${cv.email}`}
+              className="inline-block border-b-2 border-[#f97316] pb-1 text-sm font-semibold text-[#f97316] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#f97316]"
+            >
+              Pitch the editor →
+            </a>
+            <ContactRow className="text-white/55" />
+          </div>
+        </aside>
+      </header>
+
+      <section className="mx-auto max-w-5xl px-8 py-24 md:px-14">
+        <h2 className="mb-12 font-[family-name:var(--font-serif)] text-5xl italic">The body copy</h2>
         <ExperienceList tone="dark" />
-        <div className="mt-20 grid gap-12 md:grid-cols-2">
-          <div><h2 className="mb-6 text-2xl font-bold">Index</h2><SkillsCloud /></div>
-          <div><h2 className="mb-6 text-2xl font-bold">Links</h2><ProjectLinks /><p className="mt-10 text-sm opacity-55">{cv.education.degree} · {cv.education.school}</p></div>
+      </section>
+
+      <section className="grid gap-16 border-t border-[#f97316]/25 px-8 py-20 md:grid-cols-2 md:px-14">
+        <div>
+          <h2 className="mb-8 text-xs font-bold uppercase tracking-[0.35em] text-[#f97316]">Index</h2>
+          <SkillsCloud />
+        </div>
+        <div>
+          <h2 className="mb-8 text-xs font-bold uppercase tracking-[0.35em] text-[#f97316]">Pull quotes</h2>
+          <ProjectLinks />
+          <p className="mt-12 font-[family-name:var(--font-serif)] text-sm italic opacity-50">
+            {cv.education.degree} · {cv.education.school}
+          </p>
         </div>
       </section>
     </main>

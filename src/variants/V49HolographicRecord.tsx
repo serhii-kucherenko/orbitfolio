@@ -1,40 +1,98 @@
 "use client";
 
-import { useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
 import { cv } from "@/data/cv";
 
-/** Holographic Record — deepened award cell */
+/** Holographic Record — vinyl hologram disc with iridescent grooves encoding career sides A/B */
 export function Variant() {
-  const _reduce = useReducedMotion() ?? false;
+  const reduce = useReducedMotion() ?? false;
+
   return (
-    <main className="min-h-screen font-[family-name:var(--font-mono)]" style={{ background: "#ecfeff", color: "#164e63" }}>
-      <div className="mx-auto max-w-5xl px-6 py-24">
-        <pre className="text-xs opacity-50">{"// Holographic Record\nconst engineer = await resolveProfile();"}</pre>
-        <h1 className="mt-6 text-4xl font-bold sm:text-6xl">{cv.name}</h1>
-        <p className="mt-3 opacity-75">{cv.title}</p>
-        <p className="mt-6 max-w-2xl text-sm leading-7 opacity-65">{cv.summary}</p>
-        <div className="mt-8 flex flex-wrap gap-3">
-          <a href={`mailto:${cv.email}`} className="rounded border px-4 py-2 text-xs uppercase" style={{ borderColor: "#0891b2", color: "#0891b2" }}>run hire()</a>
-          <ContactRow />
+    <main className="min-h-screen bg-[#09090c] text-white">
+      <header className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-20 lg:grid-cols-[1fr_340px] lg:px-12">
+        <div>
+          <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.4em] text-fuchsia-300/70">
+            Holodisc · sides A / B
+          </p>
+          <h1 className="mt-4 bg-gradient-to-r from-cyan-300 via-fuchsia-300 to-amber-200 bg-clip-text font-[family-name:var(--font-display)] text-5xl font-black text-transparent sm:text-7xl">
+            {cv.name}
+          </h1>
+          <p className="mt-4 text-lg text-cyan-200/90">{cv.title}</p>
+          <p className="mt-6 max-w-xl text-sm leading-8 text-white/60">{cv.summary}</p>
+          <div className="mt-8 flex flex-wrap items-center gap-4">
+            <a
+              href={`mailto:${cv.email}`}
+              className="bg-gradient-to-r from-cyan-400 to-fuchsia-400 px-6 py-3 text-xs font-black uppercase tracking-widest text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-fuchsia-300"
+            >
+              Press the hire
+            </a>
+            <ContactRow className="text-white/55" />
+          </div>
         </div>
-        <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-4">
+
+        <motion.div
+          className="relative mx-auto aspect-square w-full max-w-[320px] rounded-full"
+          style={{
+            background:
+              "conic-gradient(from 0deg, #22d3ee, #e879f9, #fbbf24, #22d3ee, #a78bfa, #22d3ee)",
+            padding: 6,
+          }}
+          animate={reduce ? undefined : { rotate: 360 }}
+          transition={{ duration: 24, repeat: Infinity, ease: "linear" }}
+          aria-hidden
+        >
+          <div className="flex h-full w-full items-center justify-center rounded-full bg-[#09090c]">
+            <div
+              className="flex h-[70%] w-[70%] items-center justify-center rounded-full"
+              style={{
+                background:
+                  "repeating-radial-gradient(circle, transparent 0 6px, rgba(255,255,255,0.06) 6px 7px)",
+              }}
+            >
+              <div className="flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-cyan-300 to-fuchsia-400 text-[10px] font-bold text-black">
+                A/B
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      </header>
+
+      <section className="border-y border-white/10 bg-gradient-to-r from-cyan-500/10 via-fuchsia-500/10 to-amber-500/10 px-6 py-12 lg:px-12">
+        <div className="mx-auto grid max-w-6xl gap-4 sm:grid-cols-4">
           {cv.highlights.map((h) => (
-            <div key={h.label} className="border border-dashed p-3" style={{ borderColor: "#0891b255" }}>
-              <p className="text-xl font-bold">{h.value}</p>
-              <p className="text-[10px] uppercase opacity-50">{h.label}</p>
+            <div key={h.label} className="border border-white/15 bg-black/40 p-5 backdrop-blur">
+              <p className="bg-gradient-to-r from-cyan-200 to-fuchsia-200 bg-clip-text text-3xl font-black text-transparent">
+                {h.value}
+              </p>
+              <p className="mt-1 text-[10px] uppercase tracking-wider text-white/45">{h.label}</p>
             </div>
           ))}
         </div>
-        <section className="mt-16 border-t border-dashed pt-10" style={{ borderColor: "#0891b244" }}>
-          <h2 className="mb-8 text-2xl">experience.log</h2>
-          <ExperienceList tone="light" />
-        </section>
-        <section className="mt-16 grid gap-12 border-t border-dashed pt-10 md:grid-cols-2" style={{ borderColor: "#0891b244" }}>
-          <div><h2 className="mb-6 text-xl">skills.json</h2><SkillsCloud tone="light" /></div>
-          <div><h2 className="mb-6 text-xl">projects.md</h2><ProjectLinks tone="light" /><p className="mt-8 text-xs opacity-55">{cv.education.degree} · {cv.education.school} · {cv.location}</p></div>
-        </section>
-      </div>
+      </section>
+
+      <section className="mx-auto max-w-5xl px-6 py-20 lg:px-12">
+        <h2 className="mb-2 text-sm font-semibold uppercase tracking-[0.3em] text-cyan-300">Side A</h2>
+        <h3 className="mb-10 font-[family-name:var(--font-display)] text-3xl font-bold">Groove history</h3>
+        <ExperienceList tone="dark" />
+        <div className="mt-20 grid gap-14 md:grid-cols-2">
+          <div>
+            <h2 className="mb-6 text-sm font-semibold uppercase tracking-[0.3em] text-fuchsia-300">
+              Side B · frequencies
+            </h2>
+            <SkillsCloud />
+          </div>
+          <div>
+            <h2 className="mb-6 text-sm font-semibold uppercase tracking-[0.3em] text-amber-200">
+              Bonus tracks
+            </h2>
+            <ProjectLinks />
+            <p className="mt-10 text-sm text-white/45">
+              {cv.education.degree} · {cv.education.school}
+            </p>
+          </div>
+        </div>
+      </section>
     </main>
   );
 }

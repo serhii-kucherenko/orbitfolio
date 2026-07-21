@@ -1,45 +1,104 @@
 "use client";
 
-import { useReducedMotion } from "framer-motion";
+import { useState } from "react";
+import { motion, useReducedMotion } from "framer-motion";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
 import { cv } from "@/data/cv";
 
-/** Telescope Focus Index — deepened award cell */
+/** Telescope Focus Index — observatory eyepiece: dial focus to sharpen sections of the career sky */
 export function Variant() {
-  const _reduce = useReducedMotion() ?? false;
+  const reduce = useReducedMotion() ?? false;
+  const [focus, setFocus] = useState(2);
+  const blurFor = (index: number) => {
+    if (reduce) return 0;
+    return Math.min(6, Math.abs(index - focus) * 2.5);
+  };
+
   return (
-    <main className="min-h-screen md:grid md:grid-cols-[280px_1fr]" style={{ background: "#faf7f2", color: "#1c1917" }}>
-      <aside className="border-r p-8 md:sticky md:top-0 md:h-screen" style={{ borderColor: "#0f766e33", background: "#ffffff80" }}>
-        <p className="text-[10px] uppercase tracking-[0.3em] opacity-60">Telescope Focus Index</p>
-        <h1 className="mt-6 font-[family-name:var(--font-display)] text-3xl font-bold">{cv.name}</h1>
-        <p className="mt-2 text-sm opacity-70">{cv.title}</p>
-        <a href={`mailto:${cv.email}`} className="mt-8 inline-block rounded-full px-4 py-2 text-xs font-bold" style={{ background: "#0f766e", color: "#fff"}}>Email</a>
-        <ContactRow className="mt-6" />
-        <p className="mt-10 text-xs opacity-50">{cv.location}</p>
-      </aside>
-      <div className="px-6 py-16 md:px-12">
-        <p className="max-w-2xl text-sm leading-7 opacity-70">{cv.summary}</p>
-        <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-4">
-          {cv.highlights.map((h) => (
-            <div key={h.label} className="rounded-xl border p-4" style={{ borderColor: "#0f766e44" }}>
-              <p className="text-2xl font-bold">{h.value}</p>
-              <p className="text-[10px] uppercase opacity-50">{h.label}</p>
-            </div>
-          ))}
-        </div>
-        <section className="mt-16"><h2 className="mb-8 text-3xl font-bold">Career</h2><ExperienceList tone="light" /></section>
-        <section className="mt-16 grid gap-12 md:grid-cols-2">
-          <div><h2 className="mb-6 text-2xl font-bold">Toolkit</h2><SkillsCloud tone="light" /></div>
-          <div><h2 className="mb-6 text-2xl font-bold">Shipped</h2><ProjectLinks tone="light" /><p className="mt-8 text-sm opacity-55">{cv.education.degree} · {cv.education.school}</p></div>
-        </section>
-      </div>
-    
-      <footer className="mx-auto max-w-6xl px-6 pb-16 text-sm opacity-55">
-        {/* Education footer */}
-        <p>
-          {cv.education.degree} · {cv.education.school} · {cv.location}
+    <main className="min-h-screen bg-[#04060f] text-[#dce6ff]">
+      <div
+        className="pointer-events-none absolute inset-0 opacity-40"
+        style={{
+          backgroundImage:
+            "radial-gradient(1px 1px at 20% 30%, #fff, transparent), radial-gradient(1px 1px at 70% 18%, #fff, transparent), radial-gradient(1.5px 1.5px at 40% 70%, #c7d2fe, transparent), radial-gradient(1px 1px at 85% 60%, #fff, transparent)",
+          backgroundSize: "100% 100%",
+        }}
+        aria-hidden
+      />
+
+      <header className="relative mx-auto max-w-5xl px-6 pb-10 pt-24 md:px-10">
+        <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.45em] text-indigo-300/70">
+          Observatory · focus index
         </p>
-      </footer>
+        <h1 className="mt-4 font-[family-name:var(--font-serif)] text-5xl leading-tight sm:text-7xl">{cv.name}</h1>
+        <p className="mt-3 text-indigo-200">{cv.title}</p>
+        <p className="mt-6 max-w-2xl text-sm leading-8 text-white/60">{cv.summary}</p>
+        <div className="mt-8 flex flex-wrap items-center gap-4">
+          <a
+            href={`mailto:${cv.email}`}
+            className="rounded-full border border-indigo-300/50 bg-indigo-300/10 px-6 py-2.5 text-xs font-bold uppercase tracking-widest text-indigo-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-300"
+          >
+            Request observation time
+          </a>
+          <ContactRow className="text-indigo-100/60" />
+        </div>
+
+        <label className="mt-12 block max-w-md">
+          <span className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-wider text-indigo-300/60">
+            Focus ring · {["metrics", "career", "skills", "lab"][focus]}
+          </span>
+          <input
+            type="range"
+            min={0}
+            max={3}
+            step={1}
+            value={focus}
+            onChange={(e) => setFocus(Number(e.target.value))}
+            className="mt-3 w-full accent-indigo-300"
+          />
+        </label>
+      </header>
+
+      <section className="relative mx-auto max-w-5xl space-y-10 px-6 pb-24 md:px-10">
+        <motion.div style={{ filter: `blur(${blurFor(0)}px)` }} className="transition-[filter]">
+          <h2 className="mb-4 font-[family-name:var(--font-mono)] text-xs uppercase tracking-[0.35em] text-indigo-300">
+            Magnitudes
+          </h2>
+          <div className="grid gap-3 sm:grid-cols-4">
+            {cv.highlights.map((h) => (
+              <div key={h.label} className="rounded-full border border-indigo-400/25 px-4 py-6 text-center">
+                <p className="text-2xl font-bold text-indigo-100">{h.value}</p>
+                <p className="mt-1 text-[10px] uppercase tracking-wider text-white/40">{h.label}</p>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+
+        <motion.div style={{ filter: `blur(${blurFor(1)}px)` }} className="transition-[filter]">
+          <h2 className="mb-6 font-[family-name:var(--font-mono)] text-xs uppercase tracking-[0.35em] text-indigo-300">
+            Catalog entries
+          </h2>
+          <ExperienceList tone="dark" />
+        </motion.div>
+
+        <div className="grid gap-10 md:grid-cols-2">
+          <motion.div style={{ filter: `blur(${blurFor(2)}px)` }} className="transition-[filter]">
+            <h2 className="mb-6 font-[family-name:var(--font-mono)] text-xs uppercase tracking-[0.35em] text-indigo-300">
+              Spectrum
+            </h2>
+            <SkillsCloud />
+          </motion.div>
+          <motion.div style={{ filter: `blur(${blurFor(3)}px)` }} className="transition-[filter]">
+            <h2 className="mb-6 font-[family-name:var(--font-mono)] text-xs uppercase tracking-[0.35em] text-indigo-300">
+              Deep field
+            </h2>
+            <ProjectLinks />
+            <p className="mt-10 text-sm text-white/45">
+              {cv.education.degree} · {cv.education.school}
+            </p>
+          </motion.div>
+        </div>
+      </section>
     </main>
   );
 }

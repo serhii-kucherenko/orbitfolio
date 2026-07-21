@@ -1,44 +1,89 @@
 "use client";
 
-import { useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
 import { cv } from "@/data/cv";
 
-/** Swiss Evidence Grid — deepened award cell */
+/** Swiss Evidence Grid — modular 12-unit grid, hairline rules, signal-red accents, zero ornament. */
 export function Variant() {
-  const _reduce = useReducedMotion() ?? false;
+  const reduce = useReducedMotion() ?? false;
+
   return (
-    <main className="min-h-screen p-3 md:p-8" style={{ background: "#ecfeff", color: "#164e63" }}>
-      <div className="mx-auto max-w-5xl rounded-[2rem] border p-6 md:p-12" style={{ borderColor: "#0891b266", background: "#ffffffcc" }}>
-        <p className="text-[10px] uppercase tracking-[0.4em] opacity-55">Swiss Evidence Grid</p>
-        <h1 className="mt-4 font-[family-name:var(--font-display)] text-4xl font-bold sm:text-6xl">{cv.name}</h1>
-        <p className="mt-3 opacity-75">{cv.title}</p>
-        <p className="mt-6 max-w-2xl text-sm leading-7 opacity-70">{cv.summary}</p>
-        <div className="mt-8 flex flex-wrap gap-3">
-          <a href={`mailto:${cv.email}`} className="rounded-full border px-5 py-2.5 text-sm font-semibold" style={{ borderColor: "#0891b2", color: "#0891b2" }}>Book a chat</a>
-          <ContactRow />
+    <main className="min-h-screen bg-[#f2f2f0] text-[#111111]">
+      <header className="mx-auto grid max-w-6xl grid-cols-12 gap-0 border-x border-black/15 px-0 pt-16">
+        <div className="col-span-12 border-b border-black/15 px-4 py-3 md:col-span-3 md:border-b-0 md:border-r">
+          <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.3em]">
+            Grid 20 / A
+          </p>
+          <p className="mt-8 text-xs leading-5 text-black/55">{cv.location}</p>
         </div>
-        <div className="mt-10 grid gap-3 sm:grid-cols-4">
-          {cv.highlights.map((h) => (
-            <div key={h.label} className="rounded-2xl border p-4" style={{ borderColor: "#0891b240" }}>
-              <p className="text-2xl font-bold">{h.value}</p>
-              <p className="text-xs opacity-55">{h.label}</p>
+        <div className="col-span-12 border-b border-black/15 px-4 py-6 md:col-span-6 md:border-b-0 md:border-r">
+          <motion.h1
+            initial={reduce ? false : { opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="font-[family-name:var(--font-sans)] text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl"
+          >
+            {cv.name}
+          </motion.h1>
+          <p className="mt-3 text-sm font-medium text-[#e11d48]">{cv.title}</p>
+        </div>
+        <div className="col-span-12 flex flex-col justify-between px-4 py-6 md:col-span-3">
+          <a
+            href={`mailto:${cv.email}`}
+            className="inline-flex w-fit items-center bg-[#e11d48] px-4 py-2 text-xs font-bold uppercase tracking-wider text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#e11d48]"
+          >
+            Hire
+          </a>
+          <ContactRow className="mt-6 text-black/55" />
+        </div>
+      </header>
+
+      <section className="mx-auto max-w-6xl border-x border-b border-black/15">
+        <p className="border-b border-black/15 px-4 py-6 text-sm leading-7 text-black/70 md:columns-2 md:gap-8">
+          {cv.summary}
+        </p>
+        <div className="grid grid-cols-2 md:grid-cols-4">
+          {cv.highlights.map((h, i) => (
+            <div
+              key={h.label}
+              className={`border-black/15 px-4 py-6 ${i % 2 === 0 ? "border-r" : ""} md:border-r md:last:border-r-0`}
+            >
+              <p className="text-3xl font-bold tracking-tight">{h.value}</p>
+              <p className="mt-1 font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-wider text-black/45">
+                {h.label}
+              </p>
             </div>
           ))}
         </div>
-        <section className="mt-16"><h2 className="mb-8 text-3xl font-bold">Evidence</h2><ExperienceList tone="light" /></section>
-        <section className="mt-16 grid gap-12 md:grid-cols-2">
-          <div><h2 className="mb-6 text-2xl font-bold">Systems</h2><SkillsCloud tone="light" /></div>
-          <div><h2 className="mb-6 text-2xl font-bold">Work</h2><ProjectLinks tone="light" /><p className="mt-8 text-sm opacity-55">{cv.education.degree} · {cv.education.school}</p></div>
-        </section>
-      </div>
-    
-      <footer className="mx-auto max-w-6xl px-6 pb-16 text-sm opacity-55">
-        {/* Education footer */}
-        <p>
-          {cv.education.degree} · {cv.education.school} · {cv.location}
-        </p>
-      </footer>
+      </section>
+
+      <section className="mx-auto max-w-6xl border-x border-b border-black/15 px-4 py-14">
+        <div className="mb-8 flex items-baseline gap-4">
+          <span className="font-[family-name:var(--font-mono)] text-xs text-[#e11d48]">02</span>
+          <h2 className="text-2xl font-bold tracking-tight">Evidence</h2>
+        </div>
+        <ExperienceList tone="light" />
+      </section>
+
+      <section className="mx-auto grid max-w-6xl border-x border-b border-black/15 md:grid-cols-2">
+        <div className="border-b border-black/15 px-4 py-12 md:border-b-0 md:border-r">
+          <div className="mb-6 flex items-baseline gap-4">
+            <span className="font-[family-name:var(--font-mono)] text-xs text-[#e11d48]">03</span>
+            <h2 className="text-xl font-bold">Modules</h2>
+          </div>
+          <SkillsCloud tone="light" />
+        </div>
+        <div className="px-4 py-12">
+          <div className="mb-6 flex items-baseline gap-4">
+            <span className="font-[family-name:var(--font-mono)] text-xs text-[#e11d48]">04</span>
+            <h2 className="text-xl font-bold">Artifacts</h2>
+          </div>
+          <ProjectLinks tone="light" />
+          <p className="mt-10 font-[family-name:var(--font-mono)] text-xs text-black/45">
+            {cv.education.degree} · {cv.education.school}
+          </p>
+        </div>
+      </section>
     </main>
   );
 }

@@ -1,38 +1,119 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { useState } from "react";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
 import { cv } from "@/data/cv";
 
-/** Launch Sequence C V — deepened award cell */
+const STEPS = ["T-3 Systems", "T-2 Crew", "T-1 Proof", "LIFTOFF"] as const;
+
+/** Launch Sequence CV — countdown console that stages identity, metrics, then career lift */
 export function Variant() {
   const reduce = useReducedMotion() ?? false;
+  const [step, setStep] = useState(0);
+  const label = STEPS[Math.min(step, STEPS.length - 1)] ?? STEPS[0];
+
   return (
-    <main className="min-h-screen" style={{ background: "#111827", color: "#f9fafb" }}>
-      <section className="mx-auto grid max-w-6xl gap-10 px-6 pb-12 pt-28 md:grid-cols-[1.2fr_0.8fr]">
-        <div>
-          <motion.p initial={reduce ? false : { opacity: 0 }} animate={{ opacity: 1 }} className="text-[10px] uppercase tracking-[0.35em] opacity-60">Launch Sequence C V</motion.p>
-          <h1 className="mt-4 font-[family-name:var(--font-display)] text-5xl font-bold sm:text-6xl">{cv.name}</h1>
-          <p className="mt-3 text-lg opacity-80">{cv.title}</p>
-          <p className="mt-6 max-w-xl text-sm leading-7 opacity-70">{cv.summary}</p>
-          <a href={`mailto:${cv.email}`} className="mt-8 inline-flex rounded-full px-5 py-2.5 text-sm font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2" style={{ background: "#fbbf24", color: "#041016"}}>Hire conversation</a>
-          <ContactRow className="mt-6 text-white/70" />
+    <main className="min-h-screen bg-[#120a06] text-[#ffe8d6]">
+      <header className="border-b border-orange-500/30 bg-gradient-to-b from-[#2a1408] to-[#120a06] px-6 py-16 md:px-12">
+        <div className="mx-auto flex max-w-6xl flex-wrap items-end justify-between gap-8">
+          <div>
+            <p className="font-[family-name:var(--font-mono)] text-xs uppercase tracking-[0.5em] text-orange-400">
+              Launch sequence · {label}
+            </p>
+            <h1 className="mt-4 font-[family-name:var(--font-display)] text-5xl font-black uppercase leading-none sm:text-7xl">
+              {cv.name}
+            </h1>
+            <p className="mt-4 text-orange-200">{cv.title}</p>
+          </div>
+          <div className="flex gap-2">
+            {STEPS.map((s, i) => (
+              <button
+                key={s}
+                type="button"
+                onClick={() => setStep(i)}
+                className={`h-12 w-12 rounded-full border text-xs font-bold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-300 ${
+                  step >= i
+                    ? "border-orange-400 bg-orange-500 text-black"
+                    : "border-orange-500/30 text-orange-200/50"
+                }`}
+                aria-pressed={step === i}
+              >
+                {i === STEPS.length - 1 ? "GO" : `T-${STEPS.length - 1 - i}`}
+              </button>
+            ))}
+          </div>
         </div>
-        <div className="grid grid-cols-2 gap-3 content-start">
-          {cv.highlights.map((h) => (
-            <div key={h.label} className="rounded-2xl border p-4" style={{ borderColor: "#fbbf2455" }}>
-              <p className="text-3xl font-bold" style={{ color: "#fbbf24" }}>{h.value}</p>
-              <p className="mt-1 text-xs opacity-60">{h.label}</p>
-            </div>
-          ))}
+        <p className="mx-auto mt-8 max-w-6xl text-sm leading-8 text-white/65">{cv.summary}</p>
+        <div className="mx-auto mt-8 flex max-w-6xl flex-wrap items-center gap-4">
+          <a
+            href={`mailto:${cv.email}`}
+            className="bg-orange-500 px-6 py-3 text-xs font-black uppercase tracking-widest text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-300"
+          >
+            Request clearance
+          </a>
+          <ContactRow className="text-orange-100/70" />
         </div>
-      </section>
-      <section className="mx-auto max-w-6xl space-y-16 px-6 pb-28">
-        <div><h2 className="mb-8 text-3xl font-bold">Experience</h2><ExperienceList tone="dark" /></div>
-        <div className="grid gap-12 md:grid-cols-2">
-          <div><h2 className="mb-6 text-2xl font-bold">Skills</h2><SkillsCloud /></div>
-          <div><h2 className="mb-6 text-2xl font-bold">Projects</h2><ProjectLinks /><p className="mt-10 text-sm opacity-55">{cv.education.degree} · {cv.education.school}</p></div>
-        </div>
+      </header>
+
+      <section className="mx-auto max-w-6xl px-6 py-14 md:px-12">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={step}
+            initial={reduce ? false : { opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={reduce ? undefined : { opacity: 0, y: -12 }}
+            transition={{ duration: 0.35 }}
+          >
+            {step === 0 && (
+              <div className="grid gap-4 sm:grid-cols-4">
+                {cv.highlights.map((h) => (
+                  <div key={h.label} className="border border-orange-500/30 bg-orange-500/5 p-5">
+                    <p className="text-3xl font-black text-orange-300">{h.value}</p>
+                    <p className="mt-1 text-[10px] uppercase tracking-wider text-white/45">{h.label}</p>
+                  </div>
+                ))}
+              </div>
+            )}
+            {step === 1 && <ExperienceList tone="dark" />}
+            {step === 2 && (
+              <div className="grid gap-12 md:grid-cols-2">
+                <SkillsCloud />
+                <ProjectLinks />
+              </div>
+            )}
+            {step >= 3 && (
+              <div className="space-y-12">
+                <div className="grid gap-4 sm:grid-cols-4">
+                  {cv.highlights.map((h) => (
+                    <div key={h.label} className="border border-orange-400 bg-orange-500/10 p-5">
+                      <p className="text-3xl font-black text-orange-200">{h.value}</p>
+                      <p className="mt-1 text-[10px] uppercase tracking-wider text-white/45">{h.label}</p>
+                    </div>
+                  ))}
+                </div>
+                <ExperienceList tone="dark" />
+                <div className="grid gap-12 md:grid-cols-2">
+                  <SkillsCloud />
+                  <div>
+                    <ProjectLinks />
+                    <p className="mt-10 text-sm text-white/45">
+                      {cv.education.degree} · {cv.education.school}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            )}
+          </motion.div>
+        </AnimatePresence>
+        {step < 3 && (
+          <p className="mt-10 font-[family-name:var(--font-mono)] text-xs text-orange-300/60">
+            Advance the sequence (GO) for the full flight package
+          </p>
+        )}
+        <p className="mt-12 border-t border-orange-500/20 pt-6 text-sm text-white/45">
+          {cv.education.degree} · {cv.education.school}
+        </p>
       </section>
     </main>
   );

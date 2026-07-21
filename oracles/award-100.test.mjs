@@ -270,6 +270,29 @@ test("Fail-then-pass: deepened unique UIs keep rising past the 100-handcraft flo
   );
 });
 
+test("Fail-then-pass: no generic mass-deepen template leftovers", () => {
+  const files = listVariantFiles();
+  const generic = files.filter((file) => {
+    const src = fs.readFileSync(path.join(variantsDir, file), "utf8");
+    return /deepened award cell/i.test(src);
+  });
+  assert.equal(
+    generic.length,
+    0,
+    `RED: generic template cells remain: ${generic.slice(0, 12).join(", ")}${generic.length > 12 ? "…" : ""}`,
+  );
+});
+
+test("Fail-then-pass: UI smoke e2e is wired into scripts and CI", () => {
+  const pkg = JSON.parse(read("package.json"));
+  assert.equal(pkg.scripts["test:e2e"], "playwright test");
+  assert.match(pkg.scripts["test:ui"] ?? "", /test:e2e/);
+  const ci = read(".github/workflows/ci.yml");
+  assert.match(ci, /test:e2e|playwright test/);
+  assert.ok(fs.existsSync(path.join(root, "e2e", "smoke.spec.ts")));
+  assert.ok(fs.existsSync(path.join(root, "playwright.config.ts")));
+});
+
 test("Fail-then-pass: package scripts and GitHub checks run oracles", () => {
   const pkg = JSON.parse(read("package.json"));
   assert.equal(pkg.scripts.test, "node --test oracles/**/*.test.mjs");

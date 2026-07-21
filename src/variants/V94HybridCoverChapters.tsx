@@ -4,34 +4,99 @@ import { motion, useReducedMotion } from "framer-motion";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
 import { cv } from "@/data/cv";
 
-/** Hybrid Cover Chapters — deepened award cell */
+const CHAPTERS = [
+  { id: "01", title: "Cover", href: "#cover" },
+  { id: "02", title: "Metrics", href: "#metrics" },
+  { id: "03", title: "Roles", href: "#roles" },
+  { id: "04", title: "Craft", href: "#craft" },
+];
+
+/** Hybrid Cover Chapters — book jacket opening into numbered chapter spreads */
 export function Variant() {
   const reduce = useReducedMotion() ?? false;
+
   return (
-    <main className="min-h-screen" style={{ background: "#030712", color: "#e0f2fe" }}>
-      <section className="mx-auto grid max-w-6xl gap-10 px-6 pb-12 pt-28 md:grid-cols-[1.2fr_0.8fr]">
-        <div>
-          <motion.p initial={reduce ? false : { opacity: 0 }} animate={{ opacity: 1 }} className="text-[10px] uppercase tracking-[0.35em] opacity-60">Hybrid Cover Chapters</motion.p>
-          <h1 className="mt-4 font-[family-name:var(--font-display)] text-5xl font-bold sm:text-6xl">{cv.name}</h1>
-          <p className="mt-3 text-lg opacity-80">{cv.title}</p>
-          <p className="mt-6 max-w-xl text-sm leading-7 opacity-70">{cv.summary}</p>
-          <a href={`mailto:${cv.email}`} className="mt-8 inline-flex rounded-full px-5 py-2.5 text-sm font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2" style={{ background: "#38bdf8", color: "#041016"}}>Hire conversation</a>
-          <ContactRow className="mt-6 text-white/70" />
+    <main className="min-h-screen" style={{ background: "#120e0a", color: "#f3ebe0" }}>
+      <nav className="sticky top-0 z-20 flex flex-wrap items-center gap-4 border-b px-6 py-3 backdrop-blur-md md:px-10" style={{ borderColor: "#f3ebe018", background: "#120e0acc" }}>
+        <span className="font-[family-name:var(--font-serif)] text-sm italic text-[#e8a87c]">Chapters</span>
+        {CHAPTERS.map((c) => (
+          <a
+            key={c.id}
+            href={c.href}
+            className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.2em] opacity-55 hover:opacity-100"
+          >
+            {c.id} {c.title}
+          </a>
+        ))}
+      </nav>
+
+      <section id="cover" className="mx-auto grid max-w-6xl gap-0 px-6 py-20 md:grid-cols-[1fr_280px] md:px-10">
+        <div
+          className="relative p-8 md:p-14"
+          style={{
+            background: "linear-gradient(145deg, #2a2118 0%, #1a140f 100%)",
+            boxShadow: "8px 0 0 #e8a87c, 24px 24px 60px #00000088",
+          }}
+        >
+          <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.35em] opacity-45">
+            First edition
+          </p>
+          <motion.h1
+            initial={reduce ? false : { opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="mt-6 font-[family-name:var(--font-serif)] text-5xl leading-[1.05] sm:text-6xl"
+          >
+            {cv.name}
+          </motion.h1>
+          <p className="mt-4 text-[#e8a87c]">{cv.title}</p>
+          <p className="mt-6 max-w-md text-sm leading-7 opacity-70">{cv.summary}</p>
+          <a
+            href={`mailto:${cv.email}`}
+            className="mt-8 inline-block border border-[#e8a87c] px-5 py-2.5 text-sm font-semibold text-[#e8a87c]"
+          >
+            Request a signed copy
+          </a>
+          <ContactRow className="mt-5 text-white/55" />
         </div>
-        <div className="grid grid-cols-2 gap-3 content-start">
-          {cv.highlights.map((h) => (
-            <div key={h.label} className="rounded-2xl border p-4" style={{ borderColor: "#38bdf855" }}>
-              <p className="text-3xl font-bold" style={{ color: "#38bdf8" }}>{h.value}</p>
-              <p className="mt-1 text-xs opacity-60">{h.label}</p>
+        <div className="flex flex-col justify-between border border-l-0 border-[#f3ebe015] p-6 md:p-8" style={{ background: "#1a140f" }}>
+          <p className="font-[family-name:var(--font-serif)] text-sm italic opacity-50">
+            “Applied AI, owned end-to-end.”
+          </p>
+          <p className="text-xs opacity-40">{cv.location}</p>
+        </div>
+      </section>
+
+      <section id="metrics" className="border-y px-6 py-12 md:px-10" style={{ borderColor: "#f3ebe015", background: "#1a140f" }}>
+        <div className="mx-auto grid max-w-6xl grid-cols-2 gap-8 sm:grid-cols-4">
+          {cv.highlights.map((h, i) => (
+            <div key={h.label}>
+              <p className="font-[family-name:var(--font-mono)] text-[9px] text-[#e8a87c]">
+                Ch. {String(i + 1).padStart(2, "0")}
+              </p>
+              <p className="mt-2 font-[family-name:var(--font-display)] text-3xl font-bold">{h.value}</p>
+              <p className="mt-1 text-xs opacity-45">{h.label}</p>
             </div>
           ))}
         </div>
       </section>
-      <section className="mx-auto max-w-6xl space-y-16 px-6 pb-28">
-        <div><h2 className="mb-8 text-3xl font-bold">Experience</h2><ExperienceList tone="dark" /></div>
-        <div className="grid gap-12 md:grid-cols-2">
-          <div><h2 className="mb-6 text-2xl font-bold">Skills</h2><SkillsCloud /></div>
-          <div><h2 className="mb-6 text-2xl font-bold">Projects</h2><ProjectLinks /><p className="mt-10 text-sm opacity-55">{cv.education.degree} · {cv.education.school}</p></div>
+
+      <section id="roles" className="mx-auto max-w-6xl px-6 py-20 md:px-10">
+        <h2 className="mb-2 font-[family-name:var(--font-serif)] text-3xl italic">Chapter III · Roles</h2>
+        <p className="mb-10 text-xs uppercase tracking-[0.2em] opacity-40">The long form</p>
+        <ExperienceList tone="dark" />
+      </section>
+
+      <section id="craft" className="mx-auto grid max-w-6xl gap-12 px-6 pb-28 md:grid-cols-2 md:px-10">
+        <div>
+          <h2 className="mb-6 font-[family-name:var(--font-serif)] text-2xl italic">Craft</h2>
+          <SkillsCloud />
+        </div>
+        <div>
+          <h2 className="mb-6 font-[family-name:var(--font-serif)] text-2xl italic">Appendix</h2>
+          <ProjectLinks />
+          <p className="mt-10 font-[family-name:var(--font-serif)] text-sm italic opacity-50">
+            {cv.education.degree} · {cv.education.school}
+          </p>
         </div>
       </section>
     </main>
