@@ -1,72 +1,138 @@
 "use client";
 
-import { useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
 import { cv } from "@/data/cv";
 
-/** Agent Chat Profile — conversation UI that answers with full career proof */
+const turns = [
+  {
+    role: "recruiter" as const,
+    text: "Who is the engineer behind this profile, and what should I put in the first email?",
+  },
+  {
+    role: "agent" as const,
+    text: null,
+  },
+  {
+    role: "recruiter" as const,
+    text: "What outcomes can I cite in the first ten seconds?",
+  },
+  {
+    role: "metrics" as const,
+  },
+  {
+    role: "recruiter" as const,
+    text: "Show the complete work history.",
+  },
+  {
+    role: "history" as const,
+  },
+] as const;
+
+/** Agent Chat Profile — static agent conversation answers recruiter questions, then opens the record. */
 export function Variant() {
-  const reduceMotion = useReducedMotion() ?? false;
+  const reduce = useReducedMotion() ?? false;
+  const initials = cv.name
+    .split(" ")
+    .map((p) => p[0])
+    .join("");
 
   return (
-    <main className="min-h-screen bg-[#eef3f6] p-4 text-[#17212b] md:p-10">
-      <div className="mx-auto max-w-5xl rounded-3xl bg-white shadow-xl">
-        <header className="flex items-center gap-4 border-b p-5">
-          <div className="grid size-12 place-items-center rounded-full bg-[#0b6b58] font-bold text-white">
-            SK
-          </div>
-          <div>
-            <h1 className="font-bold">{cv.name}</h1>
-            <p className="text-sm text-[#0b6b58]">
-              {reduceMotion ? "profile ready" : "agent is composing…"}
-            </p>
-          </div>
-          <a
-            href={`mailto:${cv.email}`}
-            className="ml-auto rounded-full bg-[#0b6b58] px-4 py-2 text-xs font-semibold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0b6b58]"
-          >
-            Message
-          </a>
-        </header>
-        <div className="space-y-8 p-6 md:p-10">
-          <div className="max-w-xl rounded-2xl rounded-tl-none bg-[#dfe9ed] p-5">
-            Who is the engineer behind this profile?
-          </div>
-          <div className="ml-auto max-w-3xl rounded-2xl rounded-tr-none bg-[#d8f3e9] p-6">
-            <h2 className="text-4xl font-black">{cv.title}</h2>
-            <p className="mt-4 leading-7">{cv.summary}</p>
-            <ContactRow className="mt-6" />
-          </div>
-          <div className="max-w-xl rounded-2xl rounded-tl-none bg-[#dfe9ed] p-5">
-            What outcomes can I cite in the first ten seconds?
-          </div>
-          <div className="ml-auto grid max-w-3xl grid-cols-2 gap-3">
-            {cv.highlights.map((h) => (
-              <div key={h.label} className="rounded-2xl border bg-white p-4">
-                <p className="text-2xl font-black text-[#0b6b58]">{h.value}</p>
-                <p className="text-xs text-slate-500">{h.label}</p>
+    <main className="min-h-screen bg-[#e7eef2] text-[#15202b]">
+      <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6">
+        <div className="overflow-hidden rounded-3xl border border-[#c5d3dc] bg-[#f7fafc] shadow-[0_24px_60px_rgba(21,32,43,0.12)]">
+          <header className="flex items-center gap-3 border-b border-[#c5d3dc] bg-white px-5 py-4">
+            <div className="grid size-11 place-items-center rounded-full bg-[#0f6b5c] text-sm font-bold text-white">
+              {initials}
+            </div>
+            <div className="min-w-0 flex-1">
+              <h1 className="truncate text-base font-bold">{cv.name}</h1>
+              <p className="text-xs text-[#0f6b5c]">
+                {reduce ? "profile ready · offline" : "agent composing career answers…"}
+              </p>
+            </div>
+            <a
+              href={`mailto:${cv.email}`}
+              className="rounded-full bg-[#0f6b5c] px-4 py-2 text-xs font-semibold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0f6b5c]"
+            >
+              Message
+            </a>
+          </header>
+
+          <div className="space-y-5 px-4 py-6 sm:px-6">
+            {turns.map((turn, i) => {
+              if (turn.role === "recruiter") {
+                return (
+                  <motion.div
+                    key={`q-${i}`}
+                    initial={reduce ? false : { opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="max-w-[85%] rounded-2xl rounded-tl-md bg-[#d9e4ea] px-4 py-3 text-sm leading-6"
+                  >
+                    {turn.text}
+                  </motion.div>
+                );
+              }
+              if (turn.role === "agent") {
+                return (
+                  <motion.div
+                    key="intro"
+                    initial={reduce ? false : { opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="ml-auto max-w-[92%] rounded-2xl rounded-tr-md bg-[#d5f0e6] px-5 py-5"
+                  >
+                    <p className="text-[10px] font-semibold uppercase tracking-[0.25em] text-[#0f6b5c]">
+                      Agent reply
+                    </p>
+                    <h2 className="mt-2 text-2xl font-black sm:text-3xl">{cv.title}</h2>
+                    <p className="mt-3 text-sm leading-7 text-[#15202b]/80">{cv.summary}</p>
+                    <ContactRow className="mt-5 text-[#0f6b5c]" />
+                  </motion.div>
+                );
+              }
+              if (turn.role === "metrics") {
+                return (
+                  <div key="metrics" className="ml-auto grid max-w-[92%] grid-cols-2 gap-2">
+                    {cv.highlights.map((h) => (
+                      <div key={h.label} className="rounded-2xl border border-[#c5d3dc] bg-white p-4">
+                        <p className="text-2xl font-black text-[#0f6b5c]">{h.value}</p>
+                        <p className="mt-1 text-[10px] uppercase tracking-wide text-slate-500">{h.label}</p>
+                      </div>
+                    ))}
+                  </div>
+                );
+              }
+              return (
+                <div key="history" className="ml-auto max-w-[96%] rounded-2xl rounded-tr-md border border-[#c5d3dc] bg-white p-5">
+                  <p className="mb-5 text-[10px] font-semibold uppercase tracking-[0.25em] text-[#0f6b5c]">
+                    Full record attached
+                  </p>
+                  <ExperienceList tone="light" />
+                </div>
+              );
+            })}
+
+            <div className="grid gap-4 pt-2 md:grid-cols-2">
+              <div className="rounded-2xl bg-[#15202b] p-5 text-white">
+                <p className="mb-5 text-xs text-emerald-300">Capabilities response</p>
+                <SkillsCloud />
               </div>
-            ))}
-          </div>
-          <div className="max-w-xl rounded-2xl rounded-tl-none bg-[#dfe9ed] p-5">
-            Show the complete work history.
-          </div>
-          <div className="ml-auto max-w-4xl rounded-2xl rounded-tr-none border p-6">
-            <ExperienceList tone="light" />
-          </div>
-          <div className="grid gap-8 md:grid-cols-2">
-            <div className="rounded-2xl bg-[#17212b] p-6 text-white">
-              <p className="mb-6 text-sm text-emerald-300">Capabilities response</p>
-              <SkillsCloud />
+              <div className="rounded-2xl border border-[#c5d3dc] bg-white p-5">
+                <p className="mb-5 text-xs text-[#0f6b5c]">Project response</p>
+                <ProjectLinks tone="light" />
+              </div>
             </div>
-            <div className="rounded-2xl border p-6">
-              <p className="mb-6 text-sm text-[#0b6b58]">Project response</p>
-              <ProjectLinks tone="light" />
-            </div>
+
+            <footer className="pt-2 text-center text-xs text-slate-500">
+              {cv.education.degree} · {cv.education.school} · {cv.location}
+            </footer>
           </div>
-          <footer className="text-center text-sm text-slate-500">
-            {cv.education.degree} · {cv.education.school} · {cv.location}
-          </footer>
+
+          <div className="border-t border-[#c5d3dc] bg-white px-5 py-3 font-[family-name:var(--font-mono)] text-[10px] text-slate-400">
+            composer · hire channel open · /resume linked above
+          </div>
         </div>
       </div>
     </main>

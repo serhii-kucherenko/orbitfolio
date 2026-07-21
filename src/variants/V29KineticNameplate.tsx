@@ -4,64 +4,84 @@ import { motion, useReducedMotion } from "framer-motion";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
 import { cv } from "@/data/cv";
 
-/** Kinetic Nameplate — oversized moving name settles into evidence */
+/** Kinetic Nameplate — name as a title sequence that settles into evidence. */
 export function Variant() {
-  const reduceMotion = useReducedMotion() ?? false;
+  const reduce = useReducedMotion() ?? false;
+  const parts = cv.name.split(" ");
 
   return (
-    <main className="overflow-hidden bg-[#071713] text-[#b9ffd5]">
-      <header className="relative min-h-screen p-8 md:p-16">
+    <main className="overflow-x-hidden bg-[#061410] text-[#b8ffd0]">
+      <header className="relative min-h-[92vh] px-6 pb-16 pt-28 md:px-12">
         <motion.p
-          animate={reduceMotion ? {} : { x: [0, 40, 0] }}
-          transition={{ duration: 8, repeat: Infinity }}
-          className="text-sm uppercase tracking-[0.5em]"
+          animate={reduce ? undefined : { x: [0, 48, 0] }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+          className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.55em] text-[#7dffb0]/70"
         >
           {cv.title}
         </motion.p>
-        <h1 className="mt-20 text-[17vw] font-black uppercase leading-[0.7] tracking-[-0.09em]">
-          {cv.name.split(" ").map((part) => (
+
+        <h1 className="mt-16 font-[family-name:var(--font-display)] text-[clamp(3.5rem,16vw,11rem)] font-black uppercase leading-[0.78] tracking-[-0.06em]">
+          {parts.map((part, i) => (
             <motion.span
               key={part}
-              initial={reduceMotion ? false : { x: "-20vw", opacity: 0 }}
+              initial={reduce ? false : { x: i % 2 === 0 ? "-18vw" : "18vw", opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
+              transition={{ duration: 0.85, delay: reduce ? 0 : 0.12 * i, ease: [0.16, 1, 0.3, 1] }}
               className="block"
             >
               {part}
             </motion.span>
           ))}
         </h1>
-        <p className="ml-auto mt-16 max-w-2xl text-xl leading-8">{cv.summary}</p>
-        <div className="mt-10 flex flex-wrap justify-end gap-3">
-          <a
-            href={`mailto:${cv.email}`}
-            className="rounded-full bg-[#b9ffd5] px-5 py-2.5 text-sm font-bold text-[#071713] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b9ffd5]"
-          >
-            Start a conversation
-          </a>
-          <ContactRow className="justify-end" />
-        </div>
-        <div className="mt-12 grid max-w-3xl grid-cols-2 gap-3 sm:grid-cols-4 sm:ml-auto">
-          {cv.highlights.map((h) => (
-            <div key={h.label} className="rounded-xl border border-[#b9ffd5]/25 p-3">
+
+        <motion.div
+          initial={reduce ? false : { opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: reduce ? 0 : 0.55 }}
+          className="mt-14 ml-auto max-w-xl"
+        >
+          <p className="text-base leading-8 text-[#b8ffd0]/75">{cv.summary}</p>
+          <div className="mt-8 flex flex-wrap justify-end gap-3">
+            <a
+              href={`mailto:${cv.email}`}
+              className="rounded-full bg-[#b8ffd0] px-5 py-2.5 text-sm font-bold text-[#061410] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8ffd0]"
+            >
+              Start a conversation
+            </a>
+            <ContactRow className="justify-end text-[#7dffb0]/80" />
+          </div>
+        </motion.div>
+
+        <div className="mt-14 grid max-w-3xl grid-cols-2 gap-3 sm:ml-auto sm:grid-cols-4">
+          {cv.highlights.map((h, i) => (
+            <motion.div
+              key={h.label}
+              initial={reduce ? false : { opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: reduce ? 0 : 0.7 + i * 0.06 }}
+              className="rounded-xl border border-[#b8ffd0]/25 px-3 py-4"
+            >
               <p className="text-2xl font-black">{h.value}</p>
-              <p className="text-[10px] uppercase opacity-60">{h.label}</p>
-            </div>
+              <p className="mt-1 text-[10px] uppercase tracking-wider opacity-55">{h.label}</p>
+            </motion.div>
           ))}
         </div>
       </header>
-      <section className="rotate-[-1deg] bg-[#b9ffd5] p-8 text-[#071713] md:p-16">
-        <h2 className="mb-10 text-5xl font-black uppercase">Motion / impact</h2>
+
+      <section className="-rotate-1 bg-[#b8ffd0] px-6 py-16 text-[#061410] md:px-12">
+        <h2 className="mb-10 text-4xl font-black uppercase tracking-tight sm:text-5xl">Motion / impact</h2>
         <ExperienceList tone="light" />
       </section>
-      <section className="grid gap-16 p-8 md:grid-cols-2 md:p-16">
+
+      <section className="grid gap-16 px-6 py-20 md:grid-cols-2 md:px-12">
         <div>
-          <h2 className="mb-8 text-4xl font-black">STACK</h2>
+          <h2 className="mb-8 text-3xl font-black uppercase">Stack</h2>
           <SkillsCloud />
         </div>
         <div>
-          <h2 className="mb-8 text-4xl font-black">OUTPUT</h2>
+          <h2 className="mb-8 text-3xl font-black uppercase">Output</h2>
           <ProjectLinks />
-          <p className="mt-16 text-sm">
+          <p className="mt-14 text-sm text-[#7dffb0]/55">
             {cv.education.degree} · {cv.education.school}
           </p>
         </div>
