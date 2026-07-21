@@ -38,7 +38,7 @@ export function Variant() {
               </a>
               <a
                 href="/resume"
-                className="border border-black px-4 py-1.5 text-xs font-bold uppercase tracking-wider"
+                className="border border-black px-4 py-1.5 text-xs font-bold uppercase tracking-wider focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
               >
                 Morning PDF
               </a>

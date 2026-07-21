@@ -56,7 +56,7 @@ export function Variant() {
               </a>
               <a
                 href="/resume"
-                className="rounded border border-sky-300/50 px-4 py-2 text-xs uppercase tracking-wider text-sky-100"
+                className="rounded border border-sky-300/50 px-4 py-2 text-xs uppercase tracking-wider text-sky-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300"
               >
                 Sheet set PDF
               </a>

@@ -52,7 +52,7 @@ export function Variant() {
               </a>
               <a
                 href="/resume"
-                className="border-4 border-white px-6 py-3 text-sm font-black uppercase tracking-wide"
+                className="border-4 border-white px-6 py-3 text-sm font-black uppercase tracking-wide focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
               >
                 Late edition PDF
               </a>
