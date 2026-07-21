@@ -362,7 +362,7 @@ test("Fail-then-pass: Hybrid cells stay deep enough for award craft", () => {
   );
 });
 
-test("Fail-then-pass: Gamma kinetic ships GSAP in at least 3 cells", () => {
+test("Fail-then-pass: Gamma kinetic ships GSAP in ≥3 cells and stays ≥110 lines", () => {
   assert.ok(fs.existsSync(path.join(root, "src", "components", "useGsapReveal.ts")));
   const hook = read("src/components/useGsapReveal.ts");
   assert.match(hook, /from ["']gsap["']/);
@@ -371,10 +371,18 @@ test("Fail-then-pass: Gamma kinetic ships GSAP in at least 3 cells", () => {
     const id = Number(name.match(/^V(\d+)/)[1]);
     return id >= 29 && id <= 42;
   });
-  const withGsap = gamma.filter((file) => {
+  assert.equal(gamma.length, 14);
+  const shallow = [];
+  const withGsap = [];
+  for (const file of gamma) {
     const src = fs.readFileSync(path.join(variantsDir, file), "utf8");
-    return src.includes("useGsapReveal") || src.includes('from "gsap"') || src.includes("from 'gsap'");
-  });
+    const lines = src.split("\n").length;
+    if (lines < 110) shallow.push(`${file}(${lines})`);
+    if (src.includes("useGsapReveal") || src.includes('from "gsap"') || src.includes("from 'gsap'")) {
+      withGsap.push(file);
+    }
+  }
+  assert.equal(shallow.length, 0, `RED: Gamma cells under 110 lines: ${shallow.join(", ")}`);
   assert.ok(
     withGsap.length >= 3,
     `RED: need ≥3 Gamma cells using GSAP, got ${withGsap.length}: ${withGsap.join(", ") || "none"}`,
