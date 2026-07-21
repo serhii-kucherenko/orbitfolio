@@ -10,7 +10,7 @@ export function Variant() {
 
   return (
     <main
-      className="min-h-screen bg-[#091825] font-[family-name:var(--font-mono)] text-sky-100"
+      className="min-h-screen bg-[#07141f] font-[family-name:var(--font-mono)] text-sky-100"
       style={{
         backgroundImage:
           "linear-gradient(rgba(56,189,248,0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(56,189,248,0.07) 1px, transparent 1px)",
@@ -18,7 +18,7 @@ export function Variant() {
       }}
     >
       <section className="mx-auto max-w-5xl px-6 pb-6 pt-20">
-        <div className="border border-sky-400/35 bg-[#091825]/92">
+        <div className="border border-sky-400/35 bg-[#07141f]/92">
           <div className="grid gap-4 border-b border-sky-400/25 p-4 sm:grid-cols-3 sm:p-5">
             <div>
               <p className="text-[10px] uppercase tracking-[0.3em] text-sky-400">Title</p>
@@ -47,17 +47,25 @@ export function Variant() {
               <p className="mt-3 text-sky-200/80">{cv.title}</p>
               <p className="mt-6 max-w-2xl text-sm leading-7 text-sky-100/60">{cv.summary}</p>
             </div>
-            <a
-              href={`mailto:${cv.email}`}
-              className="rounded border border-sky-300 px-4 py-2 text-xs uppercase tracking-wider text-sky-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300"
-            >
-              Request review
-            </a>
+            <div className="flex flex-col gap-2">
+              <a
+                href={`mailto:${cv.email}`}
+                className="rounded border border-sky-300 bg-sky-300 px-4 py-2 text-xs uppercase tracking-wider text-[#07141f] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300"
+              >
+                Request review
+              </a>
+              <a
+                href="/resume"
+                className="rounded border border-sky-300/50 px-4 py-2 text-xs uppercase tracking-wider text-sky-100"
+              >
+                Sheet set PDF
+              </a>
+            </div>
           </div>
 
           <div className="grid grid-cols-2 gap-px border-t border-sky-400/25 bg-sky-400/25 sm:grid-cols-4">
             {cv.highlights.map((h) => (
-              <div key={h.label} className="bg-[#091825] p-4">
+              <div key={h.label} className="bg-[#07141f] p-4">
                 <p className="text-2xl font-bold text-sky-200">{h.value}</p>
                 <p className="mt-1 text-[10px] uppercase tracking-wider text-sky-400/70">{h.label}</p>
               </div>
@@ -68,26 +76,26 @@ export function Variant() {
       </section>
 
       <section className="mx-auto max-w-5xl space-y-6 px-6 pb-28">
-        <div className="border border-sky-400/25 bg-[#091825]/85 p-6">
+        <div className="border border-sky-400/25 bg-[#07141f]/85 p-6">
           <p className="text-[10px] uppercase tracking-[0.3em] text-sky-400">01 · Assembly history</p>
           <div className="mt-8">
             <ExperienceList tone="dark" />
           </div>
         </div>
         <div className="grid gap-6 md:grid-cols-2">
-          <div className="border border-sky-400/25 bg-[#091825]/85 p-6">
+          <div className="border border-sky-400/25 bg-[#07141f]/85 p-6">
             <p className="text-[10px] uppercase tracking-[0.3em] text-sky-400">02 · Part catalog</p>
             <div className="mt-8">
               <SkillsCloud />
             </div>
           </div>
-          <div className="border border-sky-400/25 bg-[#091825]/85 p-6">
+          <div className="border border-sky-400/25 bg-[#07141f]/85 p-6">
             <p className="text-[10px] uppercase tracking-[0.3em] text-sky-400">03 · Reference builds</p>
             <div className="mt-8">
               <ProjectLinks />
             </div>
             <p className="mt-10 text-xs text-sky-400/60">
-              {cv.education.degree} · {cv.education.school}
+              {cv.education.degree} · {cv.education.school} · {cv.location}
             </p>
           </div>
         </div>

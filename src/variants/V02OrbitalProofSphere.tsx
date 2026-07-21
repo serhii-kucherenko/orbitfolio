@@ -9,7 +9,7 @@ export function Variant() {
   const reduce = useReducedMotion() ?? false;
 
   return (
-    <main className="min-h-screen overflow-hidden bg-[#06100e] text-[#e5f4dc]">
+    <main className="min-h-screen overflow-hidden bg-[#040e0c] text-[#e5f4dc]">
       <section className="relative mx-auto grid min-h-screen max-w-7xl items-center gap-10 px-6 py-28 lg:grid-cols-[0.8fr_1.2fr] lg:px-10">
         <div className="relative z-10">
           <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.5em] text-[#b8ff6a]">
@@ -24,8 +24,17 @@ export function Variant() {
           </motion.h1>
           <p className="mt-8 max-w-md text-base leading-7 text-[#e5f4dc]/65">{cv.summary}</p>
           <div className="mt-9 flex flex-wrap items-center gap-4">
-            <a href={`mailto:${cv.email}`} className="rounded-full bg-[#b8ff6a] px-6 py-3 text-sm font-bold text-[#06100e]">
+            <a
+              href={`mailto:${cv.email}`}
+              className="rounded-full bg-[#b8ff6a] px-6 py-3 text-sm font-bold text-[#040e0c] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8ff6a]"
+            >
               Bring me into orbit
+            </a>
+            <a
+              href="/resume"
+              className="rounded-full border border-[#b8ff6a]/40 px-6 py-3 text-sm font-bold text-[#b8ff6a]"
+            >
+              Flight sheet
             </a>
             <span className="text-sm text-[#b8ff6a]/70">{cv.title}</span>
           </div>
@@ -53,17 +62,26 @@ export function Variant() {
             }}
           />
           {cv.highlights.map((highlight, index) => {
-            const positions = ["left-[4%] top-[18%]", "right-[1%] top-[26%]", "bottom-[10%] left-[13%]", "bottom-[4%] right-[8%]"];
+            const positions = [
+              "left-[4%] top-[18%]",
+              "right-[1%] top-[26%]",
+              "bottom-[10%] left-[13%]",
+              "bottom-[4%] right-[8%]",
+            ];
             return (
               <motion.div
                 key={highlight.label}
                 initial={reduce ? false : { opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: reduce ? 0 : 0.2 + index * 0.12 }}
-                className={`absolute ${positions[index]} w-28 rounded-full border border-[#b8ff6a]/35 bg-[#0b1b16]/90 p-4 text-center backdrop-blur`}
+                className={`absolute ${positions[index]} w-28 rounded-full border border-[#b8ff6a]/35 bg-[#0a1814]/90 p-4 text-center backdrop-blur`}
               >
-                <strong className="font-[family-name:var(--font-serif)] text-2xl text-[#b8ff6a]">{highlight.value}</strong>
-                <span className="mt-1 block text-[9px] uppercase tracking-wider opacity-55">{highlight.label}</span>
+                <strong className="font-[family-name:var(--font-serif)] text-2xl text-[#b8ff6a]">
+                  {highlight.value}
+                </strong>
+                <span className="mt-1 block text-[9px] uppercase tracking-wider opacity-55">
+                  {highlight.label}
+                </span>
               </motion.div>
             );
           })}
@@ -81,7 +99,7 @@ export function Variant() {
       </section>
 
       <section className="mx-auto grid max-w-7xl gap-16 px-6 pb-28 lg:grid-cols-2 lg:px-10">
-        <div className="rounded-[3rem] border border-[#b8ff6a]/15 bg-[#0b1b16] p-8">
+        <div className="rounded-[3rem] border border-[#b8ff6a]/15 bg-[#0a1814] p-8">
           <h2 className="mb-8 font-[family-name:var(--font-serif)] text-3xl">Atmosphere</h2>
           <SkillsCloud />
         </div>
@@ -89,7 +107,7 @@ export function Variant() {
           <h2 className="mb-8 font-[family-name:var(--font-serif)] text-3xl">Objects in motion</h2>
           <ProjectLinks />
           <p className="mt-12 border-t border-[#b8ff6a]/20 pt-6 text-sm opacity-55">
-            {cv.education.degree} · {cv.education.school}
+            {cv.education.degree} · {cv.education.school} · {cv.location}
           </p>
         </div>
       </section>

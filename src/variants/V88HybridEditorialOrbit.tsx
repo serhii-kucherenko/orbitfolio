@@ -10,7 +10,7 @@ export function Variant() {
   const rings = cv.highlights;
 
   return (
-    <main className="min-h-screen" style={{ background: "#0c1222", color: "#e8eef8" }}>
+    <main className="min-h-screen bg-[#090e1c] text-[#e8eef8]">
       <header className="relative mx-auto max-w-6xl overflow-hidden px-6 pb-20 pt-24 md:px-10">
         <div className="flex items-baseline justify-between border-b border-white/10 pb-4">
           <p className="font-[family-name:var(--font-serif)] text-2xl italic text-[#7dd3fc]">Orbit</p>
@@ -33,10 +33,15 @@ export function Variant() {
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <a
                 href={`mailto:${cv.email}`}
-                className="px-5 py-2.5 text-sm font-semibold"
-                style={{ background: "#7dd3fc", color: "#0c1222" }}
+                className="bg-[#7dd3fc] px-5 py-2.5 text-sm font-semibold text-[#090e1c] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7dd3fc]"
               >
                 Pitch the editor
+              </a>
+              <a
+                href="/resume"
+                className="border border-[#7dd3fc]/40 px-5 py-2.5 text-sm font-semibold text-[#7dd3fc]"
+              >
+                Folio PDF
               </a>
               <ContactRow className="text-white/60" />
             </div>
@@ -70,13 +75,11 @@ export function Variant() {
         </div>
       </header>
 
-      <section className="border-t border-white/10 bg-[#111827] px-6 py-20 md:px-10">
+      <section className="border-t border-white/10 bg-[#0e1524] px-6 py-20 md:px-10">
         <div className="mx-auto max-w-6xl">
-          <h2 className="mb-10 font-[family-name:var(--font-serif)] text-3xl italic">
-            Feature well
-          </h2>
+          <h2 className="mb-10 font-[family-name:var(--font-serif)] text-3xl italic">Feature well</h2>
           <ExperienceList tone="dark" />
-          <div className="mt-20 grid gap-12 md:grid-cols-2">
+          <div className="mt-20 grid gap-12 border-t border-white/10 pt-16 md:grid-cols-2">
             <div>
               <h2 className="mb-6 text-xl font-bold">Index</h2>
               <SkillsCloud />
@@ -85,7 +88,7 @@ export function Variant() {
               <h2 className="mb-6 text-xl font-bold">Sidebar links</h2>
               <ProjectLinks />
               <p className="mt-10 text-sm opacity-45">
-                {cv.education.degree} · {cv.education.school}
+                {cv.education.degree} · {cv.education.school} · {cv.location}
               </p>
             </div>
           </div>

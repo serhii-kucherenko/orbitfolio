@@ -8,7 +8,7 @@ const covers = [
   { id: "identity", title: "Identity", hue: "#1d4ed8", blurb: "Who & where" },
   { id: "proof", title: "Proof", hue: "#0f766e", blurb: "Roles & outcomes" },
   { id: "roles", title: "Craft", hue: "#9a3412", blurb: "Skills stack" },
-  { id: "craft", title: "Editions", hue: "#6b21a8", blurb: "Open work" },
+  { id: "craft", title: "Editions", hue: "#0e7490", blurb: "Open work" },
 ] as const;
 
 /** Cover Stack Navigator — stacked covers as objects; complete flow below. */
@@ -16,7 +16,7 @@ export function Variant() {
   const reduce = useReducedMotion() ?? false;
 
   return (
-    <main className="min-h-screen bg-[#0f0f11] text-zinc-100">
+    <main className="min-h-screen bg-[#0c0c0e] text-zinc-100">
       <header className="mx-auto max-w-5xl px-6 pb-6 pt-24">
         <p className="text-[10px] uppercase tracking-[0.4em] text-zinc-500">Stack · navigate by cover</p>
         <h1 className="mt-4 font-[family-name:var(--font-display)] text-5xl font-bold sm:text-6xl">{cv.name}</h1>
@@ -28,6 +28,12 @@ export function Variant() {
             className="rounded-sm bg-white px-5 py-2.5 text-sm font-semibold text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
           >
             Request the full stack
+          </a>
+          <a
+            href="/resume"
+            className="rounded-sm border border-white/30 px-5 py-2.5 text-sm font-semibold text-zinc-300"
+          >
+            Cover PDF
           </a>
           <ContactRow className="text-zinc-500" />
         </div>
@@ -81,7 +87,7 @@ export function Variant() {
         <h2 className="text-2xl font-semibold">Editions</h2>
         <ProjectLinks />
         <p className="text-xs text-zinc-600">
-          {cv.education.degree} · {cv.education.school}
+          {cv.education.degree} · {cv.education.school} · {cv.location}
         </p>
       </section>
     </main>
