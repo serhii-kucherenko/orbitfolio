@@ -212,6 +212,15 @@ test("Fail-then-pass: structural diversity — not a monoculture of identical la
   );
 });
 
+test("Fail-then-pass: shared AwardVariant shell is fully retired", () => {
+  const files = listVariantFiles();
+  const shellUsers = files.filter((file) => {
+    const src = fs.readFileSync(path.join(variantsDir, file), "utf8");
+    return src.includes("AwardVariant");
+  });
+  assert.equal(shellUsers.length, 0, `expected 0 shared shells, found: ${shellUsers.join(", ")}`);
+});
+
 test("Fail-then-pass: no banned AI-cliché palettes in AwardVariant light mode", () => {
   const src = read("src/components/AwardVariant.tsx");
   assert.doesNotMatch(src, /#f4f1ea/i);
