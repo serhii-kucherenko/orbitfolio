@@ -56,10 +56,16 @@ export function Variant() {
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <a
               href={`mailto:${cv.email}`}
-              className="rounded-full px-6 py-2.5 text-sm font-semibold"
+              className="px-6 py-2.5 text-sm font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#14b8a6]"
               style={{ background: "#14b8a6", color: "#042f2e" }}
             >
               Pour a hire thread
+            </a>
+            <a
+              href="/resume"
+              className="border border-teal-300/40 px-5 py-2.5 text-sm text-teal-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#14b8a6]"
+            >
+              Molten brief / resume
             </a>
             <ContactRow className="text-white/60" />
           </div>

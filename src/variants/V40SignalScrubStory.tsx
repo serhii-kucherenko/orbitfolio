@@ -29,6 +29,12 @@ export function Variant() {
           >
             Send hire cue
           </a>
+          <a
+            href="/resume"
+            className="border border-[#9dffb0]/40 px-5 py-2 text-xs uppercase tracking-widest text-[#9dffb0]/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9dffb0]"
+          >
+            Mixdown / resume
+          </a>
           <ContactRow className="text-[#9dffb0]/70" />
         </div>
       </header>

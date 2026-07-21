@@ -57,13 +57,21 @@ export function Variant() {
 
         <p className="mt-10 text-lg text-[#ff9f6b]">{cv.title}</p>
         <p className="mt-4 max-w-lg text-sm leading-7 text-[#f5e6d3]/90">{cv.summary}</p>
-        <a
-          href={`mailto:${cv.email}`}
-          className="mt-8 inline-flex px-6 py-3 text-sm font-semibold tracking-wide focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ff6b35]"
-          style={{ background: "#ff6b35", color: "#0a0404" }}
-        >
-          Cross the horizon
-        </a>
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+          <a
+            href={`mailto:${cv.email}`}
+            className="inline-flex px-6 py-3 text-sm font-semibold tracking-wide focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ff6b35]"
+            style={{ background: "#ff6b35", color: "#0a0404" }}
+          >
+            Cross the horizon
+          </a>
+          <a
+            href="/resume"
+            className="inline-flex border border-[#ff6b35]/50 px-5 py-3 text-sm text-[#f5e6d3] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ff6b35]"
+          >
+            Escape velocity / resume
+          </a>
+        </div>
         <ContactRow className="mt-6 justify-center text-[#f5e6d3]/70" />
       </section>
 
