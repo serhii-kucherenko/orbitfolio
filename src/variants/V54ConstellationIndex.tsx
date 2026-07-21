@@ -19,7 +19,7 @@ export function Variant() {
       <header className="relative overflow-hidden px-6 pb-8 pt-24 md:px-12">
         <div className="mx-auto max-w-6xl">
           <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.45em] text-slate-400">
-            Star atlas · constellation index
+            Star atlas · constellation index · {cv.location}
           </p>
           <h1 className="mt-4 font-[family-name:var(--font-serif)] text-5xl leading-tight sm:text-7xl">{cv.name}</h1>
           <p className="mt-3 text-slate-300">{cv.title}</p>
@@ -104,7 +104,7 @@ export function Variant() {
             <h2 className="mb-6 text-xl text-slate-200">Deep surveys</h2>
             <ProjectLinks />
             <p className="mt-10 text-sm text-white/45">
-              {cv.education.degree} · {cv.education.school}
+              {cv.education.degree} · {cv.education.school} · {cv.location}
             </p>
           </div>
         </div>

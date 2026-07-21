@@ -19,7 +19,7 @@ export function Variant() {
       <header className="border-b border-[#0d2a32]/15 px-6 py-16 md:px-12">
         <div className="mx-auto max-w-6xl">
           <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.4em] text-[#1a6b7a]">
-            Blueprint · iso team rooms
+            Blueprint · iso team rooms · {cv.location}
           </p>
           <h1 className="mt-4 font-[family-name:var(--font-display)] text-5xl font-black sm:text-6xl">{cv.name}</h1>
           <p className="mt-3 text-lg text-[#1a6b7a]">{cv.title}</p>
@@ -101,7 +101,7 @@ export function Variant() {
             <h2 className="mb-6 text-xl font-bold">Annex links</h2>
             <ProjectLinks tone="light" />
             <p className="mt-10 text-sm text-[#0d2a32]/50">
-              {cv.education.degree} · {cv.education.school}
+              {cv.education.degree} · {cv.education.school} · {cv.location}
             </p>
           </div>
         </div>

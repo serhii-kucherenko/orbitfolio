@@ -28,7 +28,7 @@ export function Variant() {
 
       <header className="relative mx-auto max-w-5xl px-6 pb-10 pt-24 md:px-10">
         <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.45em] text-cyan-300/70">
-          Observatory · focus index
+          Observatory · focus index · {cv.location}
         </p>
         <h1 className="mt-4 font-[family-name:var(--font-serif)] text-5xl leading-tight sm:text-7xl">{cv.name}</h1>
         <p className="mt-3 text-cyan-200">{cv.title}</p>
@@ -100,7 +100,7 @@ export function Variant() {
             </h2>
             <ProjectLinks />
             <p className="mt-10 text-sm text-white/45">
-              {cv.education.degree} · {cv.education.school}
+              {cv.education.degree} · {cv.education.school} · {cv.location}
             </p>
           </motion.div>
         </div>
