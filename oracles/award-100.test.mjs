@@ -361,3 +361,22 @@ test("Fail-then-pass: Hybrid cells stay deep enough for award craft", () => {
     `RED: Hybrid cells under 120 lines (too thin for award craft): ${shallow.join(", ")}`,
   );
 });
+
+test("Fail-then-pass: Gamma kinetic ships GSAP in at least 3 cells", () => {
+  assert.ok(fs.existsSync(path.join(root, "src", "components", "useGsapReveal.ts")));
+  const hook = read("src/components/useGsapReveal.ts");
+  assert.match(hook, /from ["']gsap["']/);
+  assert.match(hook, /ScrollTrigger/);
+  const gamma = listVariantFiles().filter((name) => {
+    const id = Number(name.match(/^V(\d+)/)[1]);
+    return id >= 29 && id <= 42;
+  });
+  const withGsap = gamma.filter((file) => {
+    const src = fs.readFileSync(path.join(variantsDir, file), "utf8");
+    return src.includes("useGsapReveal") || src.includes('from "gsap"') || src.includes("from 'gsap'");
+  });
+  assert.ok(
+    withGsap.length >= 3,
+    `RED: need ≥3 Gamma cells using GSAP, got ${withGsap.length}: ${withGsap.join(", ") || "none"}`,
+  );
+});
