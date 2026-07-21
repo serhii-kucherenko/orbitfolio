@@ -20,7 +20,7 @@ export function Variant() {
       <div className="mx-auto grid min-h-screen max-w-6xl lg:grid-cols-[240px_1fr]">
         <aside className="border-b border-amber-300/25 bg-[#0a0c0e] p-6 lg:sticky lg:top-0 lg:h-screen lg:border-b-0 lg:border-r">
           <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.35em] text-amber-300/70">
-            cmd / case index · 90
+            cmd / case index · {cv.location}
           </p>
           <p className="mt-4 font-[family-name:var(--font-mono)] text-xs text-amber-200">
             {reduce ? "AUTO · OFF" : "AUTO · READY"}
@@ -109,7 +109,7 @@ export function Variant() {
           <section id="contact" className="scroll-mt-8 border-t border-amber-300/25 px-6 py-12 sm:px-10">
             <ContactRow className="text-amber-100/70" />
             <p className="mt-6 text-sm text-stone-500">
-              {cv.education.degree} · {cv.education.school}
+              {cv.education.degree} · {cv.education.school} · {cv.location}
             </p>
           </section>
         </div>

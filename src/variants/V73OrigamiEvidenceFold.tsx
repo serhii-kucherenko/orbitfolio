@@ -15,7 +15,7 @@ export function Variant() {
     >
       <section className="mx-auto max-w-5xl px-6 pb-6 pt-24">
         <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.35em] text-teal-800/55">
-          Origami · evidence folds · hire-ready
+          Origami · evidence folds · {cv.location}
         </p>
         <motion.h1
           initial={reduce ? false : { opacity: 0, rotateX: -10 }}

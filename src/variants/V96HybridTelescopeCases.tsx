@@ -33,7 +33,7 @@ export function Variant() {
             }}
           >
             <span className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.3em] text-[#93c5fd]">
-              aperture
+              aperture · {cv.location}
             </span>
           </div>
           <h1 className="font-[family-name:var(--font-display)] text-4xl font-bold sm:text-5xl">
@@ -127,7 +127,7 @@ export function Variant() {
           <h2 className="mb-6 text-xl font-bold">Sky survey</h2>
           <ProjectLinks />
           <p className="mt-8 text-sm opacity-45">
-            {cv.education.degree} · {cv.education.school}
+            {cv.education.degree} · {cv.education.school} · {cv.location}
           </p>
         </div>
       </section>
