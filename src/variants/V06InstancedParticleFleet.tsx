@@ -31,12 +31,18 @@ export function Variant() {
               {cv.name}
             </h1>
             <p className="mt-8 max-w-xl text-sm leading-7 text-white/60">{cv.summary}</p>
-            <div className="mt-9 flex flex-wrap gap-4">
+            <div className="mt-9 flex flex-wrap items-center gap-4">
               <a
                 href={`mailto:${cv.email}`}
                 className="bg-[#69dcff] px-6 py-3 text-sm font-bold text-[#061018] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#69dcff]"
               >
                 Join your mission
+              </a>
+              <a
+                href="/resume"
+                className="border border-[#69dcff]/50 px-5 py-3 text-sm text-[#69dcff] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#69dcff]"
+              >
+                Fleet brief / resume
               </a>
               <ContactRow className="items-center text-white/55" />
             </div>

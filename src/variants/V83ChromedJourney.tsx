@@ -43,13 +43,19 @@ export function Variant() {
         <div className="relative mt-8 flex flex-wrap items-center gap-4">
           <a
             href={`mailto:${cv.email}`}
-            className="px-6 py-3 text-sm font-bold tracking-wide"
+            className="px-6 py-3 text-sm font-bold tracking-wide focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-300"
             style={{
               background: "linear-gradient(135deg, #e2e8f0, #94a3b8)",
               color: "#0c0e12",
             }}
           >
             Start the journey
+          </a>
+          <a
+            href="/resume"
+            className="border border-slate-400/40 px-5 py-3 text-sm text-slate-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-300"
+          >
+            Road map / resume
           </a>
           <ContactRow className="text-slate-400" />
         </div>

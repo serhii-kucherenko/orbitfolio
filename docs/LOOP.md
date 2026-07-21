@@ -69,5 +69,6 @@ Autonomous progress log for Orbitfolio.
 | 66 | Burst tick 17 | Deepened event lens, holographic record, ten-second proof, founder fit, clinic aurora, alcove museum |
 | 67 | Burst tick 18 | Added resume paths to shader atmosphere, hiring brief, warp corridor, aurora ledger, footnotes, cover lab |
 | 68 | Burst tick 19 | Added resume paths to cover chapters, telescope focus, Vancouver aurora, iso rooms, status page, solar dial |
+| 69 | Burst tick 20 | Added resume paths to particle fleet, outcome-first, chromed journey, clinic SaaS, constellation, AI casebook |
 
 Live: https://orbitfolio-kohl.vercel.app · Loop: every 15m — unique award craft + UI must stay green

@@ -31,6 +31,12 @@ export function Variant() {
             >
               Chart a hire
             </a>
+            <a
+              href="/resume"
+              className="border border-slate-400/40 px-5 py-2.5 text-xs font-bold uppercase tracking-widest text-slate-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-200"
+            >
+              Atlas / resume
+            </a>
             <ContactRow className="text-slate-300/70" />
           </div>
         </div>
