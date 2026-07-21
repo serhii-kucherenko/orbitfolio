@@ -4,13 +4,28 @@ import { motion, useReducedMotion } from "framer-motion";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
 import { cv } from "@/data/cv";
 
+const trust = [
+  {
+    title: "Clinic scheduling AI",
+    detail: "LLM intent extraction plus deterministic constraints across healthcare orgs.",
+  },
+  {
+    title: "Enterprise RAG",
+    detail: "Document ingestion, semantic search, and grounded answers on private corpora.",
+  },
+  {
+    title: "Founding delivery",
+    detail: "Roadmap ownership, engineering standards, and a team of 4 from pilot to multi-org.",
+  },
+] as const;
+
 /** Clinic SaaS Engineer — healthcare-product calm: trust, outcomes, founding delivery. */
 export function Variant() {
   const reduce = useReducedMotion() ?? false;
 
   return (
-    <main className="min-h-screen bg-[#f4f7f5] text-[#1c2b24]">
-      <header className="relative overflow-hidden border-b border-[#c5d4cb] bg-gradient-to-br from-[#e8f0eb] via-[#f4f7f5] to-[#dde8e2] px-6 pb-14 pt-28">
+    <main className="min-h-screen bg-[#f3f7f4] text-[#1c2b24]">
+      <header className="relative overflow-hidden border-b border-[#c5d4cb] bg-gradient-to-br from-[#e8f0eb] via-[#f3f7f4] to-[#dde8e2] px-6 pb-14 pt-28">
         <motion.div
           aria-hidden
           className="pointer-events-none absolute -right-20 top-10 h-72 w-72 rounded-full bg-[#9bb8a8]/35 blur-3xl"
@@ -25,7 +40,7 @@ export function Variant() {
           <div className="mt-8 flex flex-wrap gap-3">
             <a
               href={`mailto:${cv.email}`}
-              className="rounded-md bg-[#1c2b24] px-5 py-2.5 text-sm font-medium text-[#f4f7f5] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1c2b24]"
+              className="rounded-md bg-[#1c2b24] px-5 py-2.5 text-sm font-medium text-[#f3f7f4] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1c2b24]"
             >
               Schedule a conversation
             </a>
@@ -38,6 +53,7 @@ export function Variant() {
               LinkedIn
             </a>
           </div>
+          <ContactRow className="mt-6 text-[#3d564a]" />
           <div className="mt-10 grid gap-3 sm:grid-cols-4">
             {cv.highlights.map((h, i) => (
               <motion.div
@@ -46,7 +62,7 @@ export function Variant() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: reduce ? 0 : i * 0.05 }}
-                className="rounded-xl border border-[#c5d4cb] bg-white/80 px-4 py-5 shadow-sm"
+                className="rounded-xl border border-[#c5d4cb] bg-white/85 px-4 py-5 shadow-sm"
               >
                 <p className="text-2xl font-semibold text-[#2f4a3d]">{h.value}</p>
                 <p className="mt-1 text-xs text-[#4a6b5c]/80">{h.label}</p>
@@ -56,7 +72,19 @@ export function Variant() {
         </div>
       </header>
 
-      <section className="mx-auto max-w-5xl space-y-16 px-6 py-16">
+      <section className="mx-auto max-w-5xl px-6 py-12">
+        <h2 className="mb-6 font-[family-name:var(--font-serif)] text-2xl">Trust outcomes</h2>
+        <div className="grid gap-4 md:grid-cols-3">
+          {trust.map((t) => (
+            <article key={t.title} className="rounded-xl border border-[#c5d4cb] bg-white p-5">
+              <h3 className="font-semibold text-[#2f4a3d]">{t.title}</h3>
+              <p className="mt-2 text-sm leading-6 text-[#1c2b24]/65">{t.detail}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-5xl space-y-16 px-6 pb-24">
         <div>
           <h2 className="mb-6 font-[family-name:var(--font-serif)] text-2xl">Trust record</h2>
           <ExperienceList tone="light" />
@@ -71,7 +99,6 @@ export function Variant() {
             <ProjectLinks tone="light" />
           </div>
         </div>
-        <ContactRow className="text-[#3d564a]" />
         <p className="text-xs text-[#4a6b5c]/70">
           {cv.education.degree} · {cv.education.school} · {cv.location}
         </p>

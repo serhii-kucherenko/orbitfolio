@@ -9,7 +9,7 @@ export function Variant() {
   const reduce = useReducedMotion() ?? false;
 
   return (
-    <main className="min-h-screen bg-[#eceae4] p-3 text-black sm:p-6 md:p-8">
+    <main className="min-h-screen bg-[#e8e6df] p-3 text-black sm:p-6 md:p-8">
       <header className="border-[5px] border-black bg-[#f7f6f1] p-6 sm:p-10 md:p-12">
         <div className="flex flex-wrap justify-between gap-3 font-black uppercase tracking-wide">
           <span>Proof file 079</span>
@@ -18,7 +18,7 @@ export function Variant() {
         <motion.h1
           initial={reduce ? false : { opacity: 0, scale: 0.97 }}
           animate={{ opacity: 1, scale: 1 }}
-          className="my-8 break-words font-[family-name:var(--font-display)] text-6xl font-black uppercase leading-[0.8] sm:text-8xl md:my-10 md:text-[9rem]"
+          className="my-8 break-words font-[family-name:var(--font-display)] text-6xl font-black uppercase leading-[0.8] sm:text-8xl md:my-10 md:text-[8.5rem]"
         >
           {cv.name}
         </motion.h1>

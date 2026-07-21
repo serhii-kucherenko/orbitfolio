@@ -5,29 +5,32 @@ import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/compone
 import { cv } from "@/data/cv";
 
 const rooms = [
-  { id: "experience", label: "Experience vault", x: "8%", y: "18%", rot: -6 },
-  { id: "skills", label: "Capability bay", x: "55%", y: "12%", rot: 4 },
-  { id: "projects", label: "Work archive", x: "18%", y: "48%", rot: 3 },
-  { id: "contact", label: "Contact desk", x: "58%", y: "52%", rot: -3 },
+  { id: "experience", label: "Experience vault", x: "8%", y: "16%", rot: -6 },
+  { id: "skills", label: "Capability bay", x: "55%", y: "10%", rot: 4 },
+  { id: "projects", label: "Work archive", x: "18%", y: "46%", rot: 3 },
+  { id: "contact", label: "Contact desk", x: "58%", y: "50%", rot: -3 },
 ] as const;
 
-/** Orbit Archive Rooms — isometric archive rooms for experience, skills, work, contact. */
+/** Orbit Archive Rooms — isometric rooms for experience, capabilities, work, contact. */
 export function Variant() {
   const reduce = useReducedMotion() ?? false;
 
   return (
-    <main className="min-h-screen bg-[#14121c] text-[#f2efe8]">
+    <main className="min-h-screen bg-[#12101a] text-[#f2efe8]">
       <header className="mx-auto max-w-5xl px-6 pt-28">
         <p className="text-[10px] uppercase tracking-[0.4em] text-violet-300/60">Isometric archive</p>
         <h1 className="mt-4 font-[family-name:var(--font-display)] text-5xl font-bold sm:text-6xl">{cv.name}</h1>
         <p className="mt-3 text-lg text-violet-100/70">{cv.title}</p>
         <p className="mt-6 max-w-2xl text-sm leading-7 text-white/55">{cv.summary}</p>
-        <a
-          href={`mailto:${cv.email}`}
-          className="mt-8 inline-block bg-[#f2efe8] px-5 py-2.5 text-sm font-semibold text-[#14121c] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-        >
-          Request room access
-        </a>
+        <div className="mt-8 flex flex-wrap items-center gap-4">
+          <a
+            href={`mailto:${cv.email}`}
+            className="inline-block bg-[#f2efe8] px-5 py-2.5 text-sm font-semibold text-[#12101a] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+          >
+            Request room access
+          </a>
+          <ContactRow className="text-violet-100/60" />
+        </div>
       </header>
 
       <section className="relative mx-auto mt-12 h-[340px] max-w-5xl px-6 sm:h-[380px]">
