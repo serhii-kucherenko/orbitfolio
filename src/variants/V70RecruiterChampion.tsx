@@ -120,11 +120,3 @@ export function Variant() {
     </main>
   );
 }
- {cv.education.degree} · {cv.education.school} · {cv.location}
-            </p>
-          </div>
-        </div>
-      </section>
-    </main>
-  );
-}
