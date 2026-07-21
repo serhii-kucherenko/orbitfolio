@@ -1,27 +1,41 @@
 "use client";
 
-import { useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
 import { cv } from "@/data/cv";
 
-/** Hybrid Bauhaus Systems — steals Bauhaus blocks + systems sidebar clarity */
+const toc = [
+  { id: "profile", label: "00 / Profile" },
+  { id: "roles", label: "01 / Roles" },
+  { id: "stack", label: "02 / Stack" },
+  { id: "work", label: "03 / Work" },
+] as const;
+
+/** Hybrid Bauhaus Systems — geometric confidence + inspectable docs structure. */
 export function Variant() {
-  const reduceMotion = useReducedMotion() ?? false;
+  const reduce = useReducedMotion() ?? false;
 
   return (
-    <main className="bg-[#f1f2ee] text-[#101010]">
-      <div className="grid min-h-screen md:grid-cols-[280px_1fr]">
-        <aside className="border-r-4 border-black bg-[#f2c94c] p-7">
-          <div
-            className={`size-24 rounded-full bg-[#e22d2d] ${reduceMotion ? "" : "transition-transform hover:translate-x-8"}`}
+    <main className="min-h-screen bg-[#eef0ea] text-[#101010]">
+      <div className="grid min-h-screen lg:grid-cols-[260px_1fr]">
+        <aside className="border-b-4 border-black bg-[#f0c43a] p-7 lg:sticky lg:top-0 lg:h-screen lg:border-b-0 lg:border-r-4">
+          <motion.div
             aria-hidden
+            className="size-20 rounded-full bg-[#d91f1f]"
+            animate={reduce ? undefined : { x: [0, 28, 0] }}
+            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
           />
-          <h2 className="mt-10 text-2xl font-black uppercase">System manual 95</h2>
-          <nav className="mt-12 space-y-3 font-bold">
-            <p>00 / Profile</p>
-            <p>01 / Roles</p>
-            <p>02 / Stack</p>
-            <p>03 / Work</p>
+          <h2 className="mt-10 text-xl font-black uppercase tracking-tight">System manual 95</h2>
+          <nav className="mt-10 space-y-2 font-bold">
+            {toc.map((item) => (
+              <a
+                key={item.id}
+                href={`#${item.id}`}
+                className="block hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+              >
+                {item.label}
+              </a>
+            ))}
           </nav>
           <a
             href={`mailto:${cv.email}`}
@@ -29,44 +43,47 @@ export function Variant() {
           >
             Hire signal
           </a>
-          <p className="mt-10 text-sm">{cv.location}</p>
+          <p className="mt-8 text-sm font-semibold">{cv.location}</p>
         </aside>
+
         <div>
-          <header className="border-b-4 border-black p-8 md:p-14">
+          <header id="profile" className="scroll-mt-4 border-b-4 border-black p-8 md:p-12">
             <p className="font-bold uppercase tracking-[0.3em]">{cv.title}</p>
-            <h1 className="mt-7 text-7xl font-black uppercase leading-[0.85]">{cv.name}</h1>
-            <p className="mt-8 max-w-4xl text-lg leading-8">{cv.summary}</p>
+            <h1 className="mt-6 font-[family-name:var(--font-display)] text-5xl font-black uppercase leading-[0.9] sm:text-7xl">
+              {cv.name}
+            </h1>
+            <p className="mt-8 max-w-3xl text-base leading-8">{cv.summary}</p>
             <ContactRow className="mt-7" />
             <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-4">
-              {cv.highlights.map((h, i) => (
-                <div
-                  key={h.label}
-                  className={`border-4 border-black p-4 ${i === 1 ? "bg-[#2455a4] text-white" : i === 2 ? "bg-[#e22d2d] text-white" : "bg-white"}`}
-                >
-                  <p className="text-3xl font-black">{h.value}</p>
-                  <p className="text-xs font-bold uppercase">{h.label}</p>
-                </div>
-              ))}
+              {cv.highlights.map((h, i) => {
+                const fills = ["bg-white", "bg-[#2455a4] text-white", "bg-[#d91f1f] text-white", "bg-white"];
+                return (
+                  <div key={h.label} className={`border-4 border-black p-4 ${fills[i]}`}>
+                    <p className="text-3xl font-black">{h.value}</p>
+                    <p className="text-xs font-bold uppercase">{h.label}</p>
+                  </div>
+                );
+              })}
             </div>
           </header>
-          <section className="border-b-4 border-black p-8 md:p-14">
+
+          <section id="roles" className="scroll-mt-4 border-b-4 border-black p-8 md:p-12">
             <div className="mb-10 flex items-center gap-5">
-              <span className="grid size-14 place-items-center bg-[#2455a4] text-2xl font-black text-white">
-                01
-              </span>
-              <h2 className="text-4xl font-black">Experience specification</h2>
+              <span className="grid size-14 place-items-center bg-[#2455a4] text-2xl font-black text-white">01</span>
+              <h2 className="text-3xl font-black sm:text-4xl">Experience specification</h2>
             </div>
             <ExperienceList tone="light" />
           </section>
+
           <section className="grid md:grid-cols-2">
-            <div className="border-b-4 border-black p-8 md:border-b-0 md:border-r-4">
-              <h2 className="mb-8 text-3xl font-black">02 / Capabilities</h2>
+            <div id="stack" className="scroll-mt-4 border-b-4 border-black p-8 md:border-b-0 md:border-r-4">
+              <h2 className="mb-8 text-2xl font-black sm:text-3xl">02 / Capabilities</h2>
               <SkillsCloud tone="light" />
             </div>
-            <div className="p-8">
-              <h2 className="mb-8 text-3xl font-black">03 / Projects</h2>
+            <div id="work" className="scroll-mt-4 p-8">
+              <h2 className="mb-8 text-2xl font-black sm:text-3xl">03 / Projects</h2>
               <ProjectLinks tone="light" />
-              <p className="mt-12 border-t-4 border-black pt-5">
+              <p className="mt-12 border-t-4 border-black pt-5 font-semibold">
                 {cv.education.degree} · {cv.education.school}
               </p>
             </div>

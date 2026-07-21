@@ -4,52 +4,79 @@ import { motion, useReducedMotion } from "framer-motion";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
 import { cv } from "@/data/cv";
 
-/** Outcome First Resume — recruiter sees measured wins before any biography */
+const outcomes = [
+  {
+    value: "85%",
+    label: "First-page load cut",
+    proof: "1.4s → 0.2s on a live product surface at SPD Technology.",
+  },
+  {
+    value: "$78K/yr",
+    label: "Infra saved",
+    proof: "Cloud optimization and architecture redesign at Windmill / WEF work.",
+  },
+  {
+    value: "Multi-org",
+    label: "AI scheduling shipped",
+    proof: "LLM intent + deterministic constraints across healthcare organizations.",
+  },
+  {
+    value: "2–6",
+    label: "Engineers led",
+    proof: "Roadmap, standards, and delivery from pilot to production scale.",
+  },
+] as const;
+
+/** Outcome First Resume — four production outcomes lead; full evidence follows. */
 export function Variant() {
   const reduce = useReducedMotion() ?? false;
 
   return (
-    <main className="min-h-screen bg-[#f8fafc] text-[#0f172a]">
-      <section className="border-b border-slate-200 bg-[#0f172a] text-white">
-        <div className="mx-auto max-w-5xl px-6 py-14 md:py-20">
+    <main className="min-h-screen bg-[#f4f7fb] text-[#0b1220]">
+      <section className="bg-[#0b1220] text-white">
+        <div className="mx-auto max-w-5xl px-6 py-16 md:py-20">
           <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.35em] text-cyan-300">
-            Outcomes first · skim in under 10s
+            Outcomes first · skim under 10s
           </p>
-          <motion.h1
-            initial={reduce ? false : { opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="mt-4 font-[family-name:var(--font-display)] text-4xl font-extrabold sm:text-5xl"
-          >
-            {cv.name}
-          </motion.h1>
-          <p className="mt-2 text-lg text-slate-300">{cv.title}</p>
-          <div className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-4">
-            {cv.highlights.map((h, i) => (
-              <motion.div
-                key={h.label}
-                initial={reduce ? false : { opacity: 0, scale: 0.96 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: reduce ? 0 : 0.06 * i }}
-                className="rounded-lg border border-white/10 bg-white/5 p-4"
+          <div className="mt-4 flex flex-wrap items-end justify-between gap-6">
+            <div>
+              <motion.h1
+                initial={reduce ? false : { opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="font-[family-name:var(--font-display)] text-4xl font-extrabold sm:text-5xl"
               >
-                <p className="text-3xl font-bold text-cyan-300 md:text-4xl">{h.value}</p>
-                <p className="mt-2 text-xs uppercase tracking-wide text-slate-400">{h.label}</p>
-              </motion.div>
-            ))}
-          </div>
-          <div className="mt-10 flex flex-wrap items-center gap-4">
+                {cv.name}
+              </motion.h1>
+              <p className="mt-2 text-lg text-slate-300">{cv.title}</p>
+            </div>
             <a
               href={`mailto:${cv.email}`}
-              className="rounded-md bg-cyan-400 px-5 py-2.5 text-sm font-bold text-[#0f172a] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400"
+              className="rounded-md bg-cyan-400 px-5 py-2.5 text-sm font-bold text-[#0b1220] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400"
             >
               Hire — email now
             </a>
-            <ContactRow className="text-slate-300" />
           </div>
+
+          <div className="mt-12 grid gap-3 sm:grid-cols-2">
+            {outcomes.map((o, i) => (
+              <motion.article
+                key={o.label}
+                initial={reduce ? false : { opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: reduce ? 0 : 0.06 * i }}
+                className="rounded-xl border border-white/10 bg-white/[0.04] p-5"
+              >
+                <p className="text-3xl font-bold text-cyan-300 sm:text-4xl">{o.value}</p>
+                <p className="mt-2 text-xs font-semibold uppercase tracking-wide text-slate-400">{o.label}</p>
+                <p className="mt-3 text-sm leading-6 text-slate-300">{o.proof}</p>
+              </motion.article>
+            ))}
+          </div>
+          <ContactRow className="mt-8 text-slate-400" />
         </div>
       </section>
 
-      <section className="mx-auto max-w-5xl px-6 py-12">
+      <section className="mx-auto max-w-5xl px-6 py-10">
         <p className="max-w-3xl text-sm leading-7 text-slate-600">{cv.summary}</p>
         <p className="mt-3 text-xs text-slate-400">{cv.location}</p>
       </section>

@@ -1,19 +1,20 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
+import { ContactRow, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
 import { cv } from "@/data/cv";
 
-/** Redline Resume — editor markup + proofing pass over a complete CV */
+/** Redline Resume — editor marks and proofing lines on a CV still moving forward. */
 export function Variant() {
   const reduce = useReducedMotion() ?? false;
 
   return (
-    <main className="min-h-screen bg-[#fbfbf9] text-black">
+    <main className="min-h-screen bg-[#fbfbf8] text-black">
       <div className="border-b border-red-200 bg-red-50 px-6 py-2 text-center font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.35em] text-red-700">
         Edit pass · still in motion · hire-ready draft
       </div>
-      <section className="mx-auto max-w-3xl px-6 pb-10 pt-20">
+
+      <header className="mx-auto max-w-3xl px-6 pb-8 pt-20">
         <p className="font-[family-name:var(--font-mono)] text-xs text-red-600">REDLINE · EDIT PASS</p>
         <motion.h1
           initial={reduce ? false : { opacity: 0, y: 12 }}
@@ -44,30 +45,48 @@ export function Variant() {
           </a>
           <ContactRow className="text-red-800/80" />
         </div>
+      </header>
+
+      <section className="mx-auto max-w-3xl space-y-10 px-6 pb-12">
+        <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.3em] text-red-600">
+          § Experience — no cuts
+        </p>
+        {cv.experience.map((job, i) => (
+          <article key={`${job.company}-${job.period}`} className="relative border-b border-dashed border-red-200 pb-8">
+            <span className="absolute -left-1 top-0 rotate-[-8deg] font-[family-name:var(--font-mono)] text-[10px] text-red-500">
+              {i === 0 ? "STET" : i === 1 ? "✓ keep" : "→ expand"}
+            </span>
+            <p className="pl-10 text-xs uppercase tracking-wide text-black/45">{job.period}</p>
+            <h2 className="mt-1 pl-10 text-xl font-semibold">
+              {job.role} · {job.company}
+            </h2>
+            <p className="pl-10 text-sm text-black/50">{job.place}</p>
+            <ul className="mt-4 space-y-2 pl-10 text-sm leading-relaxed text-black/80">
+              {job.bullets.map((b) => (
+                <li key={b.slice(0, 28)} className="relative pl-4 before:absolute before:left-0 before:content-['▸'] before:text-red-400">
+                  {b}
+                </li>
+              ))}
+            </ul>
+          </article>
+        ))}
       </section>
-      <section className="mx-auto max-w-3xl space-y-14 px-6 pb-28">
+
+      <section className="mx-auto grid max-w-3xl gap-12 px-6 pb-28 md:grid-cols-2">
         <div>
           <p className="mb-6 font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.3em] text-red-600">
-            § Experience — no cuts
+            § Skills
           </p>
-          <ExperienceList tone="light" />
+          <SkillsCloud tone="light" />
         </div>
-        <div className="grid gap-12 md:grid-cols-2">
-          <div>
-            <p className="mb-6 font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.3em] text-red-600">
-              § Skills
-            </p>
-            <SkillsCloud tone="light" />
-          </div>
-          <div>
-            <p className="mb-6 font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.3em] text-red-600">
-              § Projects
-            </p>
-            <ProjectLinks tone="light" />
-            <p className="mt-10 text-sm text-black/50">
-              {cv.education.degree} · {cv.education.school}
-            </p>
-          </div>
+        <div>
+          <p className="mb-6 font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.3em] text-red-600">
+            § Projects
+          </p>
+          <ProjectLinks tone="light" />
+          <p className="mt-10 text-sm text-black/50">
+            {cv.education.degree} · {cv.education.school}
+          </p>
         </div>
       </section>
     </main>
