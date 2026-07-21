@@ -36,5 +36,6 @@ Autonomous progress log for Orbitfolio.
 | 33 | Custom design batch 6 | Raised diversity gate to 75; deepened 10 systems / hire designs |
 | 34 | Plain-language docs | Expanded jargon and abbreviations across product docs |
 | 35 | Docs with learn-more links | Linked award sites, tooling docs, and internal doc map |
+| 36 | Custom design batch 7 | Raised diversity gate to 85; deepened 10 hire / experimental designs |
 
 Live: https://orbitfolio-kohl.vercel.app · Loop: deepen remaining shared-shell designs + merge

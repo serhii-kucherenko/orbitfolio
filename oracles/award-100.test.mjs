@@ -204,8 +204,8 @@ test("Fail-then-pass: structural diversity — not a monoculture of identical la
     `need ≥12 distinct AwardVariant layouts among remaining shells, got ${layouts.size}`,
   );
   assert.ok(
-    handcrafted >= 75,
-    `RED: need ≥75 handcrafted (non-AwardVariant) cells for award diversity, got ${handcrafted}`,
+    handcrafted >= 85,
+    `RED: need ≥85 handcrafted (non-AwardVariant) cells for award diversity, got ${handcrafted}`,
   );
 });
 
