@@ -19,6 +19,12 @@ const trust = [
   },
 ] as const;
 
+const proofStrip = [
+  { label: "Who", value: `${cv.name} · founding engineer · ${cv.location}` },
+  { label: "What", value: "Clinical SaaS · applied AI · multi-org healthcare delivery" },
+  { label: "Proof", value: `${cv.highlights[0]?.value} ${cv.highlights[0]?.label} · YC healthcare AI` },
+] as const;
+
 /** Clinic SaaS Engineer — healthcare-product calm: trust, outcomes, founding delivery. */
 export function Variant() {
   const reduce = useReducedMotion() ?? false;
@@ -39,6 +45,28 @@ export function Variant() {
           <h1 className="mt-4 font-[family-name:var(--font-serif)] text-4xl tracking-tight sm:text-6xl">{cv.name}</h1>
           <p className="mt-3 text-lg text-[#3d564a]">{cv.title}</p>
           <p className="mt-6 max-w-2xl text-sm leading-7 text-[#1c2b24]/70">{cv.summary}</p>
+
+          <div
+            data-hire-proof
+            className="mt-8 grid gap-px overflow-hidden border border-[#8aa897] bg-[#8aa897] sm:grid-cols-3"
+            aria-label="10-second hire proof — who / what / proof"
+          >
+            {proofStrip.map((row, i) => (
+              <motion.div
+                key={row.label}
+                initial={reduce ? false : { opacity: 0, y: 6 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: reduce ? 0 : 0.08 * i }}
+                className="bg-white/90 px-4 py-4"
+              >
+                <p className="text-[10px] uppercase tracking-[0.28em] text-[#4a6b5c]">
+                  {row.label} · 10-second scan
+                </p>
+                <p className="mt-2 text-sm font-medium leading-6 text-[#1c2b24]">{row.value}</p>
+              </motion.div>
+            ))}
+          </div>
+
           <div className="mt-8 flex flex-wrap gap-3">
             <a
               href={`mailto:${cv.email}`}
@@ -81,7 +109,10 @@ export function Variant() {
       </header>
 
       <section className="mx-auto max-w-5xl px-6 py-12">
-        <h2 className="mb-6 font-[family-name:var(--font-serif)] text-2xl">Trust outcomes</h2>
+        <h2 className="mb-2 font-[family-name:var(--font-serif)] text-2xl">Trust outcomes</h2>
+        <p className="mb-6 text-sm text-[#4a6b5c]/80">
+          Regulated-domain engineering: ship AI that clinicians and ops teams can rely on.
+        </p>
         <div className="grid gap-4 md:grid-cols-3">
           {trust.map((t) => (
             <article key={t.title} className="border border-[#c5d4cb] bg-white p-5">

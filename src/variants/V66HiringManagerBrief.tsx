@@ -102,6 +102,27 @@ export function Variant() {
           </div>
         </section>
       </div>
+      <section data-hire-proof className="border-t border-slate-200 bg-slate-50 px-6 py-10">
+        <div className="mx-auto grid max-w-5xl gap-6 sm:grid-cols-3">
+          <div>
+            <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate-500">Who</p>
+            <p className="mt-2 font-semibold">{cv.name}</p>
+          </div>
+          <div>
+            <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate-500">What</p>
+            <p className="mt-2 font-semibold">{cv.title}</p>
+          </div>
+          <div>
+            <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate-500">Proof</p>
+            <p className="mt-2 text-sm leading-6 text-slate-600">
+              Concise briefing opens into every bullet — recruiter scan, then full appendix.
+            </p>
+          </div>
+        </div>
+        <p className="mx-auto mt-6 max-w-5xl text-xs uppercase tracking-wider text-slate-400">
+          who / what / proof · hiring brief 66
+        </p>
+      </section>
     </main>
   );
 }

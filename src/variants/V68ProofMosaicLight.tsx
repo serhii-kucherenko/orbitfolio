@@ -92,6 +92,27 @@ export function Variant() {
           </div>
         </div>
       </section>
+      <section data-hire-proof className="border-t border-[#c5d0da] bg-white px-6 py-10">
+        <div className="mx-auto grid max-w-6xl gap-6 sm:grid-cols-3">
+          <div>
+            <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#2a4a5e]">Who</p>
+            <p className="mt-2 font-semibold">{cv.name}</p>
+          </div>
+          <div>
+            <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#2a4a5e]">What</p>
+            <p className="mt-2 font-semibold">{cv.title}</p>
+          </div>
+          <div>
+            <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#2a4a5e]">Proof</p>
+            <p className="mt-2 text-sm leading-6 opacity-70">
+              Mosaic tiles surface metrics and roles for a recruiter scan in under ten seconds.
+            </p>
+          </div>
+        </div>
+        <p className="mx-auto mt-6 max-w-6xl text-xs uppercase tracking-wider opacity-45">
+          who / what / proof · cell 68
+        </p>
+      </section>
     </main>
   );
 }

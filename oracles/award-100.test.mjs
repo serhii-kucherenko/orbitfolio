@@ -380,3 +380,35 @@ test("Fail-then-pass: Gamma kinetic ships GSAP in at least 3 cells", () => {
     `RED: need ≥3 Gamma cells using GSAP, got ${withGsap.length}: ${withGsap.join(", ") || "none"}`,
   );
 });
+
+test("Fail-then-pass: Epsilon hire cells stay deep and expose a 10-second proof strip", () => {
+  const epsilon = listVariantFiles().filter((name) => {
+    const id = Number(name.match(/^V(\d+)/)[1]);
+    return id >= 57 && id <= 70;
+  });
+  assert.equal(epsilon.length, 14);
+  const shallow = [];
+  const missingProof = [];
+  for (const file of epsilon) {
+    const src = fs.readFileSync(path.join(variantsDir, file), "utf8");
+    const lines = src.split("\n").length;
+    if (lines < 110) shallow.push(`${file}(${lines})`);
+    const hasProof =
+      /who\s*\/\s*what\s*\/\s*proof/i.test(src) ||
+      /data-hire-proof/.test(src) ||
+      /ten.?second/i.test(src) ||
+      /10.?second/i.test(src) ||
+      /recruiter scan/i.test(src);
+    if (!hasProof) missingProof.push(file);
+  }
+  assert.equal(
+    shallow.length,
+    0,
+    `RED: Epsilon cells under 110 lines: ${shallow.join(", ")}`,
+  );
+  assert.equal(
+    missingProof.length,
+    0,
+    `RED: Epsilon cells missing 10-second proof strip: ${missingProof.join(", ")}`,
+  );
+});

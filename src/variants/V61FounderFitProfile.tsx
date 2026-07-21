@@ -101,6 +101,27 @@ export function Variant() {
           </div>
         </div>
       </section>
+      <section data-hire-proof className="border-t border-white/10 px-6 py-10">
+        <div className="mx-auto grid max-w-5xl gap-6 sm:grid-cols-3">
+          <div>
+            <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-emerald-300/80">Who</p>
+            <p className="mt-2 font-semibold">{cv.name}</p>
+          </div>
+          <div>
+            <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-emerald-300/80">What</p>
+            <p className="mt-2 font-semibold">{cv.title}</p>
+          </div>
+          <div>
+            <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-emerald-300/80">Proof</p>
+            <p className="mt-2 text-sm leading-6 text-zinc-400">
+              0-to-1 ownership and AI delivery for a recruiter scan in under ten seconds.
+            </p>
+          </div>
+        </div>
+        <p className="mx-auto mt-6 max-w-5xl text-xs uppercase tracking-wider text-zinc-600">
+          who / what / proof · founder fit 61
+        </p>
+      </section>
     </main>
   );
 }

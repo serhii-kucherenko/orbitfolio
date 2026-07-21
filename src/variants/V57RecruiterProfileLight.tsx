@@ -91,6 +91,30 @@ export function Variant() {
           </p>
         </aside>
       </div>
+      <section
+        data-hire-proof
+        className="border-t border-[#b8c9d6] bg-[#f7fafc] px-6 py-10 lg:px-10"
+      >
+        <div className="mx-auto grid max-w-6xl gap-6 sm:grid-cols-3">
+          <div>
+            <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#1a5f6b]">Who</p>
+            <p className="mt-2 font-semibold">{cv.name}</p>
+          </div>
+          <div>
+            <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#1a5f6b]">What</p>
+            <p className="mt-2 font-semibold">{cv.title}</p>
+          </div>
+          <div>
+            <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#1a5f6b]">Proof</p>
+            <p className="mt-2 text-sm leading-6 text-[#0f2430]/70">
+              Metrics above · full experience · printable resume — recruiter scan under ten seconds.
+            </p>
+          </div>
+        </div>
+        <p className="mx-auto mt-6 max-w-6xl text-xs uppercase tracking-wider text-[#0f2430]/45">
+          who / what / proof · Epsilon hire cell 57
+        </p>
+      </section>
     </main>
   );
 }

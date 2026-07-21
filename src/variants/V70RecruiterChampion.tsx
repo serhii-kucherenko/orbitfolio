@@ -96,6 +96,35 @@ export function Variant() {
           </div>
         </div>
       </section>
+      <section data-hire-proof className="border-t border-white/10 bg-[#0a1620] px-6 py-10 lg:px-10">
+        <div className="mx-auto grid max-w-6xl gap-6 sm:grid-cols-3">
+          <div>
+            <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#7dd3fc]">Who</p>
+            <p className="mt-2 font-semibold">{cv.name}</p>
+          </div>
+          <div>
+            <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#7dd3fc]">What</p>
+            <p className="mt-2 font-semibold">{cv.title}</p>
+          </div>
+          <div>
+            <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#7dd3fc]">Proof</p>
+            <p className="mt-2 text-sm leading-6 text-slate-300">
+              Recruiter scan: clarity first, motion second, zero hidden evidence — full CV below.
+            </p>
+          </div>
+        </div>
+        <p className="mx-auto mt-6 max-w-6xl text-xs uppercase tracking-wider text-slate-500">
+          who / what / proof · Epsilon champion 70
+        </p>
+      </section>
+    </main>
+  );
+}
+ {cv.education.degree} · {cv.education.school} · {cv.location}
+            </p>
+          </div>
+        </div>
+      </section>
     </main>
   );
 }
