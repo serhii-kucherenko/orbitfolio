@@ -55,9 +55,15 @@ export function Variant() {
           <div className="mt-9 flex flex-wrap items-center gap-4">
             <a
               href={`mailto:${cv.email}`}
-              className="rounded-full bg-gradient-to-r from-teal-400 to-sky-400 px-6 py-3 text-sm font-bold text-[#042f2e] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-300"
+              className="bg-gradient-to-r from-teal-400 to-sky-400 px-6 py-3 text-sm font-bold text-[#042f2e] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-300"
             >
               Hire from the coast
+            </a>
+            <a
+              href="/resume"
+              className="border border-sky-300/40 px-5 py-3 text-sm text-sky-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-300"
+            >
+              Coast resume
             </a>
             <ContactRow className="text-sky-200/70" />
           </div>
@@ -72,7 +78,7 @@ export function Variant() {
               initial={reduce ? false : { opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: reduce ? 0 : 0.05 * i }}
-              className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-sm"
+              className="border-t border-teal-300/35 pt-4"
             >
               <p className="text-3xl font-bold text-teal-300">{h.value}</p>
               <p className="mt-1 text-[10px] uppercase tracking-wider text-sky-300/50">{h.label}</p>

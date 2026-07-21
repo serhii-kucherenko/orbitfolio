@@ -29,6 +29,12 @@ export function Variant() {
             >
               Align a mission
             </a>
+            <a
+              href="/resume"
+              className="border border-amber-300/40 px-5 py-2.5 text-sm text-amber-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-200"
+            >
+              Ephemeris / resume
+            </a>
             <ContactRow className="text-amber-100/60" />
           </div>
         </div>
