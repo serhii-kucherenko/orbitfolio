@@ -2,18 +2,29 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
+import { FallbackGlow, SceneOrbitProof, WebGLStage } from "@/components/webgl/AwardWebGL";
 import { cv } from "@/data/cv";
 
-/** Holographic Record — vinyl hologram disc with iridescent grooves encoding career sides A/B */
+/** Holographic Record — vinyl hologram + WebGL orbit proof encoding career sides A/B. */
 export function Variant() {
   const reduce = useReducedMotion() ?? false;
+  const accent = "#22d3ee";
 
   return (
     <main className="min-h-screen bg-[#08080b] text-white">
-      <header className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-20 lg:grid-cols-[1fr_340px] lg:px-12">
-        <div>
+      <header className="relative mx-auto grid max-w-6xl items-center gap-12 overflow-hidden px-6 py-20 lg:grid-cols-[1fr_340px] lg:px-12">
+        <WebGLStage
+          accent={accent}
+          reduce={reduce}
+          label="Holodisc orbit proof"
+          className="pointer-events-none absolute inset-0 opacity-40"
+          fallback={<FallbackGlow accent={accent} />}
+        >
+          <SceneOrbitProof accent={accent} />
+        </WebGLStage>
+        <div className="relative z-10">
           <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.4em] text-cyan-300/70">
-            Holodisc · sides A / B · {cv.location}
+            Holodisc · sides A / B · WebGL · {cv.location}
           </p>
           <h1 className="mt-4 bg-gradient-to-r from-cyan-300 via-sky-200 to-amber-200 bg-clip-text font-[family-name:var(--font-display)] text-5xl font-black text-transparent sm:text-7xl">
             {cv.name}
@@ -38,7 +49,7 @@ export function Variant() {
         </div>
 
         <motion.div
-          className="relative mx-auto aspect-square w-full max-w-[320px] rounded-full"
+          className="relative z-10 mx-auto aspect-square w-full max-w-[320px] rounded-full"
           style={{
             background: "conic-gradient(from 0deg, #22d3ee, #fbbf24, #38bdf8, #22d3ee, #fde68a, #22d3ee)",
             padding: 6,
@@ -97,6 +108,9 @@ export function Variant() {
             </p>
           </div>
         </div>
+        <p className="mt-14 max-w-2xl text-sm leading-7 text-white/40">
+          Iridescence is atmosphere — sides A/B still read as hireable proof under the WebGL orbit.
+        </p>
       </section>
     </main>
   );

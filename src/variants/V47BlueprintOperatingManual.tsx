@@ -99,6 +99,12 @@ export function Variant() {
             </p>
           </div>
         </div>
+        <p className="mt-10 max-w-2xl border border-sky-400/20 bg-[#07141f]/70 px-4 py-3 text-sm leading-7 text-sky-200/55">
+          Operating manual tone stays systems-clear: specs first, hire path never buried in blueprint chrome.
+        </p>
+        <p className="mt-3 font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.3em] text-sky-500/50">
+          Delta · blueprint · proof over ornament
+        </p>
       </section>
     </main>
   );

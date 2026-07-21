@@ -2,6 +2,7 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
+import { SmoothScroll } from "@/components/SmoothScroll";
 import { cv } from "@/data/cv";
 
 const nav = [
@@ -13,11 +14,12 @@ const nav = [
   { href: "#contact", label: "Contact" },
 ] as const;
 
-/** Docs Sidebar Engineer — inspectable, versioned documentation workspace. */
+/** Docs Sidebar Engineer — inspectable docs workspace with Lenis long-form scroll. */
 export function Variant() {
   const reduce = useReducedMotion() ?? false;
 
   return (
+    <SmoothScroll>
     <main className="min-h-screen bg-[#0b1220] text-slate-100">
       <div className="mx-auto flex min-h-screen max-w-6xl">
         <aside className="sticky top-0 hidden h-screen w-56 shrink-0 flex-col border-r border-white/10 bg-[#070d18] px-4 py-24 md:flex">
@@ -112,5 +114,6 @@ export function Variant() {
         </div>
       </div>
     </main>
+    </SmoothScroll>
   );
 }
