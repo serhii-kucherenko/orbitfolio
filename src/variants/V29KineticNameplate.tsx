@@ -10,7 +10,7 @@ export function Variant() {
   const parts = cv.name.split(" ");
 
   return (
-    <main className="overflow-x-hidden bg-[#061410] text-[#b8ffd0]">
+    <main className="overflow-x-hidden bg-[#04110d] text-[#b8ffd0]">
       <header className="relative min-h-[92vh] px-6 pb-16 pt-28 md:px-12">
         <motion.p
           animate={reduce ? undefined : { x: [0, 48, 0] }}
@@ -44,9 +44,15 @@ export function Variant() {
           <div className="mt-8 flex flex-wrap justify-end gap-3">
             <a
               href={`mailto:${cv.email}`}
-              className="rounded-full bg-[#b8ffd0] px-5 py-2.5 text-sm font-bold text-[#061410] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8ffd0]"
+              className="rounded-full bg-[#b8ffd0] px-5 py-2.5 text-sm font-bold text-[#04110d] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8ffd0]"
             >
               Start a conversation
+            </a>
+            <a
+              href="/resume"
+              className="rounded-full border border-[#b8ffd0]/40 px-5 py-2.5 text-sm font-bold text-[#b8ffd0]"
+            >
+              Title card PDF
             </a>
             <ContactRow className="justify-end text-[#7dffb0]/80" />
           </div>
@@ -68,7 +74,7 @@ export function Variant() {
         </div>
       </header>
 
-      <section className="-rotate-1 bg-[#b8ffd0] px-6 py-16 text-[#061410] md:px-12">
+      <section className="-rotate-1 bg-[#b8ffd0] px-6 py-16 text-[#04110d] md:px-12">
         <h2 className="mb-10 text-4xl font-black uppercase tracking-tight sm:text-5xl">Motion / impact</h2>
         <ExperienceList tone="light" />
       </section>
@@ -82,7 +88,7 @@ export function Variant() {
           <h2 className="mb-8 text-3xl font-black uppercase">Output</h2>
           <ProjectLinks />
           <p className="mt-14 text-sm text-[#7dffb0]/55">
-            {cv.education.degree} · {cv.education.school}
+            {cv.education.degree} · {cv.education.school} · {cv.location}
           </p>
         </div>
       </section>

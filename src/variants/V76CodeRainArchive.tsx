@@ -10,7 +10,7 @@ export function Variant() {
   const rain = ["10+", "RAG", "LLM", "0→1", "SSR", "85%", "$78K", "YC", "AI", "CI", "→", "λ", "∥", "◆"];
 
   return (
-    <main className="relative min-h-screen overflow-hidden bg-[#030806] text-[#86efac] font-[family-name:var(--font-mono)]">
+    <main className="relative min-h-screen overflow-hidden bg-[#020705] font-[family-name:var(--font-mono)] text-[#86efac]">
       {!reduce && (
         <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden opacity-20">
           <div className="flex h-full gap-6 px-2">
@@ -48,15 +48,27 @@ export function Variant() {
           >
             &gt; mail --hire
           </a>
+          <a
+            href="/resume"
+            className="border border-emerald-700/60 px-4 py-2 text-xs font-bold uppercase tracking-wider text-emerald-500"
+          >
+            &gt; cat resume.txt
+          </a>
           <ContactRow className="text-emerald-600" />
         </div>
 
         <div className="mt-10 grid grid-cols-2 gap-2 sm:grid-cols-4">
-          {cv.highlights.map((h) => (
-            <div key={h.label} className="border border-emerald-800/80 bg-black/50 p-3">
+          {cv.highlights.map((h, i) => (
+            <motion.div
+              key={h.label}
+              initial={reduce ? false : { opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: reduce ? 0 : i * 0.05 }}
+              className="border border-emerald-800/80 bg-black/50 p-3"
+            >
               <p className="text-2xl font-bold text-emerald-300">{h.value}</p>
               <p className="mt-1 text-[9px] uppercase tracking-wider text-emerald-700">{h.label}</p>
-            </div>
+            </motion.div>
           ))}
         </div>
       </section>

@@ -8,19 +8,22 @@ import { cv } from "@/data/cv";
 export function Variant() {
   const reduce = useReducedMotion() ?? false;
   return (
-    <main className="min-h-screen bg-[#11100e] text-[#f2eadc]">
+    <main className="min-h-screen bg-[#0e0d0b] text-[#f2eadc]">
       <header className="relative flex min-h-screen items-end overflow-hidden px-6 pb-16 pt-28 md:px-12">
         <motion.div
           aria-hidden
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(90deg, rgba(17,16,14,.95) 0%, rgba(17,16,14,.18) 55%), radial-gradient(circle at 72% 42%, #b46a38 0, #35231b 28%, #11100e 64%)",
+              "linear-gradient(90deg, rgba(14,13,11,.96) 0%, rgba(14,13,11,.2) 55%), radial-gradient(circle at 72% 42%, #b46a38 0, #35231b 28%, #0e0d0b 64%)",
           }}
-          animate={reduce ? undefined : { scale: [1, 1.06] }}
+          animate={reduce ? undefined : { scale: [1, 1.07] }}
           transition={{ duration: 12, ease: "easeOut" }}
         />
-        <div aria-hidden className="absolute inset-x-0 top-8 flex justify-between px-6 font-[family-name:var(--font-mono)] text-[9px] tracking-[0.3em] opacity-45 md:px-12">
+        <div
+          aria-hidden
+          className="absolute inset-x-0 top-8 flex justify-between px-6 font-[family-name:var(--font-mono)] text-[9px] tracking-[0.3em] opacity-45 md:px-12"
+        >
           <span>ROLL 04 · TAKE 01</span>
           <span>00:00:10:24</span>
         </div>
@@ -39,8 +42,17 @@ export function Variant() {
             <p className="max-w-2xl text-sm leading-7 text-[#f2eadc]/65">{cv.summary}</p>
           </div>
           <div className="mt-10 flex flex-wrap gap-4">
-            <a href={`mailto:${cv.email}`} className="bg-[#e6a56f] px-6 py-3 text-sm font-bold text-[#11100e]">
+            <a
+              href={`mailto:${cv.email}`}
+              className="bg-[#e6a56f] px-6 py-3 text-sm font-bold text-[#0e0d0b] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#e6a56f]"
+            >
               Start the next production
+            </a>
+            <a
+              href="/resume"
+              className="border border-[#e6a56f]/50 px-6 py-3 text-sm font-bold text-[#e6a56f]"
+            >
+              Call sheet
             </a>
             <ContactRow className="items-center text-[#f2eadc]/60" />
           </div>
@@ -61,7 +73,7 @@ export function Variant() {
               viewport={{ once: true, amount: 0.25 }}
               className="relative grid gap-6 border-b border-white/10 py-12 pl-8 md:grid-cols-[0.35fr_0.65fr] md:pl-14"
             >
-              <span className="absolute -left-3 top-12 grid h-6 w-6 place-items-center rounded-full bg-[#e6a56f] text-[10px] font-bold text-[#11100e]">
+              <span className="absolute -left-3 top-12 grid h-6 w-6 place-items-center rounded-full bg-[#e6a56f] text-[10px] font-bold text-[#0e0d0b]">
                 {index + 1}
               </span>
               <div>
@@ -70,7 +82,9 @@ export function Variant() {
                 <p className="mt-2 text-sm opacity-50">{job.role}</p>
               </div>
               <ul className="space-y-3 text-sm leading-7 text-[#f2eadc]/70">
-                {job.bullets.map((bullet) => <li key={bullet}>— {bullet}</li>)}
+                {job.bullets.map((bullet) => (
+                  <li key={bullet}>— {bullet}</li>
+                ))}
               </ul>
             </motion.li>
           ))}
@@ -79,12 +93,18 @@ export function Variant() {
 
       <section className="bg-[#e6a56f] px-6 py-24 text-[#20150f] md:px-12">
         <div className="mx-auto grid max-w-6xl gap-16 md:grid-cols-2">
-          <div><h2 className="mb-8 font-[family-name:var(--font-serif)] text-4xl">Credits</h2><SkillsCloud tone="light" /></div>
-          <div><h2 className="mb-8 font-[family-name:var(--font-serif)] text-4xl">Selected work</h2><ProjectLinks tone="light" /></div>
+          <div>
+            <h2 className="mb-8 font-[family-name:var(--font-serif)] text-4xl">Credits</h2>
+            <SkillsCloud tone="light" />
+          </div>
+          <div>
+            <h2 className="mb-8 font-[family-name:var(--font-serif)] text-4xl">Selected work</h2>
+            <ProjectLinks tone="light" />
+          </div>
         </div>
       </section>
       <footer className="mx-auto max-w-6xl px-6 py-12 text-xs opacity-55 md:px-12">
-        End title · {cv.education.degree} · {cv.education.school}
+        End title · {cv.education.degree} · {cv.education.school} · {cv.location}
       </footer>
     </main>
   );
