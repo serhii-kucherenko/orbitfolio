@@ -33,7 +33,7 @@ export function Variant() {
     <main className="min-h-screen bg-[#0d1117] text-[#e6edf3]">
       <div className="mx-auto max-w-3xl px-4 pb-8 pt-24">
         <motion.div
-          className="overflow-hidden border border-white/10 bg-[#161b22] shadow-lg shadow-black/40"
+          className="overflow-hidden border border-white/10 bg-[#161b22]"
           initial={reduce ? false : { y: 24, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.4 }}
@@ -104,7 +104,7 @@ export function Variant() {
           {active === "metrics" && (
             <div className="grid gap-3 sm:grid-cols-2">
               {cv.highlights.map((h) => (
-                <div key={h.label} className="rounded-lg border border-white/10 bg-[#161b22] p-5">
+                <div key={h.label} className="border border-white/10 bg-[#161b22] p-5">
                   <p className="text-3xl font-bold text-sky-300">{h.value}</p>
                   <p className="mt-1 text-xs uppercase tracking-wider text-white/45">{h.label}</p>
                 </div>

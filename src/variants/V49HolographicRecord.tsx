@@ -55,7 +55,7 @@ export function Variant() {
                   "repeating-radial-gradient(circle, transparent 0 6px, rgba(255,255,255,0.06) 6px 7px)",
               }}
             >
-              <div className="flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-cyan-300 to-amber-300 text-[10px] font-bold text-black">
+              <div className="flex h-16 w-16 items-center justify-center bg-gradient-to-br from-cyan-300 to-amber-300 text-[10px] font-bold text-black">
                 A/B
               </div>
             </div>
@@ -66,7 +66,7 @@ export function Variant() {
       <section className="border-y border-white/10 bg-gradient-to-r from-cyan-500/10 via-sky-500/10 to-amber-500/10 px-6 py-12 lg:px-12">
         <div className="mx-auto grid max-w-6xl gap-4 sm:grid-cols-4">
           {cv.highlights.map((h) => (
-            <div key={h.label} className="border border-white/15 bg-black/40 p-5 backdrop-blur">
+            <div key={h.label} className="border border-white/15 bg-black/50 p-5">
               <p className="bg-gradient-to-r from-cyan-200 to-amber-200 bg-clip-text text-3xl font-black text-transparent">
                 {h.value}
               </p>

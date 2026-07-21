@@ -66,7 +66,7 @@ export function Variant() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: reduce ? 0 : i * 0.07 }}
-              className="border border-[#1a1814]/15 bg-white p-6 shadow-[4px_4px_0_#1a1814]/12]"
+              className="border border-[#1a1814]/15 bg-white p-6"
             >
               <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.25em] text-[#8b6914]">
                 Case {String(i + 1).padStart(2, "0")}

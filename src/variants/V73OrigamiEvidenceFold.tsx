@@ -47,10 +47,10 @@ export function Variant() {
         <div className="grid gap-4 sm:grid-cols-2">
           {cv.highlights.map((h, i) => {
             const folds = [
-              "bg-[#0f766e] text-white shadow-[8px_8px_0_0_#99f6e4]",
-              "bg-white text-[#14201a] shadow-[8px_8px_0_0_#86efac] ring-1 ring-emerald-200",
-              "bg-[#9f1239] text-white shadow-[8px_8px_0_0_#fecdd3]",
-              "bg-[#d9f99d] text-[#14201a] shadow-[8px_8px_0_0_#65a30d]",
+              "bg-[#0f766e] text-white shadow-[4px_4px_0_0_#99f6e4]",
+              "bg-white text-[#14201a] shadow-[4px_4px_0_0_#86efac] ring-1 ring-emerald-200",
+              "bg-[#9f1239] text-white shadow-[4px_4px_0_0_#fecdd3]",
+              "bg-[#d9f99d] text-[#14201a] shadow-[4px_4px_0_0_#65a30d]",
             ];
             return (
               <motion.div
@@ -83,11 +83,11 @@ export function Variant() {
       </section>
 
       <section className="mx-auto grid max-w-5xl gap-8 px-6 py-14 md:grid-cols-2">
-        <div className="border border-emerald-200 bg-white p-6 shadow-[6px_6px_0_0_#99f6e4]">
+        <div className="border border-emerald-200 bg-white p-6 shadow-[3px_3px_0_0_#99f6e4]">
           <h2 className="mb-6 text-xl font-bold">Paper skills</h2>
           <SkillsCloud tone="light" />
         </div>
-        <div className="border border-emerald-200 bg-white p-6 shadow-[6px_6px_0_0_#86efac]">
+        <div className="border border-emerald-200 bg-white p-6 shadow-[3px_3px_0_0_#86efac]">
           <h2 className="mb-6 text-xl font-bold">Creased projects</h2>
           <ProjectLinks tone="light" />
           <p className="mt-10 text-sm text-emerald-950/45">

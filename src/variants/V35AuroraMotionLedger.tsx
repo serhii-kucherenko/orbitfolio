@@ -60,7 +60,7 @@ export function Variant() {
       </header>
 
       <section className="relative mx-auto max-w-6xl px-6 md:px-10">
-        <div className="overflow-hidden border border-cyan-300/20 bg-black/30 backdrop-blur-sm">
+        <div className="overflow-hidden border border-cyan-300/20 bg-black/40">
           <div className="grid grid-cols-[1.2fr_1fr_1fr] border-b border-cyan-300/20 font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.25em] text-cyan-200/50">
             <span className="px-4 py-3">Entry</span>
             <span className="px-4 py-3">Debit</span>
@@ -102,7 +102,7 @@ export function Variant() {
             <h2 className="mb-6 text-xl font-semibold text-emerald-200">Lab links</h2>
             <ProjectLinks />
             <p className="mt-10 text-sm text-white/45">
-              {cv.education.degree} · {cv.education.school}
+              {cv.education.degree} · {cv.education.school} · {cv.location}
             </p>
           </div>
         </div>
