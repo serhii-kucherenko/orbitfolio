@@ -48,7 +48,7 @@ export function Variant() {
           </a>
           <a
             href="/resume"
-            className="rounded-md border border-[#0d7377]/40 px-5 py-2.5 text-sm font-semibold text-[#0d7377]"
+            className="rounded-md border border-[#0d7377]/40 px-5 py-2.5 text-sm font-semibold text-[#0d7377] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0d7377]"
           >
             Clinical CV PDF
           </a>

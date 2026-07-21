@@ -83,5 +83,6 @@ Autonomous progress log for Orbitfolio.
 | 80 | Burst tick 31 | Deepened journey map, redline resume, orbital sphere, founder fit, agent chat, centurion |
 | 81 | Burst tick 32 | Deepened constellation, credit roll, ten-second proof, chromed journey, swarm one-pager, cinematic flythrough |
 | 82 | Burst tick 33 | Deepened Sunday press, clinic aurora, planet press, final edition, blueprint manual, mission one-take |
+| 83 | Burst tick 34 | Deepened healthcare trust, liquid brief, museum metrics, event lens, cover stack, alcove museum |
 
 Live: https://orbitfolio-kohl.vercel.app · Loop: every 15m — unique award craft + UI must stay green

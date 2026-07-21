@@ -24,7 +24,7 @@ export function Variant() {
         />
         <div className="relative mx-auto max-w-6xl">
           <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.35em] text-black/40">
-            Gallery 87 · Permanent collection · Room A
+            Gallery 87 · Permanent collection · {cv.location}
           </p>
           <h1 className="mt-6 font-[family-name:var(--font-display)] text-5xl font-bold tracking-tight sm:text-7xl">
             {cv.name}
