@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     "Founding Full-Stack Engineer specializing in applied AI — agents, RAG, and production systems. Vancouver, Canada.",
   openGraph: {
     title: "Serhii Kucherenko — Orbitfolio",
-    description: "Portfolio design lab: 50 space-grade experiments. Applied AI engineer.",
+    description: "Portfolio design lab: 100 award-grade experiments. Applied AI engineer.",
     type: "website",
     url: "https://orbitfolio-kohl.vercel.app",
     siteName: "Orbitfolio",

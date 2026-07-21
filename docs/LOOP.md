@@ -27,5 +27,10 @@ Autonomous `/loop 30m keep going` progress on Orbitfolio.
 | 24 | Goals + live | Goals search; goal #1 marked done; synthwave/brutal hire polish |
 | 25 | 404 + R3F | Surprise on 404; planet moons labeled; void whisper metrics |
 | 26 | Diversity reboot | 12 variants rewritten off space clones: press, Swiss, clinic, glass, paper void, dual, mosaic, cases, iso rooms, brutal press, Bauhaus, recruiter profile |
+| 27 | Award 100 reboot | Rebuilt the lab as 100 complete cells across seven teams; Eta learning ladder promoted #100 |
 
-Live: https://orbitfolio-kohl.vercel.app · Loop: 1h diversify + deploy (PID via Shell 83467)
+| 27 | Award-100 reboot | Replaced 50 cells with 100 award-pattern theses across 7 teams |
+| 28 | A03 red→green | Oracles in `oracles/`; ≥20 handcrafted cells; CI runs test→lint→build |
+
+Live: https://orbitfolio-kohl.vercel.app · Loop: award deepen + merge
+

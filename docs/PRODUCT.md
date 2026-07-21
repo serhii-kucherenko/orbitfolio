@@ -5,7 +5,7 @@
 
 ## Success
 
-- ≥ 50 distinct `/test/n` variants (structure/UX differ, not only theme)
+- 100 distinct `/test/n` variants (structure/UX differ, not only theme)
 - Scored on coolness / comprehensiveness / uniqueness / motion / hireability
 - Champion at `/` with CV completeness + space FX wow
 - `/goals` page with 100 goals seed
@@ -19,4 +19,10 @@
 
 ## Workflow
 
-A03 (test-first where applicable) + craft research (A08). Design cells = variants.
+**A03 red→green** (primary) + craft research (A08). Design cells = variants.
+
+1. Write / extend an oracle in `oracles/` that fails (RED)
+2. Implement or deepen the cell until `npm test` is green
+3. Lint + build → PR → merge → note in `docs/FINDINGS.md`
+
+See `docs/RED_GREEN.md`.

@@ -1,10 +1,10 @@
 import { LabChrome } from "@/components/LabChrome";
-import { getVariant } from "@/data/variants";
+import { getVariant, VARIANT_COUNT } from "@/data/variants";
 import { loadVariant } from "@/variants/loadVariant";
 import { notFound } from "next/navigation";
 
 export function generateStaticParams() {
-  return Array.from({ length: 50 }, (_, i) => ({ n: String(i + 1) }));
+  return Array.from({ length: VARIANT_COUNT }, (_, i) => ({ n: String(i + 1) }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ n: string }> }) {
@@ -24,7 +24,7 @@ export default async function TestVariantPage({
 }) {
   const { n } = await params;
   const id = Number(n);
-  if (!Number.isInteger(id) || id < 1 || id > 50) notFound();
+  if (!Number.isInteger(id) || id < 1 || id > VARIANT_COUNT) notFound();
   const meta = getVariant(id);
   if (!meta) notFound();
 

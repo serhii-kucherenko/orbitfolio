@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "test": "node --test oracles/**/*.test.mjs",
+    "test:red": "node --test oracles/**/*.test.mjs"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.7",

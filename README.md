@@ -7,14 +7,14 @@ Personal portfolio for **Serhii Kucherenko** — Founding Full-Stack Engineer (a
 [![CI](https://github.com/serhii-kucherenko/orbitfolio/actions/workflows/ci.yml/badge.svg)](https://github.com/serhii-kucherenko/orbitfolio/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-teal.svg)](LICENSE)
 
-Built as an **AI Method Lab** product experiment: **50 structurally different UI/UX variants**, scored, with the champion promoted to `/`.
+Built as an **AI Method Lab** product experiment: **100 structurally different UI/UX variants**, scored, with the champion promoted to `/`.
 
 ## Routes
 
 | Path | Purpose |
 |------|---------|
 | `/` | Champion portfolio (best composite score) |
-| `/test/1` … `/test/50` | Design experiments |
+| `/test/1` … `/test/100` | Design experiments |
 | `/lab` | Leaderboard + rubric scores |
 | `/goals` | 100 Goals (living list) |
 | `/resume` | Printable / PDF-friendly resume |

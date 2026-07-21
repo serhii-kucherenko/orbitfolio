@@ -1,26 +1,40 @@
-# Orbitfolio benchmarks
+# Orbitfolio benchmarks — Award UI reboot
 
-Design lab pass — 50 variants scored per `docs/RUBRIC.md`.
+Design lab pass — **100** variants scored per `docs/RUBRIC.md`, benchmarked against award-winning portfolio craft (Awwwards / FWA / CSSDA / Codrops 2025–2026 patterns).
 
-**Champion:** `#50 Champion Hybrid` — composite **9.23** → promoted to `/`
+**Hypothesis:** Many structurally different cells + scored promotion + iterative learning beats a single-shot portfolio.
 
-## Top 10
+## External craft signals (steal the *pattern*, not the brand)
 
-| Rank | ID | Name | Composite | Cool | Complete | Unique | Motion | Hire |
-|------|----|------|-----------|------|----------|--------|--------|------|
-| 1 | 50 | Champion Hybrid | 9.23 | 9.5 | 9.5 | 8.5 | 9.0 | 9.5 |
-| 2 | 40 | Command Palette | 8.82 | 8.8 | 9.0 | 9.5 | 8.0 | 8.5 |
-| 3 | 23 | Aurora Vancouver | 8.71 | 9.0 | 8.5 | 9.0 | 8.5 | 8.2 |
-| 4 | 48 | Agent Swarm | 8.66 | 8.8 | 8.5 | 9.0 | 9.0 | 8.0 |
-| 5 | 3 | Warp Corridor | 8.55 | 9.0 | 8.5 | 8.0 | 8.5 | 8.0 |
-| 6 | 14 | Planet Stage | 8.64 | 9.2 | 8.0 | 9.0 | 9.0 | 7.5 |
-| 7 | 19 | Launch Scrub | 8.56 | 8.8 | 8.5 | 8.5 | 9.0 | 8.0 |
-| 8 | 45 | Infinite Canvas | 8.39 | 8.7 | 8.0 | 9.5 | 8.0 | 7.0 |
-| 9 | 39 | Telescope | 8.44 | 8.6 | 8.5 | 9.0 | 8.0 | 7.8 |
-| 10 | 35 | Agent Console | 8.42 | 8.5 | 8.5 | 9.2 | 7.5 | 8.0 |
+| Pattern | What awards reward | Orbitfolio cell families |
+|---------|--------------------|--------------------------|
+| Scroll as narrative engine | Camera / scene advances with scroll; one continuous take | WebGL rooms, warp scrub, alcove museums |
+| Restraint + motion craft | Frame-perfect GSAP; typography weighted; no noisy UI chrome | Editorial, kinetic type, Swiss, By-Kin-like calm |
+| WebGL for atmosphere | 3D frames work; never buries hire proof | Planet stage, shader veil, spotlight installs |
+| Spatial browsing | Pan/zoom, rooms, corridors, alcoves | Infinite canvas, iso rooms, walkable rail |
+| Interactive systems | ⌘K, micro-games, curiosity gestures | Cmd palette, agent console, proof mosaic |
+| Hire clarity | Who / what / proof in &lt;10s | Recruiter, clinic SaaS, dual narrative |
 
-Browse all: `/lab` · experiments: `/test/1`…`/test/50` · goals: `/goals`
+## Teams (parallel ownership — same rubric)
 
-## Axes
+| Team | Focus | Cell range (seed) |
+|------|-------|-------------------|
+| Alpha WebGL | R3F / Three / shaders / spatial 3D | 1–15 |
+| Beta Editorial | Magazine, type, press, bilingual | 16–28 |
+| Gamma Kinetic | GSAP / Framer / Lenis / scrub | 29–42 |
+| Delta Systems | Interactive UX metaphors | 43–56 |
+| Epsilon Hire | Clarity, recruiter, SaaS product | 57–70 |
+| Zeta Experimental | Brutal, ASCII, liquid, origami, void | 71–85 |
+| Eta Hybrid | Learning ladder — each cell synthesizes prior lessons | 86–100 |
 
-Coolness 30% · Comprehensiveness 20% · Uniqueness 20% · Motion 15% · Hireability 15%
+## Promotion
+
+Champion (`/`) = highest composite. Ties → Coolness → Hireability.
+
+## Learning rule
+
+Every Eta Hybrid cell documents what it stole from earlier high scorers in `docs/FINDINGS.md`. Next cell must beat the previous hybrid on at least two axes or composite.
+
+## Browse
+
+`/lab` · `/test/1`…`/test/100` · `/goals`

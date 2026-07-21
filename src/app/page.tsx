@@ -1,7 +1,7 @@
 import { LabChrome } from "@/components/LabChrome";
-import { Variant as Champion } from "@/variants/V50ChampionHybrid";
+import { Variant as Champion } from "@/variants/V100OrbitfolioCenturion";
 
-/** Champion route — #50 Champion Hybrid (highest composite score). */
+/** Champion route — #100 Orbitfolio Centurion (highest composite score). */
 export default function HomePage() {
   return (
     <>

@@ -53,7 +53,7 @@ export function LabChrome({
       <div className="pointer-events-auto flex max-w-[75vw] flex-wrap items-center justify-end gap-2">
         {variantId != null && (
           <span className="hidden rounded-full border border-cyan-400/30 bg-cyan-950/40 px-3 py-1.5 text-[11px] text-cyan-100/90 backdrop-blur-md sm:inline">
-            Test {variantId}/50 · {name}
+            Test {variantId}/{VARIANT_COUNT} · {name}
             <span className="ml-2 text-cyan-200/50">← →</span>
           </span>
         )}
