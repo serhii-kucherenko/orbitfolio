@@ -10,7 +10,7 @@ export function Variant() {
   const snap = reduce ? "" : "snap-y snap-mandatory";
 
   return (
-    <main className={`h-screen overflow-y-auto bg-[#0c0e12] text-white ${snap}`}>
+    <main className={`h-screen overflow-y-auto bg-[#090b0f] text-white ${snap}`}>
       <section className="relative flex min-h-screen snap-start flex-col justify-end overflow-hidden px-6 pb-16 pt-24 md:px-14">
         {!reduce && (
           <motion.div
@@ -43,11 +43,17 @@ export function Variant() {
           >
             Hire at speed
           </a>
+          <a
+            href="/resume"
+            className="border border-lime-400/50 px-6 py-3 text-xs font-black uppercase tracking-widest text-lime-300"
+          >
+            Timing sheet
+          </a>
           <ContactRow className="text-white/70" />
         </div>
       </section>
 
-      <section className="min-h-screen snap-start border-t-8 border-lime-400 bg-[#141820] px-6 py-20 md:px-14">
+      <section className="min-h-screen snap-start border-t-8 border-lime-400 bg-[#12161e] px-6 py-20 md:px-14">
         <h2 className="font-[family-name:var(--font-mono)] text-sm uppercase tracking-[0.4em] text-lime-400">
           Lap 01 · Telemetry
         </h2>
@@ -68,7 +74,7 @@ export function Variant() {
         </div>
       </section>
 
-      <section className="min-h-screen snap-start bg-[#0c0e12] px-6 py-20 md:px-14">
+      <section className="min-h-screen snap-start bg-[#090b0f] px-6 py-20 md:px-14">
         <h2 className="mb-12 font-[family-name:var(--font-mono)] text-sm uppercase tracking-[0.4em] text-lime-400">
           Lap 02 · Case chapters
         </h2>
@@ -86,7 +92,7 @@ export function Variant() {
           <div>
             <ProjectLinks tone="light" />
             <p className="mt-12 text-sm opacity-70">
-              {cv.education.degree} · {cv.education.school}
+              {cv.education.degree} · {cv.education.school} · {cv.location}
             </p>
           </div>
         </div>

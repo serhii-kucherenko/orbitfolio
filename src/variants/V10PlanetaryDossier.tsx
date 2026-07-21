@@ -9,7 +9,7 @@ export function Variant() {
   const reduce = useReducedMotion() ?? false;
 
   return (
-    <main className="min-h-screen bg-[#080d18] text-[#e8eef8]">
+    <main className="min-h-screen bg-[#060b16] text-[#e8eef8]">
       <section className="relative flex min-h-[48vh] items-end overflow-hidden px-6 pb-10 pt-28">
         <motion.div
           aria-hidden
@@ -19,7 +19,7 @@ export function Variant() {
           style={{
             background:
               "radial-gradient(circle at 35% 30%, #7dd3fc 0%, #0369a1 35%, #0c4a6e 55%, transparent 70%)",
-            opacity: 0.5,
+            opacity: 0.55,
           }}
         />
         <div className="relative z-10 mx-auto w-full max-w-5xl">
@@ -29,7 +29,7 @@ export function Variant() {
         </div>
       </section>
 
-      <section className="relative z-10 mx-auto -mt-2 max-w-5xl rounded-t-2xl border border-white/10 bg-[#0f1624] px-6 py-12 shadow-2xl sm:px-10">
+      <section className="relative z-10 mx-auto -mt-2 max-w-5xl rounded-t-2xl border border-white/10 bg-[#0d1422] px-6 py-12 shadow-2xl sm:px-10">
         <div className="flex flex-wrap items-start justify-between gap-4 border-b border-white/10 pb-6">
           <div>
             <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.3em] text-cyan-300/50">
@@ -38,12 +38,20 @@ export function Variant() {
             <p className="mt-3 max-w-2xl text-sm leading-7 text-white/60">{cv.summary}</p>
             <ContactRow className="mt-5 text-cyan-100/55" />
           </div>
-          <a
-            href={`mailto:${cv.email}`}
-            className="rounded bg-cyan-400 px-4 py-2 text-sm font-semibold text-[#080d18] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300"
-          >
-            Request clearance
-          </a>
+          <div className="flex flex-wrap gap-2">
+            <a
+              href={`mailto:${cv.email}`}
+              className="rounded bg-cyan-400 px-4 py-2 text-sm font-semibold text-[#060b16] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300"
+            >
+              Request clearance
+            </a>
+            <a
+              href="/resume"
+              className="rounded border border-cyan-400/40 px-4 py-2 text-sm font-semibold text-cyan-200"
+            >
+              Dossier PDF
+            </a>
+          </div>
         </div>
 
         <div className="mt-8 grid gap-3 sm:grid-cols-4">
@@ -64,12 +72,16 @@ export function Variant() {
 
         <div className="mt-14 space-y-14">
           <div>
-            <h2 className="mb-6 text-sm font-semibold uppercase tracking-[0.25em] text-cyan-200/50">Service record</h2>
+            <h2 className="mb-6 text-sm font-semibold uppercase tracking-[0.25em] text-cyan-200/50">
+              Service record
+            </h2>
             <ExperienceList tone="dark" />
           </div>
-          <div className="grid gap-12 md:grid-cols-2">
+          <div className="grid gap-12 border-t border-white/10 pt-14 md:grid-cols-2">
             <div>
-              <h2 className="mb-6 text-sm font-semibold uppercase tracking-[0.25em] text-cyan-200/50">Capabilities</h2>
+              <h2 className="mb-6 text-sm font-semibold uppercase tracking-[0.25em] text-cyan-200/50">
+                Capabilities
+              </h2>
               <SkillsCloud />
             </div>
             <div>

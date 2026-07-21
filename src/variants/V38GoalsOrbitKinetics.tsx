@@ -10,7 +10,7 @@ export function Variant() {
   const reduce = useReducedMotion() ?? false;
 
   return (
-    <main className="min-h-screen bg-[#070b1a] text-[#eef2ff]">
+    <main className="min-h-screen bg-[#050914] text-[#eef2ff]">
       <div className="mx-auto grid min-h-screen max-w-7xl items-center gap-10 px-6 py-20 lg:grid-cols-[1.1fr_0.9fr] lg:px-12">
         <div>
           <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.4em] text-sky-300/70">
@@ -24,7 +24,7 @@ export function Variant() {
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <a
               href={`mailto:${cv.email}`}
-              className="rounded-full bg-sky-300 px-6 py-3 text-xs font-bold uppercase tracking-widest text-[#070b1a] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-200"
+              className="rounded-full bg-sky-300 px-6 py-3 text-xs font-bold uppercase tracking-widest text-[#050914] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-200"
             >
               Pull into orbit
             </a>
@@ -33,6 +33,12 @@ export function Variant() {
               className="rounded-full border border-sky-300/40 px-6 py-3 text-xs font-bold uppercase tracking-widest text-sky-200"
             >
               100 Goals
+            </Link>
+            <Link
+              href="/resume"
+              className="rounded-full border border-sky-300/25 px-6 py-3 text-xs font-bold uppercase tracking-widest text-sky-200/70"
+            >
+              Ephemeris PDF
             </Link>
           </div>
           <ContactRow className="mt-6 text-sky-100/60" />
@@ -53,7 +59,7 @@ export function Variant() {
               />
             </motion.div>
           ))}
-          <div className="absolute inset-[22%] flex flex-col items-center justify-center rounded-full border border-sky-300/40 bg-[#0c1430] text-center shadow-[0_0_60px_rgba(56,189,248,0.15)]">
+          <div className="absolute inset-[22%] flex flex-col items-center justify-center rounded-full border border-sky-300/40 bg-[#0a1228] text-center shadow-[0_0_60px_rgba(56,189,248,0.15)]">
             <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-widest text-sky-300/60">
               Core mass
             </p>
@@ -63,7 +69,7 @@ export function Variant() {
         </div>
       </div>
 
-      <section className="border-t border-sky-400/15 bg-[#0a1024] px-6 py-16 lg:px-12">
+      <section className="border-t border-sky-400/15 bg-[#080e20] px-6 py-16 lg:px-12">
         <div className="mx-auto grid max-w-7xl gap-4 sm:grid-cols-4">
           {cv.highlights.map((h) => (
             <div key={h.label} className="rounded-2xl border border-sky-400/20 bg-sky-400/5 p-5">
@@ -77,7 +83,7 @@ export function Variant() {
       <section className="mx-auto max-w-5xl px-6 py-20 lg:px-12">
         <h2 className="mb-10 text-3xl font-bold text-sky-100">Trajectory history</h2>
         <ExperienceList tone="dark" />
-        <div className="mt-20 grid gap-14 md:grid-cols-2">
+        <div className="mt-20 grid gap-14 border-t border-sky-400/15 pt-16 md:grid-cols-2">
           <div>
             <h2 className="mb-6 text-xl text-sky-200">Payload skills</h2>
             <SkillsCloud />
@@ -86,7 +92,7 @@ export function Variant() {
             <h2 className="mb-6 text-xl text-sky-200">Mission links</h2>
             <ProjectLinks />
             <p className="mt-10 text-sm text-white/45">
-              {cv.education.degree} · {cv.education.school}
+              {cv.education.degree} · {cv.education.school} · {cv.location}
             </p>
           </div>
         </div>
