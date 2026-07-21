@@ -1,19 +1,39 @@
 "use client";
 
-import { useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
 import { cv } from "@/data/cv";
 
+/** Infinite Pan Evidence — deepened award cell */
 export function Variant() {
-  const reduceMotion = useReducedMotion() ?? false;
+  const reduce = useReducedMotion() ?? false;
   return (
-    <main className="bg-[#0a1017] bg-[radial-gradient(#294257_1px,transparent_1px)] [background-size:28px_28px] text-slate-100">
-      <header className="sticky top-0 z-10 flex flex-wrap items-center justify-between gap-5 border-b border-sky-300/20 bg-[#0a1017]/90 p-5 backdrop-blur"><strong>{cv.name}</strong><ContactRow /><span className="text-xs text-sky-300">{reduceMotion ? "STATIC MAP" : "PAN THE EVIDENCE"}</span></header>
-      <div className="p-8 md:p-20">
-        <section className="mb-20 max-w-4xl rounded-3xl border border-sky-300/30 bg-[#102131] p-10 shadow-2xl"><p className="text-sky-300">{cv.title}</p><h1 className="my-6 text-6xl font-black">A career mapped as connected evidence.</h1><p className="text-lg leading-8 text-slate-300">{cv.summary}</p></section>
-        <div className="grid items-start gap-10 xl:grid-cols-[1.4fr_.8fr]"><section className="rounded-3xl border border-white/10 bg-black/30 p-8"><h2 className="mb-10 text-3xl">Experience coordinates</h2><ExperienceList tone="dark" /></section><div className="space-y-10 xl:translate-y-32"><section className="rounded-3xl border border-sky-300/20 bg-[#101922] p-7"><h2 className="mb-6 text-2xl">Capability nodes</h2><SkillsCloud /></section><section className="rounded-3xl border border-sky-300/20 bg-[#101922] p-7"><h2 className="mb-6 text-2xl">Project beacons</h2><ProjectLinks /></section></div></div>
-        <footer className="mt-28">{cv.education.degree} · {cv.education.school} · {cv.location}</footer>
-      </div>
+    <main className="min-h-screen" style={{ background: "#0b1220", color: "white" }}>
+      <section className="mx-auto grid max-w-6xl gap-10 px-6 pb-12 pt-28 md:grid-cols-[1.2fr_0.8fr]">
+        <div>
+          <motion.p initial={reduce ? false : { opacity: 0 }} animate={{ opacity: 1 }} className="text-[10px] uppercase tracking-[0.35em] opacity-60">Infinite Pan Evidence</motion.p>
+          <h1 className="mt-4 font-[family-name:var(--font-display)] text-5xl font-bold sm:text-6xl">{cv.name}</h1>
+          <p className="mt-3 text-lg opacity-80">{cv.title}</p>
+          <p className="mt-6 max-w-xl text-sm leading-7 opacity-70">{cv.summary}</p>
+          <a href={`mailto:${cv.email}`} className="mt-8 inline-flex rounded-full px-5 py-2.5 text-sm font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2" style={{ background: "#67e8f9", color: "#041016"}}>Hire conversation</a>
+          <ContactRow className="mt-6 text-white/70" />
+        </div>
+        <div className="grid grid-cols-2 gap-3 content-start">
+          {cv.highlights.map((h) => (
+            <div key={h.label} className="rounded-2xl border p-4" style={{ borderColor: "#67e8f955" }}>
+              <p className="text-3xl font-bold" style={{ color: "#67e8f9" }}>{h.value}</p>
+              <p className="mt-1 text-xs opacity-60">{h.label}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+      <section className="mx-auto max-w-6xl space-y-16 px-6 pb-28">
+        <div><h2 className="mb-8 text-3xl font-bold">Experience</h2><ExperienceList tone="dark" /></div>
+        <div className="grid gap-12 md:grid-cols-2">
+          <div><h2 className="mb-6 text-2xl font-bold">Skills</h2><SkillsCloud /></div>
+          <div><h2 className="mb-6 text-2xl font-bold">Projects</h2><ProjectLinks /><p className="mt-10 text-sm opacity-55">{cv.education.degree} · {cv.education.school}</p></div>
+        </div>
+      </section>
     </main>
   );
 }

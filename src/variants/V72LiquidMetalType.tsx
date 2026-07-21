@@ -1,28 +1,40 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { useReducedMotion } from "framer-motion";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
 import { cv } from "@/data/cv";
 
-/** Liquid Metal Type — handcrafted award cell */
+/** Liquid Metal Type — deepened award cell */
 export function Variant() {
-  const reduce = useReducedMotion() ?? false;
-
+  const _reduce = useReducedMotion() ?? false;
   return (
-    <main className="min-h-screen bg-[#111113] text-zinc-100">
-      <section className="mx-auto flex min-h-screen max-w-5xl flex-col justify-center px-6 pt-24">
-        <motion.h1 className="font-[family-name:var(--font-display)] text-6xl font-black uppercase leading-[0.85] sm:text-8xl" style={{ backgroundImage: "linear-gradient(120deg,#e2e8f0,#94a3b8,#f8fafc,#64748b)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", filter: reduce ? undefined : "url(#liquid)" }} initial={reduce ? false : { opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }}>
-          {cv.name}
-        </motion.h1>
-        <p className="mt-8 text-xl text-zinc-300">{cv.title}</p>
-        <p className="mt-6 max-w-2xl text-sm leading-7 text-zinc-400">{cv.summary}</p>
-      </section>
-      <section className="mx-auto max-w-4xl space-y-14 px-6 pb-28">
-        <ExperienceList tone="dark" />
-        <SkillsCloud />
-        <ProjectLinks />
-        <ContactRow className="text-zinc-300" />
-      </section>
+    <main className="min-h-screen font-[family-name:var(--font-mono)]" style={{ background: "#f0fdf4", color: "#14532d" }}>
+      <div className="mx-auto max-w-5xl px-6 py-24">
+        <pre className="text-xs opacity-50">{"// Liquid Metal Type\nconst engineer = await resolveProfile();"}</pre>
+        <h1 className="mt-6 text-4xl font-bold sm:text-6xl">{cv.name}</h1>
+        <p className="mt-3 opacity-75">{cv.title}</p>
+        <p className="mt-6 max-w-2xl text-sm leading-7 opacity-65">{cv.summary}</p>
+        <div className="mt-8 flex flex-wrap gap-3">
+          <a href={`mailto:${cv.email}`} className="rounded border px-4 py-2 text-xs uppercase" style={{ borderColor: "#15803d", color: "#15803d" }}>run hire()</a>
+          <ContactRow />
+        </div>
+        <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-4">
+          {cv.highlights.map((h) => (
+            <div key={h.label} className="border border-dashed p-3" style={{ borderColor: "#15803d55" }}>
+              <p className="text-xl font-bold">{h.value}</p>
+              <p className="text-[10px] uppercase opacity-50">{h.label}</p>
+            </div>
+          ))}
+        </div>
+        <section className="mt-16 border-t border-dashed pt-10" style={{ borderColor: "#15803d44" }}>
+          <h2 className="mb-8 text-2xl">experience.log</h2>
+          <ExperienceList tone="light" />
+        </section>
+        <section className="mt-16 grid gap-12 border-t border-dashed pt-10 md:grid-cols-2" style={{ borderColor: "#15803d44" }}>
+          <div><h2 className="mb-6 text-xl">skills.json</h2><SkillsCloud tone="light" /></div>
+          <div><h2 className="mb-6 text-xl">projects.md</h2><ProjectLinks tone="light" /><p className="mt-8 text-xs opacity-55">{cv.education.degree} · {cv.education.school} · {cv.location}</p></div>
+        </section>
+      </div>
     </main>
   );
 }

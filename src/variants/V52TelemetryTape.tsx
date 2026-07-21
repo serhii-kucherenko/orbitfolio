@@ -1,25 +1,40 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { useReducedMotion } from "framer-motion";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
 import { cv } from "@/data/cv";
 
-/** Telemetry Tape — handcrafted award cell */
+/** Telemetry Tape — deepened award cell */
 export function Variant() {
-  const reduce = useReducedMotion() ?? false;
+  const _reduce = useReducedMotion() ?? false;
   return (
-    <main className="min-h-screen bg-[#020617] text-lime-50">
-      <div className="overflow-hidden border-y border-lime-400/20 bg-lime-950/30 py-2 font-[family-name:var(--font-mono)] text-xs text-lime-300/80">
-        <motion.p animate={reduce ? undefined : { x: ["0%", "-50%"] }} transition={{ duration: 18, repeat: Infinity, ease: "linear" }} className="whitespace-nowrap">
-          {cv.highlights.map((h) => `${h.label}: ${h.value}`).join("   ·   ")}   ·   {cv.title}   ·   {cv.location}   ·   {cv.highlights.map((h) => `${h.label}: ${h.value}`).join("   ·   ")}
-        </motion.p>
+    <main className="min-h-screen font-[family-name:var(--font-mono)]" style={{ background: "#fef3c7", color: "#78350f" }}>
+      <div className="mx-auto max-w-5xl px-6 py-24">
+        <pre className="text-xs opacity-50">{"// Telemetry Tape\nconst engineer = await resolveProfile();"}</pre>
+        <h1 className="mt-6 text-4xl font-bold sm:text-6xl">{cv.name}</h1>
+        <p className="mt-3 opacity-75">{cv.title}</p>
+        <p className="mt-6 max-w-2xl text-sm leading-7 opacity-65">{cv.summary}</p>
+        <div className="mt-8 flex flex-wrap gap-3">
+          <a href={`mailto:${cv.email}`} className="rounded border px-4 py-2 text-xs uppercase" style={{ borderColor: "#b45309", color: "#b45309" }}>run hire()</a>
+          <ContactRow />
+        </div>
+        <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-4">
+          {cv.highlights.map((h) => (
+            <div key={h.label} className="border border-dashed p-3" style={{ borderColor: "#b4530955" }}>
+              <p className="text-xl font-bold">{h.value}</p>
+              <p className="text-[10px] uppercase opacity-50">{h.label}</p>
+            </div>
+          ))}
+        </div>
+        <section className="mt-16 border-t border-dashed pt-10" style={{ borderColor: "#b4530944" }}>
+          <h2 className="mb-8 text-2xl">experience.log</h2>
+          <ExperienceList tone="light" />
+        </section>
+        <section className="mt-16 grid gap-12 border-t border-dashed pt-10 md:grid-cols-2" style={{ borderColor: "#b4530944" }}>
+          <div><h2 className="mb-6 text-xl">skills.json</h2><SkillsCloud tone="light" /></div>
+          <div><h2 className="mb-6 text-xl">projects.md</h2><ProjectLinks tone="light" /><p className="mt-8 text-xs opacity-55">{cv.education.degree} · {cv.education.school} · {cv.location}</p></div>
+        </section>
       </div>
-      <section className="mx-auto max-w-4xl px-6 pb-8 pt-24">
-        <h1 className="font-[family-name:var(--font-display)] text-5xl font-bold sm:text-6xl">{cv.name}</h1>
-        <p className="mt-3 text-lime-100/75">{cv.title}</p>
-        <p className="mt-6 max-w-2xl text-sm leading-7 text-white/55">{cv.summary}</p>
-      </section>
-      <section className="mx-auto max-w-4xl space-y-14 px-6 pb-28"><ExperienceList tone="dark" /><SkillsCloud /><ProjectLinks /><ContactRow className="text-lime-100/70" /></section>
     </main>
   );
 }

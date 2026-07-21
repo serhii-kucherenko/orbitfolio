@@ -1,22 +1,39 @@
 "use client";
 
-import { useReducedMotion } from "framer-motion";
-import { ContactRow, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
+import { motion, useReducedMotion } from "framer-motion";
+import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
 import { cv } from "@/data/cv";
 
-/** Hybrid Cover Chapters — handcrafted award cell */
+/** Hybrid Cover Chapters — deepened award cell */
 export function Variant() {
-  const _reduce = useReducedMotion() ?? false;
+  const reduce = useReducedMotion() ?? false;
   return (
-    <main className="min-h-screen bg-[#0c0a09] text-amber-50">
-      <section className="px-6 pb-8 pt-28">
-        <p className="text-[10px] uppercase tracking-[0.35em] text-amber-200/60">Steals object-like covers + viewport storytelling</p>
-        <h1 className="mt-4 font-[family-name:var(--font-display)] text-5xl font-bold">{cv.name}</h1>
-        <p className="mt-3 text-amber-100/70">{cv.title}</p>
-        <p className="mt-6 max-w-xl text-sm text-white/55">{cv.summary}</p>
+    <main className="min-h-screen" style={{ background: "#030712", color: "#e0f2fe" }}>
+      <section className="mx-auto grid max-w-6xl gap-10 px-6 pb-12 pt-28 md:grid-cols-[1.2fr_0.8fr]">
+        <div>
+          <motion.p initial={reduce ? false : { opacity: 0 }} animate={{ opacity: 1 }} className="text-[10px] uppercase tracking-[0.35em] opacity-60">Hybrid Cover Chapters</motion.p>
+          <h1 className="mt-4 font-[family-name:var(--font-display)] text-5xl font-bold sm:text-6xl">{cv.name}</h1>
+          <p className="mt-3 text-lg opacity-80">{cv.title}</p>
+          <p className="mt-6 max-w-xl text-sm leading-7 opacity-70">{cv.summary}</p>
+          <a href={`mailto:${cv.email}`} className="mt-8 inline-flex rounded-full px-5 py-2.5 text-sm font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2" style={{ background: "#38bdf8", color: "#041016"}}>Hire conversation</a>
+          <ContactRow className="mt-6 text-white/70" />
+        </div>
+        <div className="grid grid-cols-2 gap-3 content-start">
+          {cv.highlights.map((h) => (
+            <div key={h.label} className="rounded-2xl border p-4" style={{ borderColor: "#38bdf855" }}>
+              <p className="text-3xl font-bold" style={{ color: "#38bdf8" }}>{h.value}</p>
+              <p className="mt-1 text-xs opacity-60">{h.label}</p>
+            </div>
+          ))}
+        </div>
       </section>
-      <div className="snap-x snap-mandatory flex gap-5 overflow-x-auto px-6 pb-10">{cv.experience.map((job) => <article key={job.company} className="w-[min(85vw,380px)] shrink-0 snap-center rounded-3xl border border-amber-200/20 bg-amber-950/20 p-6"><p className="text-xs text-amber-200/50">{job.period}</p><h2 className="mt-2 text-2xl font-semibold">{job.company}</h2><p className="mt-1 text-sm text-white/70">{job.role}</p><ul className="mt-4 space-y-2 text-sm text-white/55">{job.bullets.map((b) => <li key={b.slice(0, 24)}>{b}</li>)}</ul></article>)}</div>
-      <section className="mx-auto max-w-4xl space-y-14 px-6 pb-28"><SkillsCloud /><ProjectLinks /><ContactRow className="text-amber-100/70" /></section>
+      <section className="mx-auto max-w-6xl space-y-16 px-6 pb-28">
+        <div><h2 className="mb-8 text-3xl font-bold">Experience</h2><ExperienceList tone="dark" /></div>
+        <div className="grid gap-12 md:grid-cols-2">
+          <div><h2 className="mb-6 text-2xl font-bold">Skills</h2><SkillsCloud /></div>
+          <div><h2 className="mb-6 text-2xl font-bold">Projects</h2><ProjectLinks /><p className="mt-10 text-sm opacity-55">{cv.education.degree} · {cv.education.school}</p></div>
+        </div>
+      </section>
     </main>
   );
 }

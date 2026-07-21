@@ -1,23 +1,39 @@
 "use client";
 
-import { useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
 import { cv } from "@/data/cv";
 
-/** Hybrid Holo Proof — handcrafted award cell */
+/** Hybrid Holo Proof — deepened award cell */
 export function Variant() {
-  const _reduce = useReducedMotion() ?? false;
+  const reduce = useReducedMotion() ?? false;
   return (
-    <main className="min-h-screen bg-[#030b12] text-cyan-50">
-      <div className="pointer-events-none absolute inset-0 opacity-30" style={{ backgroundImage: "repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(34,211,238,0.08) 3px)" }} aria-hidden />
-      <section className="relative mx-auto max-w-4xl px-6 pb-8 pt-28">
-        <p className="font-[family-name:var(--font-mono)] text-xs tracking-[0.35em] text-cyan-400">Steals scanline atmosphere + outcome-first evidence</p>
-        <h1 className="mt-4 font-[family-name:var(--font-display)] text-5xl sm:text-6xl" style={{ textShadow: "0 0 24px rgba(34,211,238,0.45)" }}>{cv.name}</h1>
-        <p className="mt-3 text-cyan-200/70">{cv.title}</p>
-        <p className="mt-6 max-w-2xl text-sm text-cyan-50/60">{cv.summary}</p>
-        <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4">{cv.highlights.map((h) => <div key={h.label} className="border border-cyan-400/25 bg-cyan-950/30 p-3"><p className="text-xl font-bold text-cyan-200">{h.value}</p><p className="text-[10px] uppercase text-cyan-200/50">{h.label}</p></div>)}</div>
+    <main className="min-h-screen" style={{ background: "#0b1220", color: "white" }}>
+      <section className="mx-auto grid max-w-6xl gap-10 px-6 pb-12 pt-28 md:grid-cols-[1.2fr_0.8fr]">
+        <div>
+          <motion.p initial={reduce ? false : { opacity: 0 }} animate={{ opacity: 1 }} className="text-[10px] uppercase tracking-[0.35em] opacity-60">Hybrid Holo Proof</motion.p>
+          <h1 className="mt-4 font-[family-name:var(--font-display)] text-5xl font-bold sm:text-6xl">{cv.name}</h1>
+          <p className="mt-3 text-lg opacity-80">{cv.title}</p>
+          <p className="mt-6 max-w-xl text-sm leading-7 opacity-70">{cv.summary}</p>
+          <a href={`mailto:${cv.email}`} className="mt-8 inline-flex rounded-full px-5 py-2.5 text-sm font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2" style={{ background: "#67e8f9", color: "#041016"}}>Hire conversation</a>
+          <ContactRow className="mt-6 text-white/70" />
+        </div>
+        <div className="grid grid-cols-2 gap-3 content-start">
+          {cv.highlights.map((h) => (
+            <div key={h.label} className="rounded-2xl border p-4" style={{ borderColor: "#67e8f955" }}>
+              <p className="text-3xl font-bold" style={{ color: "#67e8f9" }}>{h.value}</p>
+              <p className="mt-1 text-xs opacity-60">{h.label}</p>
+            </div>
+          ))}
+        </div>
       </section>
-      <section className="relative mx-auto max-w-4xl space-y-14 px-6 pb-28"><ExperienceList tone="dark" /><SkillsCloud /><ProjectLinks /><ContactRow className="text-cyan-200" /></section>
+      <section className="mx-auto max-w-6xl space-y-16 px-6 pb-28">
+        <div><h2 className="mb-8 text-3xl font-bold">Experience</h2><ExperienceList tone="dark" /></div>
+        <div className="grid gap-12 md:grid-cols-2">
+          <div><h2 className="mb-6 text-2xl font-bold">Skills</h2><SkillsCloud /></div>
+          <div><h2 className="mb-6 text-2xl font-bold">Projects</h2><ProjectLinks /><p className="mt-10 text-sm opacity-55">{cv.education.degree} · {cv.education.school}</p></div>
+        </div>
+      </section>
     </main>
   );
 }

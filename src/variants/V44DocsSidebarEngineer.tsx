@@ -30,6 +30,13 @@ export function Variant() {
         <section id="projects" className="mt-16"><h2 className="mb-8 text-xs uppercase tracking-[0.3em] text-slate-400">Projects</h2><ProjectLinks tone="light" /></section>
         <section id="contact" className="mt-16 pb-20"><h2 className="mb-6 text-xs uppercase tracking-[0.3em] text-slate-400">Contact</h2><ContactRow /></section>
       </div>
+    
+      <footer className="mx-auto max-w-6xl px-6 pb-16 text-sm opacity-55">
+        {/* Education footer */}
+        <p>
+          {cv.education.degree} · {cv.education.school} · {cv.location}
+        </p>
+      </footer>
     </main>
   );
 }

@@ -1,26 +1,44 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { useReducedMotion } from "framer-motion";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
 import { cv } from "@/data/cv";
 
-/** Particle Name Assembly — handcrafted award cell */
+/** Particle Name Assembly — deepened award cell */
 export function Variant() {
-  const reduce = useReducedMotion() ?? false;
+  const _reduce = useReducedMotion() ?? false;
   return (
-    <main className="relative min-h-screen overflow-hidden bg-[#020617] text-cyan-50">
-      <div className="pointer-events-none absolute inset-0" aria-hidden>
-        {Array.from({ length: 40 }, (_, i) => (
-          <motion.i key={i} className="absolute h-1 w-1 rounded-full bg-cyan-300" style={{ left: `${(i * 17) % 100}%`, top: `${(i * 23) % 100}%` }} animate={reduce ? undefined : { x: [0, ((i % 5) - 2) * 20, 0], y: [0, ((i % 4) - 2) * 16, 0] }} transition={{ duration: 4 + (i % 3), repeat: Infinity }} />
-        ))}
+    <main className="min-h-screen p-3 md:p-8" style={{ background: "#f8fafc", color: "#0f172a" }}>
+      <div className="mx-auto max-w-5xl rounded-[2rem] border p-6 md:p-12" style={{ borderColor: "#33415566", background: "#ffffffcc" }}>
+        <p className="text-[10px] uppercase tracking-[0.4em] opacity-55">Particle Name Assembly</p>
+        <h1 className="mt-4 font-[family-name:var(--font-display)] text-4xl font-bold sm:text-6xl">{cv.name}</h1>
+        <p className="mt-3 opacity-75">{cv.title}</p>
+        <p className="mt-6 max-w-2xl text-sm leading-7 opacity-70">{cv.summary}</p>
+        <div className="mt-8 flex flex-wrap gap-3">
+          <a href={`mailto:${cv.email}`} className="rounded-full border px-5 py-2.5 text-sm font-semibold" style={{ borderColor: "#334155", color: "#334155" }}>Book a chat</a>
+          <ContactRow />
+        </div>
+        <div className="mt-10 grid gap-3 sm:grid-cols-4">
+          {cv.highlights.map((h) => (
+            <div key={h.label} className="rounded-2xl border p-4" style={{ borderColor: "#33415540" }}>
+              <p className="text-2xl font-bold">{h.value}</p>
+              <p className="text-xs opacity-55">{h.label}</p>
+            </div>
+          ))}
+        </div>
+        <section className="mt-16"><h2 className="mb-8 text-3xl font-bold">Evidence</h2><ExperienceList tone="light" /></section>
+        <section className="mt-16 grid gap-12 md:grid-cols-2">
+          <div><h2 className="mb-6 text-2xl font-bold">Systems</h2><SkillsCloud tone="light" /></div>
+          <div><h2 className="mb-6 text-2xl font-bold">Work</h2><ProjectLinks tone="light" /><p className="mt-8 text-sm opacity-55">{cv.education.degree} · {cv.education.school}</p></div>
+        </section>
       </div>
-      <section className="relative z-10 mx-auto flex min-h-screen max-w-4xl flex-col justify-center px-6 pt-24">
-        <motion.h1 initial={reduce ? false : { opacity: 0, letterSpacing: "0.4em" }} animate={{ opacity: 1, letterSpacing: "-0.04em" }} transition={{ duration: 1.2 }} className="font-[family-name:var(--font-display)] text-5xl font-extrabold sm:text-7xl">{cv.name}</motion.h1>
-        <p className="mt-5 text-xl text-cyan-100/80">{cv.title}</p>
-        <p className="mt-6 max-w-2xl text-sm leading-7 text-white/55">{cv.summary}</p>
-        <ContactRow className="mt-8 text-cyan-100/70" />
-      </section>
-      <section className="relative z-10 mx-auto max-w-4xl space-y-14 px-6 pb-28"><ExperienceList tone="dark" /><SkillsCloud /><ProjectLinks /></section>
+    
+      <footer className="mx-auto max-w-6xl px-6 pb-16 text-sm opacity-55">
+        {/* Education footer */}
+        <p>
+          {cv.education.degree} · {cv.education.school} · {cv.location}
+        </p>
+      </footer>
     </main>
   );
 }

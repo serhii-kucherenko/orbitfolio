@@ -4,24 +4,40 @@ import { useReducedMotion } from "framer-motion";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
 import { cv } from "@/data/cv";
 
-/** Final Edition Portfolio — handcrafted award cell */
+/** Final Edition Portfolio — deepened award cell */
 export function Variant() {
   const _reduce = useReducedMotion() ?? false;
   return (
-    <main className="min-h-screen bg-[#fafafa] text-stone-900">
-      <header className="border-b-2 border-stone-900 px-6 pb-8 pt-28">
-        <div className="mx-auto flex max-w-5xl flex-wrap items-end justify-between gap-4">
-          <div>
-            <p className="text-[10px] uppercase tracking-[0.4em]">Final edition</p>
-            <h1 className="mt-2 font-[family-name:var(--font-serif)] text-5xl sm:text-6xl">{cv.name}</h1>
+    <main className="min-h-screen" style={{ background: "#0f172a", color: "#e2e8f0" }}>
+      <header className="border-b px-6 py-20 md:px-12" style={{ borderColor: "#a78bfa44" }}>
+        <div className="mx-auto max-w-6xl">
+          <p className="font-[family-name:var(--font-mono)] text-xs uppercase tracking-[0.35em] opacity-55">Final Edition Portfolio issue</p>
+          <h1 className="mt-6 font-[family-name:var(--font-display)] text-6xl font-black leading-[0.9] sm:text-8xl">{cv.name}</h1>
+          <div className="mt-8 grid gap-8 md:grid-cols-[1.4fr_1fr]">
+            <p className="text-sm leading-8 opacity-75">{cv.summary}</p>
+            <div>
+              <p className="text-lg font-semibold" style={{ color: "#a78bfa" }}>{cv.title}</p>
+              <a href={`mailto:${cv.email}`} className="mt-4 inline-block text-sm underline">Write the editor</a>
+              <ContactRow className="mt-4 text-white/70" />
+            </div>
           </div>
-          <a href={`mailto:${cv.email}`} className="rounded-full bg-stone-900 px-5 py-2.5 text-sm font-semibold text-white">Hire</a>
         </div>
-        <p className="mx-auto mt-6 max-w-5xl text-sm leading-7 text-stone-600">{cv.summary}</p>
       </header>
-      <section className="mx-auto grid max-w-5xl gap-10 px-6 py-14 md:grid-cols-[1.2fr_0.8fr]">
-        <ExperienceList tone="light" />
-        <div className="space-y-10"><SkillsCloud tone="light" /><ProjectLinks tone="light" /><ContactRow /></div>
+      <section className="mx-auto grid max-w-6xl grid-cols-2 gap-4 px-6 py-12 md:grid-cols-4 md:px-12">
+        {cv.highlights.map((h) => (
+          <div key={h.label} className="border-t-4 pt-4" style={{ borderColor: "#a78bfa" }}>
+            <p className="text-3xl font-black">{h.value}</p>
+            <p className="mt-1 text-xs uppercase tracking-wider opacity-55">{h.label}</p>
+          </div>
+        ))}
+      </section>
+      <section className="mx-auto max-w-6xl px-6 pb-24 md:px-12">
+        <h2 className="mb-10 text-4xl font-black">Feature</h2>
+        <ExperienceList tone="dark" />
+        <div className="mt-20 grid gap-12 md:grid-cols-2">
+          <div><h2 className="mb-6 text-2xl font-bold">Index</h2><SkillsCloud /></div>
+          <div><h2 className="mb-6 text-2xl font-bold">Links</h2><ProjectLinks /><p className="mt-10 text-sm opacity-55">{cv.education.degree} · {cv.education.school}</p></div>
+        </div>
       </section>
     </main>
   );

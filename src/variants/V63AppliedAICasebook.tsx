@@ -33,6 +33,13 @@ export function Variant() {
         <ProjectLinks tone="light" />
         <ContactRow />
       </section>
+    
+      <footer className="mx-auto max-w-6xl px-6 pb-16 text-sm opacity-55">
+        {/* Education footer */}
+        <p>
+          {cv.education.degree} · {cv.education.school} · {cv.location}
+        </p>
+      </footer>
     </main>
   );
 }

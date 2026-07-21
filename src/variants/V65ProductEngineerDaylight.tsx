@@ -4,19 +4,37 @@ import { useReducedMotion } from "framer-motion";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
 import { cv } from "@/data/cv";
 
-/** Product Engineer Daylight — handcrafted award cell */
+/** Product Engineer Daylight — deepened award cell */
 export function Variant() {
   const _reduce = useReducedMotion() ?? false;
   return (
-    <main className="min-h-screen bg-[#f8fafc] text-slate-900">
-      <section className="mx-auto max-w-4xl px-6 pb-8 pt-28">
-        <p className="text-[10px] uppercase tracking-[0.35em] text-sky-700">Daylight product</p>
-        <h1 className="mt-3 text-4xl font-semibold tracking-tight sm:text-5xl">{cv.name}</h1>
-        <p className="mt-2 text-lg text-slate-600">{cv.title}</p>
-        <p className="mt-6 max-w-2xl text-sm leading-7 text-slate-600">{cv.summary}</p>
-        <div className="mt-8 grid gap-3 sm:grid-cols-4">{cv.highlights.map((h) => <div key={h.label} className="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-200"><p className="text-2xl font-bold text-sky-700">{h.value}</p><p className="text-xs text-slate-500">{h.label}</p></div>)}</div>
-      </section>
-      <section className="mx-auto max-w-4xl space-y-14 px-6 pb-28"><ExperienceList tone="light" /><SkillsCloud tone="light" /><ProjectLinks tone="light" /><ContactRow /></section>
+    <main className="min-h-screen font-[family-name:var(--font-mono)]" style={{ background: "#f0fdf4", color: "#14532d" }}>
+      <div className="mx-auto max-w-5xl px-6 py-24">
+        <pre className="text-xs opacity-50">{"// Product Engineer Daylight\nconst engineer = await resolveProfile();"}</pre>
+        <h1 className="mt-6 text-4xl font-bold sm:text-6xl">{cv.name}</h1>
+        <p className="mt-3 opacity-75">{cv.title}</p>
+        <p className="mt-6 max-w-2xl text-sm leading-7 opacity-65">{cv.summary}</p>
+        <div className="mt-8 flex flex-wrap gap-3">
+          <a href={`mailto:${cv.email}`} className="rounded border px-4 py-2 text-xs uppercase" style={{ borderColor: "#15803d", color: "#15803d" }}>run hire()</a>
+          <ContactRow />
+        </div>
+        <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-4">
+          {cv.highlights.map((h) => (
+            <div key={h.label} className="border border-dashed p-3" style={{ borderColor: "#15803d55" }}>
+              <p className="text-xl font-bold">{h.value}</p>
+              <p className="text-[10px] uppercase opacity-50">{h.label}</p>
+            </div>
+          ))}
+        </div>
+        <section className="mt-16 border-t border-dashed pt-10" style={{ borderColor: "#15803d44" }}>
+          <h2 className="mb-8 text-2xl">experience.log</h2>
+          <ExperienceList tone="light" />
+        </section>
+        <section className="mt-16 grid gap-12 border-t border-dashed pt-10 md:grid-cols-2" style={{ borderColor: "#15803d44" }}>
+          <div><h2 className="mb-6 text-xl">skills.json</h2><SkillsCloud tone="light" /></div>
+          <div><h2 className="mb-6 text-xl">projects.md</h2><ProjectLinks tone="light" /><p className="mt-8 text-xs opacity-55">{cv.education.degree} · {cv.education.school} · {cv.location}</p></div>
+        </section>
+      </div>
     </main>
   );
 }

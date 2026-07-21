@@ -1,31 +1,40 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
-import { ContactRow, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
+import { useReducedMotion } from "framer-motion";
+import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
 import { cv } from "@/data/cv";
 
-/** Holographic Record — handcrafted award cell */
+/** Holographic Record — deepened award cell */
 export function Variant() {
-  const reduce = useReducedMotion() ?? false;
+  const _reduce = useReducedMotion() ?? false;
   return (
-    <main className="min-h-screen bg-[#030b12] text-cyan-50">
-      <div className="pointer-events-none absolute inset-0 opacity-30" style={{ backgroundImage: "repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(34,211,238,0.08) 3px)" }} aria-hidden />
-      <section className="relative mx-auto max-w-4xl px-6 pb-8 pt-28">
-        <p className="font-[family-name:var(--font-mono)] text-xs tracking-[0.35em] text-cyan-400">HOLO // RECORD</p>
-        <h1 className="mt-4 font-[family-name:var(--font-display)] text-5xl sm:text-6xl" style={{ textShadow: "0 0 24px rgba(34,211,238,0.45)" }}>{cv.name}</h1>
-        <p className="mt-3 text-cyan-200/70">{cv.title}</p>
-        <p className="mt-6 max-w-2xl text-sm text-cyan-50/60">{cv.summary}</p>
-      </section>
-      <section className="relative mx-auto max-w-4xl space-y-6 px-6 pb-12">
-        {cv.experience.map((job, i) => (
-          <motion.div key={job.company} initial={reduce ? false : { opacity: 0, x: i % 2 ? 40 : -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="border border-cyan-400/30 bg-cyan-950/20 p-6 backdrop-blur-md">
-            <p className="text-xs text-cyan-400/70">{job.period}</p>
-            <h3 className="mt-1 text-xl">{job.role} · {job.company}</h3>
-            <ul className="mt-3 space-y-1 text-sm text-cyan-50/70">{job.bullets.map((b) => <li key={b.slice(0, 24)}>{b}</li>)}</ul>
-          </motion.div>
-        ))}
-      </section>
-      <section className="relative mx-auto max-w-4xl space-y-12 px-6 pb-28"><SkillsCloud /><ProjectLinks /><ContactRow className="text-cyan-200" /></section>
+    <main className="min-h-screen font-[family-name:var(--font-mono)]" style={{ background: "#ecfeff", color: "#164e63" }}>
+      <div className="mx-auto max-w-5xl px-6 py-24">
+        <pre className="text-xs opacity-50">{"// Holographic Record\nconst engineer = await resolveProfile();"}</pre>
+        <h1 className="mt-6 text-4xl font-bold sm:text-6xl">{cv.name}</h1>
+        <p className="mt-3 opacity-75">{cv.title}</p>
+        <p className="mt-6 max-w-2xl text-sm leading-7 opacity-65">{cv.summary}</p>
+        <div className="mt-8 flex flex-wrap gap-3">
+          <a href={`mailto:${cv.email}`} className="rounded border px-4 py-2 text-xs uppercase" style={{ borderColor: "#0891b2", color: "#0891b2" }}>run hire()</a>
+          <ContactRow />
+        </div>
+        <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-4">
+          {cv.highlights.map((h) => (
+            <div key={h.label} className="border border-dashed p-3" style={{ borderColor: "#0891b255" }}>
+              <p className="text-xl font-bold">{h.value}</p>
+              <p className="text-[10px] uppercase opacity-50">{h.label}</p>
+            </div>
+          ))}
+        </div>
+        <section className="mt-16 border-t border-dashed pt-10" style={{ borderColor: "#0891b244" }}>
+          <h2 className="mb-8 text-2xl">experience.log</h2>
+          <ExperienceList tone="light" />
+        </section>
+        <section className="mt-16 grid gap-12 border-t border-dashed pt-10 md:grid-cols-2" style={{ borderColor: "#0891b244" }}>
+          <div><h2 className="mb-6 text-xl">skills.json</h2><SkillsCloud tone="light" /></div>
+          <div><h2 className="mb-6 text-xl">projects.md</h2><ProjectLinks tone="light" /><p className="mt-8 text-xs opacity-55">{cv.education.degree} · {cv.education.school} · {cv.location}</p></div>
+        </section>
+      </div>
     </main>
   );
 }
