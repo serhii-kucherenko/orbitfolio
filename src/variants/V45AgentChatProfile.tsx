@@ -102,7 +102,7 @@ export function Variant() {
                 return (
                   <div key="metrics" className="ml-auto grid max-w-[92%] grid-cols-2 gap-2">
                     {cv.highlights.map((h) => (
-                      <div key={h.label} className="rounded-2xl border border-[#c5d3dc] bg-white p-4">
+                      <div key={h.label} className="border border-[#c5d3dc] bg-white p-4">
                         <p className="text-2xl font-black text-[#0f6b5c]">{h.value}</p>
                         <p className="mt-1 text-[10px] uppercase tracking-wide text-slate-500">{h.label}</p>
                       </div>
@@ -111,7 +111,7 @@ export function Variant() {
                 );
               }
               return (
-                <div key="history" className="ml-auto max-w-[96%] rounded-2xl rounded-tr-md border border-[#c5d3dc] bg-white p-5">
+                <div key="history" className="ml-auto max-w-[96%] border border-[#c5d3dc] bg-white p-5">
                   <p className="mb-5 text-[10px] font-semibold uppercase tracking-[0.25em] text-[#0f6b5c]">
                     Full record attached
                   </p>
@@ -121,11 +121,11 @@ export function Variant() {
             })}
 
             <div className="grid gap-4 pt-2 md:grid-cols-2">
-              <div className="rounded-2xl bg-[#15202b] p-5 text-white">
+              <div className="bg-[#15202b] p-5 text-white">
                 <p className="mb-5 text-xs text-emerald-300">Capabilities response</p>
                 <SkillsCloud />
               </div>
-              <div className="rounded-2xl border border-[#c5d3dc] bg-white p-5">
+              <div className="border border-[#c5d3dc] bg-white p-5">
                 <p className="mb-5 text-xs text-[#0f6b5c]">Project response</p>
                 <ProjectLinks tone="light" />
               </div>

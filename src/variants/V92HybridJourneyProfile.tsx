@@ -64,7 +64,7 @@ export function Variant() {
             {cv.highlights.map((h) => (
               <div
                 key={h.label}
-                className="rounded-xl border p-3 text-center"
+                className="border p-3 text-center"
                 style={{ borderColor: "#5b9bd633", background: "#ffffff08" }}
               >
                 <p className="text-lg font-bold text-[#67e8f9]">{h.value}</p>

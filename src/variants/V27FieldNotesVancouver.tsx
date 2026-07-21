@@ -18,7 +18,7 @@ export function Variant() {
       }}
     >
       <section className="mx-auto max-w-4xl px-6 pb-8 pt-24">
-        <div className="rounded-2xl border border-emerald-900/10 bg-[#f7fcf9]/95 p-6 shadow-sm sm:p-8">
+        <div className="border border-emerald-900/10 bg-[#f7fcf9]/95 p-6 sm:p-8">
           <div className="flex flex-wrap items-end justify-between gap-4">
             <div>
               <p className="text-[10px] uppercase tracking-[0.35em] text-emerald-800/65">
@@ -58,7 +58,7 @@ export function Variant() {
                 initial={reduce ? false : { opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: reduce ? 0 : i * 0.05 }}
-                className="rounded-xl border border-emerald-900/10 bg-[#dff1ea] p-4"
+                className="border border-emerald-900/10 bg-[#dff1ea] p-4"
               >
                 <p className="text-2xl font-semibold text-emerald-950">{h.value}</p>
                 <p className="mt-1 text-xs text-emerald-800/55">{h.label}</p>
@@ -70,7 +70,7 @@ export function Variant() {
       </section>
 
       <section className="mx-auto max-w-4xl px-6 py-10">
-        <div className="rounded-2xl border border-emerald-900/10 bg-white/80 p-6 sm:p-10">
+        <div className="border border-emerald-900/10 bg-white/80 p-6 sm:p-10">
           <h2 className="font-[family-name:var(--font-serif)] text-3xl">Trail log</h2>
           <p className="mt-2 text-sm text-emerald-800/55">Career stops in order of arrival.</p>
           <div className="mt-8 space-y-8">
@@ -95,19 +95,19 @@ export function Variant() {
       </section>
 
       <section className="mx-auto grid max-w-4xl gap-6 px-6 pb-24 md:grid-cols-2">
-        <div className="rounded-2xl border border-emerald-900/10 bg-white/80 p-6">
+        <div className="border border-emerald-900/10 bg-white/80 p-6">
           <h2 className="font-[family-name:var(--font-serif)] text-2xl">Kit list</h2>
           <div className="mt-6">
             <SkillsCloud tone="light" />
           </div>
         </div>
-        <div className="rounded-2xl border border-emerald-900/10 bg-white/80 p-6">
+        <div className="border border-emerald-900/10 bg-white/80 p-6">
           <h2 className="font-[family-name:var(--font-serif)] text-2xl">Specimens</h2>
           <div className="mt-6">
             <ProjectLinks tone="light" />
           </div>
           <p className="mt-10 text-sm text-emerald-800/50">
-            {cv.education.degree} · {cv.education.school}
+            {cv.education.degree} · {cv.education.school} · {cv.location}
           </p>
         </div>
       </section>
