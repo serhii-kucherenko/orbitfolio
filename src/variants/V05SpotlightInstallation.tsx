@@ -1,38 +1,67 @@
 "use client";
 
-import { useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
 import { cv } from "@/data/cv";
 
-/** Spotlight Installation — handcrafted award cell */
+/** Spotlight Installation — a dark exhibition uses a single moving spotlight to stage one claim at a time. */
 export function Variant() {
   const reduce = useReducedMotion() ?? false;
   return (
-    <main className="min-h-screen bg-black text-zinc-100">
-      <section className="relative mx-auto flex min-h-screen max-w-5xl flex-col justify-center px-6 pt-24">
-        <div
+    <main className="min-h-screen bg-[#090806] text-[#f4eee4]">
+      <header className="relative mx-auto flex min-h-screen max-w-7xl flex-col justify-between overflow-hidden px-6 py-24 md:px-10">
+        <motion.div
           aria-hidden
-          className="pointer-events-none absolute left-1/2 top-24 h-[50vh] w-[70vw] -translate-x-1/2 rounded-full opacity-40 blur-3xl"
-          style={{ background: reduce ? "rgba(250,204,21,0.15)" : "radial-gradient(circle, rgba(250,204,21,0.35), transparent 70%)" }}
+          className="pointer-events-none absolute -top-40 h-[720px] w-[720px] rounded-full blur-2xl"
+          style={{ background: "radial-gradient(circle, rgba(255,231,180,.28), transparent 68%)" }}
+          animate={reduce ? undefined : { x: ["-25%", "60%", "-25%"] }}
+          transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
         />
-        <p className="relative text-[10px] uppercase tracking-[0.35em] text-amber-200/70">Installation · one claim</p>
-        <h1 className="relative mt-5 font-[family-name:var(--font-display)] text-5xl font-bold sm:text-7xl">{cv.name}</h1>
-        <p className="relative mt-4 text-lg text-amber-50/80">{cv.title}</p>
-        <p className="relative mt-6 max-w-2xl text-sm leading-7 text-white/55">{cv.summary}</p>
-        <div className="relative mt-10 grid gap-3 sm:grid-cols-4">
-          {cv.highlights.map((h) => (
-            <div key={h.label} className="border border-amber-200/20 bg-amber-400/5 px-4 py-5">
-              <p className="text-2xl font-bold text-amber-200">{h.value}</p>
-              <p className="mt-1 text-[10px] uppercase tracking-wider text-amber-100/50">{h.label}</p>
-            </div>
+        <div className="relative flex justify-between border-b border-[#f2c778]/25 pb-4 text-[10px] uppercase tracking-[0.4em] text-[#f2c778]">
+          <span>Installation 05</span><span>One claim at a time</span>
+        </div>
+        <div className="relative py-24">
+          <p className="mb-5 text-sm text-[#f2c778]">{cv.title}</p>
+          <h1 className="max-w-5xl font-[family-name:var(--font-serif)] text-6xl leading-[0.86] sm:text-8xl lg:text-[9rem]">{cv.name}</h1>
+          <p className="mt-10 max-w-xl text-sm leading-7 text-white/55">{cv.summary}</p>
+        </div>
+        <div className="relative flex flex-wrap items-center justify-between gap-6">
+          <ContactRow className="text-white/55" />
+          <a href={`mailto:${cv.email}`} className="border border-[#f2c778] bg-[#f2c778] px-6 py-3 text-sm font-bold text-black">
+            Put my work in focus
+          </a>
+        </div>
+      </header>
+
+      <section className="mx-auto max-w-7xl px-6 py-24 md:px-10">
+        <p className="mb-14 text-center text-[10px] uppercase tracking-[0.45em] text-[#f2c778]">Four illuminated claims</p>
+        <div className="grid gap-20 md:grid-cols-2">
+          {cv.highlights.map((highlight, index) => (
+            <motion.article
+              key={highlight.label}
+              initial={reduce ? false : { opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true, amount: 0.5 }}
+              className={`flex min-h-72 flex-col justify-center border-t border-[#f2c778]/25 ${index % 2 ? "md:translate-y-24" : ""}`}
+              style={{ background: "radial-gradient(circle at 50% 45%, rgba(242,199,120,.12), transparent 55%)" }}
+            >
+              <strong className="font-[family-name:var(--font-serif)] text-7xl text-[#f2c778] sm:text-8xl">{highlight.value}</strong>
+              <span className="mt-4 text-xs uppercase tracking-[0.3em] opacity-55">{highlight.label}</span>
+            </motion.article>
           ))}
         </div>
       </section>
-      <section className="mx-auto max-w-4xl space-y-14 px-6 pb-28">
+
+      <section className="mx-auto grid max-w-7xl gap-14 px-6 py-32 md:grid-cols-[0.3fr_0.7fr] md:px-10">
+        <h2 className="font-[family-name:var(--font-serif)] text-4xl text-[#f2c778]">The exhibited record</h2>
         <ExperienceList tone="dark" />
-        <SkillsCloud />
-        <ProjectLinks />
-        <ContactRow className="text-amber-100/70" />
+      </section>
+
+      <section className="border-t border-[#f2c778]/20 bg-[#100e0a] px-6 py-24 md:px-10">
+        <div className="mx-auto grid max-w-7xl gap-16 md:grid-cols-2">
+          <div><h2 className="mb-8 text-xs uppercase tracking-[0.35em] text-[#f2c778]">Materials</h2><SkillsCloud /></div>
+          <div><h2 className="mb-8 text-xs uppercase tracking-[0.35em] text-[#f2c778]">Editions</h2><ProjectLinks /></div>
+        </div>
       </section>
     </main>
   );
