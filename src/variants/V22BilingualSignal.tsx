@@ -9,7 +9,7 @@ export function Variant() {
   const reduce = useReducedMotion() ?? false;
 
   return (
-    <main className="min-h-screen bg-[#07101c] text-[#e8f0ff]">
+    <main className="min-h-screen bg-[#050d18] text-[#e8f0ff]">
       <header className="grid min-h-[70vh] md:grid-cols-2">
         <div className="relative flex flex-col justify-center border-b border-[#7dd3fc]/30 p-8 md:border-b-0 md:border-r md:p-12">
           <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.35em] text-[#7dd3fc]">
@@ -25,7 +25,7 @@ export function Variant() {
           <p className="mt-4 text-[#7dd3fc]">{cv.title}</p>
           <p className="mt-6 max-w-md text-sm leading-7 text-white/60">{cv.summary}</p>
         </div>
-        <div className="relative flex flex-col justify-center bg-[#0a1628] p-8 md:p-12">
+        <div className="relative flex flex-col justify-center bg-[#081422] p-8 md:p-12">
           <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.35em] text-[#fbbf24]">
             Канал Б · UA
           </p>
@@ -44,9 +44,15 @@ export function Variant() {
           <div className="mt-10 flex flex-wrap gap-3">
             <a
               href={`mailto:${cv.email}`}
-              className="border border-[#7dd3fc] bg-[#7dd3fc] px-5 py-2.5 text-sm font-semibold text-[#07101c] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7dd3fc]"
+              className="border border-[#7dd3fc] bg-[#7dd3fc] px-5 py-2.5 text-sm font-semibold text-[#050d18] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7dd3fc]"
             >
               Signal / Написати
+            </a>
+            <a
+              href="/resume"
+              className="border border-[#fbbf24]/50 px-5 py-2.5 text-sm font-semibold text-[#fbbf24]"
+            >
+              Резюме / PDF
             </a>
             <ContactRow className="text-white/55" />
           </div>
@@ -55,10 +61,7 @@ export function Variant() {
 
       <section className="grid grid-cols-2 border-y border-[#7dd3fc]/25 md:grid-cols-4">
         {cv.highlights.map((h, i) => (
-          <div
-            key={h.label}
-            className={`px-5 py-7 ${i % 2 === 0 ? "bg-[#0a1628]" : ""}`}
-          >
+          <div key={h.label} className={`px-5 py-7 ${i % 2 === 0 ? "bg-[#081422]" : ""}`}>
             <p className="text-3xl font-bold" style={{ color: i % 2 === 0 ? "#7dd3fc" : "#fbbf24" }}>
               {h.value}
             </p>
@@ -74,7 +77,7 @@ export function Variant() {
         <ExperienceList tone="dark" />
       </section>
 
-      <section className="mx-auto grid max-w-5xl gap-14 px-6 pb-24 md:grid-cols-2 md:px-10">
+      <section className="mx-auto grid max-w-5xl gap-14 border-t border-[#7dd3fc]/20 px-6 pb-24 pt-16 md:grid-cols-2 md:px-10">
         <div>
           <h2 className="mb-6 text-xl font-bold text-[#7dd3fc]">Skills / Навички</h2>
           <SkillsCloud />
@@ -83,7 +86,7 @@ export function Variant() {
           <h2 className="mb-6 text-xl font-bold text-[#fbbf24]">Projects / Проєкти</h2>
           <ProjectLinks />
           <p className="mt-10 text-sm opacity-50">
-            {cv.education.degree} · {cv.education.school}
+            {cv.education.degree} · {cv.education.school} · {cv.location}
           </p>
         </div>
       </section>

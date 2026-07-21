@@ -15,8 +15,8 @@ export function Variant() {
   ];
 
   return (
-    <main className="min-h-screen bg-[#f5f9f8] text-[#0c2a2a]">
-      <div className="border-b border-[#b7d4d0] bg-[#e8f3f1]">
+    <main className="min-h-screen bg-[#eef5f3] text-[#0c2a2a]">
+      <div className="border-b border-[#b7d4d0] bg-gradient-to-r from-[#e0efec] to-[#eef5f3]">
         <div className="mx-auto flex max-w-4xl flex-wrap items-center justify-between gap-2 px-6 py-3 text-[10px] uppercase tracking-[0.28em] text-[#2a6b66]">
           <span>Trust sheet · confidential hire packet</span>
           <span>{cv.location}</span>
@@ -46,12 +46,18 @@ export function Variant() {
           >
             Request a conversation
           </a>
+          <a
+            href="/resume"
+            className="rounded-md border border-[#0d7377]/40 px-5 py-2.5 text-sm font-semibold text-[#0d7377]"
+          >
+            Clinical CV PDF
+          </a>
           <ContactRow className="text-[#2a6b66]" />
         </div>
 
         <dl className="mt-12 grid gap-px overflow-hidden rounded-lg border border-[#b7d4d0] bg-[#b7d4d0] sm:grid-cols-2">
           {trustSignals.map((row) => (
-            <div key={row.k} className="bg-[#f5f9f8] p-5">
+            <div key={row.k} className="bg-[#eef5f3] p-5">
               <dt className="text-[10px] uppercase tracking-[0.25em] text-[#5a8a86]">{row.k}</dt>
               <dd className="mt-2 text-sm font-medium leading-6">{row.v}</dd>
             </div>
@@ -59,11 +65,18 @@ export function Variant() {
         </dl>
 
         <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4">
-          {cv.highlights.map((h) => (
-            <div key={h.label} className="rounded-lg border border-[#b7d4d0] bg-white p-4">
+          {cv.highlights.map((h, i) => (
+            <motion.div
+              key={h.label}
+              initial={reduce ? false : { opacity: 0, y: 8 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: reduce ? 0 : i * 0.05 }}
+              className="rounded-lg border border-[#b7d4d0] bg-white p-4"
+            >
               <p className="text-2xl font-bold text-[#0d7377]">{h.value}</p>
               <p className="mt-1 text-[10px] uppercase tracking-wider text-[#5a8a86]">{h.label}</p>
-            </div>
+            </motion.div>
           ))}
         </div>
       </section>
@@ -84,7 +97,7 @@ export function Variant() {
             <h2 className="mb-6 font-[family-name:var(--font-serif)] text-2xl">References of work</h2>
             <ProjectLinks tone="light" />
             <p className="mt-10 text-sm text-[#5a8a86]">
-              {cv.education.degree} · {cv.education.school}
+              {cv.education.degree} · {cv.education.school} · {cv.location}
             </p>
           </div>
         </div>

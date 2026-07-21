@@ -10,7 +10,7 @@ export function Variant() {
   const today = "Vancouver desk";
 
   return (
-    <main className="min-h-screen" style={{ background: "#f4f0e6", color: "#1a1a1a" }}>
+    <main className="min-h-screen bg-[#ebe8e0] text-[#1a1a1a]">
       <header className="border-b-4 border-black px-4 py-6 md:px-8">
         <div className="mx-auto max-w-5xl">
           <div className="flex flex-wrap items-end justify-between gap-4">
@@ -29,12 +29,20 @@ export function Variant() {
           </div>
           <div className="mt-4 flex flex-wrap items-center justify-between gap-3 border-y border-black py-2">
             <p className="text-xs font-bold uppercase tracking-[0.2em]">{cv.title}</p>
-            <a
-              href={`mailto:${cv.email}`}
-              className="bg-black px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-[#f4f0e6]"
-            >
-              Wire the desk
-            </a>
+            <div className="flex flex-wrap gap-2">
+              <a
+                href={`mailto:${cv.email}`}
+                className="bg-black px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-[#ebe8e0] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+              >
+                Wire the desk
+              </a>
+              <a
+                href="/resume"
+                className="border border-black px-4 py-1.5 text-xs font-bold uppercase tracking-wider"
+              >
+                Morning PDF
+              </a>
+            </div>
           </div>
           <ContactRow className="mt-3 text-xs" />
         </div>
@@ -50,11 +58,17 @@ export function Variant() {
         </motion.p>
 
         <div className="mt-10 grid grid-cols-2 gap-px bg-black sm:grid-cols-4">
-          {cv.highlights.map((h) => (
-            <div key={h.label} className="bg-[#f4f0e6] p-4">
+          {cv.highlights.map((h, i) => (
+            <motion.div
+              key={h.label}
+              initial={reduce ? false : { opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: reduce ? 0 : i * 0.04 }}
+              className="bg-[#ebe8e0] p-4"
+            >
               <p className="font-[family-name:var(--font-display)] text-3xl font-black">{h.value}</p>
               <p className="mt-1 text-[10px] uppercase tracking-wider opacity-50">{h.label}</p>
-            </div>
+            </motion.div>
           ))}
         </div>
       </section>
@@ -71,7 +85,7 @@ export function Variant() {
         </div>
       </section>
 
-      <section className="border-t border-black/20 bg-[#ebe6da] px-4 py-14 md:px-8">
+      <section className="border-t border-black/20 bg-[#e0ddd4] px-4 py-14 md:px-8">
         <div className="mx-auto grid max-w-5xl gap-12 md:grid-cols-2">
           <div>
             <h2 className="mb-6 text-lg font-black uppercase">Wire services</h2>
@@ -81,7 +95,7 @@ export function Variant() {
             <h2 className="mb-6 text-lg font-black uppercase">Extras</h2>
             <ProjectLinks tone="light" />
             <p className="mt-8 text-sm opacity-50">
-              {cv.education.degree} · {cv.education.school}
+              {cv.education.degree} · {cv.education.school} · {cv.location}
             </p>
           </div>
         </div>
