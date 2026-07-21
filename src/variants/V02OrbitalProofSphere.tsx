@@ -13,7 +13,7 @@ export function Variant() {
       <section className="relative mx-auto grid min-h-screen max-w-7xl items-center gap-10 px-6 py-28 lg:grid-cols-[0.8fr_1.2fr] lg:px-10">
         <div className="relative z-10">
           <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.5em] text-[#b8ff6a]">
-            Evidence in orbit · 02
+            Evidence in orbit · 02 · {cv.location}
           </p>
           <motion.h1
             initial={reduce ? false : { opacity: 0, x: -28 }}
@@ -26,13 +26,13 @@ export function Variant() {
           <div className="mt-9 flex flex-wrap items-center gap-4">
             <a
               href={`mailto:${cv.email}`}
-              className="rounded-full bg-[#b8ff6a] px-6 py-3 text-sm font-bold text-[#040e0c] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8ff6a]"
+              className="bg-[#b8ff6a] px-6 py-3 text-sm font-bold text-[#040e0c] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8ff6a]"
             >
               Bring me into orbit
             </a>
             <a
               href="/resume"
-              className="rounded-full border border-[#b8ff6a]/40 px-6 py-3 text-sm font-bold text-[#b8ff6a]"
+              className="border border-[#b8ff6a]/40 px-6 py-3 text-sm font-bold text-[#b8ff6a] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8ff6a]"
             >
               Flight sheet
             </a>

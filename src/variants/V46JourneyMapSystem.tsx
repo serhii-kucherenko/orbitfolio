@@ -16,7 +16,9 @@ export function Variant() {
   return (
     <main className="min-h-screen bg-[#eef3f6] text-slate-900">
       <section className="mx-auto max-w-5xl px-6 pb-12 pt-28">
-        <p className="text-[10px] uppercase tracking-[0.35em] text-teal-700">Journey map · service design</p>
+        <p className="text-[10px] uppercase tracking-[0.35em] text-teal-700">
+          Journey map · service design · {cv.location}
+        </p>
         <motion.h1
           initial={reduce ? false : { opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
@@ -29,13 +31,13 @@ export function Variant() {
         <div className="mt-8 flex flex-wrap gap-3">
           <a
             href={`mailto:${cv.email}`}
-            className="rounded-full bg-teal-700 px-5 py-2.5 text-sm font-semibold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-700"
+            className="bg-teal-700 px-5 py-2.5 text-sm font-semibold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-700"
           >
             Map a next step
           </a>
           <a
             href="/resume"
-            className="rounded-full border border-teal-700/40 px-5 py-2.5 text-sm font-semibold text-teal-800"
+            className="border border-teal-700/40 px-5 py-2.5 text-sm font-semibold text-teal-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-700"
           >
             Journey PDF
           </a>

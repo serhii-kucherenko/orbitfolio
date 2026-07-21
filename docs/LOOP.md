@@ -80,5 +80,6 @@ Autonomous progress log for Orbitfolio.
 | 77 | Burst tick 28 | Deepened waveform, editorial orbit, planetary dossier, infinite pan, leadership evidence, liquid metal |
 | 78 | Burst tick 29 | Deepened elastic rail, spatial observatory, warp recruiter, monolith reveal, issue stack, metric profile |
 | 79 | Burst tick 30 | Deepened velocity chapters, goals orbit, Bauhaus systems, code rain, holographic record, WebGPU veil |
+| 80 | Burst tick 31 | Deepened journey map, redline resume, orbital sphere, founder fit, agent chat, centurion |
 
 Live: https://orbitfolio-kohl.vercel.app · Loop: every 15m — unique award craft + UI must stay green

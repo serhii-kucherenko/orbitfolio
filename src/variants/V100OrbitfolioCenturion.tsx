@@ -47,7 +47,7 @@ export function Variant() {
         className="relative z-10 mx-auto flex min-h-screen max-w-7xl flex-col justify-center px-6 pb-20 pt-28"
       >
         <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.45em] text-cyan-300/80">
-          Champion · Orbitfolio Centurion
+          Champion · Orbitfolio Centurion · {cv.location}
         </p>
         <motion.h1
           initial={reduce ? false : { opacity: 0, y: 28 }}
@@ -92,7 +92,7 @@ export function Variant() {
         <div className="mt-10 flex flex-wrap gap-3">
           <a
             href={`mailto:${cv.email}`}
-            className="rounded-full bg-cyan-300 px-6 py-3 text-sm font-bold text-black transition hover:bg-cyan-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300"
+            className="bg-cyan-300 px-6 py-3 text-sm font-bold text-black transition hover:bg-cyan-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300"
           >
             Start a conversation
           </a>
@@ -100,13 +100,13 @@ export function Variant() {
             href={cv.github}
             target="_blank"
             rel="noreferrer"
-            className="rounded-full border border-white/25 bg-white/5 px-6 py-3 text-sm backdrop-blur transition hover:border-white/45 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300"
+            className="border border-white/25 bg-white/5 px-6 py-3 text-sm backdrop-blur transition hover:border-white/45 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300"
           >
             Explore GitHub
           </a>
           <Link
             href="/resume"
-            className="rounded-full border border-white/25 bg-white/5 px-6 py-3 text-sm backdrop-blur transition hover:border-white/45 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300"
+            className="border border-white/25 bg-white/5 px-6 py-3 text-sm backdrop-blur transition hover:border-white/45 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300"
           >
             Printable resume
           </Link>

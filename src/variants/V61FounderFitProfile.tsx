@@ -25,7 +25,7 @@ export function Variant() {
         />
         <div className="relative mx-auto max-w-5xl px-6 py-16 md:py-24">
           <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.4em] text-[#a3e635]">
-            Founder fit · open to founding seats
+            Founder fit · {cv.location} · open to founding seats
           </p>
           <motion.h1
             initial={reduce ? false : { opacity: 0, x: -16 }}
@@ -39,13 +39,13 @@ export function Variant() {
           <div className="mt-8 flex flex-wrap gap-3">
             <a
               href={`mailto:${cv.email}`}
-              className="rounded-full bg-[#a3e635] px-6 py-3 text-sm font-bold text-zinc-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#a3e635]"
+              className="bg-[#a3e635] px-6 py-3 text-sm font-bold text-zinc-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#a3e635]"
             >
               Start a founder conversation
             </a>
             <a
               href="/resume"
-              className="rounded-full border border-[#a3e635]/50 px-6 py-3 text-sm font-bold text-[#a3e635]"
+              className="border border-[#a3e635]/50 px-6 py-3 text-sm font-bold text-[#a3e635] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#a3e635]"
             >
               Pitch deck PDF
             </a>
