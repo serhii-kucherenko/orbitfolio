@@ -14,26 +14,38 @@ export function Variant() {
   return (
     <main className="relative overflow-hidden bg-[#06100d] text-white">
       <div aria-hidden className="absolute inset-0">
-        {Array.from({ length: 18 }, (_, i) => (
-          <span
+        {Array.from({ length: 22 }, (_, i) => (
+          <motion.span
             key={i}
-            className={`absolute size-2 rounded-full bg-emerald-300 ${reduce ? "" : "animate-pulse"}`}
+            className="absolute size-1.5 bg-emerald-300"
             style={{
               left: `${(i * 37) % 97}%`,
               top: `${(i * 61) % 91}%`,
-              animationDelay: `${i * 120}ms`,
             }}
+            animate={reduce ? undefined : { opacity: [0.15, 0.95, 0.15], y: [0, -6, 0] }}
+            transition={{ duration: 2.4 + (i % 5) * 0.3, repeat: Infinity, delay: i * 0.08 }}
           />
         ))}
+        <div
+          className="absolute inset-0 opacity-20"
+          style={{
+            backgroundImage:
+              "linear-gradient(#10b98122 1px, transparent 1px), linear-gradient(90deg, #10b98122 1px, transparent 1px)",
+            backgroundSize: "40px 40px",
+          }}
+        />
       </div>
       <div className="relative mx-auto max-w-7xl p-6 md:p-12">
         <header className="grid gap-10 border-b border-emerald-300/20 py-16 md:grid-cols-[2fr_1fr]">
           <div>
-            <p className="text-emerald-300">{cv.title}</p>
+            <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.35em] text-emerald-300">
+              Swarm · one page · hire-ready
+            </p>
+            <p className="mt-3 text-emerald-200/80">{cv.title}</p>
             <motion.h1
               initial={reduce ? false : { opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
-              className="mt-5 text-7xl font-black"
+              className="mt-5 font-[family-name:var(--font-display)] text-6xl font-black tracking-tight sm:text-7xl"
             >
               {cv.name}
             </motion.h1>
@@ -41,33 +53,29 @@ export function Variant() {
             <div className="mt-7 flex flex-wrap gap-3">
               <a
                 href={`mailto:${cv.email}`}
-                className={`rounded-full bg-emerald-300 px-5 py-2.5 text-sm font-bold text-black ${focus}`}
+                className={`bg-emerald-300 px-5 py-2.5 text-sm font-bold text-black ${focus}`}
               >
                 Start hiring thread
               </a>
-              <Link
-                href="/resume"
-                className={`rounded-full border border-emerald-300/40 px-5 py-2.5 text-sm ${focus}`}
-              >
+              <Link href="/resume" className={`border border-emerald-300/40 px-5 py-2.5 text-sm ${focus}`}>
                 Printable resume
               </Link>
             </div>
             <ContactRow className="mt-7" />
           </div>
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-2 gap-6">
             {cv.highlights.map((item) => (
-              <div
-                key={item.label}
-                className="rounded-2xl border border-emerald-300/20 bg-emerald-300/5 p-5"
-              >
-                <strong className="text-4xl text-emerald-300">{item.value}</strong>
-                <p className="text-sm">{item.label}</p>
+              <div key={item.label} className="border-l border-emerald-300/40 pl-4">
+                <strong className="block text-4xl text-emerald-300">{item.value}</strong>
+                <p className="mt-1 text-[10px] uppercase tracking-wider text-emerald-100/50">{item.label}</p>
               </div>
             ))}
           </div>
         </header>
         <section className="py-16">
-          <h2 className="mb-10 text-4xl font-black">One-page evidence stream</h2>
+          <h2 className="mb-10 font-[family-name:var(--font-display)] text-4xl font-black">
+            One-page evidence stream
+          </h2>
           <ExperienceList tone="dark" />
         </section>
         <section className="grid gap-12 border-t border-emerald-300/20 py-16 md:grid-cols-2">
