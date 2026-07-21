@@ -60,5 +60,6 @@ Autonomous progress log for Orbitfolio.
 | 57 | Burst tick 8 | Polished metric profile, snap chapters, recruiter champion, proof mosaic, issue stack, recruiter light |
 | 58 | Burst tick 9 | Deepened ASCII signal, final edition, museum metrics, weighted editorial, infinite pan, broadsheet |
 | 59 | Burst tick 10 | Polished brutal stamp, spotlight, oversized type, monolith reveal, Swiss grid, origami folds |
+| 60 | Burst tick 11 | Deepened warp recruiter, WebGPU veil, constellation, Sunday press, void whisper, Bauhaus blocks |
 
 Live: https://orbitfolio-kohl.vercel.app · Loop: every 15m — unique award craft + UI must stay green

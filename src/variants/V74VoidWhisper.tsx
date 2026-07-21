@@ -9,12 +9,12 @@ export function Variant() {
   const reduce = useReducedMotion() ?? false;
 
   return (
-    <main className="min-h-screen bg-[#020203] text-[#d4d4d8]">
+    <main className="min-h-screen bg-[#010102] text-[#d4d4d8]">
       <section className="relative mx-auto flex min-h-[70vh] max-w-4xl flex-col justify-center px-6 py-24">
         <motion.div
           aria-hidden
-          className="pointer-events-none absolute left-1/2 top-1/3 size-64 -translate-x-1/2 rounded-full bg-white/[0.03] blur-3xl"
-          animate={reduce ? undefined : { opacity: [0.4, 0.7, 0.4] }}
+          className="pointer-events-none absolute left-1/2 top-1/3 size-72 -translate-x-1/2 rounded-full bg-white/[0.035] blur-3xl"
+          animate={reduce ? undefined : { opacity: [0.35, 0.75, 0.35] }}
           transition={reduce ? undefined : { duration: 8, repeat: Infinity, ease: "easeInOut" }}
         />
         <p className="font-[family-name:var(--font-mono)] text-[9px] uppercase tracking-[0.5em] text-zinc-600">
@@ -51,17 +51,26 @@ export function Variant() {
           >
             Whisper back — hire
           </a>
+          <a href="/resume" className="text-sm text-zinc-500 underline-offset-4 hover:text-zinc-300 hover:underline">
+            Quiet print
+          </a>
           <ContactRow className="text-zinc-600" />
         </div>
       </section>
 
       <section className="mx-auto max-w-4xl border-t border-white/[0.06] px-6 py-16">
         <div className="grid grid-cols-2 gap-y-10 sm:grid-cols-4">
-          {cv.highlights.map((h) => (
-            <div key={h.label}>
+          {cv.highlights.map((h, i) => (
+            <motion.div
+              key={h.label}
+              initial={reduce ? false : { opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: reduce ? 0 : i * 0.08 }}
+            >
               <p className="font-[family-name:var(--font-serif)] text-3xl text-zinc-200">{h.value}</p>
               <p className="mt-2 text-[10px] uppercase tracking-[0.3em] text-zinc-600">{h.label}</p>
-            </div>
+            </motion.div>
           ))}
         </div>
       </section>
@@ -71,7 +80,7 @@ export function Variant() {
           <h2 className="mb-10 font-[family-name:var(--font-serif)] text-2xl text-zinc-300">Echoes of work</h2>
           <ExperienceList tone="dark" />
         </div>
-        <div className="grid gap-16 md:grid-cols-2">
+        <div className="grid gap-16 border-t border-white/[0.06] pt-16 md:grid-cols-2">
           <div>
             <h2 className="mb-6 font-[family-name:var(--font-serif)] text-xl text-zinc-300">Quiet skills</h2>
             <SkillsCloud />

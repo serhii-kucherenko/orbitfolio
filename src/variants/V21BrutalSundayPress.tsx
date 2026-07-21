@@ -9,7 +9,7 @@ export function Variant() {
   const reduce = useReducedMotion() ?? false;
 
   return (
-    <main className="min-h-screen bg-[#080808] text-white">
+    <main className="min-h-screen bg-[#050505] text-white">
       <div className="flex items-center justify-between border-b-4 border-[#ff2a2a] px-4 py-2 font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.35em] text-[#ff2a2a] md:px-8">
         <span>Sunday press</span>
         <span>Brutal edition · late city</span>
@@ -43,22 +43,36 @@ export function Variant() {
             >
               Extra · hire
             </motion.div>
-            <a
-              href={`mailto:${cv.email}`}
-              className="bg-[#ff2a2a] px-6 py-3 text-sm font-black uppercase tracking-wide text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ff2a2a]"
-            >
-              Hire now
-            </a>
+            <div className="flex flex-wrap gap-3 md:justify-end">
+              <a
+                href={`mailto:${cv.email}`}
+                className="bg-[#ff2a2a] px-6 py-3 text-sm font-black uppercase tracking-wide text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ff2a2a]"
+              >
+                Hire now
+              </a>
+              <a
+                href="/resume"
+                className="border-4 border-white px-6 py-3 text-sm font-black uppercase tracking-wide"
+              >
+                Late edition PDF
+              </a>
+            </div>
           </div>
         </div>
       </header>
 
       <section className="grid grid-cols-2 border-b-4 border-white md:grid-cols-4">
-        {cv.highlights.map((h) => (
-          <div key={h.label} className="border-r-4 border-white p-5 last:border-r-0">
+        {cv.highlights.map((h, i) => (
+          <motion.div
+            key={h.label}
+            initial={reduce ? false : { opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: reduce ? 0 : i * 0.04 }}
+            className="border-r-4 border-white p-5 last:border-r-0"
+          >
             <p className="text-4xl font-black">{h.value}</p>
             <p className="mt-1 text-[10px] font-bold uppercase tracking-wider text-[#ff2a2a]">{h.label}</p>
-          </div>
+          </motion.div>
         ))}
       </section>
 
@@ -73,15 +87,15 @@ export function Variant() {
       </section>
 
       <section className="grid border-t-8 border-[#ff2a2a] md:grid-cols-2">
-        <div className="border-b-4 border-white bg-[#111] p-8 md:border-b-0 md:border-r-4">
+        <div className="border-b-4 border-white bg-[#0e0e0e] p-8 md:border-b-0 md:border-r-4">
           <h2 className="mb-8 text-2xl font-black uppercase">Toolkit</h2>
           <SkillsCloud />
         </div>
-        <div className="bg-[#111] p-8">
+        <div className="bg-[#0e0e0e] p-8">
           <h2 className="mb-8 text-2xl font-black uppercase">Extras</h2>
           <ProjectLinks />
           <p className="mt-12 text-xs uppercase tracking-wider text-white/40">
-            {cv.education.degree} · {cv.education.school}
+            {cv.education.degree} · {cv.education.school} · {cv.location}
           </p>
         </div>
       </section>
