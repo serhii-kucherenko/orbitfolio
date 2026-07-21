@@ -101,6 +101,20 @@ export function Variant() {
           </div>
         </div>
       </section>
+      <section className="border-t border-black/10 bg-[#e8e4dc] px-6 py-14 md:px-16">
+        <div className="mx-auto flex max-w-6xl flex-col gap-6 md:flex-row md:items-center md:justify-between">
+          <p className="max-w-lg text-sm leading-7 text-black/60">
+            Steals alcove storytelling from #1 and outcome hierarchy from #60. Wall labels stay readable; the
+            sculpture stays atmospheric.
+          </p>
+          <a
+            href={`mailto:${cv.email}`}
+            className="inline-flex self-start border border-black bg-black px-5 py-3 text-xs font-semibold uppercase tracking-wider text-[#efefe9] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+          >
+            Schedule a walkthrough
+          </a>
+        </div>
+      </section>
     </main>
   );
 }

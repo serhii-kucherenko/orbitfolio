@@ -24,6 +24,7 @@ Full definitions: [`docs/RUBRIC.md`](RUBRIC.md)
 
 - Claiming `r3f` in the stack without mounting Canvas is lab fraud — tick 94 added a fail-then-pass oracle and real Three.js scenes (alcove / orbit / veil / flythrough / spotlight / fleet / atmosphere / monolith / planet / centurion) with reduced-motion CSS fallbacks
 - Hybrid ladder award motion (tick 95): every #86–#100 cell must mount WebGL or Lenis smooth scroll — learning continues by stealing technique, not only layout metaphors
+- Hybrid craft depth (tick 96): Lenis-only wrappers were too cheap — Hybrid cells must stay ≥120 lines of real structure (who/what/proof rails, lessons, secondary CTAs)
 - Structural diversity beats palette swaps for lab signal
 - Fail-then-pass diversity checks forced at least 20 fully custom designs instead of shared-shell palette swaps — see [`docs/RED_GREEN.md`](RED_GREEN.md)
 - Gate raised to **100** custom designs (batch 8) — every `/test/n` cell is now uniquely built; shared `AwardVariant` shell retired from active experiments

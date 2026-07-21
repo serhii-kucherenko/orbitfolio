@@ -103,6 +103,19 @@ export function Variant() {
             </p>
           </div>
         </div>
+        <div className="border-t border-white/10 pt-12">
+          <p className="max-w-2xl text-sm leading-7 text-white/55">
+            Steals scanline atmosphere from #49 and outcome-first evidence from #60. The veil is live WebGL;
+            the badge deck stays recruiter-readable.
+          </p>
+          <div className="mt-6 grid gap-3 sm:grid-cols-3">
+            {["Authenticated identity", "Measurable impact", "Open contact"].map((label) => (
+              <div key={label} className="border border-[#67e8f9]/25 px-4 py-3 text-xs uppercase tracking-wider text-[#67e8f9]/80">
+                {label}
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
     </main>
   );

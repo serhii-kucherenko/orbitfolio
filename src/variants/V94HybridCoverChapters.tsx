@@ -109,6 +109,20 @@ export function Variant() {
           </p>
         </div>
       </section>
+      <footer className="border-t px-6 py-10 md:px-10" style={{ borderColor: "#f3ebe015" }}>
+        <div className="mx-auto flex max-w-6xl flex-col gap-4 md:flex-row md:items-center md:justify-between">
+          <p className="max-w-xl text-sm leading-7 opacity-55">
+            Steals object-like covers from #53 and viewport storytelling from #32. Chapters stay jumpable;
+            the jacket never hides the resume.
+          </p>
+          <a
+            href={`mailto:${cv.email}`}
+            className="inline-flex self-start border border-[#e8a87c] px-5 py-2.5 text-sm font-semibold text-[#e8a87c] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#e8a87c]"
+          >
+            Commission the next chapter
+          </a>
+        </div>
+      </footer>
       </main>
     </SmoothScroll>
   );

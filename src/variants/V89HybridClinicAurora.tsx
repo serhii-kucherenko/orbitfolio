@@ -101,6 +101,29 @@ export function Variant() {
             </p>
           </div>
         </section>
+        <section className="mt-16 rounded-sm border border-[#0f766e]/20 bg-white/70 p-6 backdrop-blur-sm md:p-8">
+          <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.3em] text-[#0f766e]">
+            Intake · who / what / proof
+          </p>
+          <div className="mt-4 grid gap-4 sm:grid-cols-3">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-wider opacity-45">Patient</p>
+              <p className="mt-1 font-semibold">{cv.name}</p>
+            </div>
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-wider opacity-45">Specialty</p>
+              <p className="mt-1 font-semibold">{cv.title}</p>
+            </div>
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-wider opacity-45">Site</p>
+              <p className="mt-1 font-semibold">{cv.location}</p>
+            </div>
+          </div>
+          <p className="mt-6 text-sm leading-7 opacity-65">
+            Steals healthcare trust from #58 and atmospheric restraint from #78 — calm rails, aurora only as
+            atmosphere.
+          </p>
+        </section>
       </div>
       </main>
     </SmoothScroll>

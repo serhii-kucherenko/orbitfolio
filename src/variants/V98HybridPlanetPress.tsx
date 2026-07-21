@@ -102,6 +102,25 @@ export function Variant() {
           </div>
         </div>
       </section>
+      <footer className="border-t-4 border-black px-4 py-8 md:px-8">
+        <div className="mx-auto flex max-w-5xl flex-col gap-4 md:flex-row md:items-center md:justify-between">
+          <p className="max-w-xl text-sm leading-7 opacity-65">
+            Steals spatial stagecraft from #10 and press hierarchy from #16. Masthead first, dispatches
+            second, extras last — a newspaper that still hires in ten seconds.
+          </p>
+          <div className="space-y-2">
+            <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.3em] opacity-45">
+              Final edition · Orbitfolio 98
+            </p>
+            <a
+              href={`mailto:${cv.email}`}
+              className="inline-flex bg-black px-4 py-2 text-xs font-bold uppercase tracking-wider text-[#ebe8e0] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+            >
+              Tip the desk
+            </a>
+          </div>
+        </div>
+      </footer>
       </main>
     </SmoothScroll>
   );
