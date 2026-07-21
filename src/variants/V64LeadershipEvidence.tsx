@@ -15,8 +15,8 @@ export function Variant() {
   ];
 
   return (
-    <main className="min-h-screen bg-[#0b1220] text-[#e8eef8]">
-      <section className="border-b border-[#1e3a5f] bg-gradient-to-br from-[#0b1220] via-[#0f1b2e] to-[#132238]">
+    <main className="min-h-screen bg-[#08101c] text-[#e8eef8]">
+      <section className="border-b border-[#1e3a5f] bg-gradient-to-br from-[#08101c] via-[#0d1728] to-[#122038]">
         <div className="mx-auto max-w-5xl px-6 py-16 md:py-20">
           <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.35em] text-[#c9a227]">
             Leadership evidence board
@@ -33,9 +33,15 @@ export function Variant() {
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <a
               href={`mailto:${cv.email}`}
-              className="rounded-sm bg-[#c9a227] px-5 py-2.5 text-sm font-bold text-[#0b1220] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c9a227]"
+              className="rounded-sm bg-[#c9a227] px-5 py-2.5 text-sm font-bold text-[#08101c] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c9a227]"
             >
               Brief the hiring lead
+            </a>
+            <a
+              href="/resume"
+              className="rounded-sm border border-[#c9a227]/50 px-5 py-2.5 text-sm font-bold text-[#c9a227]"
+            >
+              Evidence PDF
             </a>
             <ContactRow className="text-[#c9a227]/80" />
           </div>
@@ -53,7 +59,7 @@ export function Variant() {
               initial={reduce ? false : { opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: reduce ? 0 : 0.07 * i }}
-              className="border border-[#1e3a5f] bg-[#0f1b2e] p-5"
+              className="border border-[#1e3a5f] bg-[#0d1728] p-5"
             >
               <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.25em] text-[#c9a227]">
                 {e.tag}
@@ -77,7 +83,7 @@ export function Variant() {
           <h2 className="mb-8 text-2xl font-bold">Career docket</h2>
           <ExperienceList tone="dark" />
         </div>
-        <div className="grid gap-12 md:grid-cols-2">
+        <div className="grid gap-12 border-t border-[#1e3a5f] pt-16 md:grid-cols-2">
           <div>
             <h2 className="mb-6 text-xl font-bold">Command skills</h2>
             <SkillsCloud />
@@ -86,7 +92,7 @@ export function Variant() {
             <h2 className="mb-6 text-xl font-bold">Public builds</h2>
             <ProjectLinks />
             <p className="mt-10 text-sm text-[#6b82a0]">
-              {cv.education.degree} · {cv.education.school}
+              {cv.education.degree} · {cv.education.school} · {cv.location}
             </p>
           </div>
         </div>
