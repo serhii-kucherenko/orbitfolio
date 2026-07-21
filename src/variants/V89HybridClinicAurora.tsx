@@ -62,7 +62,7 @@ export function Variant() {
             </a>
             <a
               href="/resume"
-              className="rounded-sm border border-[#0f766e]/40 px-5 py-2.5 text-sm font-semibold text-[#0f766e]"
+              className="rounded-sm border border-[#0f766e]/40 px-5 py-2.5 text-sm font-semibold text-[#0f766e] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0f766e]"
             >
               Chart PDF
             </a>

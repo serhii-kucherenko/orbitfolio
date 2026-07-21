@@ -40,7 +40,7 @@ export function Variant() {
           Last
         </motion.div>
         <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.4em] text-[#c4a574]">
-          Presses stop at midnight · still accepting commissions
+          Presses stop at midnight · {cv.location}
         </p>
         <h1 className="mt-6 max-w-4xl font-[family-name:var(--font-serif)] text-5xl leading-[0.95] sm:text-7xl">
           {cv.name}
@@ -56,7 +56,7 @@ export function Variant() {
           </a>
           <a
             href="/resume"
-            className="border border-[#c4a574]/50 px-5 py-2.5 text-sm font-bold text-[#c4a574]"
+            className="border border-[#c4a574]/50 px-5 py-2.5 text-sm font-bold text-[#c4a574] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c4a574]"
           >
             Print edition
           </a>

@@ -45,7 +45,7 @@ export function Variant() {
           </a>
           <a
             href="/resume"
-            className="border border-[#3dff9a]/50 px-5 py-2.5 text-sm font-bold uppercase tracking-wide text-[#3dff9a]"
+            className="border border-[#3dff9a]/50 px-5 py-2.5 text-sm font-bold uppercase tracking-wide text-[#3dff9a] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3dff9a]"
           >
             Continuity PDF
           </a>
