@@ -76,7 +76,7 @@ export function Variant() {
                 initial={reduce ? false : { y: 10, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: reduce ? 0 : 0.08 * i }}
-                className="rounded-2xl p-4 text-center"
+                className="p-4 text-center"
                 style={{
                   background: "rgba(45, 212, 191, 0.08)",
                   borderRadius: `${40 + i * 5}% ${60 - i * 5}% ${45 + i * 3}% ${55 - i * 3}%`,

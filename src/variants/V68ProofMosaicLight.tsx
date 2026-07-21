@@ -73,17 +73,17 @@ export function Variant() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl space-y-8 px-4 py-10 sm:px-6 md:pb-24">
-        <div className="border border-[#c5d4dc] bg-white p-6 md:p-10">
+      <section className="mx-auto max-w-6xl space-y-12 px-4 py-10 sm:px-6 md:pb-24">
+        <div>
           <h2 className="mb-8 text-2xl font-bold">Experience tiles</h2>
           <ExperienceList tone="light" />
         </div>
-        <div className="grid gap-8 md:grid-cols-2">
-          <div className="border border-[#c5d4dc] bg-white p-6 md:p-8">
+        <div className="grid gap-10 md:grid-cols-2">
+          <div>
             <h2 className="mb-6 text-xl font-bold">Skills</h2>
             <SkillsCloud tone="light" />
           </div>
-          <div className="border border-[#c5d4dc] bg-white p-6 md:p-8">
+          <div>
             <h2 className="mb-6 text-xl font-bold">Projects</h2>
             <ProjectLinks tone="light" />
             <p className="mt-10 text-sm text-[#14202b]/45">
