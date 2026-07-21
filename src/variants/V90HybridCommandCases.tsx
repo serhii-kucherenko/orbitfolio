@@ -49,6 +49,12 @@ export function Variant() {
           >
             open hire channel
           </a>
+          <a
+            href="/resume"
+            className="mt-3 inline-block border border-amber-300/40 px-3 py-2 font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-wider text-amber-100/70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-300"
+          >
+            print case file
+          </a>
         </aside>
 
         <div className="min-w-0">
