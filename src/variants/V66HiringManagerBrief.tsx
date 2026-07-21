@@ -15,12 +15,12 @@ export function Variant() {
   ];
 
   return (
-    <main className="min-h-screen bg-[#eef1f4] text-[#1a2332]">
+    <main className="min-h-screen bg-[#e8ecf1] text-[#1a2332]">
       <div className="mx-auto max-w-3xl px-4 py-10 md:py-16">
         <motion.article
           initial={reduce ? false : { opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          className="rounded-sm border border-slate-300 bg-white shadow-[0_20px_50px_-30px_rgba(15,23,42,0.45)]"
+          className="border border-slate-300 bg-white"
         >
           <header className="border-b border-slate-200 bg-slate-50 px-6 py-4 md:px-10">
             <div className="flex flex-wrap items-end justify-between gap-3">
@@ -32,7 +32,9 @@ export function Variant() {
                   {cv.name}
                 </h1>
               </div>
-              <p className="text-xs text-slate-500">CONFIDENTIAL · FORWARDABLE</p>
+              <p className="border border-slate-400 px-2 py-1 font-[family-name:var(--font-mono)] text-[9px] uppercase tracking-widest text-slate-600">
+                Forwardable
+              </p>
             </div>
           </header>
 
@@ -41,7 +43,7 @@ export function Variant() {
             <p className="mt-1 text-sm text-slate-500">{cv.title}</p>
             <p className="mt-5 text-sm leading-7 text-slate-600">{cv.summary}</p>
 
-            <div className="mt-8 overflow-hidden rounded border border-slate-200">
+            <div className="mt-8 border border-slate-200">
               {bullets.map((row, i) => (
                 <div
                   key={row.label}
@@ -53,21 +55,27 @@ export function Variant() {
               ))}
             </div>
 
-            <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4">
+            <div className="mt-8 grid grid-cols-2 gap-6 border-y border-slate-200 py-6 sm:grid-cols-4">
               {cv.highlights.map((h) => (
-                <div key={h.label} className="border border-slate-200 p-3 text-center">
+                <div key={h.label} className="text-center sm:text-left">
                   <p className="text-2xl font-bold text-slate-900">{h.value}</p>
                   <p className="mt-1 text-[9px] uppercase tracking-wider text-slate-500">{h.label}</p>
                 </div>
               ))}
             </div>
 
-            <div className="mt-8 flex flex-wrap items-center gap-4 border-t border-slate-200 pt-6">
+            <div className="mt-8 flex flex-wrap items-center gap-4">
               <a
                 href={`mailto:${cv.email}`}
-                className="rounded bg-slate-900 px-5 py-2.5 text-sm font-semibold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900"
+                className="bg-slate-900 px-5 py-2.5 text-sm font-semibold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900"
               >
                 Email candidate
+              </a>
+              <a
+                href="/resume"
+                className="border border-slate-400 px-5 py-2.5 text-sm text-slate-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-700"
+              >
+                Attach resume
               </a>
               <ContactRow className="text-slate-600" />
             </div>

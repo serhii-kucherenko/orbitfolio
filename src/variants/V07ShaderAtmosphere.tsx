@@ -29,6 +29,13 @@ export function Variant() {
           animate={reduce ? {} : { scale: [1, 1.15, 0.95, 1], opacity: [0.5, 0.8, 0.4, 0.5] }}
           transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
         />
+        <div
+          className="absolute inset-0 opacity-[0.07]"
+          style={{
+            backgroundImage:
+              "repeating-linear-gradient(0deg, transparent, transparent 2px, #5eead418 3px)",
+          }}
+        />
       </div>
 
       <header className="relative z-10 mx-auto max-w-3xl px-6 pb-12 pt-32 text-center">
@@ -37,7 +44,7 @@ export function Variant() {
           animate={{ opacity: 1 }}
           className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.5em] text-[#5eead4]/70"
         >
-          Atmosphere pass · live
+          Atmosphere pass · density live
         </motion.p>
         <motion.h1
           initial={reduce ? false : { opacity: 0, filter: "blur(12px)" }}
@@ -49,24 +56,26 @@ export function Variant() {
         </motion.h1>
         <p className="mt-4 text-lg text-[#5eead4]/90">{cv.title}</p>
         <p className="mx-auto mt-6 max-w-xl text-sm leading-7 text-white/55">{cv.summary}</p>
-        <div className="mt-10 flex flex-wrap justify-center gap-3">
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
           <a
             href={`mailto:${cv.email}`}
-            className="rounded-full bg-[#5eead4] px-6 py-2.5 text-sm font-bold text-[#021018] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5eead4]"
+            className="bg-[#5eead4] px-6 py-2.5 text-sm font-bold text-[#021018] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5eead4]"
           >
             Open hiring channel
+          </a>
+          <a
+            href="/resume"
+            className="border border-[#5eead4]/40 px-5 py-2.5 text-sm text-[#5eead4] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5eead4]"
+          >
+            Printable resume
           </a>
           <ContactRow className="justify-center text-white/60" />
         </div>
       </header>
 
-      <section className="relative z-10 mx-auto grid max-w-4xl grid-cols-2 gap-3 px-6 py-10 sm:grid-cols-4">
+      <section className="relative z-10 mx-auto grid max-w-4xl grid-cols-2 gap-6 px-6 py-10 sm:grid-cols-4">
         {cv.highlights.map((h) => (
-          <div
-            key={h.label}
-            className="rounded-2xl border border-white/10 px-4 py-5 backdrop-blur-md"
-            style={{ background: "linear-gradient(160deg, #ffffff0f, #5eead408)" }}
-          >
+          <div key={h.label} className="border-t border-[#5eead4]/35 pt-4">
             <p className="text-3xl font-bold text-[#5eead4]">{h.value}</p>
             <p className="mt-1 text-[10px] uppercase tracking-wider text-white/45">{h.label}</p>
           </div>
