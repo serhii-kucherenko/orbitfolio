@@ -18,20 +18,22 @@ export function Variant() {
   return (
     <main className="min-h-screen bg-[#0c0c0e] text-zinc-100">
       <header className="mx-auto max-w-5xl px-6 pb-6 pt-24">
-        <p className="text-[10px] uppercase tracking-[0.4em] text-zinc-500">Stack · navigate by cover</p>
+        <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.4em] text-zinc-500">
+          Stack · navigate by cover · 4 editions
+        </p>
         <h1 className="mt-4 font-[family-name:var(--font-display)] text-5xl font-bold sm:text-6xl">{cv.name}</h1>
         <p className="mt-3 text-lg text-zinc-400">{cv.title}</p>
         <p className="mt-6 max-w-2xl text-sm leading-7 text-zinc-400/80">{cv.summary}</p>
         <div className="mt-8 flex flex-wrap items-center gap-4">
           <a
             href={`mailto:${cv.email}`}
-            className="rounded-sm bg-white px-5 py-2.5 text-sm font-semibold text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+            className="bg-white px-5 py-2.5 text-sm font-semibold text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
           >
             Request the full stack
           </a>
           <a
             href="/resume"
-            className="rounded-sm border border-white/30 px-5 py-2.5 text-sm font-semibold text-zinc-300"
+            className="border border-white/30 px-5 py-2.5 text-sm font-semibold text-zinc-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
           >
             Cover PDF
           </a>
@@ -47,7 +49,7 @@ export function Variant() {
             initial={reduce ? false : { y: 40, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: reduce ? 0 : i * 0.1, type: "spring", stiffness: 120 }}
-            className="absolute left-6 right-6 flex h-44 flex-col justify-end rounded-2xl border border-white/10 px-6 pb-6 shadow-2xl sm:left-[10%] sm:right-auto sm:w-[70%]"
+            className="absolute left-6 right-6 flex h-44 flex-col justify-end border border-white/10 px-6 pb-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:left-[10%] sm:right-auto sm:w-[70%]"
             style={{
               background: `linear-gradient(145deg, ${cover.hue}, #0a0a0b)`,
               top: 10 + i * 38,
@@ -63,9 +65,9 @@ export function Variant() {
 
       <section id="identity" className="mx-auto max-w-4xl scroll-mt-24 px-6 py-16">
         <h2 className="mb-6 text-2xl font-semibold">Identity</h2>
-        <div className="grid gap-3 sm:grid-cols-4">
+        <div className="grid gap-6 sm:grid-cols-4">
           {cv.highlights.map((h) => (
-            <div key={h.label} className="border border-white/10 bg-white/[0.03] px-4 py-5">
+            <div key={h.label} className="border-t border-white/20 pt-4">
               <p className="text-2xl font-bold">{h.value}</p>
               <p className="mt-1 text-[10px] uppercase tracking-wider text-zinc-500">{h.label}</p>
             </div>

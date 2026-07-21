@@ -10,10 +10,16 @@ export function Variant() {
 
   return (
     <main className="min-h-screen bg-[#050d18] text-[#e8f0ff]">
-      <header className="grid min-h-[70vh] md:grid-cols-2">
+      <header className="relative grid min-h-[70vh] md:grid-cols-2">
+        <motion.div
+          aria-hidden
+          className="pointer-events-none absolute left-1/2 top-0 z-10 hidden h-full w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-[#7dd3fc]/50 to-transparent md:block"
+          animate={reduce ? undefined : { opacity: [0.35, 0.9, 0.35] }}
+          transition={{ duration: 3.5, repeat: Infinity }}
+        />
         <div className="relative flex flex-col justify-center border-b border-[#7dd3fc]/30 p-8 md:border-b-0 md:border-r md:p-12">
           <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.35em] text-[#7dd3fc]">
-            Channel A · EN
+            Channel A · EN · synced
           </p>
           <motion.h1
             initial={reduce ? false : { x: -24, opacity: 0 }}
@@ -27,7 +33,7 @@ export function Variant() {
         </div>
         <div className="relative flex flex-col justify-center bg-[#081422] p-8 md:p-12">
           <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.35em] text-[#fbbf24]">
-            Канал Б · UA
+            Канал Б · UA · синхрон
           </p>
           <motion.h2
             initial={reduce ? false : { x: 24, opacity: 0 }}
@@ -50,7 +56,7 @@ export function Variant() {
             </a>
             <a
               href="/resume"
-              className="border border-[#fbbf24]/50 px-5 py-2.5 text-sm font-semibold text-[#fbbf24]"
+              className="border border-[#fbbf24]/50 px-5 py-2.5 text-sm font-semibold text-[#fbbf24] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#fbbf24]"
             >
               Резюме / PDF
             </a>

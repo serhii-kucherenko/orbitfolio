@@ -15,6 +15,12 @@ export function Variant() {
           aria-hidden
           className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(125,211,252,0.18),transparent_55%)]"
         />
+        <motion.div
+          aria-hidden
+          className="pointer-events-none absolute -right-10 top-16 h-40 w-40 rounded-full bg-[#7dd3fc]/10 blur-3xl"
+          animate={reduce ? undefined : { opacity: [0.3, 0.6, 0.3], scale: [1, 1.08, 1] }}
+          transition={{ duration: 6, repeat: Infinity }}
+        />
         <div className="relative mx-auto max-w-6xl px-6 pb-12 pt-24 lg:px-10">
           <div className="flex flex-wrap items-start justify-between gap-8">
             <div>
@@ -23,7 +29,7 @@ export function Variant() {
                 animate={{ opacity: 1, y: 0 }}
                 className="inline-block bg-[#7dd3fc] px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.25em] text-[#071018]"
               >
-                Founding engineer · ready
+                Founding engineer · ready · {cv.location}
               </motion.span>
               <h1 className="mt-6 font-[family-name:var(--font-display)] text-5xl font-black leading-none sm:text-7xl">
                 {cv.name}
