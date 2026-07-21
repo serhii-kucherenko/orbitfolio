@@ -8,13 +8,14 @@ import { cv } from "@/data/cv";
 export function Variant() {
   const reduce = useReducedMotion() ?? false;
   const [first, ...rest] = cv.name.split(" ");
+  const accent = "#0f766e";
 
   return (
     <main className="min-h-screen bg-[#eef0f4] text-[#0a0c10]">
       <header className="border-b-4 border-[#0a0c10] px-4 py-10 md:px-8">
         <div className="flex flex-wrap items-start justify-between gap-6">
           <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.4em]">
-            Proof sheet · type only
+            Proof sheet · type only · {cv.location}
           </p>
           <ContactRow className="text-[#0a0c10]/65" />
         </div>
@@ -26,7 +27,10 @@ export function Variant() {
         >
           {first}
         </motion.h1>
-        <p className="mt-1 font-[family-name:var(--font-display)] text-[9vw] font-black uppercase leading-[0.8] tracking-tighter text-[#1d4ed8]">
+        <p
+          className="mt-1 font-[family-name:var(--font-display)] text-[9vw] font-black uppercase leading-[0.8] tracking-tighter"
+          style={{ color: accent }}
+        >
           {rest.join(" ")}
         </p>
         <div className="mt-8 flex flex-wrap items-end justify-between gap-6">
@@ -37,13 +41,14 @@ export function Variant() {
           <div className="flex flex-wrap gap-3">
             <a
               href="/resume"
-              className="border-4 border-[#0a0c10] px-8 py-4 text-xs font-black uppercase tracking-widest"
+              className="border-4 border-[#0a0c10] px-8 py-4 text-xs font-black uppercase tracking-widest focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0a0c10]"
             >
               Print sheet
             </a>
             <a
               href={`mailto:${cv.email}`}
-              className="bg-[#1d4ed8] px-8 py-4 text-xs font-black uppercase tracking-widest text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1d4ed8]"
+              className="px-8 py-4 text-xs font-black uppercase tracking-widest text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+              style={{ background: accent, outlineColor: accent }}
             >
               Hire the proof
             </a>
@@ -61,7 +66,10 @@ export function Variant() {
             viewport={{ once: true }}
             transition={{ delay: reduce ? 0 : i * 0.07 }}
           >
-            <p className="font-[family-name:var(--font-display)] text-6xl font-black leading-none text-[#1d4ed8] sm:text-7xl">
+            <p
+              className="font-[family-name:var(--font-display)] text-6xl font-black leading-none sm:text-7xl"
+              style={{ color: accent }}
+            >
               {h.value}
             </p>
             <p className="mt-4 text-xs uppercase tracking-[0.25em] text-black/45">{h.label}</p>

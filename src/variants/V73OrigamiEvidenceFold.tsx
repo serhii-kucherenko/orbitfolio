@@ -10,11 +10,13 @@ export function Variant() {
 
   return (
     <main
-      className="min-h-screen bg-[#e6eee9] text-[#14201a]"
+      className="min-h-screen bg-[#e0ebe4] text-[#14201a]"
       style={{ perspective: reduce ? undefined : 1200 }}
     >
       <section className="mx-auto max-w-5xl px-6 pb-6 pt-24">
-        <p className="text-[10px] uppercase tracking-[0.35em] text-teal-800/55">Origami · evidence folds</p>
+        <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.35em] text-teal-800/55">
+          Origami · evidence folds · hire-ready
+        </p>
         <motion.h1
           initial={reduce ? false : { opacity: 0, rotateX: -10 }}
           animate={{ opacity: 1, rotateX: 0 }}
@@ -27,13 +29,13 @@ export function Variant() {
         <div className="mt-8 flex flex-wrap items-center gap-4">
           <a
             href={`mailto:${cv.email}`}
-            className="rounded-lg bg-[#0f766e] px-5 py-2.5 text-sm font-semibold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0f766e]"
+            className="bg-[#0f766e] px-5 py-2.5 text-sm font-semibold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0f766e]"
           >
             Unfold a hire chat
           </a>
           <a
             href="/resume"
-            className="rounded-lg border border-[#0f766e]/40 px-5 py-2.5 text-sm font-semibold text-[#0f766e]"
+            className="border border-[#0f766e]/40 px-5 py-2.5 text-sm font-semibold text-[#0f766e] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0f766e]"
           >
             Flat fold PDF
           </a>
