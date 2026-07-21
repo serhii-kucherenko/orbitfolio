@@ -32,7 +32,7 @@ export function Variant() {
           }}
         />
         <p className="relative z-10 font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.5em] text-[#4ade80]">
-          Corridor · warp in
+          Corridor · warp in · {cv.location}
         </p>
         <div
           className="relative z-10 mt-8 w-full max-w-5xl text-center"
@@ -107,7 +107,7 @@ export function Variant() {
             <h2 className="mb-6 text-xl font-bold">Exit links</h2>
             <ProjectLinks />
             <p className="mt-10 text-sm opacity-45">
-              {cv.education.degree} · {cv.education.school}
+              {cv.education.degree} · {cv.education.school} · {cv.location}
             </p>
           </div>
         </div>

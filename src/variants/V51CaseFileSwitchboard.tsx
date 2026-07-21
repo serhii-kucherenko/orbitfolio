@@ -22,7 +22,7 @@ export function Variant() {
       <header className="border-b border-[#8b7355]/40 px-6 py-16 md:px-12">
         <div className="mx-auto max-w-6xl">
           <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.4em] text-[#c4a574]">
-            Case file · switchboard
+            Case file · switchboard · {cv.location}
           </p>
           <h1 className="mt-4 font-[family-name:var(--font-serif)] text-5xl sm:text-6xl">{cv.name}</h1>
           <p className="mt-3 text-[#d4b896]">{cv.title}</p>
@@ -117,7 +117,7 @@ export function Variant() {
             <h2 className="mb-6 text-lg font-semibold">Exhibits</h2>
             <ProjectLinks />
             <p className="mt-10 text-sm text-white/45">
-              {cv.education.degree} · {cv.education.school}
+              {cv.education.degree} · {cv.education.school} · {cv.location}
             </p>
           </div>
         </div>

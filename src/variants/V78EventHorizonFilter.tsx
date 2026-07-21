@@ -47,7 +47,7 @@ export function Variant() {
           )}
           <div>
             <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.4em] text-[#ff9f6b]">
-              Event horizon
+              Event horizon · {cv.location}
             </p>
             <h1 className="mt-2 font-[family-name:var(--font-display)] text-3xl font-bold leading-tight sm:text-4xl">
               {cv.name}
@@ -110,7 +110,7 @@ export function Variant() {
             <h2 className="mb-6 text-xl font-bold">Transmissions</h2>
             <ProjectLinks />
             <p className="mt-10 text-sm opacity-50">
-              {cv.education.degree} · {cv.education.school}
+              {cv.education.degree} · {cv.education.school} · {cv.location}
             </p>
           </div>
         </div>
