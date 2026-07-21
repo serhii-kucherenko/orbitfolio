@@ -31,6 +31,7 @@ Autonomous `/loop 30m keep going` progress on Orbitfolio.
 
 | 27 | Award-100 reboot | Replaced 50 cells with 100 award-pattern theses across 7 teams |
 | 28 | A03 red→green | Oracles in `oracles/`; ≥20 handcrafted cells; CI runs test→lint→build |
+| 29 | Handcraft batch 2 | Raised diversity gate to 35; deepened 15 more unique cells |
 
 Live: https://orbitfolio-kohl.vercel.app · Loop: award deepen + merge
 
