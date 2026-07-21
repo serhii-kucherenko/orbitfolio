@@ -99,6 +99,14 @@ export function Variant() {
           </p>
         </div>
       </section>
+      <footer className="border-t-4 border-white bg-black px-6 py-8">
+        <p className="mx-auto max-w-5xl text-sm leading-7 text-white/55">
+          Brutal Sunday urgency: stamps, hard rules, and hire CTAs that refuse to whisper.
+        </p>
+        <p className="mx-auto mt-3 max-w-5xl font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.3em] text-white/35">
+          Press · Vol. 21 · {cv.location}
+        </p>
+      </footer>
     </main>
   );
 }

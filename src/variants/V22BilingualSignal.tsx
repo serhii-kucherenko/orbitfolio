@@ -96,6 +96,14 @@ export function Variant() {
           </p>
         </div>
       </section>
+      <footer className="border-t border-white/15 px-6 py-8">
+        <p className="mx-auto max-w-5xl text-sm leading-7 text-white/50">
+          Bilingual rhythm stays English-complete for hiring — language as cadence, not a barrier.
+        </p>
+        <p className="mx-auto mt-3 max-w-5xl font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.3em] text-[#fbbf24]/60">
+          Signal · Vol. 22 · bilingual-complete · {cv.location}
+        </p>
+      </footer>
     </main>
   );
 }

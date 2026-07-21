@@ -2,6 +2,7 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
+import { SmoothScroll } from "@/components/SmoothScroll";
 import { cv } from "@/data/cv";
 
 /** Masthead Proof Press — daily-paper hierarchy: evidence above ornament. */
@@ -9,6 +10,7 @@ export function Variant() {
   const reduce = useReducedMotion() ?? false;
 
   return (
+    <SmoothScroll>
     <main className="min-h-screen bg-[#ece9e1] text-[#1a1a1a]">
       <header className="border-b-4 border-black px-4 pb-4 pt-20 sm:px-8">
         <div className="mx-auto flex max-w-6xl items-end justify-between gap-4 font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.25em]">
@@ -95,6 +97,17 @@ export function Variant() {
           </p>
         </div>
       </section>
+      <footer className="border-t-2 border-black px-4 py-8 sm:px-8">
+        <div className="mx-auto flex max-w-6xl flex-col gap-3 md:flex-row md:items-center md:justify-between">
+          <p className="max-w-xl text-sm leading-7 text-black/60">
+            Morning-press hierarchy with Lenis smooth reading — evidence leads, ornament follows.
+          </p>
+          <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.25em] text-black/45">
+            Colophon · Vol. 17 · {cv.location}
+          </p>
+        </div>
+      </footer>
     </main>
+    </SmoothScroll>
   );
 }
