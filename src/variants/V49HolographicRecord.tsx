@@ -13,7 +13,7 @@ export function Variant() {
       <header className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-20 lg:grid-cols-[1fr_340px] lg:px-12">
         <div>
           <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.4em] text-cyan-300/70">
-            Holodisc · sides A / B
+            Holodisc · sides A / B · {cv.location}
           </p>
           <h1 className="mt-4 bg-gradient-to-r from-cyan-300 via-sky-200 to-amber-200 bg-clip-text font-[family-name:var(--font-display)] text-5xl font-black text-transparent sm:text-7xl">
             {cv.name}
@@ -29,7 +29,7 @@ export function Variant() {
             </a>
             <a
               href="/resume"
-              className="border border-cyan-300/40 px-6 py-3 text-xs font-black uppercase tracking-widest text-cyan-200"
+              className="border border-cyan-300/40 px-6 py-3 text-xs font-black uppercase tracking-widest text-cyan-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300"
             >
               Sleeve notes
             </a>

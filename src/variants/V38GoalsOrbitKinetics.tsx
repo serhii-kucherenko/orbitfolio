@@ -14,7 +14,7 @@ export function Variant() {
       <div className="mx-auto grid min-h-screen max-w-7xl items-center gap-10 px-6 py-20 lg:grid-cols-[1.1fr_0.9fr] lg:px-12">
         <div>
           <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.4em] text-sky-300/70">
-            Orbital kinetics · goals gravity
+            Orbital kinetics · goals gravity · {cv.location}
           </p>
           <h1 className="mt-5 font-[family-name:var(--font-display)] text-5xl font-black leading-[0.9] sm:text-7xl">
             {cv.name}
@@ -24,19 +24,19 @@ export function Variant() {
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <a
               href={`mailto:${cv.email}`}
-              className="rounded-full bg-sky-300 px-6 py-3 text-xs font-bold uppercase tracking-widest text-[#050914] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-200"
+              className="bg-sky-300 px-6 py-3 text-xs font-bold uppercase tracking-widest text-[#050914] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-200"
             >
               Pull into orbit
             </a>
             <Link
               href="/goals"
-              className="rounded-full border border-sky-300/40 px-6 py-3 text-xs font-bold uppercase tracking-widest text-sky-200"
+              className="border border-sky-300/40 px-6 py-3 text-xs font-bold uppercase tracking-widest text-sky-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-200"
             >
               100 Goals
             </Link>
             <Link
               href="/resume"
-              className="rounded-full border border-sky-300/25 px-6 py-3 text-xs font-bold uppercase tracking-widest text-sky-200/70"
+              className="border border-sky-300/25 px-6 py-3 text-xs font-bold uppercase tracking-widest text-sky-200/70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-200"
             >
               Ephemeris PDF
             </Link>

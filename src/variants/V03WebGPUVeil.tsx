@@ -45,13 +45,13 @@ export function Variant() {
             <div className="flex flex-wrap items-center gap-4">
               <a
                 href={`mailto:${cv.email}`}
-                className="rounded-full bg-[#122524] px-6 py-3 text-sm font-semibold text-[#eef3f1] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#122524]"
+                className="bg-[#122524] px-6 py-3 text-sm font-semibold text-[#eef3f1] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#122524]"
               >
                 Reveal a conversation
               </a>
               <a
                 href="/resume"
-                className="rounded-full border border-[#122524]/35 px-6 py-3 text-sm font-semibold text-[#122524]/80"
+                className="border border-[#122524]/35 px-6 py-3 text-sm font-semibold text-[#122524]/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#122524]"
               >
                 Spec sheet
               </a>
