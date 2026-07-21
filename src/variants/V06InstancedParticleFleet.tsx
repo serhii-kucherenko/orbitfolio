@@ -21,7 +21,7 @@ export function Variant() {
           }}
         />
         <div className="relative flex justify-between text-[10px] uppercase tracking-[0.35em] text-[#69dcff]/65">
-          <span>Fleet control / 06</span>
+          <span>Fleet control / 06 · {cv.location}</span>
           <span>Applied AI systems online</span>
         </div>
         <div className="relative grid min-h-[72vh] items-center gap-12 lg:grid-cols-[0.9fr_1.1fr]">

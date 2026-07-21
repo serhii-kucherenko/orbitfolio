@@ -17,7 +17,9 @@ export function Variant() {
   return (
     <main className="min-h-screen bg-[#f7f3ec] text-[#1c1917]">
       <header className="mx-auto max-w-3xl px-6 pb-8 pt-28">
-        <p className="text-[10px] uppercase tracking-[0.4em] text-stone-500">Pull quote stage · long form</p>
+        <p className="text-[10px] uppercase tracking-[0.4em] text-stone-500">
+          Pull quote stage · {cv.location}
+        </p>
         <motion.h1
           initial={reduce ? false : { opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
