@@ -13,15 +13,23 @@ Built as an **AI Method Lab** product experiment: **100 structurally different p
 
 | Path | Purpose |
 |------|---------|
-| `/` | Champion portfolio (best overall score) |
-| `/test/1` … `/test/100` | Design experiments |
-| `/lab` | Leaderboard + rubric scores |
-| `/goals` | 100 Goals (living list) |
-| `/resume` | Printable / PDF-friendly resume |
+| [`/`](https://orbitfolio-kohl.vercel.app/) | Champion portfolio (best overall score) |
+| [`/test/1`](https://orbitfolio-kohl.vercel.app/test/1) … `/test/100` | Design experiments |
+| [`/lab`](https://orbitfolio-kohl.vercel.app/lab) | Leaderboard + rubric scores |
+| [`/goals`](https://orbitfolio-kohl.vercel.app/goals) | 100 Goals (living list) |
+| [`/resume`](https://orbitfolio-kohl.vercel.app/resume) | Printable / PDF-friendly resume |
 
 ## Stack
 
-Next.js 16 · React 19 · Tailwind 4 · Framer Motion · GreenSock animation · Lenis smooth scroll · Three.js / React Three Fiber
+| Piece | What it is | Docs |
+|-------|------------|------|
+| [Next.js](https://nextjs.org/) 16 | React framework for the site | [Docs](https://nextjs.org/docs) |
+| [React](https://react.dev/) 19 | UI library | [Docs](https://react.dev/learn) |
+| [Tailwind](https://tailwindcss.com/) 4 | Utility CSS | [Docs](https://tailwindcss.com/docs) |
+| [Framer Motion](https://www.framer.com/motion/) | Animation for React | [Docs](https://motion.dev/docs) |
+| [GreenSock (GSAP)](https://gsap.com/) | Timeline / scroll animation | [Docs](https://gsap.com/docs/v3/) |
+| [Lenis](https://github.com/darkroomengineering/lenis) | Smooth scrolling | [Repo](https://github.com/darkroomengineering/lenis) |
+| [Three.js](https://threejs.org/) / [React Three Fiber](https://docs.pmnd.rs/react-three-fiber/getting-started/introduction) | Browser 3D | [Three.js manual](https://threejs.org/manual/) · [R3F docs](https://docs.pmnd.rs/react-three-fiber/getting-started/introduction) |
 
 ## Develop
 
@@ -32,7 +40,7 @@ npm run dev
 
 ## Deploy
 
-One-click import to Vercel (team **kucherenko-web**):
+One-click import to [Vercel](https://vercel.com/docs) (team **kucherenko-web**):
 
 [Import orbitfolio on Vercel](https://vercel.com/new/import?s=https://github.com/serhii-kucherenko/orbitfolio&teamSlug=kucherenko-web)
 
@@ -43,10 +51,21 @@ Sitemap/robots use `https://orbitfolio-kohl.vercel.app`.
 ## Lab process
 
 1. Ship a distinct design under `/test/n`
-2. Score axes in `src/data/variants.ts` (see `docs/RUBRIC.md`)
+2. Score axes in [`src/data/variants.ts`](src/data/variants.ts) (see [`docs/RUBRIC.md`](docs/RUBRIC.md))
 3. Promote highest overall score to `/`
 4. Keep other experiments browsable for comparison
-5. Use fail-then-pass checks (`docs/RED_GREEN.md`) before merging
+5. Use fail-then-pass checks ([`docs/RED_GREEN.md`](docs/RED_GREEN.md)) before merging
+
+## Docs map
+
+| Doc | What it’s for |
+|-----|----------------|
+| [`docs/PRODUCT.md`](docs/PRODUCT.md) | Goals and workflow |
+| [`docs/RUBRIC.md`](docs/RUBRIC.md) | How designs are scored |
+| [`docs/BENCHMARKS.md`](docs/BENCHMARKS.md) | Award sites and craft patterns |
+| [`docs/RED_GREEN.md`](docs/RED_GREEN.md) | Fail-then-pass checks |
+| [`docs/FINDINGS.md`](docs/FINDINGS.md) | What we learned |
+| [`docs/LOOP.md`](docs/LOOP.md) | Keep-going progress log |
 
 ## Contact
 

@@ -17,8 +17,15 @@ Homepage champion = highest overall score. Ties break on Coolness, then hireabil
 ## Rules
 
 - Designs must differ in **structure**, not only colors
-- Prefer modern 2026 craft: scroll storytelling, browser 3D (Three.js / React Three Fiber), Framer Motion or GreenSock animation, smooth scroll where useful, shader atmosphere
-- Respect `prefers-reduced-motion`
+- Prefer modern 2026 craft: scroll storytelling, browser 3D ([Three.js](https://threejs.org/) / [React Three Fiber](https://docs.pmnd.rs/react-three-fiber/getting-started/introduction)), [Framer Motion](https://www.framer.com/motion/) or [GreenSock](https://gsap.com/) animation, [Lenis](https://github.com/darkroomengineering/lenis) smooth scroll where useful, shader atmosphere
+- Respect [`prefers-reduced-motion`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion) so people who want less motion get a calm version
 - No purple-on-white cliché; no cream+terracotta; brand **Serhii** first in the hero
 - No interface bugs: focus order, contrast, tap targets, no trapped scroll, links work
 - Learn: Hybrid team designs (#86–#100) must cite earlier lessons and beat the previous Hybrid overall score
+
+## Learn more
+
+- Where scores live: [`src/data/variants.ts`](../src/data/variants.ts)
+- Fail-then-pass gate: [`docs/RED_GREEN.md`](RED_GREEN.md)
+- Award patterns: [`docs/BENCHMARKS.md`](BENCHMARKS.md)
+- Accessibility basics (focus, contrast, motion): [W3C easy checks](https://www.w3.org/WAI/test-evaluate/preliminary/)
