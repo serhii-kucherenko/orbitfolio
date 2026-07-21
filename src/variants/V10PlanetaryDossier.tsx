@@ -4,41 +4,84 @@ import { motion, useReducedMotion } from "framer-motion";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
 import { cv } from "@/data/cv";
 
-/** Planetary Dossier — handcrafted award cell */
+/** Planetary Dossier — brief planet stage, then evidence-first technical dossier. */
 export function Variant() {
   const reduce = useReducedMotion() ?? false;
+
   return (
-    <main className="min-h-screen bg-[#04060f] text-slate-100">
-      <section className="mx-auto grid min-h-[70vh] max-w-6xl items-center gap-10 px-6 pb-12 pt-28 md:grid-cols-[0.9fr_1.1fr]">
-        <div className="flex justify-center">
-          <motion.div
-            aria-hidden
-            className="aspect-square w-[min(70vw,320px)] rounded-full border border-cyan-400/30"
-            style={{ background: "radial-gradient(circle at 35% 30%, #67e8f9, #0e7490 55%, #082f49)" }}
-            animate={reduce ? undefined : { rotate: 360 }}
-            transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
-          />
-        </div>
-        <div>
-          <p className="text-[10px] uppercase tracking-[0.35em] text-cyan-300/70">Dossier</p>
+    <main className="min-h-screen bg-[#0a0f1a] text-[#e8eef8]">
+      <section className="relative flex min-h-[52vh] items-end overflow-hidden px-6 pb-12 pt-28">
+        <motion.div
+          aria-hidden
+          className="pointer-events-none absolute right-[-10%] top-8 h-[min(70vw,420px)] w-[min(70vw,420px)] rounded-full"
+          animate={reduce ? undefined : { rotate: 360 }}
+          transition={{ duration: 90, repeat: Infinity, ease: "linear" }}
+          style={{
+            background:
+              "radial-gradient(circle at 35% 30%, #7dd3fc 0%, #0369a1 35%, #0c4a6e 55%, transparent 70%)",
+            opacity: 0.55,
+          }}
+        />
+        <div className="relative z-10 mx-auto w-full max-w-5xl">
+          <p className="text-[10px] uppercase tracking-[0.4em] text-cyan-300/60">Planet stage → dossier</p>
           <h1 className="mt-4 font-[family-name:var(--font-display)] text-5xl font-bold sm:text-6xl">{cv.name}</h1>
-          <p className="mt-3 text-lg text-cyan-100/80">{cv.title}</p>
-          <p className="mt-6 text-sm leading-7 text-white/55">{cv.summary}</p>
-          <ContactRow className="mt-8 text-cyan-100/70" />
+          <p className="mt-3 text-cyan-100/70">{cv.title}</p>
         </div>
       </section>
-      <section className="mx-auto max-w-4xl space-y-14 px-6 pb-28">
-        <ExperienceList tone="dark" />
-        <SkillsCloud />
-        <ProjectLinks />
+
+      <section className="relative z-10 mx-auto -mt-4 max-w-5xl rounded-t-2xl border border-white/10 bg-[#101826] px-6 py-12 shadow-2xl sm:px-10">
+        <div className="flex flex-wrap items-start justify-between gap-4 border-b border-white/10 pb-6">
+          <div>
+            <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.3em] text-cyan-300/50">
+              Classified · technical dossier
+            </p>
+            <p className="mt-3 max-w-2xl text-sm leading-7 text-white/60">{cv.summary}</p>
+          </div>
+          <a
+            href={`mailto:${cv.email}`}
+            className="rounded bg-cyan-400 px-4 py-2 text-sm font-semibold text-[#0a0f1a] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300"
+          >
+            Request clearance
+          </a>
+        </div>
+
+        <div className="mt-8 grid gap-3 sm:grid-cols-4">
+          {cv.highlights.map((h, i) => (
+            <motion.div
+              key={h.label}
+              initial={reduce ? false : { opacity: 0, y: 8 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: reduce ? 0 : i * 0.05 }}
+              className="border border-cyan-400/15 bg-cyan-950/20 px-4 py-4"
+            >
+              <p className="font-[family-name:var(--font-mono)] text-xl text-cyan-200">{h.value}</p>
+              <p className="mt-1 text-[10px] uppercase tracking-wider text-cyan-100/40">{h.label}</p>
+            </motion.div>
+          ))}
+        </div>
+
+        <div className="mt-14 space-y-14">
+          <div>
+            <h2 className="mb-6 text-sm font-semibold uppercase tracking-[0.25em] text-cyan-200/50">Service record</h2>
+            <ExperienceList tone="dark" />
+          </div>
+          <div className="grid gap-12 md:grid-cols-2">
+            <div>
+              <h2 className="mb-6 text-sm font-semibold uppercase tracking-[0.25em] text-cyan-200/50">Capabilities</h2>
+              <SkillsCloud />
+            </div>
+            <div>
+              <h2 className="mb-6 text-sm font-semibold uppercase tracking-[0.25em] text-cyan-200/50">Exhibits</h2>
+              <ProjectLinks />
+            </div>
+          </div>
+          <ContactRow className="text-cyan-100/60" />
+          <p className="text-xs text-white/35">
+            {cv.education.degree} · {cv.education.school} · {cv.location}
+          </p>
+        </div>
       </section>
-    
-      <footer className="mx-auto max-w-6xl px-6 pb-16 text-sm opacity-55">
-        {/* Education footer */}
-        <p>
-          {cv.education.degree} · {cv.education.school} · {cv.location}
-        </p>
-      </footer>
     </main>
   );
 }

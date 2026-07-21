@@ -1,42 +1,95 @@
 "use client";
 
-import { useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
 import { cv } from "@/data/cv";
 
-/** Masthead Proof Press — handcrafted award cell */
+/** Masthead Proof Press — daily-paper hierarchy: evidence above ornament. */
 export function Variant() {
-  const _reduce = useReducedMotion() ?? false;
+  const reduce = useReducedMotion() ?? false;
+  const today = "Vol. 10 · Evidence edition";
 
   return (
-    <main className="min-h-screen bg-[#f7f4ef] text-[#1a1a1a]">
-      <header className="border-b-4 border-black px-6 pb-8 pt-28">
-        <p className="text-center text-[10px] uppercase tracking-[0.5em]">The Proof Press · Vancouver Edition</p>
-        <h1 className="mt-4 text-center font-[family-name:var(--font-serif)] text-5xl leading-none sm:text-7xl">{cv.name}</h1>
-        <p className="mt-4 text-center text-sm uppercase tracking-[0.2em]">{cv.title}</p>
-        <p className="mx-auto mt-8 max-w-3xl text-center text-base leading-8 text-black/70">{cv.summary}</p>
+    <main className="min-h-screen bg-[#f7f4ec] text-[#1a1a1a]">
+      <header className="border-b-4 border-black px-4 pb-4 pt-20 sm:px-8">
+        <div className="mx-auto flex max-w-6xl items-end justify-between gap-4 font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.25em]">
+          <span>{cv.location}</span>
+          <span>{today}</span>
+        </div>
+        <motion.h1
+          initial={reduce ? false : { opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="mx-auto mt-4 max-w-6xl text-center font-[family-name:var(--font-serif)] text-5xl font-black leading-[0.9] tracking-tight sm:text-7xl md:text-8xl"
+        >
+          {cv.name}
+        </motion.h1>
+        <p className="mx-auto mt-3 max-w-6xl text-center text-sm uppercase tracking-[0.2em] text-black/55">
+          {cv.title}
+        </p>
       </header>
-      <section className="mx-auto grid max-w-6xl gap-8 px-6 py-14 md:grid-cols-4">
-        {cv.highlights.map((h) => (
-          <div key={h.label} className="border border-black/20 p-4 text-center">
-            <p className="text-3xl font-bold">{h.value}</p>
-            <p className="mt-2 text-[10px] uppercase tracking-wider">{h.label}</p>
-          </div>
+
+      <section className="mx-auto grid max-w-6xl gap-px border-b border-black bg-black sm:grid-cols-4">
+        {cv.highlights.map((h, i) => (
+          <motion.article
+            key={h.label}
+            initial={reduce ? false : { opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: reduce ? 0 : i * 0.05 }}
+            className="bg-[#f7f4ec] px-4 py-6"
+          >
+            <p className="font-[family-name:var(--font-serif)] text-3xl font-bold">{h.value}</p>
+            <p className="mt-1 text-[10px] uppercase tracking-widest text-black/50">{h.label}</p>
+          </motion.article>
         ))}
       </section>
-      <section className="mx-auto max-w-3xl space-y-14 px-6 pb-28">
-        <ExperienceList tone="light" />
-        <SkillsCloud tone="light" />
-        <ProjectLinks tone="light" />
-        <ContactRow className="text-black/70" />
+
+      <section className="mx-auto grid max-w-6xl gap-8 px-4 py-12 sm:grid-cols-[1.4fr_0.8fr] sm:px-8">
+        <div>
+          <p className="font-[family-name:var(--font-serif)] text-2xl italic leading-snug text-black/80">
+            {cv.summary}
+          </p>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <a
+              href={`mailto:${cv.email}`}
+              className="bg-black px-5 py-2.5 text-sm font-semibold text-[#f7f4ec] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+            >
+              Assign the story
+            </a>
+            <ContactRow className="items-center text-black/60" />
+          </div>
+        </div>
+        <aside className="border border-black/20 bg-white p-5">
+          <p className="text-[10px] uppercase tracking-[0.3em] text-black/45">Front page briefs</p>
+          <ul className="mt-4 space-y-3 text-sm leading-relaxed">
+            {cv.experience.slice(0, 3).map((job) => (
+              <li key={job.company} className="border-b border-black/10 pb-3 last:border-0">
+                <span className="font-semibold">{job.company}</span>
+                <span className="text-black/45"> — {job.bullets[0]}</span>
+              </li>
+            ))}
+          </ul>
+        </aside>
       </section>
-    
-      <footer className="mx-auto max-w-6xl px-6 pb-16 text-sm opacity-55">
-        {/* Education footer */}
-        <p>
-          {cv.education.degree} · {cv.education.school} · {cv.location}
-        </p>
-      </footer>
+
+      <section className="mx-auto max-w-6xl columns-1 gap-10 px-4 pb-10 sm:columns-2 sm:px-8">
+        <h2 className="mb-6 break-after-avoid font-[family-name:var(--font-serif)] text-3xl">Career copy desk</h2>
+        <ExperienceList tone="light" />
+      </section>
+
+      <section className="mx-auto grid max-w-6xl gap-12 border-t border-black px-4 py-16 sm:grid-cols-2 sm:px-8">
+        <div>
+          <h2 className="mb-6 font-[family-name:var(--font-serif)] text-2xl">Toolbox</h2>
+          <SkillsCloud tone="light" />
+        </div>
+        <div>
+          <h2 className="mb-6 font-[family-name:var(--font-serif)] text-2xl">Published work</h2>
+          <ProjectLinks tone="light" />
+          <p className="mt-10 text-xs uppercase tracking-widest text-black/45">
+            {cv.education.degree} · {cv.education.school}
+          </p>
+        </div>
+      </section>
     </main>
   );
 }

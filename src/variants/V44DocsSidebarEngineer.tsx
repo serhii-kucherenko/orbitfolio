@@ -1,42 +1,110 @@
 "use client";
 
-import { useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
 import { cv } from "@/data/cv";
 
-/** Docs Sidebar Engineer — handcrafted award cell */
-export function Variant() {
-  const _reduce = useReducedMotion() ?? false;
+const nav = [
+  { href: "#overview", label: "Overview" },
+  { href: "#proof", label: "Proof" },
+  { href: "#experience", label: "Experience" },
+  { href: "#skills", label: "Skills" },
+  { href: "#projects", label: "Projects" },
+  { href: "#contact", label: "Contact" },
+] as const;
 
-  const pages = ["Home", "Experience", "Skills", "Projects", "Contact"];
+/** Docs Sidebar Engineer — inspectable, versioned documentation workspace. */
+export function Variant() {
+  const reduce = useReducedMotion() ?? false;
+
   return (
-    <main className="min-h-screen bg-[#fbfbfa] text-slate-900 md:flex">
-      <aside className="border-b border-slate-200 bg-white px-4 py-24 md:w-56 md:border-b-0 md:border-r md:py-28">
-        <p className="px-2 text-[10px] uppercase tracking-[0.3em] text-slate-400">Workspace</p>
-        <nav className="mt-4 space-y-1">
-          {pages.map((p, i) => (
-            <a key={p} href={`#${p.toLowerCase()}`} className={`block rounded-md px-3 py-2 text-sm ${i === 0 ? "bg-slate-100 font-semibold" : "text-slate-600 hover:bg-slate-50"}`}>{p}</a>
-          ))}
-        </nav>
-      </aside>
-      <div className="flex-1 px-6 py-24 md:px-12">
-        <section id="home">
-          <h1 className="font-[family-name:var(--font-display)] text-4xl font-bold sm:text-5xl">{cv.name}</h1>
-          <p className="mt-2 text-slate-600">{cv.title}</p>
-          <p className="mt-6 max-w-2xl text-sm leading-7 text-slate-600">{cv.summary}</p>
-        </section>
-        <section id="experience" className="mt-16"><h2 className="mb-8 text-xs uppercase tracking-[0.3em] text-slate-400">Experience</h2><ExperienceList tone="light" /></section>
-        <section id="skills" className="mt-16"><h2 className="mb-8 text-xs uppercase tracking-[0.3em] text-slate-400">Skills</h2><SkillsCloud tone="light" /></section>
-        <section id="projects" className="mt-16"><h2 className="mb-8 text-xs uppercase tracking-[0.3em] text-slate-400">Projects</h2><ProjectLinks tone="light" /></section>
-        <section id="contact" className="mt-16 pb-20"><h2 className="mb-6 text-xs uppercase tracking-[0.3em] text-slate-400">Contact</h2><ContactRow /></section>
+    <main className="min-h-screen bg-[#0b1220] text-slate-100">
+      <div className="mx-auto flex min-h-screen max-w-6xl">
+        <aside className="sticky top-0 hidden h-screen w-56 shrink-0 flex-col border-r border-white/10 bg-[#070d18] px-4 py-24 md:flex">
+          <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.3em] text-sky-300/70">
+            docs / career
+          </p>
+          <p className="mt-2 text-sm font-semibold text-white">{cv.name.split(" ")[0]}</p>
+          <nav className="mt-8 space-y-1 text-sm">
+            {nav.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className="block rounded px-2 py-1.5 text-slate-400 hover:bg-white/5 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-sky-400"
+              >
+                {item.label}
+              </a>
+            ))}
+          </nav>
+          <p className="mt-auto font-[family-name:var(--font-mono)] text-[10px] text-slate-500">v10.0.0 · stable</p>
+        </aside>
+
+        <div className="min-w-0 flex-1 px-5 pb-24 pt-24 sm:px-10">
+          <header id="overview">
+            <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.3em] text-sky-300/70">
+              Package · founding-engineer
+            </p>
+            <motion.h1
+              initial={reduce ? false : { opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="mt-3 text-4xl font-semibold tracking-tight sm:text-5xl"
+            >
+              {cv.name}
+            </motion.h1>
+            <p className="mt-3 text-lg text-sky-100/70">{cv.title}</p>
+            <p className="mt-6 max-w-2xl text-sm leading-7 text-slate-300/80">{cv.summary}</p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <a
+                href={`mailto:${cv.email}`}
+                className="rounded bg-sky-400 px-4 py-2 text-sm font-semibold text-[#0b1220] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300"
+              >
+                Open issue: hire
+              </a>
+              <span className="rounded border border-white/15 px-3 py-2 font-[family-name:var(--font-mono)] text-xs text-slate-400">
+                last published · {cv.location}
+              </span>
+            </div>
+          </header>
+
+          <section id="proof" className="mt-14 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {cv.highlights.map((h, i) => (
+              <motion.div
+                key={h.label}
+                initial={reduce ? false : { opacity: 0, y: 8 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: reduce ? 0 : i * 0.06 }}
+                className="rounded-lg border border-white/10 bg-white/[0.03] px-4 py-5"
+              >
+                <p className="font-[family-name:var(--font-mono)] text-2xl text-sky-200">{h.value}</p>
+                <p className="mt-1 text-xs text-slate-400">{h.label}</p>
+              </motion.div>
+            ))}
+          </section>
+
+          <section id="experience" className="mt-16">
+            <h2 className="mb-6 border-b border-white/10 pb-3 text-xl font-semibold">Experience</h2>
+            <ExperienceList tone="dark" />
+          </section>
+
+          <section id="skills" className="mt-16">
+            <h2 className="mb-6 border-b border-white/10 pb-3 text-xl font-semibold">API surface</h2>
+            <SkillsCloud />
+          </section>
+
+          <section id="projects" className="mt-16">
+            <h2 className="mb-6 border-b border-white/10 pb-3 text-xl font-semibold">Examples</h2>
+            <ProjectLinks />
+          </section>
+
+          <section id="contact" className="mt-16 border-t border-white/10 pt-8">
+            <ContactRow className="text-sky-100/70" />
+            <p className="mt-6 text-xs text-slate-500">
+              {cv.education.degree} · {cv.education.school}
+            </p>
+          </section>
+        </div>
       </div>
-    
-      <footer className="mx-auto max-w-6xl px-6 pb-16 text-sm opacity-55">
-        {/* Education footer */}
-        <p>
-          {cv.education.degree} · {cv.education.school} · {cv.location}
-        </p>
-      </footer>
     </main>
   );
 }
