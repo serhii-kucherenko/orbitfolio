@@ -9,7 +9,10 @@ export function Variant() {
   const reduce = useReducedMotion() ?? false;
 
   return (
-    <main className="min-h-screen bg-[#eef3f0] text-[#14201a]" style={{ perspective: reduce ? undefined : 1200 }}>
+    <main
+      className="min-h-screen bg-[#e6eee9] text-[#14201a]"
+      style={{ perspective: reduce ? undefined : 1200 }}
+    >
       <section className="mx-auto max-w-5xl px-6 pb-6 pt-24">
         <p className="text-[10px] uppercase tracking-[0.35em] text-teal-800/55">Origami · evidence folds</p>
         <motion.h1
@@ -28,6 +31,12 @@ export function Variant() {
           >
             Unfold a hire chat
           </a>
+          <a
+            href="/resume"
+            className="rounded-lg border border-[#0f766e]/40 px-5 py-2.5 text-sm font-semibold text-[#0f766e]"
+          >
+            Flat fold PDF
+          </a>
           <ContactRow className="text-emerald-900/65" />
         </div>
       </section>
@@ -38,7 +47,7 @@ export function Variant() {
             const folds = [
               "bg-[#0f766e] text-white shadow-[8px_8px_0_0_#99f6e4]",
               "bg-white text-[#14201a] shadow-[8px_8px_0_0_#86efac] ring-1 ring-emerald-200",
-              "bg-[#be123c] text-white shadow-[8px_8px_0_0_#fecdd3]",
+              "bg-[#9f1239] text-white shadow-[8px_8px_0_0_#fecdd3]",
               "bg-[#d9f99d] text-[#14201a] shadow-[8px_8px_0_0_#65a30d]",
             ];
             return (
