@@ -98,5 +98,6 @@ Autonomous progress log for Orbitfolio.
 | 95 | Hybrid award motion | Hybrid ladder must ship WebGL or Lenis; deepened 86–91/93/99 + Lenis on remaining Hybrids |
 | 96 | Hybrid craft depth | Raised Hybrid depth gate to ≥120 lines — Lenis wrap alone no longer counts as craft |
 | 97 | Gamma GSAP kinetic | Warp / waveform / launch cells use GSAP ScrollTrigger reveals; oracle requires ≥3 Gamma GSAP cells |
+| 98 | Epsilon hire proof | Epsilon #57–#70 must be ≥110 lines + visible 10-second who/what/proof strip |
 
 Live: https://orbitfolio-kohl.vercel.app · Loop: every 15m — unique award craft + UI must stay green

@@ -47,6 +47,31 @@ export function Variant() {
           </h1>
           <p className="mt-3 text-xl text-sky-900/70">{cv.title}</p>
           <p className="mt-6 max-w-2xl text-sm leading-7 text-sky-900/65">{cv.summary}</p>
+
+          <div
+            data-hire-proof
+            className="mt-8 grid gap-3 rounded-lg border border-sky-300 bg-white/80 p-4 backdrop-blur sm:grid-cols-3"
+            aria-label="10-second who / what / proof"
+          >
+            <div>
+              <p className="text-[10px] uppercase tracking-[0.28em] text-sky-600">Who</p>
+              <p className="mt-2 text-sm font-bold text-[#0b1f38]">{cv.name}</p>
+              <p className="text-xs text-sky-800/60">{cv.location}</p>
+            </div>
+            <div>
+              <p className="text-[10px] uppercase tracking-[0.28em] text-sky-600">What</p>
+              <p className="mt-2 text-sm leading-6 text-sky-950/75">
+                Product engineer · architecture → customer outcomes · applied AI
+              </p>
+            </div>
+            <div>
+              <p className="text-[10px] uppercase tracking-[0.28em] text-sky-600">Proof</p>
+              <p className="mt-2 text-sm leading-6 text-sky-950/75">
+                {results[2].result.split(",")[0]} · {results[3].result.split(",")[0]}
+              </p>
+            </div>
+          </div>
+
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <a
               href={`mailto:${cv.email}`}
@@ -84,6 +109,9 @@ export function Variant() {
 
       <section className="mx-auto mt-12 max-w-5xl px-6">
         <h2 className="mb-4 text-2xl font-bold">Architecture → customer result</h2>
+        <p className="mb-6 text-sm text-sky-900/55">
+          Every technical choice below maps to a measurable product or business outcome.
+        </p>
         <div className="grid gap-3 md:grid-cols-2">
           {results.map((r) => (
             <article key={r.choice} className="border border-sky-200 bg-white p-5">

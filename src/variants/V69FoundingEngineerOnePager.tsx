@@ -41,6 +41,28 @@ export function Variant() {
             </div>
           </div>
           <p className="mt-5 max-w-3xl text-sm leading-relaxed text-zinc-700">{cv.summary}</p>
+
+          <div
+            data-hire-proof
+            className="mt-6 grid gap-px border border-zinc-300 bg-zinc-300 sm:grid-cols-3"
+            aria-label="one-pager who / what / proof"
+          >
+            <div className="bg-zinc-50 px-4 py-3">
+              <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-zinc-500">Who</p>
+              <p className="mt-1 text-xs font-semibold">{cv.name}</p>
+            </div>
+            <div className="bg-zinc-50 px-4 py-3">
+              <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-zinc-500">What</p>
+              <p className="mt-1 text-xs leading-5">Founding engineer · full-stack · applied AI · 10+ yrs</p>
+            </div>
+            <div className="bg-zinc-50 px-4 py-3">
+              <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-zinc-500">Proof</p>
+              <p className="mt-1 text-xs leading-5">
+                {cv.highlights.map((h) => `${h.value} ${h.label}`).slice(0, 2).join(" · ")}
+              </p>
+            </div>
+          </div>
+
           <div className="mt-5 flex flex-wrap gap-3">
             <a
               href={`mailto:${cv.email}`}
@@ -79,7 +101,7 @@ export function Variant() {
                   <p className="text-xs text-zinc-500">{job.place}</p>
                   <ul className="mt-2 space-y-1 text-xs leading-relaxed text-zinc-700">
                     {job.bullets.map((b) => (
-                      <li key={b.slice(0, 28)} className="pl-3 relative before:absolute before:left-0 before:content-['–']">
+                      <li key={b.slice(0, 28)} className="relative pl-3 before:absolute before:left-0 before:content-['–']">
                         {b}
                       </li>
                     ))}

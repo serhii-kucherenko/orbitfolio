@@ -4,15 +4,16 @@ import { motion, useReducedMotion } from "framer-motion";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
 import { cv } from "@/data/cv";
 
+const trustSignals = [
+  { k: "Domain", v: "Healthcare / AI · multi-org clinics" },
+  { k: "Pattern", v: "LLM intent + deterministic constraints" },
+  { k: "Data", v: "RAG with grounded enterprise answers" },
+  { k: "Bar", v: "Production reliability over demo theatre" },
+] as const;
+
 /** Healthcare Trust Sheet — calm clinical document for regulated-domain engineering */
 export function Variant() {
   const reduce = useReducedMotion() ?? false;
-  const trustSignals = [
-    { k: "Domain", v: "Healthcare / AI · multi-org clinics" },
-    { k: "Pattern", v: "LLM intent + deterministic constraints" },
-    { k: "Data", v: "RAG with grounded enterprise answers" },
-    { k: "Bar", v: "Production reliability over demo theatre" },
-  ];
 
   return (
     <main className="min-h-screen bg-[#eef5f3] text-[#0c2a2a]">
@@ -38,6 +39,32 @@ export function Variant() {
           <p className="mt-2 text-lg text-[#3d6b68]">{cv.title}</p>
           <p className="mt-6 text-sm leading-7 text-[#3d6b68]/90">{cv.summary}</p>
         </motion.div>
+
+        <aside
+          data-hire-proof
+          className="mt-8 rounded-lg border border-[#0d7377]/30 bg-white p-5"
+          aria-label="10-second proof — who / what / proof"
+        >
+          <p className="text-[10px] uppercase tracking-[0.32em] text-[#2a6b66]">
+            10-second strip · who / what / proof
+          </p>
+          <dl className="mt-4 grid gap-4 sm:grid-cols-3">
+            <div>
+              <dt className="text-[10px] uppercase tracking-wider text-[#5a8a86]">Who</dt>
+              <dd className="mt-1 text-sm font-semibold">{cv.name}</dd>
+            </div>
+            <div>
+              <dt className="text-[10px] uppercase tracking-wider text-[#5a8a86]">What</dt>
+              <dd className="mt-1 text-sm leading-6">Healthcare AI · RAG · clinic SaaS founding engineer</dd>
+            </div>
+            <div>
+              <dt className="text-[10px] uppercase tracking-wider text-[#5a8a86]">Proof</dt>
+              <dd className="mt-1 text-sm leading-6">
+                {cv.highlights[2]?.value} {cv.highlights[2]?.label} · Untether Labs (YC)
+              </dd>
+            </div>
+          </dl>
+        </aside>
 
         <div className="mt-8 flex flex-wrap items-center gap-4">
           <a

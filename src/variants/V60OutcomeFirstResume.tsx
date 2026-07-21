@@ -36,7 +36,7 @@ export function Variant() {
       <section className="bg-[#0b1220] text-white">
         <div className="mx-auto max-w-5xl px-6 py-16 md:py-20">
           <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.35em] text-cyan-300">
-            Outcomes first · skim under 10s · {cv.location}
+            Outcomes first · 10-second recruiter scan · {cv.location}
           </p>
           <div className="mt-4 flex flex-wrap items-end justify-between gap-6">
             <div>
@@ -62,6 +62,31 @@ export function Variant() {
               >
                 Full resume
               </a>
+            </div>
+          </div>
+
+          <div
+            data-hire-proof
+            className="mt-10 grid gap-3 border border-cyan-400/25 bg-white/[0.04] p-4 sm:grid-cols-3"
+            aria-label="who / what / proof"
+          >
+            <div>
+              <p className="text-[10px] uppercase tracking-[0.3em] text-cyan-300/70">Who</p>
+              <p className="mt-2 text-sm font-semibold text-white">{cv.name}</p>
+              <p className="mt-1 text-xs text-slate-400">{cv.title}</p>
+            </div>
+            <div>
+              <p className="text-[10px] uppercase tracking-[0.3em] text-cyan-300/70">What</p>
+              <p className="mt-2 text-sm leading-6 text-slate-300">
+                Founding full-stack · applied AI · production ownership end-to-end
+              </p>
+            </div>
+            <div>
+              <p className="text-[10px] uppercase tracking-[0.3em] text-cyan-300/70">Proof</p>
+              <p className="mt-2 text-sm leading-6 text-slate-300">
+                {outcomes[0].value} {outcomes[0].label.toLowerCase()} · {outcomes[2].value}{" "}
+                {outcomes[2].label.toLowerCase()}
+              </p>
             </div>
           </div>
 
