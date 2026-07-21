@@ -2,6 +2,7 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
+import { SmoothScroll } from "@/components/SmoothScroll";
 import { cv } from "@/data/cv";
 
 const CHAPTERS = [
@@ -16,7 +17,8 @@ export function Variant() {
   const reduce = useReducedMotion() ?? false;
 
   return (
-    <main className="min-h-screen" style={{ background: "#120e0a", color: "#f3ebe0" }}>
+    <SmoothScroll>
+      <main className="min-h-screen" style={{ background: "#120e0a", color: "#f3ebe0" }}>
       <nav className="sticky top-0 z-20 flex flex-wrap items-center gap-4 border-b px-6 py-3 backdrop-blur-md md:px-10" style={{ borderColor: "#f3ebe018", background: "#120e0acc" }}>
         <span className="font-[family-name:var(--font-serif)] text-sm italic text-[#e8a87c]">Chapters</span>
         {CHAPTERS.map((c) => (
@@ -107,6 +109,7 @@ export function Variant() {
           </p>
         </div>
       </section>
-    </main>
+      </main>
+    </SmoothScroll>
   );
 }

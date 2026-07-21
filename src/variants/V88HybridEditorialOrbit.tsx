@@ -2,12 +2,12 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
+import { FallbackGlow, SceneOrbitProof, WebGLStage } from "@/components/webgl/AwardWebGL";
 import { cv } from "@/data/cv";
 
-/** Hybrid Editorial Orbit — magazine masthead with orbiting pull-quote rings around the byline */
+/** Hybrid Editorial Orbit — magazine masthead with a live orbital proof stage. */
 export function Variant() {
   const reduce = useReducedMotion() ?? false;
-  const rings = cv.highlights;
 
   return (
     <main className="min-h-screen bg-[#090e1c] text-[#e8eef8]">
@@ -48,30 +48,24 @@ export function Variant() {
           </div>
 
           <div className="relative mx-auto h-72 w-72">
-            {!reduce &&
-              rings.map((h, i) => (
-                <motion.div
-                  key={h.label}
-                  className="absolute inset-0 rounded-full border border-dashed"
-                  style={{
-                    borderColor: `rgba(125, 211, 252, ${0.15 + i * 0.1})`,
-                    margin: `${i * 18}px`,
-                  }}
-                  animate={{ rotate: i % 2 === 0 ? 360 : -360 }}
-                  transition={{ duration: 40 + i * 12, repeat: Infinity, ease: "linear" }}
-                />
-              ))}
-            <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
-              {rings.map((h) => (
-                <div key={h.label} className="py-1">
-                  <p className="font-[family-name:var(--font-display)] text-xl font-bold text-[#7dd3fc]">
-                    {h.value}
-                  </p>
-                  <p className="text-[9px] uppercase tracking-wider opacity-40">{h.label}</p>
-                </div>
-              ))}
-            </div>
+            <WebGLStage
+              accent="#7dd3fc"
+              reduce={reduce}
+              label="Editorial orbit proof sphere"
+              className="absolute inset-0"
+              fallback={<FallbackGlow accent="#7dd3fc" />}
+            >
+              <SceneOrbitProof accent="#7dd3fc" />
+            </WebGLStage>
           </div>
+        </div>
+        <div className="mt-12 grid grid-cols-2 gap-4 border-t border-white/10 pt-8 sm:grid-cols-4">
+          {cv.highlights.map((h) => (
+            <div key={h.label}>
+              <p className="font-[family-name:var(--font-display)] text-2xl font-bold text-[#7dd3fc]">{h.value}</p>
+              <p className="mt-1 text-[9px] uppercase tracking-wider opacity-40">{h.label}</p>
+            </div>
+          ))}
         </div>
       </header>
 

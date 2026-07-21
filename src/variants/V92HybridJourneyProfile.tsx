@@ -2,6 +2,7 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
+import { SmoothScroll } from "@/components/SmoothScroll";
 import { cv } from "@/data/cv";
 
 /** Hybrid Journey Profile — identity card docked beside a vertical route of career stops */
@@ -13,13 +14,14 @@ export function Variant() {
     .join("");
 
   return (
-    <main
-      className="min-h-screen"
-      style={{
-        background: "linear-gradient(180deg, #1e3a5f 0%, #0f2744 100%)",
-        color: "#e8f1fa",
-      }}
-    >
+    <SmoothScroll>
+      <main
+        className="min-h-screen"
+        style={{
+          background: "linear-gradient(180deg, #1e3a5f 0%, #0f2744 100%)",
+          color: "#e8f1fa",
+        }}
+      >
       <div className="mx-auto grid max-w-6xl gap-10 px-6 py-16 lg:grid-cols-[300px_1fr] lg:py-24">
         <aside className="lg:sticky lg:top-8 lg:self-start">
           <motion.div
@@ -121,6 +123,7 @@ export function Variant() {
           </div>
         </div>
       </div>
-    </main>
+      </main>
+    </SmoothScroll>
   );
 }

@@ -324,3 +324,23 @@ test("Fail-then-pass: champion Centurion also mounts WebGL atmosphere", () => {
   assert.match(src, /AwardWebGL|@react-three\/fiber/);
   assert.match(src, /SceneCenturion|WebGLStage/);
 });
+
+test("Fail-then-pass: Hybrid ladder ships award motion tech (WebGL or Lenis)", () => {
+  assert.ok(fs.existsSync(path.join(root, "src", "components", "SmoothScroll.tsx")));
+  const smooth = read("src/components/SmoothScroll.tsx");
+  assert.match(smooth, /from ["']lenis["']/);
+  assert.match(smooth, /useReducedMotion/);
+  const { variants } = loadVariantsModule();
+  const eta = variants.filter((v) => v.id >= 86 && v.id <= 100);
+  for (const cell of eta) {
+    const file = listVariantFiles().find((name) => Number(name.match(/^V(\d+)/)[1]) === cell.id);
+    assert.ok(file, `missing file for #${cell.id}`);
+    const src = fs.readFileSync(path.join(variantsDir, file), "utf8");
+    const hasWebGL = src.includes("AwardWebGL") || src.includes("@react-three/fiber");
+    const hasLenis = src.includes("SmoothScroll") || src.includes("lenis");
+    assert.ok(
+      hasWebGL || hasLenis,
+      `RED: Hybrid #${cell.id} must mount AwardWebGL or Lenis SmoothScroll`,
+    );
+  }
+});

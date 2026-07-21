@@ -2,9 +2,10 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
+import { FallbackGlow, SceneVeil, WebGLStage } from "@/components/webgl/AwardWebGL";
 import { cv } from "@/data/cv";
 
-/** Hybrid Holo Proof — iridescent proof cards stacked like a holographic ID deck */
+/** Hybrid Holo Proof — iridescent proof cards + distorting holographic veil. */
 export function Variant() {
   const reduce = useReducedMotion() ?? false;
   const holo =
@@ -12,13 +13,22 @@ export function Variant() {
 
   return (
     <main
-      className="min-h-screen bg-[#05060a] text-[#f0f4ff]"
+      className="relative min-h-screen bg-[#05060a] text-[#f0f4ff]"
       style={{
         backgroundImage:
           "radial-gradient(ellipse at 20% 0%, #0a2030 0%, transparent 50%), radial-gradient(ellipse at 80% 20%, #0c1a28 0%, transparent 40%)",
       }}
     >
-      <section className="mx-auto max-w-5xl px-6 pb-12 pt-24">
+      <WebGLStage
+        accent="#67e8f8"
+        reduce={reduce}
+        label="Holographic distorting veil"
+        className="pointer-events-none absolute inset-0 opacity-40"
+        fallback={<FallbackGlow accent="#67e8f8" />}
+      >
+        <SceneVeil accent="#67e8f8" />
+      </WebGLStage>
+      <section className="relative z-10 mx-auto max-w-5xl px-6 pb-12 pt-24">
         <motion.p
           initial={reduce ? false : { opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -49,7 +59,7 @@ export function Variant() {
         </div>
       </section>
 
-      <section className="mx-auto flex max-w-5xl flex-wrap justify-center gap-4 px-6 pb-16 perspective-[800px]">
+      <section className="relative z-10 mx-auto flex max-w-5xl flex-wrap justify-center gap-4 px-6 pb-16 perspective-[800px]">
         {cv.highlights.map((h, i) => (
           <motion.div
             key={h.label}
@@ -75,7 +85,7 @@ export function Variant() {
         ))}
       </section>
 
-      <section className="mx-auto max-w-5xl space-y-16 px-6 pb-28">
+      <section className="relative z-10 mx-auto max-w-5xl space-y-16 px-6 pb-28">
         <div>
           <h2 className="mb-8 text-2xl font-bold">Chain of custody</h2>
           <ExperienceList tone="dark" />
