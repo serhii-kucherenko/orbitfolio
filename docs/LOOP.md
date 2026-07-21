@@ -70,5 +70,6 @@ Autonomous progress log for Orbitfolio.
 | 67 | Burst tick 18 | Added resume paths to shader atmosphere, hiring brief, warp corridor, aurora ledger, footnotes, cover lab |
 | 68 | Burst tick 19 | Added resume paths to cover chapters, telescope focus, Vancouver aurora, iso rooms, status page, solar dial |
 | 69 | Burst tick 20 | Added resume paths to particle fleet, outcome-first, chromed journey, clinic SaaS, constellation, AI casebook |
+| 70 | Burst tick 21 | Added resume paths to signal/noise, field notes, liquid brief, docs sidebar, event horizon, signal scrub |
 
 Live: https://orbitfolio-kohl.vercel.app · Loop: every 15m — unique award craft + UI must stay green

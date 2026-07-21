@@ -56,11 +56,17 @@ export function Variant() {
             <div className="mt-8 flex flex-wrap gap-3">
               <a
                 href={`mailto:${cv.email}`}
-                className="rounded bg-sky-400 px-4 py-2 text-sm font-semibold text-[#0b1220] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300"
+                className="bg-sky-400 px-4 py-2 text-sm font-semibold text-[#0b1220] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300"
               >
                 Open issue: hire
               </a>
-              <span className="rounded border border-white/15 px-3 py-2 font-[family-name:var(--font-mono)] text-xs text-slate-400">
+              <a
+                href="/resume"
+                className="border border-sky-400/40 px-4 py-2 text-sm text-sky-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300"
+              >
+                Export docs / resume
+              </a>
+              <span className="border border-white/15 px-3 py-2 font-[family-name:var(--font-mono)] text-xs text-slate-400">
                 last published · {cv.location}
               </span>
             </div>

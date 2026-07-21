@@ -55,10 +55,16 @@ export function Variant() {
         <div className="mt-8 flex flex-wrap items-center gap-4">
           <a
             href={`mailto:${cv.email}`}
-            className="px-5 py-2.5 text-sm font-semibold"
+            className="px-5 py-2.5 text-sm font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0e7490]"
             style={{ background: "#0e7490", color: "#f1f5f9" }}
           >
             Amplify this signal
+          </a>
+          <a
+            href="/resume"
+            className="border border-[#0e7490]/50 px-5 py-2.5 text-sm text-[#0e7490] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0e7490]"
+          >
+            Clean cut / resume
           </a>
           <ContactRow />
         </div>

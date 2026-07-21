@@ -33,12 +33,20 @@ export function Variant() {
               </motion.h1>
               <p className="mt-3 text-emerald-900/70">{cv.title}</p>
             </div>
-            <a
-              href={`mailto:${cv.email}`}
-              className="rounded-full bg-emerald-900 px-5 py-2.5 text-sm font-medium text-emerald-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-900"
-            >
-              Write back
-            </a>
+            <div className="flex flex-wrap items-center gap-3">
+              <a
+                href={`mailto:${cv.email}`}
+                className="bg-emerald-900 px-5 py-2.5 text-sm font-medium text-emerald-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-900"
+              >
+                Write back
+              </a>
+              <a
+                href="/resume"
+                className="border border-emerald-800/40 px-5 py-2.5 text-sm text-emerald-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-900"
+              >
+                Field notes / resume
+              </a>
+            </div>
           </div>
           <p className="mt-8 border-l-4 border-emerald-700/40 pl-5 text-sm leading-8 text-emerald-950/75">
             {cv.summary}
