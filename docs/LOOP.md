@@ -43,5 +43,6 @@ Autonomous progress log for Orbitfolio.
 | 40 | Hire UX oracles | Every design exposes name/contact/experience; printable resume on all cells; polished #57/#59/#66/#69/#70 |
 | 41 | Lab team filters | Leaderboard filters by team; lab copy updated to 100 designs; champion CTA focus rings |
 | 42 | Depth gate +5 | Handcrafted already 100; raised deepened-UI oracle to ≥15; rebuilt #18/#25/#27/#46/#47 |
+| 43 | Depth gate 20 | Raised deepened oracle to ≥20; rebuilt #75/#79/#86/#90/#99 with hire CTAs + motion |
 
-Live: https://orbitfolio-kohl.vercel.app · Loop: deepen thin cells + score validation + merge
+Live: https://orbitfolio-kohl.vercel.app · Loop: every 30m — deepen thin cells, raise gates, merge
