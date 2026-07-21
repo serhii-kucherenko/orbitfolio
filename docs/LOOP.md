@@ -42,5 +42,6 @@ Autonomous progress log for Orbitfolio.
 | 39 | Tick 4 guardrail | Added oracle that forbids any remaining shared-shell variants |
 | 40 | Hire UX oracles | Every design exposes name/contact/experience; printable resume on all cells; polished #57/#59/#66/#69/#70 |
 | 41 | Lab team filters | Leaderboard filters by team; lab copy updated to 100 designs; champion CTA focus rings |
+| 42 | Depth gate +5 | Handcrafted already 100; raised deepened-UI oracle to ≥15; rebuilt #18/#25/#27/#46/#47 |
 
-Live: https://orbitfolio-kohl.vercel.app · Loop: score validation + polish high-hire cells + merge
+Live: https://orbitfolio-kohl.vercel.app · Loop: deepen thin cells + score validation + merge
