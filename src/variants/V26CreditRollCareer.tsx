@@ -17,7 +17,9 @@ export function Variant() {
           animate={reduce ? undefined : { opacity: [0.5, 1, 0.5] }}
           transition={{ duration: 7, repeat: Infinity }}
         />
-        <p className="relative text-[10px] uppercase tracking-[0.55em] text-amber-200/50">Feature presentation</p>
+        <p className="relative text-[10px] uppercase tracking-[0.55em] text-amber-200/50">
+          Feature presentation · {cv.location}
+        </p>
         <motion.h1
           initial={reduce ? false : { opacity: 0, scale: 0.96 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -36,7 +38,7 @@ export function Variant() {
           </a>
           <a
             href="/resume"
-            className="border border-amber-200/25 px-6 py-2.5 text-sm tracking-wide text-amber-100/70"
+            className="border border-amber-200/25 px-6 py-2.5 text-sm tracking-wide text-amber-100/70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-200"
           >
             Credit sheet
           </a>

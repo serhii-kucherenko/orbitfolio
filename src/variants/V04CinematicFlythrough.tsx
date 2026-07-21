@@ -24,7 +24,7 @@ export function Variant() {
           aria-hidden
           className="absolute inset-x-0 top-8 flex justify-between px-6 font-[family-name:var(--font-mono)] text-[9px] tracking-[0.3em] opacity-45 md:px-12"
         >
-          <span>ROLL 04 · TAKE 01</span>
+          <span>ROLL 04 · TAKE 01 · {cv.location}</span>
           <span>00:00:10:24</span>
         </div>
         <div className="relative z-10 max-w-5xl">
@@ -50,7 +50,7 @@ export function Variant() {
             </a>
             <a
               href="/resume"
-              className="border border-[#e6a56f]/50 px-6 py-3 text-sm font-bold text-[#e6a56f]"
+              className="border border-[#e6a56f]/50 px-6 py-3 text-sm font-bold text-[#e6a56f] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#e6a56f]"
             >
               Call sheet
             </a>

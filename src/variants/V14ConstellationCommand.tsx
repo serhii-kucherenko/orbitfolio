@@ -26,7 +26,7 @@ export function Variant() {
     <main className="min-h-screen bg-[#03060e] text-[#d7e6ff]">
       <header className="mx-auto max-w-6xl px-6 pb-6 pt-28">
         <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.4em] text-sky-300/60">
-          Constellation command
+          Constellation command · {cv.location}
         </p>
         <h1 className="mt-4 font-[family-name:var(--font-display)] text-5xl font-bold sm:text-6xl">{cv.name}</h1>
         <p className="mt-3 text-lg text-sky-100/70">{cv.title}</p>
@@ -38,7 +38,10 @@ export function Variant() {
           >
             Plot a course
           </a>
-          <a href="/resume" className="inline-block border border-sky-300/40 px-5 py-2.5 text-sm text-sky-100/80">
+          <a
+            href="/resume"
+            className="inline-block border border-sky-300/40 px-5 py-2.5 text-sm text-sky-100/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300"
+          >
             Star chart PDF
           </a>
           <ContactRow className="text-sky-100/65" />

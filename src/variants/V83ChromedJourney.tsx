@@ -24,11 +24,14 @@ export function Variant() {
             background: "linear-gradient(135deg, #c0c8d4 0%, #6b7280 50%, #9ca3af 100%)",
           }}
         />
+        <p className="relative font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.4em] text-slate-500">
+          Chromed journey · {cv.location}
+        </p>
         <motion.h1
           initial={reduce ? false : { x: -40, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.7 }}
-          className="relative font-[family-name:var(--font-display)] text-6xl font-extrabold tracking-tight sm:text-8xl"
+          className="relative mt-4 font-[family-name:var(--font-display)] text-6xl font-extrabold tracking-tight sm:text-8xl"
           style={{
             backgroundImage: "linear-gradient(105deg, #f8fafc 0%, #94a3b8 35%, #e2e8f0 55%, #64748b 100%)",
             WebkitBackgroundClip: "text",
