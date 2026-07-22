@@ -2,13 +2,15 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
+import { SmoothScroll } from "@/components/SmoothScroll";
 import { cv } from "@/data/cv";
 
-/** Aurora Vancouver Canvas — Pacific dusk sky with teal-magenta aurora wash */
+/** Aurora Vancouver Canvas — Pacific dusk sky with Lenis for long coastal reading. */
 export function Variant() {
   const reduce = useReducedMotion() ?? false;
 
   return (
+    <SmoothScroll>
     <main className="min-h-screen bg-[#061018] text-[#e0f2fe]">
       <section className="relative overflow-hidden">
         <div
@@ -39,7 +41,7 @@ export function Variant() {
 
         <div className="relative mx-auto max-w-5xl px-6 pb-16 pt-24 md:pt-32">
           <p className="text-[10px] uppercase tracking-[0.4em] text-teal-300/80">
-            Aurora · Vancouver canvas
+            Aurora · Vancouver canvas · Lenis
           </p>
           <motion.h1
             initial={reduce ? false : { opacity: 0, y: 20 }}
@@ -107,5 +109,6 @@ export function Variant() {
         </div>
       </section>
     </main>
+    </SmoothScroll>
   );
 }

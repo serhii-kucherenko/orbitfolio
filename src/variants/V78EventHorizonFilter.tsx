@@ -2,11 +2,13 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
+import { FallbackGlow, SceneAtmosphere, WebGLStage } from "@/components/webgl/AwardWebGL";
 import { cv } from "@/data/cv";
 
-/** Event Horizon Filter — accretion-disk portrait: name as the singularity, metrics as orbiting filter rings */
+/** Event Horizon Filter — accretion-disk portrait with WebGL atmosphere around the singularity. */
 export function Variant() {
   const reduce = useReducedMotion() ?? false;
+  const accent = "#ff6b35";
 
   return (
     <main
@@ -16,6 +18,15 @@ export function Variant() {
         color: "#f5e6d3",
       }}
     >
+      <WebGLStage
+        accent={accent}
+        reduce={reduce}
+        label="Event horizon atmosphere"
+        className="pointer-events-none absolute inset-0 opacity-45"
+        fallback={<FallbackGlow accent={accent} />}
+      >
+        <SceneAtmosphere accent={accent} />
+      </WebGLStage>
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 opacity-40"
@@ -25,7 +36,7 @@ export function Variant() {
         }}
       />
 
-      <section className="relative mx-auto flex min-h-[90vh] max-w-5xl flex-col items-center justify-center px-6 pb-16 pt-24 text-center">
+      <section className="relative z-10 mx-auto flex min-h-[90vh] max-w-5xl flex-col items-center justify-center px-6 pb-16 pt-24 text-center">
         <motion.div
           initial={reduce ? false : { scale: 0.85, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
@@ -47,7 +58,7 @@ export function Variant() {
           )}
           <div>
             <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.4em] text-[#ff9f6b]">
-              Event horizon · {cv.location}
+              Event horizon · WebGL · {cv.location}
             </p>
             <h1 className="mt-2 font-[family-name:var(--font-display)] text-3xl font-bold leading-tight sm:text-4xl">
               {cv.name}
@@ -75,7 +86,7 @@ export function Variant() {
         <ContactRow className="mt-6 justify-center text-[#f5e6d3]/70" />
       </section>
 
-      <section className="relative mx-auto max-w-4xl px-6 pb-12">
+      <section className="relative z-10 mx-auto max-w-4xl px-6 pb-12">
         <div className="grid grid-cols-2 gap-px sm:grid-cols-4" style={{ background: "#ff6b3522" }}>
           {cv.highlights.map((h, i) => (
             <motion.div
@@ -94,7 +105,7 @@ export function Variant() {
         </div>
       </section>
 
-      <section className="relative mx-auto max-w-4xl space-y-20 px-6 pb-28">
+      <section className="relative z-10 mx-auto max-w-4xl space-y-20 px-6 pb-28">
         <div>
           <h2 className="mb-8 font-[family-name:var(--font-display)] text-2xl font-bold tracking-tight">
             Captured trajectories
