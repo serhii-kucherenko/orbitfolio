@@ -2,6 +2,7 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
+import { SmoothScroll } from "@/components/SmoothScroll";
 import { cv } from "@/data/cv";
 
 const banner = `
@@ -10,11 +11,12 @@ const banner = `
 ║  CHANNEL OPEN · HIRE READY       ║
 ╚══════════════════════════════════╝`.trim();
 
-/** ASCII Career Signal — monospaced signal art around a fully readable portfolio. */
+/** ASCII Career Signal — monospaced signal art with Lenis for terminal-length reading. */
 export function Variant() {
   const reduce = useReducedMotion() ?? false;
 
   return (
+    <SmoothScroll>
     <main className="min-h-screen bg-[#050705] text-[#b6f5a8]">
       <header className="relative mx-auto max-w-5xl overflow-hidden px-6 pb-8 pt-24 font-[family-name:var(--font-mono)]">
         <div
@@ -111,5 +113,6 @@ export function Variant() {
         </p>
       </section>
     </main>
+    </SmoothScroll>
   );
 }

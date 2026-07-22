@@ -472,7 +472,7 @@ test("Fail-then-pass: Beta editorial ships Lenis on ≥10 cells and stays ≥110
   );
 });
 
-test("Fail-then-pass: Zeta experimental stays deep and ships award motion on ≥6 cells", () => {
+test("Fail-then-pass: Zeta experimental stays deep and ships award motion on ≥8 cells", () => {
   const zeta = listVariantFiles().filter((name) => {
     const id = Number(name.match(/^V(\d+)/)[1]);
     return id >= 71 && id <= 85;
@@ -495,8 +495,8 @@ test("Fail-then-pass: Zeta experimental stays deep and ships award motion on ≥
   }
   assert.equal(shallow.length, 0, `RED: Zeta cells under 110 lines: ${shallow.join(", ")}`);
   assert.ok(
-    withMotion >= 6,
-    `RED: need ≥6 Zeta cells with WebGL/Lenis/GSAP, got ${withMotion}`,
+    withMotion >= 8,
+    `RED: need ≥8 Zeta cells with WebGL/Lenis/GSAP, got ${withMotion}`,
   );
 });
 
