@@ -2,9 +2,10 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
+import { SmoothScroll } from "@/components/SmoothScroll";
 import { cv } from "@/data/cv";
 
-/** Recruiter Profile Light — daylight profile: role, metrics, contact in one glance. */
+/** Recruiter Profile Light — daylight profile with Lenis for recruiter long-form reading. */
 export function Variant() {
   const reduce = useReducedMotion() ?? false;
   const initials = cv.name
@@ -13,6 +14,7 @@ export function Variant() {
     .join("");
 
   return (
+    <SmoothScroll>
     <main className="min-h-screen bg-[#e4ebf1] text-[#0f2430]">
       <header className="border-b border-[#b8c9d6] bg-gradient-to-br from-[#f7fafc] via-[#eef4f8] to-[#d5e4ee]">
         <div className="mx-auto max-w-6xl px-6 py-20 lg:px-10">
@@ -116,5 +118,6 @@ export function Variant() {
         </p>
       </section>
     </main>
+    </SmoothScroll>
   );
 }

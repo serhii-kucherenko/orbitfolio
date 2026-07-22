@@ -1,7 +1,9 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
+import { useRef } from "react";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
+import { useGsapReveal } from "@/components/useGsapReveal";
 import { cv } from "@/data/cv";
 
 const outcomes = [
@@ -27,16 +29,18 @@ const outcomes = [
   },
 ] as const;
 
-/** Outcome First Resume — four production outcomes lead; full evidence follows. */
+/** Outcome First Resume — four production outcomes lead; GSAP reveals the evidence trail. */
 export function Variant() {
   const reduce = useReducedMotion() ?? false;
+  const evidenceRef = useRef<HTMLElement>(null);
+  useGsapReveal(evidenceRef, reduce);
 
   return (
     <main className="min-h-screen bg-[#f4f7fb] text-[#0b1220]">
       <section className="bg-[#0b1220] text-white">
         <div className="mx-auto max-w-5xl px-6 py-16 md:py-20">
           <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.35em] text-cyan-300">
-            Outcomes first · 10-second recruiter scan · {cv.location}
+            Outcomes first · 10-second recruiter scan · GSAP · {cv.location}
           </p>
           <div className="mt-4 flex flex-wrap items-end justify-between gap-6">
             <div>
@@ -114,13 +118,13 @@ export function Variant() {
         <p className="mt-3 text-xs text-slate-400">{cv.location}</p>
       </section>
 
-      <section className="mx-auto max-w-5xl space-y-16 px-6 pb-24">
-        <div>
+      <section ref={evidenceRef} className="mx-auto max-w-5xl space-y-16 px-6 pb-24">
+        <div data-gsap>
           <h2 className="mb-2 text-2xl font-bold">Where the outcomes came from</h2>
           <p className="mb-8 text-sm text-slate-500">Role → company → proof</p>
           <ExperienceList tone="light" />
         </div>
-        <div className="grid gap-12 md:grid-cols-2">
+        <div data-gsap className="grid gap-12 md:grid-cols-2">
           <div>
             <h2 className="mb-6 text-xl font-bold">Toolkit</h2>
             <SkillsCloud tone="light" />

@@ -42,6 +42,7 @@ Full definitions: [`docs/RUBRIC.md`](RUBRIC.md)
 - Lab depth floor 115 (tick 111): lab-wide craft floor rises from ≥112 to ≥115 so borderline shells cannot return
 - Beta Lenis coverage (tick 112): magazine cells raise smooth-scroll craft from ≥6 to ≥10 — bilingual signal and redline resume join the set
 - Gamma GSAP coverage (tick 113): kinetic cells raise ScrollTrigger craft from ≥5 to ≥7 — nameplate and aurora ledger join the GSAP set
+- Epsilon hire motion (tick 114): hire cells raise award motion from ≥3 to ≥5 — recruiter profile light uses Lenis; outcome-first resume uses GSAP
 - Structural diversity beats palette swaps for lab signal
 - Fail-then-pass diversity checks forced at least 20 fully custom designs instead of shared-shell palette swaps — see [`docs/RED_GREEN.md`](RED_GREEN.md)
 - Gate raised to **100** custom designs (batch 8) — every `/test/n` cell is now uniquely built; shared `AwardVariant` shell retired from active experiments
