@@ -2,13 +2,15 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
+import { SmoothScroll } from "@/components/SmoothScroll";
 import { cv } from "@/data/cv";
 
-/** Bauhaus Proof Blocks — primary geometric blocks for each evidence class. */
+/** Bauhaus Proof Blocks — geometric evidence with Lenis for long-form reading. */
 export function Variant() {
   const reduce = useReducedMotion() ?? false;
 
   return (
+    <SmoothScroll>
     <main className="min-h-screen bg-[#e4dfd4] text-[#1a1a1a]">
       <header className="mx-auto grid max-w-6xl gap-5 px-6 pb-6 pt-24 lg:grid-cols-[1.25fr_0.75fr] lg:px-10">
         <div className="relative overflow-hidden border-4 border-black bg-[#e31c23] p-8 text-white sm:p-12">
@@ -107,12 +109,13 @@ export function Variant() {
           Bauhaus blocks stay evidence-first when geometry grows.
         </p>
         <p className="mx-auto mt-2 max-w-5xl font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.3em] text-black/35">
-          Lab · depth floor · 115
+          Lab · depth floor · 118 · Lenis
         </p>
         <p className="mt-3 font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.35em] text-black/40">
           Zeta · Bauhaus · geometry = evidence
         </p>
       </section>
     </main>
+    </SmoothScroll>
   );
 }
