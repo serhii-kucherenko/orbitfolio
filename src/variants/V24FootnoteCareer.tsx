@@ -2,18 +2,20 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
+import { SmoothScroll } from "@/components/SmoothScroll";
 import { cv } from "@/data/cv";
 
-/** Footnote Career — academic monograph layout; claims in the body, citations and contact as numbered footnotes. */
+/** Footnote Career — academic monograph with Lenis for footnote-length reading. */
 export function Variant() {
   const reduce = useReducedMotion() ?? false;
   const mark = "#1d4e89";
 
   return (
+    <SmoothScroll>
     <main className="min-h-screen bg-[#f7f5f0] text-[#1c1917]">
       <header className="mx-auto max-w-3xl px-6 pb-8 pt-24 md:px-8">
         <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.3em] text-[#57534e]">
-          Monograph · §1 · {cv.location}
+          Monograph · §1 · Lenis · {cv.location}
         </p>
         <motion.h1
           initial={reduce ? false : { opacity: 0 }}
@@ -125,5 +127,6 @@ export function Variant() {
         </div>
       </section>
     </main>
+    </SmoothScroll>
   );
 }
