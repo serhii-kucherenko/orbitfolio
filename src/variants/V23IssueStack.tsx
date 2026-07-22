@@ -2,9 +2,10 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
+import { SmoothScroll } from "@/components/SmoothScroll";
 import { cv } from "@/data/cv";
 
-/** Issue Stack — overlapping magazine covers slide into a vertical zine pile; each layer is a career chapter. */
+/** Issue Stack — magazine covers with Lenis for long-form zine reading. */
 export function Variant() {
   const reduce = useReducedMotion() ?? false;
   const covers = [
@@ -15,6 +16,7 @@ export function Variant() {
   ];
 
   return (
+    <SmoothScroll>
     <main className="min-h-screen bg-[#090807] text-[#fafaf9]">
       <header className="mx-auto max-w-4xl px-6 pb-8 pt-24 md:px-8">
         <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.4em] text-white/45">
@@ -113,9 +115,10 @@ export function Variant() {
           Lab floor rising — thin shells no longer pass as award craft.
         </p>
         <p className="mx-auto mt-3 max-w-5xl font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.3em] text-white/30">
-          Lab · depth floor · 112
+          Lab · depth floor · 118 · Lenis
         </p>
       </footer>
 </main>
+    </SmoothScroll>
   );
 }
