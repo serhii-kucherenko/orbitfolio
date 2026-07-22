@@ -97,6 +97,18 @@ export function Variant() {
           </p>
         </div>
       </section>
-    </main>
+    
+      <footer className="border-t border-black/10 px-6 py-8">
+        <p className="mx-auto max-w-5xl text-sm leading-7 text-black/55">
+          Veil shaders sell depth; contact and experience must still land in under ten seconds.
+        </p>
+        <p className="mx-auto mt-3 max-w-5xl text-sm leading-7 text-black/55">
+          WebGL or spatial chrome stays secondary to name, email, and proof.
+        </p>
+        <p className="mx-auto mt-3 max-w-5xl font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.3em] text-black/35">
+          Alpha · WebGL · craft depth
+        </p>
+      </footer>
+</main>
   );
 }
