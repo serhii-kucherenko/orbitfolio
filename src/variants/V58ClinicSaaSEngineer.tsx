@@ -2,6 +2,7 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
+import { SmoothScroll } from "@/components/SmoothScroll";
 import { cv } from "@/data/cv";
 
 const trust = [
@@ -25,11 +26,12 @@ const proofStrip = [
   { label: "Proof", value: `${cv.highlights[0]?.value} ${cv.highlights[0]?.label} · YC healthcare AI` },
 ] as const;
 
-/** Clinic SaaS Engineer — healthcare-product calm: trust, outcomes, founding delivery. */
+/** Clinic SaaS Engineer — healthcare-product calm with Lenis for trust-long reading. */
 export function Variant() {
   const reduce = useReducedMotion() ?? false;
 
   return (
+    <SmoothScroll>
     <main className="min-h-screen bg-[#f3f7f4] text-[#1c2b24]">
       <header className="relative overflow-hidden border-b border-[#c5d4cb] bg-gradient-to-br from-[#e8f0eb] via-[#f3f7f4] to-[#dde8e2] px-6 pb-14 pt-28">
         <motion.div
@@ -143,5 +145,6 @@ export function Variant() {
         </p>
       </section>
     </main>
+    </SmoothScroll>
   );
 }

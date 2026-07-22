@@ -1,7 +1,9 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
+import { useRef } from "react";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
+import { useGsapReveal } from "@/components/useGsapReveal";
 import { cv } from "@/data/cv";
 
 const results = [
@@ -23,9 +25,11 @@ const results = [
   },
 ] as const;
 
-/** Product Engineer Daylight — bright product page tying architecture choices to business results. */
+/** Product Engineer Daylight — bright product page; GSAP reveals the product chapters. */
 export function Variant() {
   const reduce = useReducedMotion() ?? false;
+  const chaptersRef = useRef<HTMLElement>(null);
+  useGsapReveal(chaptersRef, reduce);
 
   return (
     <main className="min-h-screen bg-[#eef6ff] text-[#0b1f38]">
@@ -122,15 +126,15 @@ export function Variant() {
         </div>
       </section>
 
-      <section className="mx-auto mt-12 max-w-5xl px-6 pb-6">
-        <div className="border border-sky-200 bg-white p-8 md:p-12">
+      <section ref={chaptersRef} className="mx-auto mt-12 max-w-5xl px-6 pb-6">
+        <div data-gsap className="border border-sky-200 bg-white p-8 md:p-12">
           <h2 className="mb-8 text-2xl font-bold">Product chapters</h2>
           <ExperienceList tone="light" />
         </div>
       </section>
 
       <section className="mx-auto grid max-w-5xl gap-8 px-6 py-12 md:grid-cols-2">
-        <div className="border border-sky-200 bg-white p-8">
+        <div data-gsap className="border border-sky-200 bg-white p-8">
           <h2 className="mb-6 text-xl font-bold">Craft stack</h2>
           <SkillsCloud tone="light" />
         </div>
