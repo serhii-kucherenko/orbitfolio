@@ -1,13 +1,17 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
+import { useRef } from "react";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
+import { useGsapReveal } from "@/components/useGsapReveal";
 import { cv } from "@/data/cv";
 
-/** Kinetic Nameplate — name as a title sequence that settles into evidence. */
+/** Kinetic Nameplate — name as a title sequence; GSAP reveals impact after the settle. */
 export function Variant() {
   const reduce = useReducedMotion() ?? false;
   const parts = cv.name.split(" ");
+  const impactRef = useRef<HTMLElement>(null);
+  useGsapReveal(impactRef, reduce);
 
   return (
     <main className="overflow-x-hidden bg-[#04110d] text-[#b8ffd0]">
@@ -17,7 +21,7 @@ export function Variant() {
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
           className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.55em] text-[#7dffb0]/70"
         >
-          {cv.title} · title sequence · {cv.location}
+          {cv.title} · title sequence · GSAP · {cv.location}
         </motion.p>
 
         <h1 className="mt-16 font-[family-name:var(--font-display)] text-[clamp(3.5rem,16vw,11rem)] font-black uppercase leading-[0.78] tracking-[-0.06em]">
@@ -74,9 +78,11 @@ export function Variant() {
         </div>
       </header>
 
-      <section className="-rotate-1 bg-[#b8ffd0] px-6 py-16 text-[#04110d] md:px-12">
-        <h2 className="mb-10 text-4xl font-black uppercase tracking-tight sm:text-5xl">Motion / impact</h2>
-        <ExperienceList tone="light" />
+      <section ref={impactRef} className="-rotate-1 bg-[#b8ffd0] px-6 py-16 text-[#04110d] md:px-12">
+        <h2 data-gsap className="mb-10 text-4xl font-black uppercase tracking-tight sm:text-5xl">Motion / impact</h2>
+        <div data-gsap>
+          <ExperienceList tone="light" />
+        </div>
       </section>
 
       <section className="grid gap-16 px-6 py-20 md:grid-cols-2 md:px-12">
@@ -92,27 +98,18 @@ export function Variant() {
           </p>
         </div>
       </section>
-    
+
       <footer className="border-t border-white/10 px-6 py-8">
         <p className="mx-auto max-w-5xl text-sm leading-7 text-white/45">
-          Nameplate kinetics sell the first frame — proof and hire path stay below the type.
+          Nameplate kinetics sell the first frame — GSAP opens the impact ledger after the title settles.
         </p>
-        <p className="mx-auto mt-3 max-w-5xl text-sm leading-7 text-white/35">
+        <p className="mx-auto mt-3 max-w-5xl text-sm leading-7 text-white/40">
           Motion earns the glance; the contact row and experience still close the hire.
         </p>
-        <p className="mx-auto mt-3 max-w-5xl text-sm leading-7 text-white/45">
-          Kinetic nameplate holds the glance; the body must finish the hire.
-        </p>
-        <p className="mx-auto mt-3 max-w-5xl text-sm leading-7 text-white/45">
-          Kinetic nameplate holds the glance; the body finishes the hire.
-        </p>
-        <p className="mx-auto mt-2 max-w-5xl font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.3em] text-white/30">
-          Lab · depth floor · 115
-        </p>
         <p className="mx-auto mt-3 max-w-5xl font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.3em] text-white/30">
-          Gamma · kinetic · craft depth
+          Gamma · kinetic · GSAP
         </p>
       </footer>
-</main>
+    </main>
   );
 }

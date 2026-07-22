@@ -1,12 +1,16 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
+import { useRef } from "react";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
+import { useGsapReveal } from "@/components/useGsapReveal";
 import { cv } from "@/data/cv";
 
-/** Aurora Motion Ledger — night-sky bookkeeping: scrolling aurora bands behind a double-entry career ledger */
+/** Aurora Motion Ledger — night-sky bookkeeping; GSAP reveals career entries on scroll. */
 export function Variant() {
   const reduce = useReducedMotion() ?? false;
+  const entriesRef = useRef<HTMLElement>(null);
+  useGsapReveal(entriesRef, reduce);
 
   return (
     <main className="relative min-h-screen overflow-hidden bg-[#061018] text-[#e8f7f4]">
@@ -30,7 +34,7 @@ export function Variant() {
         <div className="flex flex-wrap items-end justify-between gap-6 border-b border-cyan-300/25 pb-8">
           <div>
             <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.4em] text-cyan-200/70">
-              Ledger · Vol. Aurora · balanced
+              Ledger · Vol. Aurora · GSAP · balanced
             </p>
             <h1 className="mt-4 font-[family-name:var(--font-display)] text-5xl font-black tracking-tight sm:text-7xl">
               {cv.name}
@@ -88,12 +92,14 @@ export function Variant() {
         </div>
       </section>
 
-      <section className="relative mx-auto max-w-6xl px-6 py-20 md:px-10">
-        <h2 className="mb-10 font-[family-name:var(--font-display)] text-3xl font-bold text-cyan-100">
+      <section ref={entriesRef} className="relative mx-auto max-w-6xl px-6 py-20 md:px-10">
+        <h2 data-gsap className="mb-10 font-[family-name:var(--font-display)] text-3xl font-bold text-cyan-100">
           Career entries
         </h2>
-        <ExperienceList tone="dark" />
-        <div className="mt-20 grid gap-14 md:grid-cols-2">
+        <div data-gsap>
+          <ExperienceList tone="dark" />
+        </div>
+        <div data-gsap className="mt-20 grid gap-14 md:grid-cols-2">
           <div>
             <h2 className="mb-6 text-xl font-semibold text-emerald-200">Skill accounts</h2>
             <SkillsCloud />
@@ -107,15 +113,15 @@ export function Variant() {
           </div>
         </div>
       </section>
-    
-      <footer className="border-t border-white/10 px-6 py-8">
+
+      <footer className="relative border-t border-white/10 px-6 py-8">
         <p className="mx-auto max-w-5xl text-sm leading-7 text-white/45">
-          Aurora motion ledger keeps numbers readable after the wash.
+          Aurora wash is atmosphere — GSAP opens the ledger entries once the bands settle.
         </p>
         <p className="mx-auto mt-3 max-w-5xl font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.3em] text-white/30">
-          Lab · depth floor · 115
+          Gamma · kinetic · GSAP
         </p>
       </footer>
-</main>
+    </main>
   );
 }

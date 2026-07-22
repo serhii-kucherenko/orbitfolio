@@ -113,5 +113,6 @@ Autonomous progress log for Orbitfolio.
 | 110 | Epsilon hire motion | Epsilon hire cells must ship award motion on ≥3 designs |
 | 111 | Lab depth floor 115 | Every /test cell must stay ≥115 lines — 112 floor raised |
 | 112 | Beta Lenis coverage | Beta editorial Lenis raised to ≥10 long-form reading cells |
+| 113 | Gamma GSAP coverage | Gamma kinetic GSAP raised to ≥7 scroll-reveal cells |
 
 Live: https://orbitfolio-kohl.vercel.app · Loop: every 15m — unique award craft + UI must stay green
