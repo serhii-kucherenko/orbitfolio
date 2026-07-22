@@ -406,7 +406,7 @@ test("Fail-then-pass: Gamma kinetic ships GSAP in ≥9 cells and stays ≥110 li
   );
 });
 
-test("Fail-then-pass: Epsilon hire cells stay deep, expose a 10-second proof strip, and ship award motion on ≥7 cells", () => {
+test("Fail-then-pass: Epsilon hire cells stay deep, expose a 10-second proof strip, and ship award motion on ≥9 cells", () => {
   const epsilon = listVariantFiles().filter((name) => {
     const id = Number(name.match(/^V(\d+)/)[1]);
     return id >= 57 && id <= 70;
@@ -446,8 +446,8 @@ test("Fail-then-pass: Epsilon hire cells stay deep, expose a 10-second proof str
     `RED: Epsilon cells missing 10-second proof strip: ${missingProof.join(", ")}`,
   );
   assert.ok(
-    withMotion >= 7,
-    `RED: need ≥7 Epsilon hire cells with WebGL/Lenis/GSAP, got ${withMotion}`,
+    withMotion >= 9,
+    `RED: need ≥9 Epsilon hire cells with WebGL/Lenis/GSAP, got ${withMotion}`,
   );
 });
 
