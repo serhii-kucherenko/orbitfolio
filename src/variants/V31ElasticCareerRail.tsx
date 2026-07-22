@@ -1,12 +1,16 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
+import { useRef } from "react";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
+import { useGsapReveal } from "@/components/useGsapReveal";
 import { cv } from "@/data/cv";
 
-/** Elastic Career Rail — horizontal stretch-rail of roles; metrics snap onto an elastic track. */
+/** Elastic Career Rail — stretch-rail of roles; GSAP reveals the tension log. */
 export function Variant() {
   const reduce = useReducedMotion() ?? false;
+  const logRef = useRef<HTMLElement>(null);
+  useGsapReveal(logRef, reduce);
 
   return (
     <main className="min-h-screen bg-[#08101c] text-[#e2e8f0]">
@@ -16,7 +20,7 @@ export function Variant() {
           transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
           className="font-[family-name:var(--font-mono)] text-[10px] uppercase text-[#38bdf8]"
         >
-          Elastic rail · tension live · {cv.location}
+          Elastic rail · GSAP · tension live · {cv.location}
         </motion.p>
         <h1 className="mt-5 font-[family-name:var(--font-display)] text-5xl font-extrabold tracking-tight sm:text-7xl">
           {cv.name}
@@ -77,13 +81,15 @@ export function Variant() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-4xl px-6 py-16 md:px-10">
-        <h2 className="mb-10 text-3xl font-bold">Full tension log</h2>
-        <ExperienceList tone="dark" />
+      <section ref={logRef} className="mx-auto max-w-4xl px-6 py-16 md:px-10">
+        <h2 data-gsap className="mb-10 text-3xl font-bold">Full tension log</h2>
+        <div data-gsap>
+          <ExperienceList tone="dark" />
+        </div>
       </section>
 
       <section className="mx-auto grid max-w-4xl gap-14 border-t border-white/10 px-6 pb-24 pt-16 md:grid-cols-2 md:px-10">
-        <div>
+        <div data-gsap>
           <h2 className="mb-6 text-xl font-bold">Elastic skills</h2>
           <SkillsCloud />
         </div>
