@@ -379,7 +379,7 @@ test("Fail-then-pass: Hybrid cells stay deep enough for award craft", () => {
   );
 });
 
-test("Fail-then-pass: Gamma kinetic ships GSAP in ≥5 cells and stays ≥110 lines", () => {
+test("Fail-then-pass: Gamma kinetic ships GSAP in ≥7 cells and stays ≥110 lines", () => {
   assert.ok(fs.existsSync(path.join(root, "src", "components", "useGsapReveal.ts")));
   const hook = read("src/components/useGsapReveal.ts");
   assert.match(hook, /from ["']gsap["']/);
@@ -401,8 +401,8 @@ test("Fail-then-pass: Gamma kinetic ships GSAP in ≥5 cells and stays ≥110 li
   }
   assert.equal(shallow.length, 0, `RED: Gamma cells under 110 lines: ${shallow.join(", ")}`);
   assert.ok(
-    withGsap.length >= 5,
-    `RED: need ≥5 Gamma cells using GSAP, got ${withGsap.length}: ${withGsap.join(", ") || "none"}`,
+    withGsap.length >= 7,
+    `RED: need ≥7 Gamma cells using GSAP, got ${withGsap.length}: ${withGsap.join(", ") || "none"}`,
   );
 });
 
