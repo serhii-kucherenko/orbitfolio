@@ -259,14 +259,16 @@ test("Fail-then-pass: no banned AI-cliché palettes in AwardVariant light mode",
 
 test("Fail-then-pass: deepened unique UIs keep rising past the 100-handcraft floor", () => {
   const files = listVariantFiles();
-  const deepened = files.filter((file) => {
+  const shallow = [];
+  for (const file of files) {
     const lines = fs.readFileSync(path.join(variantsDir, file), "utf8").split("\n").length;
-    return lines >= 40;
-  });
-  // Handcrafted gate is already 100/100; depth gate forces richer award craft.
-  assert.ok(
-    deepened.length >= 100,
-    `RED: need ≥100 deepened cells (≥40 source lines), got ${deepened.length}`,
+    if (lines < 112) shallow.push(`${file}(${lines})`);
+  }
+  // Team gates locked ≥110; lab-wide floor now rises so borderline shells cannot slip back.
+  assert.equal(
+    shallow.length,
+    0,
+    `RED: need all 100 cells ≥112 source lines, thin: ${shallow.join(", ")}`,
   );
 });
 

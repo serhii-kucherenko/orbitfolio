@@ -100,6 +100,9 @@ export function Variant() {
         <p className="mx-auto max-w-5xl text-sm leading-7 text-white/45">
           Elastic rail stretches attention, not the facts — roles stay sequential and scannable.
         </p>
+        <p className="mx-auto mt-3 max-w-5xl text-sm leading-7 text-white/45">
+          Elastic rail motion cannot shrink the role chronology.
+        </p>
         <p className="mx-auto mt-3 max-w-5xl font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.3em] text-white/30">
           Gamma · kinetic · craft depth
         </p>

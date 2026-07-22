@@ -100,6 +100,9 @@ export function Variant() {
         <p className="mx-auto max-w-5xl text-sm leading-7 text-white/45">
           Infinite pan is motion craft; evidence panels never leave the viewport empty of proof.
         </p>
+        <p className="mx-auto mt-3 max-w-5xl text-sm leading-7 text-white/45">
+          Infinite pan evidence keeps panels complete while motion runs.
+        </p>
         <p className="mx-auto mt-3 max-w-5xl font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.3em] text-white/30">
           Gamma · kinetic · craft depth
         </p>

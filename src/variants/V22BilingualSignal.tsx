@@ -104,6 +104,18 @@ export function Variant() {
           Signal · Vol. 22 · bilingual-complete · {cv.location}
         </p>
       </footer>
-    </main>
+    
+      <footer className="border-t border-white/10 px-6 py-8">
+        <p className="mx-auto max-w-5xl text-sm leading-7 text-white/45">
+          Magazine gutter craft — captions and proof columns earn the whitespace.
+        </p>
+        <p className="mx-auto mt-3 max-w-5xl text-sm leading-7 text-white/45">
+          Lab floor rising — thin shells no longer pass as award craft.
+        </p>
+        <p className="mx-auto mt-3 max-w-5xl font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.3em] text-white/30">
+          Lab · depth floor · 112
+        </p>
+      </footer>
+</main>
   );
 }
