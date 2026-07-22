@@ -21,9 +21,12 @@ function clampVariantId(id: number): number {
 
 function parseRecord(raw: string): PublicThemeRecord | null {
   try {
-    const data = JSON.parse(raw) as { variantId?: unknown };
+    const data = JSON.parse(raw) as { variantId?: unknown; updatedAt?: unknown };
     if (typeof data.variantId !== "number") return null;
-    return { variantId: clampVariantId(data.variantId), updatedAt: new Date().toISOString() };
+    return {
+      variantId: clampVariantId(data.variantId),
+      updatedAt: typeof data.updatedAt === "string" ? data.updatedAt : new Date().toISOString(),
+    };
   } catch {
     return null;
   }
@@ -32,7 +35,11 @@ function parseRecord(raw: string): PublicThemeRecord | null {
 async function readFromBlob(): Promise<PublicThemeRecord | null> {
   if (!process.env.BLOB_READ_WRITE_TOKEN) return null;
   try {
-    const { blobs } = await list({ prefix: BLOB_PATHNAME, limit: 1 });
+    const { blobs } = await list({
+      prefix: BLOB_PATHNAME,
+      limit: 1,
+      token: process.env.BLOB_READ_WRITE_TOKEN,
+    });
     const blob = blobs[0];
     if (!blob?.url) return null;
     const res = await fetch(blob.url, { cache: "no-store" });
@@ -114,34 +121,23 @@ async function writeToGithub(record: PublicThemeRecord): Promise<boolean> {
   }
 }
 
-/** Shared in-process cache — helps same warm instance after a publish. */
-const memory = globalThis as typeof globalThis & {
-  __orbitfolioPublicTheme?: PublicThemeRecord;
-};
+function hasDurableStore(persisted: Array<"file" | "blob" | "github">): boolean {
+  return persisted.includes("blob") || persisted.includes("file") || persisted.includes("github");
+}
 
+/**
+ * Read the public homepage theme.
+ * Prefer Blob (shared across serverless instances), then the deployed JSON file.
+ * Never trust process memory alone — different lambdas have different memory.
+ */
 export async function getPublicTheme(): Promise<PublicThemeRecord> {
-  if (memory.__orbitfolioPublicTheme) {
-    return {
-      ...memory.__orbitfolioPublicTheme,
-      variantId: clampVariantId(memory.__orbitfolioPublicTheme.variantId),
-    };
-  }
-
   const fromBlob = await readFromBlob();
-  if (fromBlob) {
-    memory.__orbitfolioPublicTheme = fromBlob;
-    return fromBlob;
-  }
+  if (fromBlob) return fromBlob;
 
   const fromFile = await readFromFile();
-  if (fromFile) {
-    memory.__orbitfolioPublicTheme = fromFile;
-    return fromFile;
-  }
+  if (fromFile) return fromFile;
 
-  const fallback = { variantId: getChampion().id, updatedAt: new Date().toISOString() };
-  memory.__orbitfolioPublicTheme = fallback;
-  return fallback;
+  return { variantId: getChampion().id, updatedAt: new Date().toISOString() };
 }
 
 export async function getPublicThemeId(): Promise<number> {
@@ -150,21 +146,21 @@ export async function getPublicThemeId(): Promise<number> {
 
 export async function setPublicTheme(variantId: number): Promise<{
   record: PublicThemeRecord;
-  persisted: Array<"memory" | "file" | "blob" | "github">;
+  persisted: Array<"file" | "blob" | "github">;
+  durable: boolean;
 }> {
   const record: PublicThemeRecord = {
     variantId: clampVariantId(variantId),
     updatedAt: new Date().toISOString(),
   };
 
-  memory.__orbitfolioPublicTheme = record;
-  const persisted: Array<"memory" | "file" | "blob" | "github"> = ["memory"];
+  const persisted: Array<"file" | "blob" | "github"> = [];
 
   if (await writeToFile(record)) persisted.push("file");
   if (await writeToBlob(record)) persisted.push("blob");
   if (await writeToGithub(record)) persisted.push("github");
 
-  return { record, persisted };
+  return { record, persisted, durable: hasDurableStore(persisted) };
 }
 
 export function getAdminPassword(): string {
