@@ -262,13 +262,13 @@ test("Fail-then-pass: deepened unique UIs keep rising past the 100-handcraft flo
   const shallow = [];
   for (const file of files) {
     const lines = fs.readFileSync(path.join(variantsDir, file), "utf8").split("\n").length;
-    if (lines < 115) shallow.push(`${file}(${lines})`);
+    if (lines < 118) shallow.push(`${file}(${lines})`);
   }
   // Lab-wide floor keeps rising so borderline shells cannot slip back after team gates.
   assert.equal(
     shallow.length,
     0,
-    `RED: need all 100 cells ≥115 source lines, thin: ${shallow.join(", ")}`,
+    `RED: need all 100 cells ≥118 source lines, thin: ${shallow.join(", ")}`,
   );
 });
 

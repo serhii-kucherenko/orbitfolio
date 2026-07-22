@@ -110,6 +110,9 @@ export function Variant() {
           Roll · Vol. 26 · {cv.location}
         </p>
       </footer>
-    </main>
+            <p className="mt-3 text-sm leading-7 text-white/45">
+          Lab depth floor · 118 — credit roll billing stays complete and hireable.
+        </p>
+</main>
   );
 }

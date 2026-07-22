@@ -109,6 +109,9 @@ export function Variant() {
           </div>
         </section>
       </div>
-    </main>
+          <footer className="mx-auto max-w-5xl px-6 pb-12 text-sm leading-7 opacity-50">
+        Signal/noise finale clears the channel — Lab depth floor · 118 keeps the hire path open.
+      </footer>
+</main>
   );
 }

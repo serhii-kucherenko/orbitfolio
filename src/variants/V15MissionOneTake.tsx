@@ -111,6 +111,9 @@ export function Variant() {
           Alpha · WebGL · craft depth
         </p>
       </footer>
+        <p className="mx-auto mt-2 max-w-5xl text-sm leading-7 text-white/40">
+          Lab depth floor · 118 — one-take craft cannot thin the hire path.
+        </p>
 </main>
   );
 }

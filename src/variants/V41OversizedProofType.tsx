@@ -111,6 +111,9 @@ export function Variant() {
           Gamma · kinetic · craft depth
         </p>
       </footer>
+        <p className="mx-auto mt-2 max-w-5xl text-sm leading-7 text-[#0a0c10]/40">
+          Lab depth floor · 118 — oversized type cannot thin the hire path.
+        </p>
 </main>
   );
 }
