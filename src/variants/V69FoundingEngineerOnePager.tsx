@@ -2,14 +2,16 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { ContactRow } from "@/components/CvBlocks";
+import { SmoothScroll } from "@/components/SmoothScroll";
 import { cv } from "@/data/cv";
 
-/** Founding Engineer One Pager — compressed pitch with every CV detail retained. */
+/** Founding Engineer One Pager — compressed pitch with Lenis for dense one-page reading. */
 export function Variant() {
   const reduce = useReducedMotion() ?? false;
   const skillFlat = Object.values(cv.skills).flat();
 
   return (
+    <SmoothScroll>
     <main className="min-h-screen bg-white text-zinc-900">
       <article className="mx-auto max-w-4xl px-5 py-20 sm:px-8">
         <header className="border-b-2 border-zinc-900 pb-6">
@@ -23,6 +25,9 @@ export function Variant() {
                 {cv.name}
               </motion.h1>
               <p className="mt-2 text-sm font-medium uppercase tracking-[0.15em] text-zinc-600">{cv.title}</p>
+              <p className="mt-2 font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.3em] text-zinc-400">
+                Founding one-pager · Lenis · {cv.location}
+              </p>
             </div>
             <div className="text-right text-xs leading-5 text-zinc-600">
               <p>{cv.location}</p>
@@ -139,5 +144,6 @@ export function Variant() {
         </footer>
       </article>
     </main>
+    </SmoothScroll>
   );
 }

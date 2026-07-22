@@ -406,7 +406,7 @@ test("Fail-then-pass: Gamma kinetic ships GSAP in ≥5 cells and stays ≥110 li
   );
 });
 
-test("Fail-then-pass: Epsilon hire cells stay deep and expose a 10-second proof strip", () => {
+test("Fail-then-pass: Epsilon hire cells stay deep, expose a 10-second proof strip, and ship award motion on ≥3 cells", () => {
   const epsilon = listVariantFiles().filter((name) => {
     const id = Number(name.match(/^V(\d+)/)[1]);
     return id >= 57 && id <= 70;
@@ -414,6 +414,7 @@ test("Fail-then-pass: Epsilon hire cells stay deep and expose a 10-second proof 
   assert.equal(epsilon.length, 14);
   const shallow = [];
   const missingProof = [];
+  let withMotion = 0;
   for (const file of epsilon) {
     const src = fs.readFileSync(path.join(variantsDir, file), "utf8");
     const lines = src.split("\n").length;
@@ -425,6 +426,14 @@ test("Fail-then-pass: Epsilon hire cells stay deep and expose a 10-second proof 
       /10.?second/i.test(src) ||
       /recruiter scan/i.test(src);
     if (!hasProof) missingProof.push(file);
+    if (
+      src.includes("AwardWebGL") ||
+      src.includes("SmoothScroll") ||
+      src.includes("useGsapReveal") ||
+      src.includes("@react-three/fiber")
+    ) {
+      withMotion += 1;
+    }
   }
   assert.equal(
     shallow.length,
@@ -435,6 +444,10 @@ test("Fail-then-pass: Epsilon hire cells stay deep and expose a 10-second proof 
     missingProof.length,
     0,
     `RED: Epsilon cells missing 10-second proof strip: ${missingProof.join(", ")}`,
+  );
+  assert.ok(
+    withMotion >= 3,
+    `RED: need ≥3 Epsilon hire cells with WebGL/Lenis/GSAP, got ${withMotion}`,
   );
 });
 
