@@ -13,7 +13,7 @@ export function Variant() {
   useGsapReveal(articleRef, reduce);
 
   return (
-    <main className="min-h-screen bg-[#d8dee8] text-[#1c2838]">
+    <main className="min-h-screen bg-[#d8dee8] text-[#1c2838] overflow-x-hidden">
       <div className="relative overflow-hidden border-b border-[#1c283822]">
         <div
           aria-hidden

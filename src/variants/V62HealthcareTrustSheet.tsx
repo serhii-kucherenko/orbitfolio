@@ -16,7 +16,7 @@ export function Variant() {
   const reduce = useReducedMotion() ?? false;
 
   return (
-    <main className="min-h-screen bg-[#eef5f3] text-[#0c2a2a]">
+    <main className="min-h-screen bg-[#eef5f3] text-[#0c2a2a] overflow-x-hidden">
       <div className="border-b border-[#b7d4d0] bg-gradient-to-r from-[#e0efec] to-[#eef5f3]">
         <div className="mx-auto flex max-w-4xl flex-wrap items-center justify-between gap-2 px-6 py-3 text-[10px] uppercase tracking-[0.28em] text-[#2a6b66]">
           <span>Trust sheet · confidential hire packet</span>

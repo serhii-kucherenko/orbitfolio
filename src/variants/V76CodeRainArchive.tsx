@@ -10,7 +10,7 @@ export function Variant() {
   const rain = ["10+", "RAG", "LLM", "0→1", "SSR", "85%", "$78K", "YC", "AI", "CI", "→", "λ", "∥", "◆"];
 
   return (
-    <main className="relative min-h-screen overflow-hidden bg-[#020705] font-[family-name:var(--font-mono)] text-[#86efac]">
+    <main className="relative min-h-screen overflow-hidden bg-[#020705] font-[family-name:var(--font-mono)] text-[#86efac] overflow-x-hidden">
       {!reduce && (
         <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden opacity-20">
           <div className="flex h-full gap-6 px-2">

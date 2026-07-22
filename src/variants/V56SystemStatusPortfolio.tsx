@@ -15,7 +15,7 @@ export function Variant() {
   ];
 
   return (
-    <main className="min-h-screen bg-[#f0fdf4] text-[#052e16]">
+    <main className="min-h-screen bg-[#f0fdf4] text-[#052e16] overflow-x-hidden">
       <div className="border-b border-emerald-200 bg-white">
         <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-4 px-6 py-4">
           <div className="flex items-center gap-3">

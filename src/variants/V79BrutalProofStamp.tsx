@@ -13,7 +13,7 @@ export function Variant() {
   useGsapReveal(stampRef, reduce);
 
   return (
-    <main className="min-h-screen bg-[#d4cfc4] p-3 text-black sm:p-6 md:p-8">
+    <main className="min-h-screen bg-[#d4cfc4] p-3 text-black sm:p-6 md:p-8 overflow-x-hidden">
       <header className="relative border-[5px] border-black bg-[#f4f2eb] p-6 sm:p-10 md:p-12">
         <div className="flex flex-wrap justify-between gap-3 font-black uppercase tracking-wide">
           <span>Proof file 079 · GSAP</span>

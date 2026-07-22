@@ -32,7 +32,7 @@ export function Variant() {
   useGsapReveal(chaptersRef, reduce);
 
   return (
-    <main className="min-h-screen bg-[#eef6ff] text-[#0b1f38]">
+    <main className="min-h-screen bg-[#eef6ff] text-[#0b1f38] overflow-x-hidden">
       <section className="relative overflow-hidden">
         <div
           aria-hidden

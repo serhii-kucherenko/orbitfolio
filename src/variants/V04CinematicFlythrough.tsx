@@ -10,7 +10,7 @@ export function Variant() {
   const reduce = useReducedMotion() ?? false;
   const accent = "#e6a56f";
   return (
-    <main className="min-h-screen bg-[#0e0d0b] text-[#f2eadc]">
+    <main className="min-h-screen bg-[#0e0d0b] text-[#f2eadc] overflow-x-hidden">
       <header className="relative flex min-h-screen items-end overflow-hidden px-6 pb-16 pt-28 md:px-12">
         <WebGLStage
           accent={accent}

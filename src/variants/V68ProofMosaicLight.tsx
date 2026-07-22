@@ -10,7 +10,7 @@ export function Variant() {
   const [a, b, c, d] = cv.highlights;
 
   return (
-    <main className="min-h-screen bg-[#e8f0f4] text-[#14202b]">
+    <main className="min-h-screen bg-[#e8f0f4] text-[#14202b] overflow-x-hidden">
       <section className="mx-auto max-w-6xl px-4 pb-6 pt-20 sm:px-6 md:pt-24">
         <motion.div initial={reduce ? false : { opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}>
           <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.4em] text-[#2f6f7a]">

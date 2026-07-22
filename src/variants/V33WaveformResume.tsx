@@ -14,7 +14,7 @@ export function Variant() {
   useGsapReveal(sheetRef, reduce);
 
   return (
-    <main className="min-h-screen bg-[#04060c] text-[#dbeafe]">
+    <main className="min-h-screen bg-[#04060c] text-[#dbeafe] overflow-x-hidden">
       <header className="mx-auto max-w-4xl px-6 pb-6 pt-24 md:px-8">
         <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.4em] text-[#34d399]">
           Waveform · master · GSAP · {cv.location}

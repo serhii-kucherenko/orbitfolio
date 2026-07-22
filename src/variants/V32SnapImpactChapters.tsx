@@ -14,7 +14,7 @@ export function Variant() {
   useGsapReveal(rolesRef, reduce);
 
   return (
-    <main className={`h-screen overflow-y-auto bg-[#10141a] text-[#f4f0e8] ${snap}`}>
+    <main className={`h-screen overflow-x-hidden overflow-y-auto bg-[#10141a] text-[#f4f0e8] ${snap}`}>
       <section className="relative grid min-h-screen snap-start place-items-center overflow-hidden bg-[#e8a54b] px-8 py-24 text-[#10141a]">
         <motion.div
           aria-hidden

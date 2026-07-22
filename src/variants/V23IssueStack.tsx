@@ -17,7 +17,7 @@ export function Variant() {
 
   return (
     <SmoothScroll>
-    <main className="min-h-screen bg-[#090807] text-[#fafaf9]">
+    <main className="min-h-screen bg-[#090807] text-[#fafaf9] overflow-x-hidden">
       <header className="mx-auto max-w-4xl px-6 pb-8 pt-24 md:px-8">
         <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.4em] text-white/45">
           Stack · current issue · {cv.location}

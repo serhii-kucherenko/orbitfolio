@@ -33,7 +33,7 @@ export function Variant() {
   }, [query]);
 
   return (
-    <main className="min-h-screen bg-[#0d1117] text-[#e6edf3]">
+    <main className="min-h-screen bg-[#0d1117] text-[#e6edf3] overflow-x-hidden">
       <div className="mx-auto max-w-3xl px-4 pb-8 pt-24">
         <motion.div
           className="overflow-hidden border border-white/10 bg-[#161b22]"

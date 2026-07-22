@@ -13,7 +13,7 @@ export function Variant() {
   useGsapReveal(entriesRef, reduce);
 
   return (
-    <main className="relative min-h-screen overflow-hidden bg-[#061018] text-[#e8f7f4]">
+    <main className="relative min-h-screen overflow-hidden bg-[#061018] text-[#e8f7f4] overflow-x-hidden">
       <div className="pointer-events-none absolute inset-0" aria-hidden>
         {[
           { top: "8%", color: "rgba(34,211,238,0.35)", duration: 14 },

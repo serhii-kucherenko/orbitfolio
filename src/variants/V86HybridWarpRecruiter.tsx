@@ -14,7 +14,7 @@ export function Variant() {
     "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300";
 
   return (
-    <main className="overflow-hidden bg-[#010609] text-white">
+    <main className="overflow-hidden bg-[#010609] text-white overflow-x-hidden">
       <header className="relative grid min-h-[92vh] place-items-center px-6 py-24 text-center">
         <WebGLStage
           accent={accent}

@@ -11,7 +11,7 @@ export function Variant() {
   const accent = "#5eb8ae";
 
   return (
-    <main className="min-h-screen bg-[#eef3f1] text-[#122524]">
+    <main className="min-h-screen bg-[#eef3f1] text-[#122524] overflow-x-hidden">
       <header className="relative min-h-screen overflow-hidden px-6 py-24 md:px-12">
         <WebGLStage
           accent={accent}

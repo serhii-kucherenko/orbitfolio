@@ -16,7 +16,7 @@ export function Variant() {
   const reduce = useReducedMotion() ?? false;
 
   return (
-    <main className="min-h-screen bg-[#0c0c0e] text-zinc-100">
+    <main className="min-h-screen bg-[#0c0c0e] text-zinc-100 overflow-x-hidden">
       <header className="mx-auto max-w-5xl px-6 pb-6 pt-24">
         <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.4em] text-zinc-500">
           Stack · navigate by cover · {cv.location}

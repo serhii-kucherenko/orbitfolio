@@ -9,7 +9,7 @@ export function Variant() {
   const reduce = useReducedMotion() ?? false;
 
   return (
-    <main className="min-h-screen bg-[#16141c] text-[#f0eef5]">
+    <main className="min-h-screen bg-[#16141c] text-[#f0eef5] overflow-x-hidden">
       <header className="mx-auto max-w-6xl px-6 pb-8 pt-20 md:px-10">
         <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.4em] text-[#ff7a59]">
           Eurorack CV · kinetic synthesis · {cv.location}

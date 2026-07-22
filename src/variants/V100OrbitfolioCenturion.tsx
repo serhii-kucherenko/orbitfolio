@@ -23,7 +23,7 @@ export function Variant() {
 
   return (
     <SmoothScroll>
-    <main className="relative min-h-screen overflow-hidden bg-[#05080d] text-white">
+    <main className="relative min-h-screen overflow-hidden bg-[#05080d] text-white overflow-x-hidden">
       <WebGLStage
         accent={accent}
         reduce={reduce}

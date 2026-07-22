@@ -11,7 +11,7 @@ export function Variant() {
 
   return (
     <SmoothScroll>
-    <main className="min-h-screen bg-[#e4dfd4] text-[#1a1a1a]">
+    <main className="min-h-screen bg-[#e4dfd4] text-[#1a1a1a] overflow-x-hidden">
       <header className="mx-auto grid max-w-6xl gap-5 px-6 pb-6 pt-24 lg:grid-cols-[1.25fr_0.75fr] lg:px-10">
         <div className="relative overflow-hidden border-4 border-black bg-[#e31c23] p-8 text-white sm:p-12">
           <motion.div

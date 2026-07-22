@@ -18,7 +18,7 @@ export function Variant() {
   const strip = [...frames, ...frames];
 
   return (
-    <main className="min-h-screen bg-[#120e09] text-[#f2e8da]">
+    <main className="min-h-screen bg-[#120e09] text-[#f2e8da] overflow-x-hidden">
       <header className="relative overflow-hidden border-b border-[#c4a574]/30 px-6 py-20 md:px-12">
         <motion.div
           aria-hidden

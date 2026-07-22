@@ -23,7 +23,7 @@ export function Variant() {
   ];
 
   return (
-    <main className="min-h-screen bg-[#03060e] text-[#d7e6ff]">
+    <main className="min-h-screen bg-[#03060e] text-[#d7e6ff] overflow-x-hidden">
       <header className="mx-auto max-w-6xl px-6 pb-6 pt-28">
         <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.4em] text-sky-300/60">
           Constellation command · {cv.location}

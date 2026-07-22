@@ -17,7 +17,7 @@ export function Variant() {
   useGsapReveal(padRef, reduce);
 
   return (
-    <main className="min-h-screen bg-[#120a06] text-[#ffe8d6]">
+    <main className="min-h-screen bg-[#120a06] text-[#ffe8d6] overflow-x-hidden">
       <header className="border-b border-orange-500/30 bg-gradient-to-b from-[#2a1408] to-[#120a06] px-6 py-16 md:px-12">
         <div className="mx-auto flex max-w-6xl flex-wrap items-end justify-between gap-8">
           <div>

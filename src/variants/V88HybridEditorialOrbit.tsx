@@ -10,7 +10,7 @@ export function Variant() {
   const reduce = useReducedMotion() ?? false;
 
   return (
-    <main className="min-h-screen bg-[#090e1c] text-[#e8eef8]">
+    <main className="min-h-screen bg-[#090e1c] text-[#e8eef8] overflow-x-hidden">
       <header className="relative mx-auto max-w-6xl overflow-hidden px-6 pb-20 pt-24 md:px-10">
         <div className="flex items-baseline justify-between border-b border-white/10 pb-4">
           <p className="font-[family-name:var(--font-serif)] text-2xl italic text-[#7dd3fc]">Orbit</p>

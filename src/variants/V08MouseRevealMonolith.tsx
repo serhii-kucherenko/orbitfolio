@@ -22,7 +22,7 @@ export function Variant() {
   }
 
   return (
-    <main className="min-h-screen bg-[#070709] text-zinc-100" onPointerMove={onMove}>
+    <main className="min-h-screen bg-[#070709] text-zinc-100 overflow-x-hidden" onPointerMove={onMove}>
       <section className="relative grid min-h-[90vh] items-end gap-8 overflow-hidden px-6 pb-16 pt-28 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
         <div
           aria-hidden

@@ -14,7 +14,7 @@ export function Variant() {
     "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-300";
 
   return (
-    <main className="relative overflow-hidden bg-[#06100d] text-white">
+    <main className="relative overflow-hidden bg-[#06100d] text-white overflow-x-hidden">
       <WebGLStage
         accent={accent}
         reduce={reduce}

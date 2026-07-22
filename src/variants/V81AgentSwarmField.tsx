@@ -20,7 +20,7 @@ export function Variant() {
   const accent = "#34d399";
 
   return (
-    <main className="min-h-screen" style={{ background: "#0a1210", color: "#c8e6d8" }}>
+    <main className="min-h-screen overflow-x-hidden" style={{ background: "#0a1210", color: "#c8e6d8" }}>
       <section className="relative mx-auto min-h-[70vh] max-w-6xl overflow-hidden px-6 pb-8 pt-20">
         <WebGLStage
           accent={accent}

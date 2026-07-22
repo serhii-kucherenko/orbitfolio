@@ -13,7 +13,7 @@ export function Variant() {
 
   return (
     <main
-      className="relative min-h-screen bg-[#05060a] text-[#f0f4ff]"
+      className="relative min-h-screen bg-[#05060a] text-[#f0f4ff] overflow-x-hidden"
       style={{
         backgroundImage:
           "radial-gradient(ellipse at 20% 0%, #0a2030 0%, transparent 50%), radial-gradient(ellipse at 80% 20%, #0c1a28 0%, transparent 40%)",

@@ -15,7 +15,7 @@ export function Variant() {
   useGsapReveal(trackRef, reduce);
 
   return (
-    <main className="min-h-screen bg-[#050806] font-[family-name:var(--font-mono)] text-[#9dffb0]">
+    <main className="min-h-screen bg-[#050806] font-[family-name:var(--font-mono)] text-[#9dffb0] overflow-x-hidden">
       <header className="mx-auto max-w-6xl px-6 pb-10 pt-20 md:px-10">
         <p className="text-[10px] uppercase tracking-[0.4em] text-[#9dffb0]/55">
           Edit bay · scrub story · GSAP · {cv.location}

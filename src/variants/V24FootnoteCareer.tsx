@@ -12,7 +12,7 @@ export function Variant() {
 
   return (
     <SmoothScroll>
-    <main className="min-h-screen bg-[#f7f5f0] text-[#1c1917]">
+    <main className="min-h-screen bg-[#f7f5f0] text-[#1c1917] overflow-x-hidden">
       <header className="mx-auto max-w-3xl px-6 pb-8 pt-24 md:px-8">
         <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.3em] text-[#57534e]">
           Monograph · §1 · Lenis · {cv.location}

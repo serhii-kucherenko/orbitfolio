@@ -12,7 +12,7 @@ export function Variant() {
   return (
     <SmoothScroll>
     <main
-      className="min-h-screen bg-[#eaf4ef] text-[#0f2a22]"
+      className="min-h-screen bg-[#eaf4ef] text-[#0f2a22] overflow-x-hidden"
       style={{
         backgroundImage:
           "linear-gradient(rgba(15,42,34,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(15,42,34,0.04) 1px, transparent 1px)",

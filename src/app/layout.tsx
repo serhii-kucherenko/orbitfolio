@@ -1,5 +1,5 @@
 import { Space_Grotesk, Instrument_Serif, JetBrains_Mono, Syne } from "next/font/google";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { PersonJsonLd } from "@/components/PersonJsonLd";
 import "./globals.css";
 
@@ -45,6 +45,12 @@ export const metadata: Metadata = {
     title: "Serhii Kucherenko — Orbitfolio",
     description: "Founding Full-Stack Engineer · applied AI · Vancouver",
   },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

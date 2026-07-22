@@ -20,7 +20,7 @@ export function Variant() {
 
   return (
     <SmoothScroll>
-    <main className="min-h-screen bg-[#0b1220] text-slate-100">
+    <main className="min-h-screen bg-[#0b1220] text-slate-100 overflow-x-hidden">
       <div className="mx-auto flex min-h-screen max-w-6xl">
         <aside className="sticky top-0 hidden h-screen w-56 shrink-0 flex-col border-r border-white/10 bg-[#070d18] px-4 py-24 md:flex">
           <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.3em] text-sky-300/70">

@@ -14,7 +14,7 @@ export function Variant() {
 
   return (
     <main
-      className="min-h-screen bg-[#07141f] font-[family-name:var(--font-mono)] text-sky-100"
+      className="min-h-screen bg-[#07141f] font-[family-name:var(--font-mono)] text-sky-100 overflow-x-hidden"
       style={{
         backgroundImage:
           "linear-gradient(rgba(56,189,248,0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(56,189,248,0.07) 1px, transparent 1px)",

@@ -21,7 +21,7 @@ export function Variant() {
   const current = channels.find((c) => c.id === active)?.job ?? cv.experience[0];
 
   return (
-    <main className="min-h-screen bg-[#2a261e] text-[#f2ead8]">
+    <main className="min-h-screen bg-[#2a261e] text-[#f2ead8] overflow-x-hidden">
       <header className="border-b border-[#8b7355]/40 px-6 py-16 md:px-12">
         <div className="mx-auto max-w-6xl">
           <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.4em] text-[#c4a574]">

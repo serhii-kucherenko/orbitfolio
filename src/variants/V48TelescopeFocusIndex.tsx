@@ -15,7 +15,7 @@ export function Variant() {
   };
 
   return (
-    <main className="min-h-screen bg-[#04060f] text-[#dce6ff]">
+    <main className="min-h-screen bg-[#04060f] text-[#dce6ff] overflow-x-hidden">
       <div
         className="pointer-events-none absolute inset-0 opacity-40"
         style={{

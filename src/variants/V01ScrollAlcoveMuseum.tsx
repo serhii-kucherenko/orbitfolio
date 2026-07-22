@@ -12,7 +12,7 @@ export function Variant() {
 
   return (
     <main
-      className="min-h-screen"
+      className="min-h-screen overflow-x-hidden"
       style={{
         background: "linear-gradient(180deg, #17130e 0%, #0c0907 40%, #17130e 100%)",
         color: "#f3e8d8",

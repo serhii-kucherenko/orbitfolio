@@ -19,7 +19,7 @@ export function Variant() {
   ];
 
   return (
-    <main className="min-h-screen bg-[#0a0e14] text-[#e8edf5]">
+    <main className="min-h-screen bg-[#0a0e14] text-[#e8edf5] overflow-x-hidden">
       <header className="border-b border-[#1e2a3a] bg-[#0d1219] px-4 py-3 font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.28em] text-[#7dd3c0]">
         <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3">
           <span>Dual narrative console · live</span>

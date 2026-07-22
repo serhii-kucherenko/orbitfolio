@@ -11,7 +11,7 @@ export function Variant() {
 
   return (
     <SmoothScroll>
-    <main className="min-h-screen bg-[#e8e8e4] text-[#111111]">
+    <main className="min-h-screen bg-[#e8e8e4] text-[#111111] overflow-x-hidden">
       <header className="mx-auto grid max-w-6xl grid-cols-12 gap-0 border-x border-black/15 px-0 pt-16">
         <div className="col-span-12 border-b border-black/15 px-4 py-3 md:col-span-3 md:border-b-0 md:border-r">
           <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.3em]">

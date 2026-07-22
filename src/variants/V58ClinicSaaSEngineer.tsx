@@ -32,7 +32,7 @@ export function Variant() {
 
   return (
     <SmoothScroll>
-    <main className="min-h-screen bg-[#f3f7f4] text-[#1c2b24]">
+    <main className="min-h-screen bg-[#f3f7f4] text-[#1c2b24] overflow-x-hidden">
       <header className="relative overflow-hidden border-b border-[#c5d4cb] bg-gradient-to-br from-[#e8f0eb] via-[#f3f7f4] to-[#dde8e2] px-6 pb-14 pt-28">
         <motion.div
           aria-hidden

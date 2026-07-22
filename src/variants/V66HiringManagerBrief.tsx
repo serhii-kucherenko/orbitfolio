@@ -17,7 +17,7 @@ export function Variant() {
 
   return (
     <SmoothScroll>
-    <main className="min-h-screen bg-[#e8ecf1] text-[#1a2332]">
+    <main className="min-h-screen bg-[#e8ecf1] text-[#1a2332] overflow-x-hidden">
       <div className="mx-auto max-w-3xl px-4 py-10 md:py-16">
         <motion.article
           initial={reduce ? false : { opacity: 0, y: 12 }}
