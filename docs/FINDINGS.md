@@ -44,6 +44,7 @@ Full definitions: [`docs/RUBRIC.md`](RUBRIC.md)
 - Gamma GSAP coverage (tick 113): kinetic cells raise ScrollTrigger craft from ≥5 to ≥7 — nameplate and aurora ledger join the GSAP set
 - Epsilon hire motion (tick 114): hire cells raise award motion from ≥3 to ≥5 — recruiter profile light uses Lenis; outcome-first resume uses GSAP
 - Zeta motion coverage (tick 115): experimental cells raise award motion from ≥6 to ≥8 — ASCII signal uses Lenis; origami evidence uses GSAP
+- Delta motion coverage (tick 116): systems cells raise award motion from ≥6 to ≥8 — agent chat uses Lenis; blueprint manual uses GSAP
 - Structural diversity beats palette swaps for lab signal
 - Fail-then-pass diversity checks forced at least 20 fully custom designs instead of shared-shell palette swaps — see [`docs/RED_GREEN.md`](RED_GREEN.md)
 - Gate raised to **100** custom designs (batch 8) — every `/test/n` cell is now uniquely built; shared `AwardVariant` shell retired from active experiments
