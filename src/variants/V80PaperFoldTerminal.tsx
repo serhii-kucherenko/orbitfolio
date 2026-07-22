@@ -1,12 +1,16 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
+import { useRef } from "react";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
+import { useGsapReveal } from "@/components/useGsapReveal";
 import { cv } from "@/data/cv";
 
-/** Paper Fold Terminal — origami sheet that unfolds into a phosphor console */
+/** Paper Fold Terminal — origami sheet unfolds; GSAP reveals the phosphor console body. */
 export function Variant() {
   const reduce = useReducedMotion() ?? false;
+  const consoleRef = useRef<HTMLElement>(null);
+  useGsapReveal(consoleRef, reduce);
 
   return (
     <main
@@ -32,7 +36,7 @@ export function Variant() {
             className="flex items-center gap-2 border-b px-4 py-2 font-[family-name:var(--font-mono)] text-[10px]"
             style={{ borderColor: "#1a233222", background: "#1a2332", color: "#7dffa3" }}
           >
-            <span className="opacity-60">fold://portfolio</span>
+            <span className="opacity-60">fold://portfolio · GSAP</span>
             <span className="ml-auto opacity-40">{cv.location}</span>
           </div>
 
@@ -92,14 +96,16 @@ export function Variant() {
                 ))}
               </div>
 
-              <section className="mt-14">
-                <h2 className="mb-6 flex items-center gap-3 font-[family-name:var(--font-mono)] text-sm uppercase tracking-[0.2em]">
+              <section ref={consoleRef} className="mt-14">
+                <h2 data-gsap className="mb-6 flex items-center gap-3 font-[family-name:var(--font-mono)] text-sm uppercase tracking-[0.2em]">
                   <span style={{ color: "#0d7a45" }}>▸</span> Career stack
                 </h2>
-                <ExperienceList tone="light" />
+                <div data-gsap>
+                  <ExperienceList tone="light" />
+                </div>
               </section>
 
-              <section className="mt-14 grid gap-10 md:grid-cols-2">
+              <section data-gsap className="mt-14 grid gap-10 md:grid-cols-2">
                 <div>
                   <h2 className="mb-5 font-[family-name:var(--font-mono)] text-sm uppercase tracking-[0.2em]">
                     Toolkit

@@ -36,6 +36,7 @@ Full definitions: [`docs/RUBRIC.md`](RUBRIC.md)
 - Beta Lenis coverage (tick 105): magazine cells raise smooth-scroll craft from ≥3 to ≥6 — pull quotes, Sunday press, footnotes, and field notes now ride Lenis
 - Gamma GSAP coverage (tick 106): kinetic cells raise ScrollTrigger craft from ≥3 to ≥5 — snap chapters, particle assembly, and signal scrub join the GSAP set
 - Hybrid craft depth 130 (tick 107): the learning ladder must stay ≥130 lines — Lenis/WebGL wrappers alone no longer clear Hybrid craft
+- Zeta motion coverage (tick 108): experimental cells raise award motion from ≥3 to ≥6 — aurora Lenis, event-horizon WebGL, paper-fold GSAP join the set
 - Structural diversity beats palette swaps for lab signal
 - Fail-then-pass diversity checks forced at least 20 fully custom designs instead of shared-shell palette swaps — see [`docs/RED_GREEN.md`](RED_GREEN.md)
 - Gate raised to **100** custom designs (batch 8) — every `/test/n` cell is now uniquely built; shared `AwardVariant` shell retired from active experiments
