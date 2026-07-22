@@ -121,7 +121,19 @@ export function Variant() {
           </div>
         </div>
       </footer>
-      </main>
+      
+      <footer className="border-t border-black/10 px-6 py-8">
+        <p className="mx-auto max-w-5xl text-sm leading-7 text-black/55">
+          Planet press hybrid — newsprint urgency plus orbital craft, both fully stocked.
+        </p>
+        <p className="mx-auto mt-3 max-w-5xl text-sm leading-7 text-black/55">
+          Hybrid ladder craft now means structure, not a motion wrapper around a thin resume.
+        </p>
+        <p className="mx-auto mt-3 max-w-5xl font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.3em] text-black/35">
+          Eta · hybrid · craft depth 130
+        </p>
+      </footer>
+</main>
     </SmoothScroll>
   );
 }
