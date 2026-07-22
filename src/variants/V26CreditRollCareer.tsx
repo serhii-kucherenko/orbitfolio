@@ -2,13 +2,15 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { ContactRow, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
+import { SmoothScroll } from "@/components/SmoothScroll";
 import { cv } from "@/data/cv";
 
-/** Credit Roll Career — end-credit billing for every contributor-era. */
+/** Credit Roll Career — end-credit billing with Lenis for long roll reading. */
 export function Variant() {
   const reduce = useReducedMotion() ?? false;
 
   return (
+    <SmoothScroll>
     <main className="min-h-screen bg-[#040404] text-[#f5e6c8]">
       <section className="relative flex min-h-[70vh] flex-col items-center justify-center overflow-hidden px-6 pt-24 text-center">
         <motion.div
@@ -107,12 +109,13 @@ export function Variant() {
           End credits stay reduced-motion safe — every era gets full billing without a trapped scroll.
         </p>
         <p className="mt-4 font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.35em] text-white/35">
-          Roll · Vol. 26 · {cv.location}
+          Roll · Vol. 26 · Lenis · {cv.location}
         </p>
-      </footer>
-            <p className="mt-3 text-sm leading-7 text-white/45">
+        <p className="mt-3 text-sm leading-7 text-white/45">
           Lab depth floor · 118 — credit roll billing stays complete and hireable.
         </p>
+      </footer>
 </main>
+    </SmoothScroll>
   );
 }
