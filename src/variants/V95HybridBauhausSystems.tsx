@@ -18,91 +18,120 @@ export function Variant() {
 
   return (
     <SmoothScroll>
-      <main className="min-h-screen bg-[#e8ebe4] text-[#101010] overflow-x-hidden">
-      <div className="grid min-h-screen lg:grid-cols-[260px_1fr]">
-        <aside className="border-b-4 border-black bg-[#f0c43a] p-7 lg:sticky lg:top-0 lg:h-screen lg:border-b-0 lg:border-r-4">
-          <motion.div
-            aria-hidden
-            className="size-20 rounded-full bg-[#d91f1f]"
-            animate={reduce ? undefined : { x: [0, 28, 0] }}
-            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-          />
-          <h2 className="mt-10 text-xl font-black uppercase tracking-tight">System manual 95 · {cv.location}</h2>
-          <nav className="mt-10 space-y-2 font-bold">
-            {toc.map((item) => (
-              <a
-                key={item.id}
-                href={`#${item.id}`}
-                className="block hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-              >
-                {item.label}
-              </a>
-            ))}
-          </nav>
-          <div className="mt-12 flex flex-col gap-2">
-            <a
-              href={`mailto:${cv.email}`}
-              className="inline-block border-4 border-black bg-black px-4 py-2 text-xs font-black uppercase text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-            >
-              Hire signal
-            </a>
-            <a
-              href="/resume"
-              className="inline-block border-4 border-black px-4 py-2 text-xs font-black uppercase focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-            >
-              Manual PDF
-            </a>
-          </div>
-          <p className="mt-8 text-sm font-semibold">{cv.location}</p>
-        </aside>
-
-        <div>
-          <header id="profile" className="scroll-mt-4 border-b-4 border-black p-8 md:p-12">
-            <p className="font-bold uppercase tracking-[0.3em]">{cv.title}</p>
-            <h1 className="mt-6 font-[family-name:var(--font-display)] text-5xl font-black uppercase leading-[0.9] sm:text-7xl">
-              {cv.name}
-            </h1>
-            <p className="mt-8 max-w-3xl text-base leading-8">{cv.summary}</p>
-            <ContactRow className="mt-7" />
-            <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-4">
-              {cv.highlights.map((h, i) => {
-                const fills = ["bg-white", "bg-[#2455a4] text-white", "bg-[#d91f1f] text-white", "bg-white"];
-                return (
-                  <div key={h.label} className={`border-4 border-black p-4 ${fills[i]}`}>
-                    <p className="text-3xl font-black">{h.value}</p>
-                    <p className="text-xs font-bold uppercase">{h.label}</p>
-                  </div>
-                );
-              })}
+      <main className="min-h-screen overflow-x-hidden bg-[#e8ebe4] text-[#101010]">
+        <header className="border-b-4 border-black">
+          <div className="mx-auto grid max-w-6xl lg:grid-cols-[200px_1fr]">
+            <div className="relative flex min-h-[200px] flex-col justify-between overflow-hidden border-b-4 border-black bg-[#f0c43a] p-6 lg:min-h-0 lg:border-b-0 lg:border-r-4">
+              <motion.div
+                aria-hidden
+                className="size-16 rounded-full bg-[#d91f1f] sm:size-20"
+                animate={reduce ? undefined : { x: [0, 18, 0] }}
+                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+              />
+              <div>
+                <p className="mt-8 text-[10px] font-black uppercase tracking-[0.28em]">System manual 95</p>
+                <p className="mt-2 text-sm font-semibold">{cv.location}</p>
+              </div>
+              <motion.div
+                aria-hidden
+                className="absolute -bottom-6 -right-6 size-24 border-4 border-black bg-[#2455a4]"
+                animate={reduce ? undefined : { y: [0, -10, 0] }}
+                transition={{ duration: 3.2, repeat: Infinity, ease: "easeInOut" }}
+              />
             </div>
-          </header>
 
-          <section id="roles" className="scroll-mt-4 border-b-4 border-black p-8 md:p-12">
-            <div className="mb-10 flex items-center gap-5">
-              <span className="grid size-14 place-items-center bg-[#2455a4] text-2xl font-black text-white">01</span>
-              <h2 className="text-3xl font-black sm:text-4xl">Experience specification</h2>
+            <div id="profile" className="scroll-mt-24 p-6 sm:p-10">
+              <p className="font-bold uppercase tracking-[0.3em]">{cv.title}</p>
+              <h1 className="mt-4 font-[family-name:var(--font-display)] text-4xl font-black uppercase leading-[0.92] sm:text-6xl lg:text-7xl">
+                {cv.name}
+              </h1>
+              <p className="mt-6 max-w-3xl text-base leading-8 text-black/80">{cv.summary}</p>
+              <div className="mt-7 flex flex-wrap gap-3">
+                <a
+                  href={`mailto:${cv.email}`}
+                  className="inline-block border-4 border-black bg-black px-4 py-2 text-xs font-black uppercase text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                >
+                  Hire signal
+                </a>
+                <a
+                  href="/resume"
+                  className="inline-block border-4 border-black bg-white px-4 py-2 text-xs font-black uppercase focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                >
+                  Manual PDF
+                </a>
+              </div>
+              <ContactRow className="mt-6" />
+            </div>
+          </div>
+
+          <nav className="border-t-4 border-black bg-white">
+            <div className="mx-auto flex max-w-6xl flex-wrap gap-1 p-2 sm:gap-2 sm:p-3">
+              {toc.map((item) => (
+                <a
+                  key={item.id}
+                  href={`#${item.id}`}
+                  className="border-2 border-transparent px-3 py-2 text-xs font-black uppercase tracking-wide hover:border-black hover:bg-[#f0c43a] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                >
+                  {item.label}
+                </a>
+              ))}
+            </div>
+          </nav>
+        </header>
+
+        <section className="mx-auto grid max-w-6xl grid-cols-2 gap-0 border-b-4 border-black sm:grid-cols-4">
+          {cv.highlights.map((h, i) => {
+            const fills = ["bg-white", "bg-[#2455a4] text-white", "bg-[#d91f1f] text-white", "bg-[#f0c43a]"];
+            return (
+              <motion.div
+                key={h.label}
+                initial={reduce ? false : { opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: reduce ? 0 : i * 0.05 }}
+                className={`border-black p-5 sm:p-6 ${fills[i]} ${i % 2 === 1 ? "border-l-4" : ""} ${i > 1 ? "border-t-4 sm:border-t-0" : ""} ${i === 2 ? "sm:border-l-4" : ""} ${i === 3 ? "border-l-4" : ""}`}
+              >
+                <p className="text-3xl font-black">{h.value}</p>
+                <p className="mt-1 text-[10px] font-bold uppercase tracking-wider opacity-80">{h.label}</p>
+              </motion.div>
+            );
+          })}
+        </section>
+
+        <section id="roles" className="scroll-mt-24 border-b-4 border-black">
+          <div className="mx-auto max-w-6xl p-6 sm:p-10">
+            <div className="mb-8 flex items-center gap-4">
+              <span className="grid size-12 place-items-center bg-[#2455a4] text-xl font-black text-white sm:size-14 sm:text-2xl">
+                01
+              </span>
+              <h2 className="text-2xl font-black sm:text-4xl">Experience specification</h2>
             </div>
             <ExperienceList tone="light" />
-          </section>
+          </div>
+        </section>
 
-          <section className="grid md:grid-cols-2">
-            <div id="stack" className="scroll-mt-4 border-b-4 border-black p-8 md:border-b-0 md:border-r-4">
-              <h2 className="mb-8 text-2xl font-black sm:text-3xl">02 / Capabilities</h2>
+        <section className="border-b-4 border-black">
+          <div className="mx-auto grid max-w-6xl md:grid-cols-2">
+            <div id="stack" className="scroll-mt-24 border-b-4 border-black p-6 sm:p-10 md:border-b-0 md:border-r-4">
+              <h2 className="mb-6 text-2xl font-black sm:text-3xl">02 / Capabilities</h2>
               <SkillsCloud tone="light" />
             </div>
-            <div id="work" className="scroll-mt-4 p-8">
-              <h2 className="mb-8 text-2xl font-black sm:text-3xl">03 / Projects</h2>
+            <div id="work" className="scroll-mt-24 p-6 sm:p-10">
+              <h2 className="mb-6 text-2xl font-black sm:text-3xl">03 / Projects</h2>
               <ProjectLinks tone="light" />
-              <p className="mt-12 border-t-4 border-black pt-5 font-semibold">
+              <p className="mt-10 border-t-4 border-black pt-5 text-sm font-semibold">
                 {cv.education.degree} · {cv.education.school} · {cv.location}
               </p>
             </div>
-          </section>
-          <section className="border-t-4 border-black bg-white p-8 md:p-12">
+          </div>
+        </section>
+
+        <section className="border-b-4 border-black bg-white">
+          <div className="mx-auto max-w-6xl p-6 sm:p-10">
             <p className="text-sm font-bold uppercase tracking-[0.2em]">Lesson</p>
-            <p className="mt-4 max-w-3xl text-base leading-8">
-              Steals geometric confidence from #75 and inspectable docs structure from #44. Primary colors
-              carry hierarchy; the TOC keeps recruiters oriented in under ten seconds.
+            <p className="mt-4 max-w-3xl text-base leading-8 text-black/75">
+              Geometry carries hierarchy; the TOC keeps recruiters oriented. Yellow is a hire signal in the
+              header — never an empty wall beside the resume.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <span className="border-4 border-black bg-[#d91f1f] px-4 py-2 text-xs font-black uppercase text-white">
@@ -115,25 +144,18 @@ export function Variant() {
                 Proof
               </span>
             </div>
-          </section>
-        </div>
-      </div>
-      
-      <footer className="border-t border-black/10 px-6 py-8">
-        <p className="mx-auto max-w-5xl text-sm leading-7 text-black/55">
-          Bauhaus systems hybrid — geometry classes map to proof, not decoration alone.
-        </p>
-        <p className="mx-auto mt-3 max-w-5xl text-sm leading-7 text-black/55">
-          Hybrid ladder craft now means structure, not a motion wrapper around a thin resume.
-        </p>
-        <p className="mx-auto mt-3 max-w-5xl text-sm leading-7 text-black/55">
-          Who, what, and proof stay reachable in under ten seconds after the effects settle.
-        </p>
-        <p className="mx-auto mt-3 max-w-5xl font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.3em] text-black/35">
-          Eta · hybrid · craft depth 130
-        </p>
-      </footer>
-</main>
+          </div>
+        </section>
+
+        <footer className="px-6 py-8">
+          <p className="mx-auto max-w-6xl text-sm leading-7 text-black/55">
+            Bauhaus systems hybrid — geometry classes map to proof, not decoration alone.
+          </p>
+          <p className="mx-auto mt-3 max-w-6xl font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.3em] text-black/35">
+            Eta · hybrid · craft depth 130
+          </p>
+        </footer>
+      </main>
     </SmoothScroll>
   );
 }
