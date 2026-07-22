@@ -319,6 +319,21 @@ test("Fail-then-pass: Alpha r3f-stacked cells mount real WebGL", () => {
   }
 });
 
+test("Fail-then-pass: Alpha WebGL team stays ≥110 lines of craft", () => {
+  const alpha = listVariantFiles().filter((name) => {
+    const id = Number(name.match(/^V(\d+)/)[1]);
+    return id >= 1 && id <= 15;
+  });
+  assert.equal(alpha.length, 15);
+  const shallow = [];
+  for (const file of alpha) {
+    const src = fs.readFileSync(path.join(variantsDir, file), "utf8");
+    const lines = src.split("\n").length;
+    if (lines < 110) shallow.push(`${file}(${lines})`);
+  }
+  assert.equal(shallow.length, 0, `RED: Alpha cells under 110 lines: ${shallow.join(", ")}`);
+});
+
 test("Fail-then-pass: champion Centurion also mounts WebGL atmosphere", () => {
   const src = read("src/variants/V100OrbitfolioCenturion.tsx");
   assert.match(src, /AwardWebGL|@react-three\/fiber/);

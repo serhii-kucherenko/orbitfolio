@@ -87,6 +87,24 @@ export function Variant() {
           </div>
         </div>
       </section>
+    
+      <footer className="border-t border-white/10 px-6 py-8">
+        <p className="mx-auto max-w-5xl text-sm leading-7 text-white/45">
+          Atmosphere shaders set mood — the dossier body keeps hireability intact.
+        </p>
+        <p className="mx-auto mt-3 max-w-5xl text-sm leading-7 text-white/45">
+          WebGL atmosphere earns the glance — name, email, and proof close the hire.
+        </p>
+        <p className="mx-auto mt-3 max-w-5xl text-sm leading-7 text-white/40">
+          Soft fog never replaces metrics, roles, or the email CTA.
+        </p>
+        <p className="mx-auto mt-2 max-w-5xl text-sm leading-7 text-white/35">
+          Reduced motion keeps the glow static; the hire path does not change.
+        </p>
+        <p className="mx-auto mt-3 max-w-5xl font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.3em] text-white/30">
+          Alpha · WebGL · craft depth
+        </p>
+      </footer>
     </main>
   );
 }

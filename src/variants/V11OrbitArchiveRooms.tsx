@@ -103,6 +103,18 @@ export function Variant() {
           {cv.education.degree} · {cv.education.school} · {cv.location}
         </p>
       </section>
-    </main>
+    
+      <footer className="border-t border-white/10 px-6 py-8">
+        <p className="mx-auto max-w-5xl text-sm leading-7 text-white/45">
+          Archive rooms organize attention; every room exits to email or experience.
+        </p>
+        <p className="mx-auto mt-3 max-w-5xl text-sm leading-7 text-white/45">
+          WebGL atmosphere earns the glance — name, email, and proof close the hire.
+        </p>
+        <p className="mx-auto mt-3 max-w-5xl font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.3em] text-white/30">
+          Alpha · WebGL · craft depth
+        </p>
+      </footer>
+</main>
   );
 }
