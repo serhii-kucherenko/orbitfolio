@@ -2,17 +2,19 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
+import { SmoothScroll } from "@/components/SmoothScroll";
 import { cv } from "@/data/cv";
 
-/** Brutal Sunday Press — hard rules, stamps, unapologetic type; urgent newsprint. */
+/** Brutal Sunday Press — hard rules, stamps, unapologetic type; Lenis for the late-city scroll. */
 export function Variant() {
   const reduce = useReducedMotion() ?? false;
 
   return (
+    <SmoothScroll>
     <main className="min-h-screen bg-[#050505] text-white">
       <div className="flex items-center justify-between border-b-4 border-[#ff2a2a] px-4 py-2 font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.35em] text-[#ff2a2a] md:px-8">
         <span>Sunday press</span>
-        <span>Brutal edition · late city</span>
+        <span>Brutal edition · Lenis · late city</span>
         <span>{cv.location}</span>
       </div>
 
@@ -104,9 +106,10 @@ export function Variant() {
           Brutal Sunday urgency: stamps, hard rules, and hire CTAs that refuse to whisper.
         </p>
         <p className="mx-auto mt-3 max-w-5xl font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.3em] text-white/35">
-          Press · Vol. 21 · {cv.location}
+          Press · Vol. 21 · Lenis · {cv.location}
         </p>
       </footer>
     </main>
+    </SmoothScroll>
   );
 }

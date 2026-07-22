@@ -2,9 +2,10 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { ContactRow, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
+import { SmoothScroll } from "@/components/SmoothScroll";
 import { cv } from "@/data/cv";
 
-/** Pull Quote Stage — oversized outcome quotes interrupt a calm long-form career narrative. */
+/** Pull Quote Stage — oversized outcome quotes + Lenis for long-form reading. */
 export function Variant() {
   const reduce = useReducedMotion() ?? false;
   const [first, ...rest] = cv.experience;
@@ -15,10 +16,11 @@ export function Variant() {
   ] as const;
 
   return (
+    <SmoothScroll>
     <main className="min-h-screen bg-[#f7f3ec] text-[#1c1917]">
       <header className="mx-auto max-w-3xl px-6 pb-8 pt-28">
         <p className="text-[10px] uppercase tracking-[0.4em] text-stone-500">
-          Pull quote stage · {cv.location}
+          Pull quote stage · Lenis · {cv.location}
         </p>
         <motion.h1
           initial={reduce ? false : { opacity: 0, y: 14 }}
@@ -121,5 +123,6 @@ export function Variant() {
         </div>
       </section>
     </main>
+    </SmoothScroll>
   );
 }

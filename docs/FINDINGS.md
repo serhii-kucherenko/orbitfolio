@@ -33,6 +33,7 @@ Full definitions: [`docs/RUBRIC.md`](RUBRIC.md)
 - Gamma kinetic depth (tick 102): motion cells keep GSAP on ≥3 designs and every Gamma page stays ≥110 lines — kinetics without substance fails the lab
 - Alpha WebGL depth (tick 103): WebGL cells still need ≥110 lines of page craft — Canvas alone is not an award layout
 - Lab depth floor 112 (tick 104): the old ≥40-line deepen gate is gone — every experiment must stay ≥112 lines so thin shells cannot return
+- Beta Lenis coverage (tick 105): magazine cells raise smooth-scroll craft from ≥3 to ≥6 — pull quotes, Sunday press, footnotes, and field notes now ride Lenis
 - Structural diversity beats palette swaps for lab signal
 - Fail-then-pass diversity checks forced at least 20 fully custom designs instead of shared-shell palette swaps — see [`docs/RED_GREEN.md`](RED_GREEN.md)
 - Gate raised to **100** custom designs (batch 8) — every `/test/n` cell is now uniquely built; shared `AwardVariant` shell retired from active experiments

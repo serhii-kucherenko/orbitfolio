@@ -105,5 +105,6 @@ Autonomous progress log for Orbitfolio.
 | 102 | Gamma kinetic depth | Gamma #29–#42 ≥110 lines; GSAP still required on ≥3 cells |
 | 103 | Alpha WebGL depth | Alpha #1–#15 ≥110 lines — real WebGL plus enough page craft |
 | 104 | Lab depth floor 112 | Every /test cell must stay ≥112 lines — 40-line floor retired |
+| 105 | Beta Lenis coverage | Beta editorial Lenis raised to ≥6 long-form reading cells |
 
 Live: https://orbitfolio-kohl.vercel.app · Loop: every 15m — unique award craft + UI must stay green

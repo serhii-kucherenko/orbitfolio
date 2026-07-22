@@ -2,13 +2,15 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { ContactRow, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
+import { SmoothScroll } from "@/components/SmoothScroll";
 import { cv } from "@/data/cv";
 
-/** Field Notes Vancouver — daylight journal balancing place with engineering proof. */
+/** Field Notes Vancouver — daylight journal with Lenis for notebook-length reading. */
 export function Variant() {
   const reduce = useReducedMotion() ?? false;
 
   return (
+    <SmoothScroll>
     <main
       className="min-h-screen bg-[#eaf4ef] text-[#0f2a22]"
       style={{
@@ -22,7 +24,7 @@ export function Variant() {
           <div className="flex flex-wrap items-end justify-between gap-4">
             <div>
               <p className="text-[10px] uppercase tracking-[0.35em] text-emerald-800/65">
-                Field notes · {cv.location}
+                Field notes · Lenis · {cv.location}
               </p>
               <motion.h1
                 initial={reduce ? false : { opacity: 0, y: 10 }}
@@ -112,5 +114,6 @@ export function Variant() {
         </div>
       </section>
     </main>
+    </SmoothScroll>
   );
 }
