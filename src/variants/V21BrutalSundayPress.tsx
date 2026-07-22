@@ -109,7 +109,10 @@ export function Variant() {
           Press · Vol. 21 · Lenis · {cv.location}
         </p>
       </footer>
-    </main>
+            <p className="mx-auto mt-2 max-w-5xl text-sm leading-7 text-white/45">
+          Lab depth floor · 118 — Sunday press stamps stay loud and hireable.
+        </p>
+</main>
     </SmoothScroll>
   );
 }

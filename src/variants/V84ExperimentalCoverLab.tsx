@@ -109,6 +109,9 @@ export function Variant() {
           </div>
         </section>
       </div>
-    </main>
+          <footer className="mx-auto max-w-5xl px-6 pb-12 text-sm leading-7 opacity-50">
+        Cover lab stays experimental without hiding proof — Lab depth floor · 118.
+      </footer>
+</main>
   );
 }

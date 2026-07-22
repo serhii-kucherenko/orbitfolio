@@ -108,7 +108,10 @@ export function Variant() {
           </div>
         </div>
       </section>
-    </main>
+          <footer className="mx-auto max-w-5xl px-6 pb-12 text-sm leading-7 text-sky-200/50">
+        Aurora canvas stays coastal and clear — Lab depth floor · 118 keeps the hire path open.
+      </footer>
+</main>
     </SmoothScroll>
   );
 }

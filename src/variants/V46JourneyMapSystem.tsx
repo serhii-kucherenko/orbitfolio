@@ -108,7 +108,10 @@ export function Variant() {
           </div>
         </div>
       </section>
-    </main>
+          <footer className="mx-auto max-w-5xl px-6 pb-12 text-sm leading-7 text-slate-500">
+        Journey map stays systems-clear — Lab depth floor · 118 keeps the route hireable.
+      </footer>
+</main>
     </SmoothScroll>
   );
 }

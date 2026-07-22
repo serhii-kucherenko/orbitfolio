@@ -47,6 +47,7 @@ Full definitions: [`docs/RUBRIC.md`](RUBRIC.md)
 - Delta motion coverage (tick 116): systems cells raise award motion from ≥6 to ≥8 — agent chat uses Lenis; blueprint manual uses GSAP
 - Epsilon hire motion (tick 117): hire cells raise award motion from ≥5 to ≥7 — founder fit uses Lenis; recruiter champion uses GSAP
 - Gamma GSAP coverage (tick 118): kinetic cells raise ScrollTrigger craft from ≥7 to ≥9 — elastic career rail and velocity case chapters join the GSAP set
+- Lab depth floor 118 (tick 119): lab-wide craft floor rises from ≥115 to ≥118 so borderline shells cannot return
 - Structural diversity beats palette swaps for lab signal
 - Fail-then-pass diversity checks forced at least 20 fully custom designs instead of shared-shell palette swaps — see [`docs/RED_GREEN.md`](RED_GREEN.md)
 - Gate raised to **100** custom designs (batch 8) — every `/test/n` cell is now uniquely built; shared `AwardVariant` shell retired from active experiments

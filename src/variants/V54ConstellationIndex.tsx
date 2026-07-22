@@ -109,6 +109,9 @@ export function Variant() {
           </div>
         </div>
       </section>
-    </main>
+          <footer className="mx-auto max-w-5xl px-6 pb-12 text-sm leading-7 text-white/45">
+        Constellation index stays navigable — Lab depth floor · 118 keeps surveys hireable.
+      </footer>
+</main>
   );
 }

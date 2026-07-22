@@ -109,6 +109,12 @@ export function Variant() {
           Gamma · kinetic · craft depth
         </p>
       </footer>
+        <p className="mx-auto mt-2 max-w-5xl text-sm leading-7 text-white/40">
+          Lab depth floor · 118 — waveform craft cannot thin the hire path.
+        </p>
+        <p className="mx-auto mt-2 max-w-5xl text-sm leading-7 text-white/35">
+          Stem sheet order: name, contact, proof — atmosphere last.
+        </p>
 </main>
   );
 }

@@ -110,6 +110,9 @@ export function Variant() {
           Gamma · kinetic · GSAP
         </p>
       </footer>
-    </main>
+            <p className="mx-auto mt-2 max-w-5xl text-sm leading-7 text-white/35">
+          Lab depth floor · 118 — nameplate kinetics cannot thin the hire path.
+        </p>
+</main>
   );
 }

@@ -111,6 +111,9 @@ export function Variant() {
       <footer className="mx-auto max-w-6xl px-6 py-12 text-xs opacity-55 md:px-12">
         End title · {cv.education.degree} · {cv.education.school} · {cv.location}
       </footer>
-    </main>
+          <p className="mx-auto max-w-6xl px-6 pb-10 text-sm leading-7 text-black/50 md:px-12">
+          Cinematic flythrough ends on a hireable credit — Lab depth floor · 118.
+        </p>
+</main>
   );
 }
