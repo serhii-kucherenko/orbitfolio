@@ -33,7 +33,19 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: `variantId must be 1–${VARIANT_COUNT}` }, { status: 400 });
   }
 
-  const { record, persisted } = await setPublicTheme(variantId);
+  const { record, persisted, durable } = await setPublicTheme(variantId);
+
+  if (!durable) {
+    return NextResponse.json(
+      {
+        error:
+          "Theme was not saved for all servers. Add BLOB_READ_WRITE_TOKEN on Vercel (Blob store), then publish again.",
+        persisted,
+      },
+      { status: 503 },
+    );
+  }
+
   revalidatePath("/");
   revalidatePath("/lab");
 
@@ -41,9 +53,6 @@ export async function POST(request: Request) {
     ok: true,
     ...record,
     persisted,
-    note:
-      persisted.includes("blob") || persisted.includes("file") || persisted.includes("github")
-        ? "Public homepage updated."
-        : "Saved in memory for this server instance. Add BLOB_READ_WRITE_TOKEN on Vercel for durable multi-instance persistence.",
+    note: "Public homepage updated.",
   });
 }
