@@ -2,9 +2,10 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
+import { SmoothScroll } from "@/components/SmoothScroll";
 import { cv } from "@/data/cv";
 
-/** Founder Fit Profile — pitch-deck clarity for 0→1 founding engineer roles */
+/** Founder Fit Profile — pitch-deck clarity with Lenis for founding-role scans. */
 export function Variant() {
   const reduce = useReducedMotion() ?? false;
   const fitChecks = [
@@ -15,6 +16,7 @@ export function Variant() {
   ];
 
   return (
+    <SmoothScroll>
     <main className="min-h-screen bg-[#070709] text-zinc-100">
       <section className="relative overflow-hidden border-b border-zinc-800">
         <motion.div
@@ -123,5 +125,6 @@ export function Variant() {
         </p>
       </section>
     </main>
+    </SmoothScroll>
   );
 }

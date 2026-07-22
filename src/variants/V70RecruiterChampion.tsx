@@ -1,12 +1,16 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
+import { useRef } from "react";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
+import { useGsapReveal } from "@/components/useGsapReveal";
 import { cv } from "@/data/cv";
 
-/** Recruiter Champion — Epsilon close: maximum clarity, solid motion, zero hidden evidence. */
+/** Recruiter Champion — Epsilon close with GSAP reveals on the full experience trail. */
 export function Variant() {
   const reduce = useReducedMotion() ?? false;
+  const trailRef = useRef<HTMLElement>(null);
+  useGsapReveal(trailRef, reduce);
 
   return (
     <main className="min-h-screen bg-[#071018] text-[#e8f4f8]">
@@ -74,15 +78,17 @@ export function Variant() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-6 py-20 lg:px-10">
-        <div className="mb-12 flex items-end justify-between gap-4 border-b border-white/15 pb-4">
+      <section ref={trailRef} className="mx-auto max-w-6xl px-6 py-20 lg:px-10">
+        <div data-gsap className="mb-12 flex items-end justify-between gap-4 border-b border-white/15 pb-4">
           <h2 className="text-3xl font-black sm:text-4xl">Full experience</h2>
           <span className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-widest text-slate-500">
             nothing deferred
           </span>
         </div>
-        <ExperienceList tone="dark" />
-        <div className="mt-20 grid gap-16 border-t border-white/15 pt-16 md:grid-cols-2">
+        <div data-gsap>
+          <ExperienceList tone="dark" />
+        </div>
+        <div data-gsap className="mt-20 grid gap-16 border-t border-white/15 pt-16 md:grid-cols-2">
           <div>
             <h2 className="mb-8 text-2xl font-black">Skills</h2>
             <SkillsCloud />
