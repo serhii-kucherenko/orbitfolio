@@ -487,7 +487,7 @@ test("Fail-then-pass: Zeta experimental stays deep and ships award motion on ≥
   );
 });
 
-test("Fail-then-pass: Delta systems stay deep and ship award motion on ≥3 cells", () => {
+test("Fail-then-pass: Delta systems stay deep and ship award motion on ≥6 cells", () => {
   const delta = listVariantFiles().filter((name) => {
     const id = Number(name.match(/^V(\d+)/)[1]);
     return id >= 43 && id <= 56;
@@ -510,7 +510,7 @@ test("Fail-then-pass: Delta systems stay deep and ship award motion on ≥3 cell
   }
   assert.equal(shallow.length, 0, `RED: Delta cells under 110 lines: ${shallow.join(", ")}`);
   assert.ok(
-    withMotion >= 3,
-    `RED: need ≥3 Delta systems cells with WebGL/Lenis/GSAP, got ${withMotion}`,
+    withMotion >= 6,
+    `RED: need ≥6 Delta systems cells with WebGL/Lenis/GSAP, got ${withMotion}`,
   );
 });

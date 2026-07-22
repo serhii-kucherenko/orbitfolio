@@ -2,16 +2,27 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
+import { FallbackGlow, SceneParticleFleet, WebGLStage } from "@/components/webgl/AwardWebGL";
 import { cv } from "@/data/cv";
 
-/** Telemetry Tape — aviation FDR ticker: amber glyphs on olive CRT streaming career frames */
+/** Telemetry Tape — aviation FDR ticker with WebGL particle fleet under the CRT. */
 export function Variant() {
   const reduce = useReducedMotion() ?? false;
   const ticker = cv.highlights.map((h) => `${h.label.toUpperCase()}:${h.value}`).join("   ···   ");
   const tape = `${ticker}   ···   ${ticker}   ···   `;
+  const accent = "#c8e06a";
 
   return (
     <main className="relative min-h-screen bg-[#0c110b] font-[family-name:var(--font-mono)] text-[#f4e8a8]">
+      <WebGLStage
+        accent={accent}
+        reduce={reduce}
+        label="Telemetry particle fleet"
+        className="pointer-events-none absolute inset-0 opacity-35"
+        fallback={<FallbackGlow accent={accent} />}
+      >
+        <SceneParticleFleet accent={accent} />
+      </WebGLStage>
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 opacity-[0.06]"
@@ -20,7 +31,7 @@ export function Variant() {
             "repeating-linear-gradient(0deg, transparent, transparent 2px, #c8e06a22 3px)",
         }}
       />
-      <div className="relative border-b border-[#6b8f3c]/40 bg-[#10180e]">
+      <div className="relative z-10 border-b border-[#6b8f3c]/40 bg-[#10180e]">
         <motion.p
           className="whitespace-nowrap py-2 text-xs tracking-widest text-[#c8e06a]"
           animate={reduce ? undefined : { x: ["0%", "-50%"] }}
@@ -31,9 +42,9 @@ export function Variant() {
         </motion.p>
       </div>
 
-      <header className="relative mx-auto max-w-6xl px-6 py-20 md:px-10">
+      <header className="relative z-10 mx-auto max-w-6xl px-6 py-20 md:px-10">
         <p className="text-[10px] uppercase tracking-[0.45em] text-[#9bbf5a]/70">
-          FDR · telemetry tape online · {cv.location}
+          FDR · telemetry tape · WebGL · {cv.location}
         </p>
         <h1 className="mt-4 font-[family-name:var(--font-display)] text-5xl font-black text-[#f4e8a8] sm:text-7xl">
           {cv.name}
@@ -59,7 +70,7 @@ export function Variant() {
         </div>
       </header>
 
-      <section className="relative mx-auto max-w-6xl px-6 md:px-10">
+      <section className="relative z-10 mx-auto max-w-6xl px-6 md:px-10">
         <div className="grid gap-2 sm:grid-cols-4">
           {cv.highlights.map((h, i) => (
             <motion.div
@@ -78,7 +89,7 @@ export function Variant() {
         </div>
       </section>
 
-      <section className="relative mx-auto max-w-6xl px-6 py-20 font-[family-name:var(--font-sans)] md:px-10">
+      <section className="relative z-10 mx-auto max-w-6xl px-6 py-20 font-[family-name:var(--font-sans)] md:px-10">
         <h2 className="mb-10 font-[family-name:var(--font-mono)] text-sm uppercase tracking-[0.35em] text-[#c8e06a]">
           Black-box transcript
         </h2>
