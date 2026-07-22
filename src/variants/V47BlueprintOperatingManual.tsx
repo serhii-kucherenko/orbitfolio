@@ -1,12 +1,16 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
+import { useRef } from "react";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
+import { useGsapReveal } from "@/components/useGsapReveal";
 import { cv } from "@/data/cv";
 
-/** Blueprint Operating Manual — schematics for architecture, leadership, skills, shipped work. */
+/** Blueprint Operating Manual — schematics with GSAP reveals for assembly history. */
 export function Variant() {
   const reduce = useReducedMotion() ?? false;
+  const assemblyRef = useRef<HTMLElement>(null);
+  useGsapReveal(assemblyRef, reduce);
 
   return (
     <main
@@ -75,14 +79,14 @@ export function Variant() {
         <ContactRow className="mt-6 text-sky-200/70" />
       </section>
 
-      <section className="mx-auto max-w-5xl space-y-6 px-6 pb-28">
-        <div className="border border-sky-400/25 bg-[#07141f]/85 p-6">
+      <section ref={assemblyRef} className="mx-auto max-w-5xl space-y-6 px-6 pb-28">
+        <div data-gsap className="border border-sky-400/25 bg-[#07141f]/85 p-6">
           <p className="text-[10px] uppercase tracking-[0.3em] text-sky-400">01 · Assembly history</p>
           <div className="mt-8">
             <ExperienceList tone="dark" />
           </div>
         </div>
-        <div className="grid gap-6 md:grid-cols-2">
+        <div data-gsap className="grid gap-6 md:grid-cols-2">
           <div className="border border-sky-400/25 bg-[#07141f]/85 p-6">
             <p className="text-[10px] uppercase tracking-[0.3em] text-sky-400">02 · Part catalog</p>
             <div className="mt-8">

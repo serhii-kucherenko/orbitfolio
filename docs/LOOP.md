@@ -116,5 +116,6 @@ Autonomous progress log for Orbitfolio.
 | 113 | Gamma GSAP coverage | Gamma kinetic GSAP raised to ≥7 scroll-reveal cells |
 | 114 | Epsilon hire motion | Epsilon hire award motion raised to ≥5 designs |
 | 115 | Zeta motion coverage | Zeta experimental WebGL/Lenis/GSAP raised to ≥8 cells |
+| 116 | Delta motion coverage | Delta systems WebGL/Lenis/GSAP raised to ≥8 cells |
 
 Live: https://orbitfolio-kohl.vercel.app · Loop: every 15m — unique award craft + UI must stay green

@@ -2,6 +2,7 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
+import { SmoothScroll } from "@/components/SmoothScroll";
 import { cv } from "@/data/cv";
 
 const turns = [
@@ -29,7 +30,7 @@ const turns = [
   },
 ] as const;
 
-/** Agent Chat Profile — static agent conversation answers recruiter questions, then opens the record. */
+/** Agent Chat Profile — static agent conversation with Lenis for long hire threads. */
 export function Variant() {
   const reduce = useReducedMotion() ?? false;
   const initials = cv.name
@@ -38,6 +39,7 @@ export function Variant() {
     .join("");
 
   return (
+    <SmoothScroll>
     <main className="min-h-screen bg-[#e7eef2] text-[#15202b]">
       <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6">
         <div className="overflow-hidden border border-[#c5d3dc] bg-[#f7fafc]">
@@ -142,5 +144,6 @@ export function Variant() {
         </div>
       </div>
     </main>
+    </SmoothScroll>
   );
 }
