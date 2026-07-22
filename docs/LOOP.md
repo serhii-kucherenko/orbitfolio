@@ -122,5 +122,6 @@ Autonomous progress log for Orbitfolio.
 | 119 | Lab depth floor 118 | Every /test cell must stay ≥118 lines — 115 floor raised |
 | 120 | Beta Lenis coverage | Beta editorial Lenis raised to ≥12 long-form reading cells |
 | 121 | Epsilon hire motion | Epsilon hire award motion raised to ≥9 designs |
+| 122 | Zeta motion coverage | Zeta experimental WebGL/Lenis/GSAP raised to ≥10 cells |
 
 Live: https://orbitfolio-kohl.vercel.app · Loop: every 15m — unique award craft + UI must stay green

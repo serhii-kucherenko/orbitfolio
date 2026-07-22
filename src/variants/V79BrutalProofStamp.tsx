@@ -1,18 +1,22 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
+import { useRef } from "react";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
+import { useGsapReveal } from "@/components/useGsapReveal";
 import { cv } from "@/data/cv";
 
-/** Brutal Proof Stamp — black-and-white blocks + hire stamp; physical and direct. */
+/** Brutal Proof Stamp — black-and-white blocks; GSAP reveals the stamped record. */
 export function Variant() {
   const reduce = useReducedMotion() ?? false;
+  const stampRef = useRef<HTMLElement>(null);
+  useGsapReveal(stampRef, reduce);
 
   return (
     <main className="min-h-screen bg-[#d4cfc4] p-3 text-black sm:p-6 md:p-8">
       <header className="relative border-[5px] border-black bg-[#f4f2eb] p-6 sm:p-10 md:p-12">
         <div className="flex flex-wrap justify-between gap-3 font-black uppercase tracking-wide">
-          <span>Proof file 079</span>
+          <span>Proof file 079 · GSAP</span>
           <span className="text-sm">{cv.location}</span>
         </div>
         <motion.h1
@@ -74,9 +78,11 @@ export function Variant() {
         </div>
       </header>
 
-      <section className="mt-3 border-[5px] border-black bg-[#f4f2eb] p-6 sm:p-10 md:p-12">
-        <h2 className="mb-10 bg-black p-4 text-3xl font-black uppercase text-white sm:text-4xl">Work / no spin</h2>
-        <ExperienceList tone="light" />
+      <section ref={stampRef} className="mt-3 border-[5px] border-black bg-[#f4f2eb] p-6 sm:p-10 md:p-12">
+        <h2 data-gsap className="mb-10 bg-black p-4 text-3xl font-black uppercase text-white sm:text-4xl">Work / no spin</h2>
+        <div data-gsap>
+          <ExperienceList tone="light" />
+        </div>
       </section>
 
       <section className="mt-3 grid gap-3 md:grid-cols-2">
