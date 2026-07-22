@@ -1,8 +1,9 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
+import { useGsapReveal } from "@/components/useGsapReveal";
 import { cv } from "@/data/cv";
 
 type Cmd = { id: string; label: string; hint: string };
@@ -17,11 +18,13 @@ const COMMANDS: Cmd[] = [
   { id: "resume", label: "> open resume", hint: "Printable CV" },
 ];
 
-/** Command Palette CV — IDE-style ⌘K palette as the navigation surface for the resume */
+/** Command Palette CV — IDE-style ⌘K palette; GSAP reveals the full dump for scanners. */
 export function Variant() {
   const reduce = useReducedMotion() ?? false;
   const [query, setQuery] = useState("");
   const [active, setActive] = useState("who");
+  const dumpRef = useRef<HTMLElement>(null);
+  useGsapReveal(dumpRef, reduce);
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -40,7 +43,7 @@ export function Variant() {
         >
           <div className="flex items-center gap-3 border-b border-white/10 px-4 py-3">
             <span className="rounded bg-white/10 px-2 py-0.5 font-[family-name:var(--font-mono)] text-[10px] text-white/50">
-              ⌘K · {cv.location}
+              ⌘K · GSAP · {cv.location}
             </span>
             <input
               value={query}
@@ -128,8 +131,8 @@ export function Variant() {
         </footer>
       </div>
 
-      <section className="mx-auto max-w-5xl space-y-16 px-6 pb-24 pt-8 md:px-10">
-        <div className="grid gap-3 sm:grid-cols-4">
+      <section ref={dumpRef} className="mx-auto max-w-5xl space-y-16 px-6 pb-24 pt-8 md:px-10">
+        <div data-gsap className="grid gap-3 sm:grid-cols-4">
           {cv.highlights.map((h) => (
             <div key={h.label} className="border border-white/10 p-4">
               <p className="text-2xl font-bold text-sky-300">{h.value}</p>
@@ -137,8 +140,10 @@ export function Variant() {
             </div>
           ))}
         </div>
-        <ExperienceList tone="dark" />
-        <div className="grid gap-14 md:grid-cols-2">
+        <div data-gsap>
+          <ExperienceList tone="dark" />
+        </div>
+        <div data-gsap className="grid gap-14 md:grid-cols-2">
           <SkillsCloud />
           <div>
             <ProjectLinks />

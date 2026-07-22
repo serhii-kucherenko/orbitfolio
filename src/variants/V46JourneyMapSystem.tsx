@@ -2,9 +2,10 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
+import { SmoothScroll } from "@/components/SmoothScroll";
 import { cv } from "@/data/cv";
 
-/** Journey Map System — service-design timeline of career stages */
+/** Journey Map System — service-design timeline with Lenis for stage-by-stage reading. */
 export function Variant() {
   const reduce = useReducedMotion() ?? false;
   const stages = cv.experience.map((job, i) => ({
@@ -14,10 +15,11 @@ export function Variant() {
   }));
 
   return (
+    <SmoothScroll>
     <main className="min-h-screen bg-[#eef3f6] text-slate-900">
       <section className="mx-auto max-w-5xl px-6 pb-12 pt-28">
         <p className="text-[10px] uppercase tracking-[0.35em] text-teal-700">
-          Journey map · service design · {cv.location}
+          Journey map · service design · Lenis · {cv.location}
         </p>
         <motion.h1
           initial={reduce ? false : { opacity: 0, y: 12 }}
@@ -107,5 +109,6 @@ export function Variant() {
         </div>
       </section>
     </main>
+    </SmoothScroll>
   );
 }
