@@ -2,16 +2,18 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { ContactRow, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
+import { SmoothScroll } from "@/components/SmoothScroll";
 import { cv } from "@/data/cv";
 
-/** Redline Resume — editor marks and proofing lines on a CV still moving forward. */
+/** Redline Resume — editor marks on a CV still moving; Lenis for proofing-pass reading. */
 export function Variant() {
   const reduce = useReducedMotion() ?? false;
 
   return (
+    <SmoothScroll>
     <main className="min-h-screen bg-[#f7f7f4] text-black">
       <div className="border-b border-red-200 bg-red-50 px-6 py-2 text-center font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.35em] text-red-700">
-        Edit pass · still in motion · {cv.location}
+        Edit pass · Lenis · still in motion · {cv.location}
       </div>
 
       <header className="mx-auto max-w-3xl px-6 pb-8 pt-20">
@@ -109,9 +111,10 @@ export function Variant() {
           Redlines mark a CV still in motion — corrections welcome, proof intact.
         </p>
         <p className="mx-auto mt-3 max-w-5xl font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.3em] text-red-700/70">
-          Proof · Vol. 25 · {cv.location}
+          Proof · Vol. 25 · Lenis · {cv.location}
         </p>
       </footer>
     </main>
+    </SmoothScroll>
   );
 }

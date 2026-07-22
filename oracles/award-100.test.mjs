@@ -451,7 +451,7 @@ test("Fail-then-pass: Epsilon hire cells stay deep, expose a 10-second proof str
   );
 });
 
-test("Fail-then-pass: Beta editorial ships Lenis on ≥6 cells and stays ≥110 lines", () => {
+test("Fail-then-pass: Beta editorial ships Lenis on ≥10 cells and stays ≥110 lines", () => {
   const beta = listVariantFiles().filter((name) => {
     const id = Number(name.match(/^V(\d+)/)[1]);
     return id >= 16 && id <= 28;
@@ -467,8 +467,8 @@ test("Fail-then-pass: Beta editorial ships Lenis on ≥6 cells and stays ≥110 
   }
   assert.equal(shallow.length, 0, `RED: Beta cells under 110 lines: ${shallow.join(", ")}`);
   assert.ok(
-    withLenis >= 6,
-    `RED: need ≥6 Beta editorial cells with Lenis SmoothScroll, got ${withLenis}`,
+    withLenis >= 10,
+    `RED: need ≥10 Beta editorial cells with Lenis SmoothScroll, got ${withLenis}`,
   );
 });
 
