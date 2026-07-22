@@ -1,12 +1,16 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
+import { useRef } from "react";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
+import { useGsapReveal } from "@/components/useGsapReveal";
 import { cv } from "@/data/cv";
 
-/** Origami Evidence Fold — CSS perspective folds for chapters without hiding proof. */
+/** Origami Evidence Fold — CSS perspective folds; GSAP reveals the folded timeline. */
 export function Variant() {
   const reduce = useReducedMotion() ?? false;
+  const foldRef = useRef<HTMLElement>(null);
+  useGsapReveal(foldRef, reduce);
 
   return (
     <main
@@ -15,7 +19,7 @@ export function Variant() {
     >
       <section className="mx-auto max-w-5xl px-6 pb-6 pt-24">
         <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.35em] text-teal-800/55">
-          Origami · evidence folds · {cv.location}
+          Origami · evidence folds · GSAP · {cv.location}
         </p>
         <motion.h1
           initial={reduce ? false : { opacity: 0, rotateX: -10 }}
@@ -69,8 +73,9 @@ export function Variant() {
         </div>
       </section>
 
-      <section className="mx-auto mt-12 max-w-5xl px-6">
+      <section ref={foldRef} className="mx-auto mt-12 max-w-5xl px-6">
         <div
+          data-gsap
           className="border border-emerald-200 bg-white p-6 md:p-10"
           style={{
             clipPath: "polygon(0 0, 100% 0, 100% 92%, 96% 100%, 0 100%)",
