@@ -1,12 +1,16 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
+import { useRef } from "react";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
+import { useGsapReveal } from "@/components/useGsapReveal";
 import { cv } from "@/data/cv";
 
-/** Velocity Case Chapters — asphalt speedway chapters with motion-blur stripes and lap markers */
+/** Velocity Case Chapters — speedway chapters; GSAP reveals the case lap. */
 export function Variant() {
   const reduce = useReducedMotion() ?? false;
+  const lapRef = useRef<HTMLElement>(null);
+  useGsapReveal(lapRef, reduce);
   const snap = reduce ? "" : "snap-y snap-mandatory";
 
   return (
@@ -74,11 +78,11 @@ export function Variant() {
         </div>
       </section>
 
-      <section className="min-h-screen snap-start bg-[#090b0f] px-6 py-20 md:px-14">
-        <h2 className="mb-12 font-[family-name:var(--font-mono)] text-sm uppercase tracking-[0.4em] text-lime-400">
+      <section ref={lapRef} className="min-h-screen snap-start bg-[#090b0f] px-6 py-20 md:px-14">
+        <h2 data-gsap className="mb-12 font-[family-name:var(--font-mono)] text-sm uppercase tracking-[0.4em] text-lime-400">
           Lap 02 · Case chapters
         </h2>
-        <div className="mx-auto max-w-4xl">
+        <div data-gsap className="mx-auto max-w-4xl">
           <ExperienceList tone="dark" />
         </div>
       </section>
