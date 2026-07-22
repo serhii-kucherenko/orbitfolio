@@ -101,6 +101,9 @@ export function Variant() {
         <p className="mx-auto mt-3 max-w-5xl text-sm leading-7 text-white/35">
           Pull the best kinetic ideas into one readable close — email still wins.
         </p>
+        <p className="mx-auto mt-3 max-w-5xl text-sm leading-7 text-white/45">
+          Kinetic synthesis closes Gamma with a readable hire close.
+        </p>
         <p className="mx-auto mt-3 max-w-5xl font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.3em] text-white/30">
           Gamma · kinetic · craft depth
         </p>

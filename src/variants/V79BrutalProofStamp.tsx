@@ -101,6 +101,9 @@ export function Variant() {
       <p className="mt-3 px-1 text-sm leading-6 text-black/55">
         Thick borders replace soft cards. If the stamp is readable in five seconds, the hire path is done.
       </p>
+        <p className="mx-auto mt-3 max-w-5xl text-sm leading-7 text-black/55">
+          Brutal stamp ink over vibe — the footer seals the hire path.
+        </p>
       <p className="mt-2 px-1 font-[family-name:var(--font-mono)] text-[10px] font-bold uppercase tracking-[0.3em] text-black/45">
         Zeta · brutal stamp · ink over vibe
       </p>

@@ -105,6 +105,18 @@ export function Variant() {
           </motion.div>
         </div>
       </section>
-    </main>
+    
+      <footer className="border-t border-white/10 px-6 py-8">
+        <p className="mx-auto max-w-5xl text-sm leading-7 text-white/45">
+          Telescope index systems UI still needs a full plate set.
+        </p>
+        <p className="mx-auto mt-3 max-w-5xl text-sm leading-7 text-white/45">
+          Lab floor rising — thin shells no longer pass as award craft.
+        </p>
+        <p className="mx-auto mt-3 max-w-5xl font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.3em] text-white/30">
+          Lab · depth floor · 112
+        </p>
+      </footer>
+</main>
   );
 }

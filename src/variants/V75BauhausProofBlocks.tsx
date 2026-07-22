@@ -100,6 +100,9 @@ export function Variant() {
         <p className="mt-3 max-w-xl text-sm leading-7 text-black/45">
           Red names the candidate; black holds the brief; blue and yellow carry skills and builds.
         </p>
+        <p className="mx-auto mt-3 max-w-5xl text-sm leading-7 text-black/55">
+          Bauhaus blocks stay evidence-first when the geometry grows.
+        </p>
         <p className="mt-3 font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.35em] text-black/40">
           Zeta · Bauhaus · geometry = evidence
         </p>

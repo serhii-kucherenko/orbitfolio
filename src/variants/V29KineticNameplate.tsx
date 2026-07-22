@@ -100,6 +100,9 @@ export function Variant() {
         <p className="mx-auto mt-3 max-w-5xl text-sm leading-7 text-white/35">
           Motion earns the glance; the contact row and experience still close the hire.
         </p>
+        <p className="mx-auto mt-3 max-w-5xl text-sm leading-7 text-white/45">
+          Kinetic nameplate holds the glance; the body must finish the hire.
+        </p>
         <p className="mx-auto mt-3 max-w-5xl font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.3em] text-white/30">
           Gamma · kinetic · craft depth
         </p>

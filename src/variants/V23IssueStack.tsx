@@ -104,6 +104,18 @@ export function Variant() {
           Issues · Vol. 23 · collectible covers · {cv.location}
         </p>
       </footer>
-    </main>
+    
+      <footer className="border-t border-white/10 px-6 py-8">
+        <p className="mx-auto max-w-5xl text-sm leading-7 text-white/45">
+          Swiss grid cells stay deep enough for a full reading pass.
+        </p>
+        <p className="mx-auto mt-3 max-w-5xl text-sm leading-7 text-white/45">
+          Lab floor rising — thin shells no longer pass as award craft.
+        </p>
+        <p className="mx-auto mt-3 max-w-5xl font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.3em] text-white/30">
+          Lab · depth floor · 112
+        </p>
+      </footer>
+</main>
   );
 }
