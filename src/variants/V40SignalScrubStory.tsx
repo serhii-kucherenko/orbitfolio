@@ -1,21 +1,24 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
+import { useGsapReveal } from "@/components/useGsapReveal";
 import { cv } from "@/data/cv";
 
-/** Signal Scrub Story — waveform scrubber that reveals career chapters like an audio edit bay */
+/** Signal Scrub Story — edit-bay scrubber; GSAP reveals the experience track on scroll. */
 export function Variant() {
   const reduce = useReducedMotion() ?? false;
   const [scrub, setScrub] = useState(35);
   const bars = Array.from({ length: 64 }, (_, i) => 20 + ((i * 17) % 70));
+  const trackRef = useRef<HTMLElement>(null);
+  useGsapReveal(trackRef, reduce);
 
   return (
     <main className="min-h-screen bg-[#050806] font-[family-name:var(--font-mono)] text-[#9dffb0]">
       <header className="mx-auto max-w-6xl px-6 pb-10 pt-20 md:px-10">
         <p className="text-[10px] uppercase tracking-[0.4em] text-[#9dffb0]/55">
-          Edit bay · scrub story · {cv.location}
+          Edit bay · scrub story · GSAP · {cv.location}
         </p>
         <h1 className="mt-4 font-[family-name:var(--font-display)] text-5xl font-black text-white sm:text-7xl">
           {cv.name}
@@ -92,12 +95,14 @@ export function Variant() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-6 py-20 font-[family-name:var(--font-sans)] md:px-10">
-        <h2 className="mb-10 font-[family-name:var(--font-mono)] text-sm uppercase tracking-[0.35em] text-[#9dffb0]">
+      <section ref={trackRef} className="mx-auto max-w-6xl px-6 py-20 font-[family-name:var(--font-sans)] md:px-10">
+        <h2 data-gsap className="mb-10 font-[family-name:var(--font-mono)] text-sm uppercase tracking-[0.35em] text-[#9dffb0]">
           Track · experience
         </h2>
-        <ExperienceList tone="dark" />
-        <div className="mt-20 grid gap-14 md:grid-cols-2">
+        <div data-gsap>
+          <ExperienceList tone="dark" />
+        </div>
+        <div data-gsap className="mt-20 grid gap-14 md:grid-cols-2">
           <div>
             <h2 className="mb-6 font-[family-name:var(--font-mono)] text-sm uppercase tracking-[0.35em]">
               Mix bus
@@ -114,6 +119,9 @@ export function Variant() {
             </p>
           </div>
         </div>
+        <p data-gsap className="mt-12 max-w-2xl text-sm leading-7 text-[#9dffb0]/45">
+          Scrubbing is the entrance — GSAP opens the full track once the playhead settles.
+        </p>
       </section>
     </main>
   );

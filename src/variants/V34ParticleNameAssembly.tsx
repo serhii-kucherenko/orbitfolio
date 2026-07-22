@@ -1,13 +1,17 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
+import { useRef } from "react";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
+import { useGsapReveal } from "@/components/useGsapReveal";
 import { cv } from "@/data/cv";
 
-/** Particle Name Assembly — letters drift in as discrete particles, coalesce into identity, then unlock the dossier. */
+/** Particle Name Assembly — letters coalesce; GSAP reveals the dossier after assembly. */
 export function Variant() {
   const reduce = useReducedMotion() ?? false;
   const letters = cv.name.replace(" ", "·").split("");
+  const dossierRef = useRef<HTMLElement>(null);
+  useGsapReveal(dossierRef, reduce);
 
   return (
     <main className="min-h-screen bg-[#030712] text-[#f8fafc]">
@@ -39,7 +43,7 @@ export function Variant() {
             />
           ))}
         <p className="relative z-10 font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.45em] text-sky-300/70">
-          Assembly sequence · {cv.location}
+          Assembly sequence · GSAP · {cv.location}
         </p>
         <h1 className="relative z-10 mt-8 flex flex-wrap justify-center gap-x-1 gap-y-2 font-[family-name:var(--font-display)] text-4xl font-black sm:text-6xl md:text-7xl">
           {letters.map((ch, i) => (
@@ -117,14 +121,14 @@ export function Variant() {
         ))}
       </section>
 
-      <section className="mx-auto max-w-3xl space-y-16 px-6 py-16">
-        <div>
+      <section ref={dossierRef} className="mx-auto max-w-3xl space-y-16 px-6 py-16">
+        <div data-gsap>
           <h2 className="mb-8 text-center text-xs font-bold uppercase tracking-[0.35em] text-sky-300/80">
             Coalesced roles
           </h2>
           <ExperienceList tone="dark" />
         </div>
-        <div className="grid gap-12 md:grid-cols-2">
+        <div data-gsap className="grid gap-12 md:grid-cols-2">
           <div>
             <h2 className="mb-6 text-xl font-bold">Particle cloud</h2>
             <SkillsCloud />
@@ -137,6 +141,9 @@ export function Variant() {
             </p>
           </div>
         </div>
+        <p data-gsap className="text-center text-sm leading-7 text-white/40">
+          Particles sell the entrance — GSAP opens the dossier once the name has coalesced.
+        </p>
       </section>
     </main>
   );

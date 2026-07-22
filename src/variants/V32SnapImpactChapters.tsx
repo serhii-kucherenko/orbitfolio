@@ -1,13 +1,17 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
+import { useRef } from "react";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
+import { useGsapReveal } from "@/components/useGsapReveal";
 import { cv } from "@/data/cv";
 
-/** Snap Impact Chapters — viewport chapters: identity, outcomes, roles, skills, work. */
+/** Snap Impact Chapters — viewport chapters; GSAP stages career after the identity snap. */
 export function Variant() {
   const reduce = useReducedMotion() ?? false;
   const snap = reduce ? "" : "snap-y snap-mandatory scroll-smooth";
+  const rolesRef = useRef<HTMLElement>(null);
+  useGsapReveal(rolesRef, reduce);
 
   return (
     <main className={`h-screen overflow-y-auto bg-[#10141a] text-[#f4f0e8] ${snap}`}>
@@ -21,7 +25,7 @@ export function Variant() {
         />
         <div className="relative max-w-4xl">
           <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.45em]">
-            Chapter 00 · Identity · {cv.location}
+            Chapter 00 · Identity · GSAP · {cv.location}
           </p>
           <motion.h1
             initial={reduce ? false : { opacity: 0, y: 28 }}
@@ -77,12 +81,12 @@ export function Variant() {
         </div>
       </section>
 
-      <section className="min-h-screen snap-start px-8 py-24">
-        <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.4em] text-[#e8a54b]/70">
+      <section ref={rolesRef} className="min-h-screen snap-start px-8 py-24">
+        <p data-gsap className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.4em] text-[#e8a54b]/70">
           Chapter 02 · Career
         </p>
-        <h2 className="mt-4 mb-12 text-5xl font-black">Roles</h2>
-        <div className="mx-auto max-w-4xl">
+        <h2 data-gsap className="mt-4 mb-12 text-5xl font-black">Roles</h2>
+        <div data-gsap className="mx-auto max-w-4xl">
           <ExperienceList tone="dark" />
         </div>
       </section>
@@ -105,18 +109,18 @@ export function Variant() {
           {cv.education.degree} · {cv.education.school} · {cv.location}
         </footer>
       </section>
-    
+
       <footer className="border-t border-white/10 px-6 py-8">
         <p className="mx-auto max-w-5xl text-sm leading-7 text-white/45">
           Snap chapters need full case weight between impact beats.
         </p>
         <p className="mx-auto mt-3 max-w-5xl text-sm leading-7 text-white/45">
-          Lab floor rising — thin shells no longer pass as award craft.
+          GSAP stages the career chapter after the identity snap — hire path stays intact.
         </p>
         <p className="mx-auto mt-3 max-w-5xl font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.3em] text-white/30">
-          Lab · depth floor · 112
+          Gamma · kinetic · GSAP
         </p>
       </footer>
-</main>
+    </main>
   );
 }
