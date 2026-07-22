@@ -11,7 +11,7 @@ export function Variant() {
   const accent = "#f2c778";
 
   return (
-    <main className="min-h-screen bg-[#060503] text-[#f4eee4]">
+    <main className="min-h-screen bg-[#060503] text-[#f4eee4] overflow-x-hidden">
       <header className="relative mx-auto grid min-h-screen max-w-7xl items-center gap-10 overflow-hidden px-6 py-24 md:grid-cols-[1.1fr_0.9fr] md:px-10">
         <div className="relative z-10 flex min-h-[70vh] flex-col justify-between">
           <div className="flex justify-between border-b border-[#f2c778]/25 pb-4 text-[10px] uppercase tracking-[0.4em] text-[#f2c778]">

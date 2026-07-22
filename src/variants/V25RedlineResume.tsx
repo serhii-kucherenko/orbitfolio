@@ -11,7 +11,7 @@ export function Variant() {
 
   return (
     <SmoothScroll>
-    <main className="min-h-screen bg-[#f7f7f4] text-black">
+    <main className="min-h-screen bg-[#f7f7f4] text-black overflow-x-hidden">
       <div className="border-b border-red-200 bg-red-50 px-6 py-2 text-center font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.35em] text-red-700">
         Edit pass · Lenis · still in motion · {cv.location}
       </div>

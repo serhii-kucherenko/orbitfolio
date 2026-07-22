@@ -15,7 +15,7 @@ export function Variant() {
   ];
 
   return (
-    <main className="min-h-screen bg-[#e8f0f2] text-[#0d2a32]">
+    <main className="min-h-screen bg-[#e8f0f2] text-[#0d2a32] overflow-x-hidden">
       <header className="border-b border-[#0d2a32]/15 px-6 py-16 md:px-12">
         <div className="mx-auto max-w-6xl">
           <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.4em] text-[#1a6b7a]">

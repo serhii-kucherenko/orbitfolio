@@ -16,7 +16,7 @@ export function Variant() {
   return (
     <SmoothScroll>
       <main
-        className="min-h-screen"
+        className="min-h-screen overflow-x-hidden"
         style={{
           background: "linear-gradient(180deg, #1e3a5f 0%, #0f2744 100%)",
           color: "#e8f1fa",

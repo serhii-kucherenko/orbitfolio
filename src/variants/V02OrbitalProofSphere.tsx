@@ -11,7 +11,7 @@ export function Variant() {
   const accent = "#b8ff6a";
 
   return (
-    <main className="min-h-screen overflow-hidden bg-[#040e0c] text-[#e5f4dc]">
+    <main className="min-h-screen overflow-hidden bg-[#040e0c] text-[#e5f4dc] overflow-x-hidden">
       <section className="relative mx-auto grid min-h-screen max-w-7xl items-center gap-10 px-6 py-28 lg:grid-cols-[0.8fr_1.2fr] lg:px-10">
         <div className="relative z-10">
           <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.5em] text-[#b8ff6a]">

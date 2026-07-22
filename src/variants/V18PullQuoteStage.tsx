@@ -17,7 +17,7 @@ export function Variant() {
 
   return (
     <SmoothScroll>
-    <main className="min-h-screen bg-[#f7f3ec] text-[#1c1917]">
+    <main className="min-h-screen bg-[#f7f3ec] text-[#1c1917] overflow-x-hidden">
       <header className="mx-auto max-w-3xl px-6 pb-8 pt-28">
         <p className="text-[10px] uppercase tracking-[0.4em] text-stone-500">
           Pull quote stage · Lenis · {cv.location}

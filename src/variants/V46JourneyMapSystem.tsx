@@ -16,7 +16,7 @@ export function Variant() {
 
   return (
     <SmoothScroll>
-    <main className="min-h-screen bg-[#eef3f6] text-slate-900">
+    <main className="min-h-screen bg-[#eef3f6] text-slate-900 overflow-x-hidden">
       <section className="mx-auto max-w-5xl px-6 pb-12 pt-28">
         <p className="text-[10px] uppercase tracking-[0.35em] text-teal-700">
           Journey map · service design · Lenis · {cv.location}

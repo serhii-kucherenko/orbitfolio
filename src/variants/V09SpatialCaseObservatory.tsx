@@ -9,7 +9,7 @@ export function Variant() {
   const reduce = useReducedMotion() ?? false;
 
   return (
-    <main className="min-h-screen bg-[#050912] text-[#d7e3ff]">
+    <main className="min-h-screen bg-[#050912] text-[#d7e3ff] overflow-x-hidden">
       <header className="mx-auto max-w-5xl px-6 pb-10 pt-28">
         <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.4em] text-sky-300/70">
           Observatory route · stations · {cv.location}

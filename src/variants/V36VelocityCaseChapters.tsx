@@ -14,7 +14,7 @@ export function Variant() {
   const snap = reduce ? "" : "snap-y snap-mandatory";
 
   return (
-    <main className={`h-screen overflow-y-auto bg-[#090b0f] text-white ${snap}`}>
+    <main className={`h-screen overflow-x-hidden overflow-y-auto bg-[#090b0f] text-white ${snap}`}>
       <section className="relative flex min-h-screen snap-start flex-col justify-end overflow-hidden px-6 pb-16 pt-24 md:px-14">
         {!reduce && (
           <motion.div

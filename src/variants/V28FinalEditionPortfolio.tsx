@@ -9,7 +9,7 @@ export function Variant() {
   const reduce = useReducedMotion() ?? false;
 
   return (
-    <main className="min-h-screen bg-[#12100c] text-[#e8e0d4]">
+    <main className="min-h-screen bg-[#12100c] text-[#e8e0d4] overflow-x-hidden">
       <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#c4a574]/30 px-6 py-2 font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.3em] text-[#c4a574]/70 md:px-12">
         <span>Final edition</span>
         <a

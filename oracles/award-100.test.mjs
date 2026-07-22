@@ -527,3 +527,47 @@ test("Fail-then-pass: Delta systems stay deep and ship award motion on ≥8 cell
     `RED: need ≥8 Delta systems cells with WebGL/Lenis/GSAP, got ${withMotion}`,
   );
 });
+
+test("Fail-then-pass: every experiment stays mobile-safe (no page blowouts)", () => {
+  const layout = read("src/app/layout.tsx");
+  assert.match(layout, /export const viewport/);
+  assert.match(layout, /device-width/);
+
+  const files = listVariantFiles();
+  const missingOverflow = [];
+  const blowouts = [];
+  const wideMin = [];
+
+  for (const file of files) {
+    const src = fs.readFileSync(path.join(variantsDir, file), "utf8");
+    const mainOpen = src.match(/<main\b[\s\S]*?>/);
+    if (!mainOpen || !/overflow-x-hidden/.test(mainOpen[0])) {
+      missingOverflow.push(file);
+    }
+    if (/\b100vw\b|\bw-screen\b/.test(src)) {
+      blowouts.push(file);
+    }
+    for (const m of src.matchAll(/min-w-\[(\d+)px\]/g)) {
+      const px = Number(m[1]);
+      if (px >= 200 && !/overflow-x-auto|overflow-x-scroll/.test(src)) {
+        wideMin.push(`${file}(${px}px)`);
+      }
+    }
+  }
+
+  assert.equal(
+    missingOverflow.length,
+    0,
+    `RED: every /test cell <main> must include overflow-x-hidden for mobile: ${missingOverflow.join(", ")}`,
+  );
+  assert.equal(
+    blowouts.length,
+    0,
+    `RED: ban 100vw/w-screen page blowouts on mobile: ${blowouts.join(", ")}`,
+  );
+  assert.equal(
+    wideMin.length,
+    0,
+    `RED: wide min-width cards need an overflow-x-auto rail on mobile: ${wideMin.join(", ")}`,
+  );
+});

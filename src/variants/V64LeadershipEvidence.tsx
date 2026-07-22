@@ -15,7 +15,7 @@ export function Variant() {
   ];
 
   return (
-    <main className="min-h-screen bg-[#08101c] text-[#e8eef8]">
+    <main className="min-h-screen bg-[#08101c] text-[#e8eef8] overflow-x-hidden">
       <section className="border-b border-[#1e3a5f] bg-gradient-to-br from-[#08101c] via-[#0d1728] to-[#122038]">
         <div className="mx-auto max-w-5xl px-6 py-16 md:py-20">
           <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.35em] text-[#c9a227]">

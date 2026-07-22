@@ -11,7 +11,7 @@ export function Variant() {
   const accent = "#0f766e";
 
   return (
-    <main className="min-h-screen bg-[#eef0f4] text-[#0a0c10]">
+    <main className="min-h-screen bg-[#eef0f4] text-[#0a0c10] overflow-x-hidden">
       <header className="border-b-4 border-[#0a0c10] px-4 py-10 md:px-8">
         <div className="flex flex-wrap items-start justify-between gap-6">
           <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.4em]">

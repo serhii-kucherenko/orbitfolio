@@ -10,7 +10,7 @@ export function Variant() {
   const reduce = useReducedMotion() ?? false;
 
   return (
-    <main className="min-h-screen bg-[#050914] text-[#eef2ff]">
+    <main className="min-h-screen bg-[#050914] text-[#eef2ff] overflow-x-hidden">
       <div className="mx-auto grid min-h-screen max-w-7xl items-center gap-10 px-6 py-20 lg:grid-cols-[1.1fr_0.9fr] lg:px-12">
         <div>
           <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.4em] text-sky-300/70">

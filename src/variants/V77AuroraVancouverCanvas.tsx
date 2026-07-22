@@ -11,7 +11,7 @@ export function Variant() {
 
   return (
     <SmoothScroll>
-    <main className="min-h-screen bg-[#061018] text-[#e0f2fe]">
+    <main className="min-h-screen bg-[#061018] text-[#e0f2fe] overflow-x-hidden">
       <section className="relative overflow-hidden">
         <div
           aria-hidden

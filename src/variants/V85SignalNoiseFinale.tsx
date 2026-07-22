@@ -9,7 +9,7 @@ export function Variant() {
   const reduce = useReducedMotion() ?? false;
 
   return (
-    <main className="min-h-screen md:grid md:grid-cols-[0.9fr_1.1fr]" style={{ color: "#0f172a" }}>
+    <main className="min-h-screen md:grid md:grid-cols-[0.9fr_1.1fr] overflow-x-hidden" style={{ color: "#0f172a" }}>
       <aside
         className="relative flex min-h-[40vh] flex-col justify-end overflow-hidden p-8 md:min-h-screen md:sticky md:top-0 md:p-12"
         style={{

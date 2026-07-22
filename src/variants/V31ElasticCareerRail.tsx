@@ -13,7 +13,7 @@ export function Variant() {
   useGsapReveal(logRef, reduce);
 
   return (
-    <main className="min-h-screen bg-[#08101c] text-[#e2e8f0]">
+    <main className="min-h-screen bg-[#08101c] text-[#e2e8f0] overflow-x-hidden">
       <header className="px-6 pb-8 pt-24 md:px-10">
         <motion.p
           animate={reduce ? {} : { letterSpacing: ["0.2em", "0.45em", "0.2em"] }}
@@ -70,7 +70,7 @@ export function Variant() {
             {cv.experience.map((job) => (
               <div
                 key={job.company}
-                className="min-w-[220px] shrink-0 border border-white/10 bg-[#0c1526]/80 px-5 py-6"
+                className="min-w-[min(14rem,80vw)] shrink-0 border border-white/10 bg-[#0c1526]/80 px-5 py-6"
               >
                 <p className="font-[family-name:var(--font-mono)] text-[10px] text-[#38bdf8]/70">{job.period}</p>
                 <p className="mt-2 text-sm font-semibold">{job.company}</p>

@@ -36,7 +36,7 @@ export function Variant() {
   useGsapReveal(evidenceRef, reduce);
 
   return (
-    <main className="min-h-screen bg-[#f4f7fb] text-[#0b1220]">
+    <main className="min-h-screen bg-[#f4f7fb] text-[#0b1220] overflow-x-hidden">
       <section className="bg-[#0b1220] text-white">
         <div className="mx-auto max-w-5xl px-6 py-16 md:py-20">
           <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.35em] text-cyan-300">

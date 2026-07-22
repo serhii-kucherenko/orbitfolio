@@ -9,7 +9,7 @@ export function Variant() {
   const reduce = useReducedMotion() ?? false;
 
   return (
-    <main className="min-h-screen bg-[#0c0c0c] text-[#f3f3f3]">
+    <main className="min-h-screen bg-[#0c0c0c] text-[#f3f3f3] overflow-x-hidden">
       <header className="relative overflow-hidden border-b border-white/10">
         <motion.div
           aria-hidden

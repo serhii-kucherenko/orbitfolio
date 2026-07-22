@@ -14,7 +14,7 @@ export function Variant() {
 
   return (
     <main
-      className="min-h-screen bg-[#e0ebe4] text-[#14201a]"
+      className="min-h-screen bg-[#e0ebe4] text-[#14201a] overflow-x-hidden"
       style={{ perspective: reduce ? undefined : 1200 }}
     >
       <section className="mx-auto max-w-5xl px-6 pb-6 pt-24">

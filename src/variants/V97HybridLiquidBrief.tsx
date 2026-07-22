@@ -12,7 +12,7 @@ export function Variant() {
   return (
     <SmoothScroll>
       <main
-        className="relative min-h-screen overflow-hidden"
+        className="relative min-h-screen overflow-hidden overflow-x-hidden"
         style={{
           background: "#07141a",
           color: "#e6f7f4",

@@ -9,7 +9,7 @@ export function Variant() {
   const reduce = useReducedMotion() ?? false;
 
   return (
-    <main className="min-h-screen bg-[#070c09] text-[#d8f5e3]">
+    <main className="min-h-screen bg-[#070c09] text-[#d8f5e3] overflow-x-hidden">
       <div className="sticky top-0 z-20 flex items-center justify-between border-b border-[#3dff9a]/25 bg-[#070c09]/95 px-4 py-2 font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.25em] text-[#3dff9a] backdrop-blur md:px-8">
         <span>REC ● MISSION / ONE TAKE</span>
         <motion.span

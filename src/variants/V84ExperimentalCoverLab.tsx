@@ -9,7 +9,7 @@ export function Variant() {
   const reduce = useReducedMotion() ?? false;
 
   return (
-    <main className="min-h-screen" style={{ background: "#2a2420", color: "#faf6f1" }}>
+    <main className="min-h-screen overflow-x-hidden" style={{ background: "#2a2420", color: "#faf6f1" }}>
       <div className="mx-auto max-w-5xl px-4 py-10 md:px-8">
         <div
           className="relative overflow-hidden"

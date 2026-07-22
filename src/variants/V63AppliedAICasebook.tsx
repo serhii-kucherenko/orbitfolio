@@ -32,7 +32,7 @@ export function Variant() {
   const reduce = useReducedMotion() ?? false;
 
   return (
-    <main className="min-h-screen bg-[#eef1f6] text-[#111827]">
+    <main className="min-h-screen bg-[#eef1f6] text-[#111827] overflow-x-hidden">
       <header className="mx-auto max-w-5xl px-6 pb-10 pt-28">
         <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.35em] text-[#1e4d8c]">
           Casebook · applied AI · {cv.location}

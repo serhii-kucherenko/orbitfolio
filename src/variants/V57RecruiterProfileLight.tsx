@@ -15,7 +15,7 @@ export function Variant() {
 
   return (
     <SmoothScroll>
-    <main className="min-h-screen bg-[#e4ebf1] text-[#0f2430]">
+    <main className="min-h-screen bg-[#e4ebf1] text-[#0f2430] overflow-x-hidden">
       <header className="border-b border-[#b8c9d6] bg-gradient-to-br from-[#f7fafc] via-[#eef4f8] to-[#d5e4ee]">
         <div className="mx-auto max-w-6xl px-6 py-20 lg:px-10">
           <div className="flex flex-wrap items-center gap-8">

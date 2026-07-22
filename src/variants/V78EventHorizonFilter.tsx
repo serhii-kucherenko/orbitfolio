@@ -12,7 +12,7 @@ export function Variant() {
 
   return (
     <main
-      className="relative min-h-screen overflow-hidden"
+      className="relative min-h-screen overflow-hidden overflow-x-hidden"
       style={{
         background: "radial-gradient(ellipse 80% 60% at 50% 20%, #1a0a08 0%, #050508 55%, #000 100%)",
         color: "#f5e6d3",

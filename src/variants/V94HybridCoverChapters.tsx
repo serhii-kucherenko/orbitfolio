@@ -18,7 +18,7 @@ export function Variant() {
 
   return (
     <SmoothScroll>
-      <main className="min-h-screen" style={{ background: "#120e0a", color: "#f3ebe0" }}>
+      <main className="min-h-screen overflow-x-hidden" style={{ background: "#120e0a", color: "#f3ebe0" }}>
       <nav className="sticky top-0 z-20 flex flex-wrap items-center gap-4 border-b px-6 py-3 backdrop-blur-md md:px-10" style={{ borderColor: "#f3ebe018", background: "#120e0acc" }}>
         <span className="font-[family-name:var(--font-serif)] text-sm italic text-[#e8a87c]">Chapters</span>
         {CHAPTERS.map((c) => (

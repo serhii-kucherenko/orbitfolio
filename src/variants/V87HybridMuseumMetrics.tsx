@@ -10,7 +10,7 @@ export function Variant() {
   const reduce = useReducedMotion() ?? false;
 
   return (
-    <main className="min-h-screen bg-[#efefe9] text-[#171717]">
+    <main className="min-h-screen bg-[#efefe9] text-[#171717] overflow-x-hidden">
       <header className="relative overflow-hidden border-b border-black/10 px-6 py-16 md:px-16 md:py-24">
         <WebGLStage
           accent="#d4af78"

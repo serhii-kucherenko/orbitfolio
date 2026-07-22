@@ -11,7 +11,7 @@ export function Variant() {
 
   return (
     <SmoothScroll>
-    <main className="min-h-screen bg-[#050505] text-white">
+    <main className="min-h-screen bg-[#050505] text-white overflow-x-hidden">
       <div className="flex items-center justify-between border-b-4 border-[#ff2a2a] px-4 py-2 font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.35em] text-[#ff2a2a] md:px-8">
         <span>Sunday press</span>
         <span>Brutal edition · Lenis · late city</span>

@@ -13,7 +13,7 @@ export function Variant() {
   useGsapReveal(ledgerRef, reduce);
 
   return (
-    <main className="min-h-screen bg-[#eef3ed] text-[#0c1f18]">
+    <main className="min-h-screen bg-[#eef3ed] text-[#0c1f18] overflow-x-hidden">
       <header className="mx-auto grid max-w-6xl gap-10 px-6 pb-10 pt-24 lg:grid-cols-[1.35fr_0.85fr] lg:px-10">
         <div>
           <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.4em] text-[#1f6b52]">

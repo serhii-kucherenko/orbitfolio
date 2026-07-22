@@ -13,7 +13,7 @@ export function Variant() {
   const r = 118;
 
   return (
-    <main className="min-h-screen bg-[#120e08] text-[#ffe7bc]">
+    <main className="min-h-screen bg-[#120e08] text-[#ffe7bc] overflow-x-hidden">
       <header className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-24 lg:grid-cols-[1fr_340px] lg:py-28">
         <div>
           <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.4em] text-amber-300/55">

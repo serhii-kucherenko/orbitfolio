@@ -9,7 +9,7 @@ export function Variant() {
   const reduce = useReducedMotion() ?? false;
 
   return (
-    <main className="min-h-screen bg-[#05080e] text-zinc-100">
+    <main className="min-h-screen bg-[#05080e] text-zinc-100 overflow-x-hidden">
       <section className="relative flex min-h-[85vh] flex-col items-center justify-center overflow-hidden px-6 pt-24 text-center">
         <svg aria-hidden className="pointer-events-none absolute inset-0 h-full w-full">
           <defs>

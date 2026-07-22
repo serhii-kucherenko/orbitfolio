@@ -14,7 +14,7 @@ export function Variant() {
   useGsapReveal(dossierRef, reduce);
 
   return (
-    <main className="min-h-screen bg-[#030712] text-[#f8fafc]">
+    <main className="min-h-screen bg-[#030712] text-[#f8fafc] overflow-x-hidden">
       <header className="relative flex min-h-[75vh] flex-col items-center justify-center overflow-hidden px-4 pt-24">
         <div
           aria-hidden

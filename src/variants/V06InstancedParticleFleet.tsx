@@ -11,7 +11,7 @@ export function Variant() {
   const accent = "#69dcff";
 
   return (
-    <main className="relative min-h-screen overflow-hidden bg-[#061018] text-[#dff8ff]">
+    <main className="relative min-h-screen overflow-hidden bg-[#061018] text-[#dff8ff] overflow-x-hidden">
       <header className="relative mx-auto min-h-screen max-w-7xl px-6 pb-16 pt-28 md:px-10">
         <div
           className="absolute inset-0 opacity-30"
