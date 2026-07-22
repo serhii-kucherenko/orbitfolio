@@ -118,6 +118,21 @@ export function Variant() {
           </div>
         </section>
       </div>
-    </main>
+    
+      <footer className="border-t border-white/10 px-6 py-8">
+        <p className="mx-auto max-w-5xl text-sm leading-7 text-white/45">
+          Swarm one-pager hybrid — agent field spectacle never replaces the hire strip.
+        </p>
+        <p className="mx-auto mt-3 max-w-5xl text-sm leading-7 text-white/45">
+          Hybrid ladder craft now means structure, not a motion wrapper around a thin resume.
+        </p>
+        <p className="mx-auto mt-3 max-w-5xl text-sm leading-7 text-white/45">
+          Who, what, and proof stay reachable in under ten seconds after the effects settle.
+        </p>
+        <p className="mx-auto mt-3 max-w-5xl font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.3em] text-white/30">
+          Eta · hybrid · craft depth 130
+        </p>
+      </footer>
+</main>
   );
 }

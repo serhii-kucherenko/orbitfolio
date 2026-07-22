@@ -370,12 +370,12 @@ test("Fail-then-pass: Hybrid cells stay deep enough for award craft", () => {
   assert.equal(etaFiles.length, 15);
   const shallow = etaFiles.filter((file) => {
     const lines = fs.readFileSync(path.join(variantsDir, file), "utf8").split("\n").length;
-    return lines < 120;
+    return lines < 130;
   });
   assert.equal(
     shallow.length,
     0,
-    `RED: Hybrid cells under 120 lines (too thin for award craft): ${shallow.join(", ")}`,
+    `RED: Hybrid cells under 130 lines (too thin for award craft): ${shallow.join(", ")}`,
   );
 });
 

@@ -107,5 +107,6 @@ Autonomous progress log for Orbitfolio.
 | 104 | Lab depth floor 112 | Every /test cell must stay ≥112 lines — 40-line floor retired |
 | 105 | Beta Lenis coverage | Beta editorial Lenis raised to ≥6 long-form reading cells |
 | 106 | Gamma GSAP coverage | Gamma kinetic GSAP raised to ≥5 scroll-reveal cells |
+| 107 | Hybrid craft depth 130 | Hybrid ladder #86–#100 must stay ≥130 lines of structure |
 
 Live: https://orbitfolio-kohl.vercel.app · Loop: every 15m — unique award craft + UI must stay green
