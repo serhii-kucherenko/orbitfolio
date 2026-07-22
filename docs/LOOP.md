@@ -111,5 +111,6 @@ Autonomous progress log for Orbitfolio.
 | 108 | Zeta motion coverage | Zeta experimental WebGL/Lenis/GSAP raised to ≥6 cells |
 | 109 | Delta motion coverage | Delta systems WebGL/Lenis/GSAP raised to ≥6 cells |
 | 110 | Epsilon hire motion | Epsilon hire cells must ship award motion on ≥3 designs |
+| 111 | Lab depth floor 115 | Every /test cell must stay ≥115 lines — 112 floor raised |
 
 Live: https://orbitfolio-kohl.vercel.app · Loop: every 15m — unique award craft + UI must stay green

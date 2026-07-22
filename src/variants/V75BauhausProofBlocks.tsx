@@ -103,6 +103,12 @@ export function Variant() {
         <p className="mx-auto mt-3 max-w-5xl text-sm leading-7 text-black/55">
           Bauhaus blocks stay evidence-first when the geometry grows.
         </p>
+        <p className="mx-auto mt-3 max-w-5xl text-sm leading-7 text-black/55">
+          Bauhaus blocks stay evidence-first when geometry grows.
+        </p>
+        <p className="mx-auto mt-2 max-w-5xl font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.3em] text-black/35">
+          Lab · depth floor · 115
+        </p>
         <p className="mt-3 font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.35em] text-black/40">
           Zeta · Bauhaus · geometry = evidence
         </p>

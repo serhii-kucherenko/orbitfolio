@@ -107,6 +107,15 @@ export function Variant() {
           </div>
         </div>
       </section>
-    </main>
+    
+      <footer className="border-t border-white/10 px-6 py-8">
+        <p className="mx-auto max-w-5xl text-sm leading-7 text-white/45">
+          Aurora motion ledger keeps numbers readable after the wash.
+        </p>
+        <p className="mx-auto mt-3 max-w-5xl font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.3em] text-white/30">
+          Lab · depth floor · 115
+        </p>
+      </footer>
+</main>
   );
 }

@@ -101,6 +101,12 @@ export function Variant() {
           <p className="max-w-xl text-sm leading-7 text-emerald-950/50">
             Folds are decoration — every crease still opens to a hire path, not a puzzle.
           </p>
+        <p className="mx-auto mt-3 max-w-5xl text-sm leading-7 text-black/55">
+          Origami folds open to proof — never a puzzle for recruiters.
+        </p>
+        <p className="mx-auto mt-2 max-w-5xl font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.3em] text-black/35">
+          Lab · depth floor · 115
+        </p>
           <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.3em] text-teal-800/45">
             Zeta · origami · proof first
           </p>

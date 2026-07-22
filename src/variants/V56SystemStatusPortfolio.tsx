@@ -106,6 +106,15 @@ export function Variant() {
           </div>
         </div>
       </section>
-    </main>
+    
+      <footer className="border-t border-black/10 px-6 py-8">
+        <p className="mx-auto max-w-5xl text-sm leading-7 text-black/55">
+          System status portfolio keeps every service tile hireable.
+        </p>
+        <p className="mx-auto mt-3 max-w-5xl font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.3em] text-black/35">
+          Lab · depth floor · 115
+        </p>
+      </footer>
+</main>
   );
 }

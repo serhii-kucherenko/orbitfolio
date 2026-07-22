@@ -104,6 +104,12 @@ export function Variant() {
         <p className="mx-auto mt-3 max-w-5xl text-sm leading-7 text-white/45">
           Shader fog is mood; the status strip and CTA stay high-contrast.
         </p>
+        <p className="mx-auto mt-3 max-w-5xl text-sm leading-7 text-white/45">
+          Shader fog is mood; status strip and CTA stay high-contrast and deep.
+        </p>
+        <p className="mx-auto mt-2 max-w-5xl font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.3em] text-white/30">
+          Lab · depth floor · 115
+        </p>
         <p className="mx-auto mt-3 max-w-5xl font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.3em] text-white/30">
           Alpha · WebGL · craft depth
         </p>
