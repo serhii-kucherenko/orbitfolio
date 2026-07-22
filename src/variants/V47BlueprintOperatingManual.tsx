@@ -102,6 +102,12 @@ export function Variant() {
         <p className="mt-10 max-w-2xl border border-sky-400/20 bg-[#07141f]/70 px-4 py-3 text-sm leading-7 text-sky-200/55">
           Operating manual tone stays systems-clear: specs first, hire path never buried in blueprint chrome.
         </p>
+        <p className="mx-auto mt-3 max-w-5xl text-sm leading-7 text-white/45">
+          Blueprint manual tone stays systems-clear with full specs.
+        </p>
+        <p className="mx-auto mt-2 max-w-5xl font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.3em] text-white/30">
+          Lab · depth floor · 115
+        </p>
         <p className="mt-3 font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.3em] text-sky-500/50">
           Delta · blueprint · proof over ornament
         </p>

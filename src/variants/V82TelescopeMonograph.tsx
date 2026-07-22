@@ -102,6 +102,12 @@ export function Variant() {
         <p className="mt-4 font-[family-name:var(--font-serif)] text-sm leading-7 text-[#1c2838]/45">
           Prefer quiet typography over spectacle: the aperture is atmosphere, the CV is the specimen.
         </p>
+        <p className="mx-auto mt-3 max-w-5xl text-sm leading-7 text-black/55">
+          Telescope monograph plates stay readable under GSAP framing.
+        </p>
+        <p className="mx-auto mt-2 max-w-5xl font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.3em] text-black/35">
+          Lab · depth floor · 115
+        </p>
         <p className="mt-4 font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.35em] text-[#1c2838]/40">
           Zeta · monograph · Vol. I · GSAP field notes
         </p>

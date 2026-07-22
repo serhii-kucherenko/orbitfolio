@@ -103,6 +103,12 @@ export function Variant() {
         <p className="mx-auto mt-3 max-w-5xl text-sm leading-7 text-white/45">
           Orbital sphere needs a full dossier ring, not a single canvas beat.
         </p>
+        <p className="mx-auto mt-3 max-w-5xl text-sm leading-7 text-white/45">
+          Orbital proof needs a full dossier ring under the sphere — not a thin canvas shell.
+        </p>
+        <p className="mx-auto mt-2 max-w-5xl font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.3em] text-white/30">
+          Lab · depth floor · 115
+        </p>
         <p className="mx-auto mt-3 max-w-5xl font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.3em] text-white/30">
           Alpha · WebGL · craft depth
         </p>
