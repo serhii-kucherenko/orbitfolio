@@ -2,9 +2,10 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
+import { SmoothScroll } from "@/components/SmoothScroll";
 import { cv } from "@/data/cv";
 
-/** Hiring Manager Brief — one-page executive memo a manager can forward today */
+/** Hiring Manager Brief — executive memo with Lenis for forwardable long-form reading. */
 export function Variant() {
   const reduce = useReducedMotion() ?? false;
   const bullets = [
@@ -15,6 +16,7 @@ export function Variant() {
   ];
 
   return (
+    <SmoothScroll>
     <main className="min-h-screen bg-[#e8ecf1] text-[#1a2332]">
       <div className="mx-auto max-w-3xl px-4 py-10 md:py-16">
         <motion.article
@@ -26,7 +28,7 @@ export function Variant() {
             <div className="flex flex-wrap items-end justify-between gap-3">
               <div>
                 <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.3em] text-slate-500">
-                  Internal brief · hiring manager · {cv.location}
+                  Internal brief · hiring manager · Lenis · {cv.location}
                 </p>
                 <h1 className="mt-2 font-[family-name:var(--font-display)] text-3xl font-bold md:text-4xl">
                   {cv.name}
@@ -124,5 +126,6 @@ export function Variant() {
         </p>
       </section>
     </main>
+    </SmoothScroll>
   );
 }

@@ -1,19 +1,23 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
+import { useRef } from "react";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
+import { useGsapReveal } from "@/components/useGsapReveal";
 import { cv } from "@/data/cv";
 
-/** Ten Second Proof — one glance: identity, specialty, seniority, measurable impact. */
+/** Ten Second Proof — one glance hire scan; GSAP reveals the proof ledger on scroll. */
 export function Variant() {
   const reduce = useReducedMotion() ?? false;
+  const ledgerRef = useRef<HTMLElement>(null);
+  useGsapReveal(ledgerRef, reduce);
 
   return (
     <main className="min-h-screen bg-[#eef3ed] text-[#0c1f18]">
       <header className="mx-auto grid max-w-6xl gap-10 px-6 pb-10 pt-24 lg:grid-cols-[1.35fr_0.85fr] lg:px-10">
         <div>
           <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.4em] text-[#1f6b52]">
-            00:00 → 00:10 · hire scan · {cv.location}
+            00:00 → 00:10 · hire scan · GSAP · {cv.location}
           </p>
           <motion.h1
             initial={reduce ? false : { opacity: 0, y: 16 }}
@@ -79,10 +83,12 @@ export function Variant() {
         </div>
       </section>
 
-      <section className="bg-[#0c1f18] px-6 py-16 text-[#eef3ed] lg:px-10">
+      <section ref={ledgerRef} className="bg-[#0c1f18] px-6 py-16 text-[#eef3ed] lg:px-10">
         <div className="mx-auto max-w-6xl">
-          <h2 className="mb-10 font-[family-name:var(--font-display)] text-4xl font-bold">Proof ledger</h2>
-          <ExperienceList tone="dark" />
+          <h2 data-gsap className="mb-10 font-[family-name:var(--font-display)] text-4xl font-bold">Proof ledger</h2>
+          <div data-gsap>
+            <ExperienceList tone="dark" />
+          </div>
         </div>
       </section>
 
