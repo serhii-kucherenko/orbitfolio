@@ -2,13 +2,15 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { ContactRow, ExperienceList, ProjectLinks, SkillsCloud } from "@/components/CvBlocks";
+import { SmoothScroll } from "@/components/SmoothScroll";
 import { cv } from "@/data/cv";
 
-/** Bilingual Signal — split-channel EN / UA masthead; parallel rails of identity and proof. */
+/** Bilingual Signal — split-channel EN / UA masthead with Lenis for dual-rail reading. */
 export function Variant() {
   const reduce = useReducedMotion() ?? false;
 
   return (
+    <SmoothScroll>
     <main className="min-h-screen bg-[#050d18] text-[#e8f0ff]">
       <header className="relative grid min-h-[70vh] md:grid-cols-2">
         <motion.div
@@ -19,7 +21,7 @@ export function Variant() {
         />
         <div className="relative flex flex-col justify-center border-b border-[#7dd3fc]/30 p-8 md:border-b-0 md:border-r md:p-12">
           <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.35em] text-[#7dd3fc]">
-            Channel A · EN · synced
+            Channel A · EN · Lenis · synced
           </p>
           <motion.h1
             initial={reduce ? false : { x: -24, opacity: 0 }}
@@ -116,6 +118,7 @@ export function Variant() {
           Lab · depth floor · 112
         </p>
       </footer>
-</main>
+    </main>
+    </SmoothScroll>
   );
 }

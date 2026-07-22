@@ -40,6 +40,7 @@ Full definitions: [`docs/RUBRIC.md`](RUBRIC.md)
 - Delta motion coverage (tick 109): systems cells raise award motion from ≥3 to ≥6 — command palette GSAP, journey Lenis, telemetry WebGL join the set
 - Epsilon hire motion (tick 110): hire cells were motion-empty — ten-second proof now uses GSAP; hiring brief and founding one-pager use Lenis, while who/what/proof strips stay required
 - Lab depth floor 115 (tick 111): lab-wide craft floor rises from ≥112 to ≥115 so borderline shells cannot return
+- Beta Lenis coverage (tick 112): magazine cells raise smooth-scroll craft from ≥6 to ≥10 — bilingual signal and redline resume join the set
 - Structural diversity beats palette swaps for lab signal
 - Fail-then-pass diversity checks forced at least 20 fully custom designs instead of shared-shell palette swaps — see [`docs/RED_GREEN.md`](RED_GREEN.md)
 - Gate raised to **100** custom designs (batch 8) — every `/test/n` cell is now uniquely built; shared `AwardVariant` shell retired from active experiments
