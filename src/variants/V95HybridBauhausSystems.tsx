@@ -21,21 +21,21 @@ export function Variant() {
       <main className="min-h-screen overflow-x-hidden bg-[#e8ebe4] text-[#101010]">
         <header className="border-b-4 border-black">
           <div className="mx-auto grid max-w-6xl lg:grid-cols-[200px_1fr]">
-            <div className="relative flex min-h-[200px] flex-col justify-between overflow-hidden border-b-4 border-black bg-[#f0c43a] p-6 lg:min-h-0 lg:border-b-0 lg:border-r-4">
+            <div className="relative flex min-h-[200px] flex-col justify-between overflow-hidden border-b-4 border-black bg-[#f0c43a] p-6 pb-24 lg:min-h-0 lg:border-b-0 lg:border-r-4">
               <motion.div
                 aria-hidden
                 className="size-16 rounded-full bg-[#d91f1f] sm:size-20"
                 animate={reduce ? undefined : { x: [0, 18, 0] }}
                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
               />
-              <div>
-                <p className="mt-8 text-[10px] font-black uppercase tracking-[0.28em]">System manual 95</p>
-                <p className="mt-2 text-sm font-semibold">{cv.location}</p>
+              <div className="relative z-10 max-w-[7.5rem]">
+                <p className="text-[10px] font-black uppercase tracking-[0.28em]">System manual 95</p>
+                <p className="mt-2 text-sm font-semibold leading-snug">{cv.location}</p>
               </div>
               <motion.div
                 aria-hidden
-                className="absolute -bottom-6 -right-6 size-24 border-4 border-black bg-[#2455a4]"
-                animate={reduce ? undefined : { y: [0, -10, 0] }}
+                className="pointer-events-none absolute -bottom-8 -right-8 size-28 border-4 border-black bg-[#2455a4]"
+                animate={reduce ? undefined : { y: [0, -6, 0] }}
                 transition={{ duration: 3.2, repeat: Infinity, ease: "easeInOut" }}
               />
             </div>
